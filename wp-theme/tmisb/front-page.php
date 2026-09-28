@@ -275,24 +275,30 @@ get_header();
                 <p class="text-gray-600 max-w-2xl mx-auto">Celebrating the hard work, dedication, and outstanding success of our students in academics, sports, and co-curricular activities.</p>
             </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="flex lg:grid lg:grid-cols-4 gap-6 overflow-x-auto snap-x snap-mandatory pb-6" style="scrollbar-width: none; -ms-overflow-style: none;">
+                <style>
+                    /* Hide scrollbar for Chrome, Safari and Opera */
+                    .flex.overflow-x-auto::-webkit-scrollbar {
+                        display: none;
+                    }
+                </style>
                 <!-- Achievement 1 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex-none w-[85%] sm:w-[45%] lg:w-auto snap-center">
                     <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715819718_ewu4r8.jpg" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
                 </div>
                 
                 <!-- Achievement 2 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex-none w-[85%] sm:w-[45%] lg:w-auto snap-center">
                     <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715822383_5whp8p.jpg" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
                 </div>
                 
                 <!-- Achievement 3 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex-none w-[85%] sm:w-[45%] lg:w-auto snap-center">
                     <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715823656_7xpfmn.jpg" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
                 </div>
                 
                 <!-- Achievement 4 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex-none w-[85%] sm:w-[45%] lg:w-auto snap-center">
                     <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715825041_n6sp8rg.jpg" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
                 </div>
             </div>

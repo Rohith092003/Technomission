@@ -63,8 +63,9 @@ function fixAssetPaths(html) {
     // Fix src attributes (excluding absolute URLs like http/https)
     fixed = fixed.replace(/src="(?!http|\/\/|<)([^"]+)"/g, 'src="<?php echo get_template_directory_uri(); ?>/$1"');
     
-    // Fix href for assets
+    // Fix href for assets and css
     fixed = fixed.replace(/href="(assets\/[^"]+)"/g, 'href="<?php echo get_template_directory_uri(); ?>/$1"');
+    fixed = fixed.replace(/href="(css\/[^"]+)"/g, 'href="<?php echo get_template_directory_uri(); ?>/$1"');
     
     // Fix background inline styles (excluding absolute URLs)
     fixed = fixed.replace(/url\(['"]?(?!http|\/\/)([^'"\)]+)['"]?\)/g, 'url(\\\'<?php echo get_template_directory_uri(); ?>/$1\\\')');
@@ -140,6 +141,12 @@ try {
     }
     if(fs.existsSync(path.join(__dirname, 'assets'))) {
         execSync(`xcopy /E /I /Y "${path.join(__dirname, 'assets')}" "${path.join(THEME_DIR, 'assets')}"`);
+    }
+    if(fs.existsSync(path.join(__dirname, 'css'))) {
+        execSync(`xcopy /E /I /Y "${path.join(__dirname, 'css')}" "${path.join(THEME_DIR, 'css')}"`);
+    }
+    if(fs.existsSync(path.join(__dirname, 'js'))) {
+        execSync(`xcopy /E /I /Y "${path.join(__dirname, 'js')}" "${path.join(THEME_DIR, 'js')}"`);
     }
     if(fs.existsSync(path.join(__dirname, 'Notice.png'))) {
         execSync(`copy /Y "${path.join(__dirname, 'Notice.png')}" "${path.join(THEME_DIR, 'Notice.png')}"`);
