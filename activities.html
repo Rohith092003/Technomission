@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Co-Curricular Activities | TMISB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-white text-gray-700" x-data="{ mobileMenuOpen: false }">
+
+    <!-- 1. Top Bar -->
+    <div class="bg-gray-100 border-b border-gray-200 py-2 hidden md:block text-sm">
+        <div class="container mx-auto px-4 flex justify-between items-center max-w-7xl">
+            <div class="flex space-x-6 text-gray-600">
+                <span><i class="fas fa-phone text-secondary mr-2"></i>+91 9431214985, 6412610985</span>
+                <span><i class="fas fa-envelope text-secondary mr-2"></i>techno.edu.school@gmail.com</span>
+            </div>
+            <div class="flex space-x-4 items-center">
+                <a href="admissions.html" class="bg-secondary text-black font-semibold px-4 py-1 rounded hover:bg-yellow-400 transition">Admissions Open 2026–27</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Header & Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 max-w-7xl flex justify-between items-center py-4">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <img src="assets/images/logo.webp" alt="TMISB Logo" class="h-12 w-auto mr-3">
+                <div>
+                    <h1 class="nav-font font-extrabold text-xl md:text-2xl text-primary leading-tight">Techno Mission</h1>
+                    <p class="text-xs md:text-sm text-gray-700 font-semibold tracking-wide">International School Bhagalpur</p>
+                    <p class="text-[10px] text-gray-500 font-bold tracking-wider uppercase mt-0.5">CBSE Affiliated <span class="text-secondary mx-1">|</span> ESTD 1997</p>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center space-x-6 nav-font font-semibold text-gray-700 text-sm">
+                <a href="index.html" class="hover:text-primary py-2">Home</a>
+                
+                <div class="relative nav-item py-2 group">
+                    <a href="about.html" class="hover:text-primary flex items-center py-2">About Us <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                    <div class="dropdown-menu absolute hidden bg-white shadow-lg border-t-2 border-primary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100">
+                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">About School</a>
+                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">Principal's Message</a>
+                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">Management / Leadership</a>
+                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">Salient Features</a>
+                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">Values</a>
+                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Alumni Connect</a>
+                    </div>
+                </div>
+
+                <div class="relative nav-item py-2 group">
+                    <a href="academics.html" class="hover:text-primary flex items-center">Academics <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                    <div class="dropdown-menu absolute hidden bg-white shadow-lg border-t-2 border-primary top-full left-0 w-48 py-2 z-50">
+                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">Primary</a>
+                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">Secondary</a>
+                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">High School</a>
+                    </div>
+                </div>
+                
+                <div class="relative nav-item py-2 group">
+                    <a href="labs.html" class="hover:text-primary flex items-center">Labs <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                    <div class="dropdown-menu absolute hidden bg-white shadow-lg border-t-2 border-primary top-full left-0 w-48 py-2 z-50">
+                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">Computer Lab</a>
+                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">Physics Lab</a>
+                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">Chemistry Lab</a>
+                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">Biology Lab</a>
+                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Robotics Lab</a>
+                    </div>
+                </div>
+
+                <div class="relative nav-item py-2 group">
+                    <a href="activities.html" class="text-primary border-b-2 border-primary flex items-center py-2">Activities <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                    <div class="dropdown-menu absolute hidden bg-white shadow-lg border-t-2 border-primary top-full left-0 w-48 py-2 z-50">
+                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">Yoga</a>
+                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">Dramatics</a>
+                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">Sports</a>
+                        <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary">Art & Craft</a>
+                    </div>
+                </div>
+
+                <a href="gallery.html" class="hover:text-primary py-2">Gallery</a>
+                <a href="#" class="hover:text-primary py-2">Blog</a>
+                <a href="contact.html" class="hover:text-primary py-2">Contact Us</a>
+                
+                <a href="admissions.html" class="bg-primary text-white px-5 py-2 rounded shadow hover:bg-blue-800 transition">Apply Now</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden text-2xl text-primary focus:outline-none" @click="mobileMenuOpen = !mobileMenuOpen">
+                <i class="fas fa-bars" x-show="!mobileMenuOpen"></i>
+                <i class="fas fa-times" x-show="mobileMenuOpen" x-cloak></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="lg:hidden absolute w-full bg-white shadow-xl border-t z-40" x-show="mobileMenuOpen" x-transition x-cloak>
+            <div class="flex flex-col px-4 py-2 nav-font font-medium text-gray-700">
+                <a href="index.html" class="py-3 border-b border-gray-100 hover:text-primary">Home</a>
+                <div x-data="{ open: false }">
+                    <button @click="open = !open" class="flex justify-between items-center w-full py-3 border-b border-gray-100 text-primary">
+                        About Us <i class="fas fa-chevron-down text-xs transition" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" class="bg-gray-50 px-4 py-2 text-sm flex flex-col">
+                        <a href="#" class="py-2">About School</a>
+                        <a href="#" class="py-2">Principal's Message</a>
+                        <a href="#" class="py-2">Management</a>
+                    </div>
+                </div>
+                <a href="academics.html" class="py-3 border-b border-gray-100 hover:text-primary">Academics</a>
+                <a href="labs.html" class="py-3 border-b border-gray-100 hover:text-primary">Labs</a>
+                <a href="activities.html" class="py-3 border-b border-gray-100 hover:text-primary">Activities</a>
+                <a href="gallery.html" class="py-3 border-b border-gray-100 hover:text-primary">Gallery</a>
+                <a href="contact.html" class="py-3 border-b border-gray-100 hover:text-primary">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header py-24 text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="nav-font font-bold text-4xl text-white mb-4">Activities & Sports</h1>
+            <div class="flex items-center justify-center text-gray-300 text-sm">
+                <a href="index.html" class="hover:text-white transition">Home</a>
+                <i class="fas fa-chevron-right mx-3 text-xs"></i>
+                <span class="text-secondary font-semibold">Activities</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="nav-font font-bold text-3xl text-primary mb-4">Beyond the Classroom</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    TMISB places a strong emphasis on holistic development, integrating a wide range of sports and co-curricular activities into its curriculum to complement academic learning and build character.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <!-- Sports -->
+                <div class="border border-gray-100 rounded-xl overflow-hidden hover:shadow-xl transition">
+                    <div class="h-48 bg-gray-200 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1526676037777-05a232554f77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="p-8">
+                        <h3 class="nav-font font-bold text-xl text-gray-800 mb-4"><i class="fas fa-running text-secondary mr-2"></i> Sports & Athletics</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Physical fitness, team spirit, and discipline are fostered through comprehensive sports programs.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Cricket</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Football</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Basketball</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Swimming</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Yoga</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Co-curricular -->
+                <div class="border border-gray-100 rounded-xl overflow-hidden hover:shadow-xl transition">
+                    <div class="h-48 bg-gray-200 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="p-8">
+                        <h3 class="nav-font font-bold text-xl text-gray-800 mb-4"><i class="fas fa-palette text-secondary mr-2"></i> Performing & Creative Arts</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            We encourage students to explore their creativity and develop personality traits through diverse artistic mediums.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Dramatics</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Music</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Dance</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Fine Arts</span>
+                            <span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Debate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-primary text-white p-8 rounded-xl text-center">
+                <h3 class="font-bold text-xl mb-3">Clubs & Societies</h3>
+                <p class="text-sm opacity-90 max-w-2xl mx-auto">
+                    Students can participate in various clubs including N.C.C., Scouts & Guides, Literary Clubs, and Science Exhibitions to hone their leadership and teamwork skills.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Reused) -->
+    <footer class="relative bg-primary text-white pt-20 pb-10 overflow-hidden">
+        <!-- Background Particles -->
+        <div class="school-particles absolute inset-0 opacity-[0.03] pointer-events-none"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full mix-blend-overlay filter blur-3xl opacity-10 -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary rounded-full mix-blend-overlay filter blur-3xl opacity-10 translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+        
+        <div class="container mx-auto px-4 max-w-7xl relative z-10">
+
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="lg:col-span-2">
+                    <a href="index.html" class="flex items-center mb-6 inline-block">
+                        <div class="flex items-center">
+                            <img src="assets/images/logo.webp" alt="TMISB Logo" class="h-16 w-auto mr-5 bg-white p-1.5 rounded-lg">
+                            <div>
+                                <h2 class="nav-font font-extrabold text-xl md:text-2xl text-white leading-tight">Techno Mission</h2>
+                                <p class="text-xs md:text-sm text-white/80 font-semibold tracking-wide mt-0.5 whitespace-nowrap">International School Bhagalpur</p>
+                                <p class="text-[10px] text-white/60 font-bold tracking-wider uppercase mt-1">CBSE Affiliated <span class="text-secondary mx-1">|</span> ESTD 1997</p>
+                            </div>
+                        </div>
+                    </a>
+                    <p class="text-white/70 text-sm mb-6 leading-relaxed pr-4">
+                        Creating future-ready global citizens through academic rigor, technological integration, and strong moral character.
+                    </p>
+                    <div class="flex space-x-3 mt-4">
+                        <a href="https://www.facebook.com/Technomissioninternationalschool/" target="_blank" class="w-10 h-10 rounded-lg bg-white/5 border border-white/20 flex items-center justify-center hover:bg-secondary hover:text-primary transition duration-300 hover:border-secondary hover:-translate-y-1"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/tmis.bhagalpur/" target="_blank" class="w-10 h-10 rounded-lg bg-white/5 border border-white/20 flex items-center justify-center hover:bg-secondary hover:text-primary transition duration-300 hover:border-secondary hover:-translate-y-1"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@technomissionbhagalpur" target="_blank" class="w-10 h-10 rounded-lg bg-white/5 border border-white/20 flex items-center justify-center hover:bg-secondary hover:text-primary transition duration-300 hover:border-secondary hover:-translate-y-1"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Explore -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6 tracking-wide text-secondary uppercase text-sm">Explore</h4>
+                    <ul class="space-y-4 text-sm text-white/80">
+                        <li><a href="about.html" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> About School</a></li>
+                        <li><a href="admissions.html" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Admissions</a></li>
+                        <li><a href="academics.html" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Academics</a></li>
+                        <li><a href="gallery.html" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Photo Gallery</a></li>
+                        <li><a href="contact.html" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Campus Life -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6 tracking-wide text-secondary uppercase text-sm">Campus Life</h4>
+                    <ul class="space-y-4 text-sm text-white/80">
+                        <li><a href="labs.html" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Laboratories</a></li>
+                        <li><a href="activities.html" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Sports & Activities</a></li>
+                        <li><a href="#" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Student Clubs</a></li>
+                        <li><a href="#" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Events & News</a></li>
+                        <li><a href="#" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Boarding Life</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6 tracking-wide text-secondary uppercase text-sm">Contact Us</h4>
+                    <ul class="space-y-5 text-sm text-white/90">
+                        <li class="flex items-start">
+                            <div class="mt-1 w-5 text-center shrink-0 mr-4 text-secondary text-lg">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span class="leading-relaxed"><a href="https://maps.app.goo.gl/fQYFbkphkkN2VVay9" target="_blank" class="hover:underline hover:text-secondary transition" title="View on Google Maps">Vikramshila Setu Path, Jagatpur, Bhagalpur, Bihar 812002</a></span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 text-center shrink-0 mr-4 text-secondary text-lg">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <span>+91 9431214985<br>0641-2610985</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 text-center shrink-0 mr-4 text-secondary text-lg">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span class="break-all">techno.edu.school@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Copyright -->
+            <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-white/50">
+                <p>&copy; 2026 Techno Mission International School, Bhagalpur. All Rights Reserved.</p>
+                <p class="mt-4 md:mt-0 tracking-wide">Design & development by <a href="https://openskyglobal.com/" target="_blank" class="text-secondary hover:text-white transition font-semibold">Opensky</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
