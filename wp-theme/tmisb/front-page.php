@@ -427,52 +427,44 @@ get_header();
                         
                         <!-- Scrollable Area -->
                         <div class="space-y-4 overflow-y-auto h-full p-6" style="scrollbar-width: thin; scrollbar-color: #d4af37 #f1f1f1;">
-                            
-                            <!-- Notice Item -->
-                            <div class="flex gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition border border-gray-50 hover:border-primary/20 group">
-                                <div class="flex flex-col items-center justify-center bg-primary/5 text-primary rounded-lg min-w-[60px] h-[60px] shrink-0 border border-primary/10">
-                                    <span class="text-xl font-bold leading-none">20</span>
-                                    <span class="text-xs uppercase font-semibold mt-1">Oct</span>
-                                </div>
-                                <div>
-                                    <span class="inline-block mb-1 text-[10px] font-bold text-primary bg-secondary/20 px-2 py-0.5 rounded uppercase tracking-wider">New</span>
-                                    <h4 class="font-bold text-gray-800 text-sm group-hover:text-primary transition leading-snug"><a href="#">Parent-Teacher Meeting Schedule for Middle School</a></h4>
-                                </div>
-                            </div>
-                            
-                            <!-- Notice Item -->
-                            <div class="flex gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition border border-gray-50 hover:border-primary/20 group">
-                                <div class="flex flex-col items-center justify-center bg-gray-50 text-gray-500 rounded-lg min-w-[60px] h-[60px] shrink-0 border border-gray-100">
-                                    <span class="text-xl font-bold leading-none">15</span>
-                                    <span class="text-xs uppercase font-semibold mt-1">Oct</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <h4 class="font-bold text-gray-800 text-sm group-hover:text-primary transition leading-snug"><a href="#">Half-Yearly Examination Timetable Released for All Classes</a></h4>
-                                </div>
-                            </div>
-                            
-                            <!-- Notice Item -->
-                            <div class="flex gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition border border-gray-50 hover:border-primary/20 group">
-                                <div class="flex flex-col items-center justify-center bg-gray-50 text-gray-500 rounded-lg min-w-[60px] h-[60px] shrink-0 border border-gray-100">
-                                    <span class="text-xl font-bold leading-none">02</span>
-                                    <span class="text-xs uppercase font-semibold mt-1">Oct</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <h4 class="font-bold text-gray-800 text-sm group-hover:text-primary transition leading-snug"><a href="#">Winter Uniform Guidelines for the Upcoming Session</a></h4>
-                                </div>
-                            </div>
+<?php
+$notice_query = new WP_Query(array(
+    'post_type' => 'notice',
+    'posts_per_page' => 10,
+));
 
-                            <!-- Notice Item -->
+if ($notice_query->have_posts()) :
+    $count = 0;
+    while ($notice_query->have_posts()) : $notice_query->the_post();
+        $file_url = get_post_meta(get_the_ID(), '_notice_file_url', true);
+        $link = !empty($file_url) ? esc_url($file_url) : '#';
+        $day = get_the_date('d');
+        $month = get_the_date('M');
+        $is_new = ($count === 0);
+        
+        $bg_class = $is_new ? 'bg-primary/5 text-primary border-primary/10' : 'bg-gray-50 text-gray-500 border-gray-100';
+?>
+                            <!-- Dynamic Notice Item -->
                             <div class="flex gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition border border-gray-50 hover:border-primary/20 group">
-                                <div class="flex flex-col items-center justify-center bg-gray-50 text-gray-500 rounded-lg min-w-[60px] h-[60px] shrink-0 border border-gray-100">
-                                    <span class="text-xl font-bold leading-none">28</span>
-                                    <span class="text-xs uppercase font-semibold mt-1">Sep</span>
+                                <div class="flex flex-col items-center justify-center <?php echo $bg_class; ?> rounded-lg min-w-[60px] h-[60px] shrink-0 border">
+                                    <span class="text-xl font-bold leading-none"><?php echo $day; ?></span>
+                                    <span class="text-xs uppercase font-semibold mt-1"><?php echo $month; ?></span>
                                 </div>
-                                <div class="flex items-center">
-                                    <h4 class="font-bold text-gray-800 text-sm group-hover:text-primary transition leading-snug"><a href="#">Annual Sports Meet Registration Now Open</a></h4>
+                                <div class="flex flex-col justify-center">
+                                    <?php if ($is_new) : ?>
+                                    <span class="inline-block mb-1 text-[10px] font-bold text-primary bg-secondary/20 px-2 py-0.5 rounded uppercase tracking-wider w-max">New</span>
+                                    <?php endif; ?>
+                                    <h4 class="font-bold text-gray-800 text-sm group-hover:text-primary transition leading-snug"><a href="<?php echo $link; ?>" target="_blank"><?php the_title(); ?></a></h4>
                                 </div>
                             </div>
-                            
+<?php
+        $count++;
+    endwhile;
+    wp_reset_postdata();
+else :
+    echo '<p class="text-gray-500 p-4 text-center mt-4">No new notices currently.</p>';
+endif;
+?>
                             <!-- View All button -->
                             <a href="#" class="flex items-center justify-center w-full py-3 mt-2 text-primary font-bold hover:text-secondary transition text-sm bg-primary/5 rounded-lg border border-primary/10 hover:bg-primary hover:text-white">
                                 View All Notices <i class="fas fa-arrow-right ml-2 text-xs"></i>
