@@ -68,7 +68,8 @@ function fixAssetPaths(html) {
     fixed = fixed.replace(/href="(css\/[^"]+)"/g, 'href="<?php echo get_template_directory_uri(); ?>/$1"');
     
     // Fix background inline styles (excluding absolute URLs)
-    fixed = fixed.replace(/url\(['"]?(?!http|\/\/)([^'"\)]+)['"]?\)/g, 'url(\\\'<?php echo get_template_directory_uri(); ?>/$1\\\')');
+    // Here we use double quotes for the replacement string so we don't have to escape backslashes weirdly
+    fixed = fixed.replace(/url\(['"]?(?!http|\/\/)([^'"\)]+)['"]?\)/g, "url('<?php echo get_template_directory_uri(); ?>/$1')");
 
     return fixed;
 }

@@ -65,7 +65,7 @@ get_header();
         <div class="swiper-wrapper">
             <!-- Slide 1 -->
             <div class="swiper-slide">
-                <div class="hero-slide relative flex items-center" style="background-image: url(\'<?php echo get_template_directory_uri(); ?>/assets/images/Hero1.png\');">
+                <div class="hero-slide relative flex items-center" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/Hero1.png');">
                     <!-- Elegant Dark Gradient Overlay for left-aligned text -->
                     <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/90 via-primaryDark/60 to-transparent"></div>
                     
@@ -95,7 +95,7 @@ get_header();
 
             <!-- Slide 2 -->
             <div class="swiper-slide">
-                <div class="hero-slide relative flex items-center" style="background-image: url(\'<?php echo get_template_directory_uri(); ?>/assets/images/Hero2.png\');">
+                <div class="hero-slide relative flex items-center" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/Hero2.png');">
                     <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/90 via-primaryDark/60 to-transparent"></div>
                     
                     <div class="container mx-auto px-4 lg:px-12 relative z-10 w-full">
@@ -121,7 +121,7 @@ get_header();
 
             <!-- Slide 3 -->
             <div class="swiper-slide">
-                <div class="hero-slide relative flex items-center" style="background-image: url(\'<?php echo get_template_directory_uri(); ?>/assets/images/Hero3.png\');">
+                <div class="hero-slide relative flex items-center" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/Hero3.png');">
                     <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/90 via-primaryDark/60 to-transparent"></div>
                     
                     <div class="container mx-auto px-4 lg:px-12 relative z-10 w-full">
