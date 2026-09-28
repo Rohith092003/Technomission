@@ -3,26 +3,156 @@ get_header();
 ?>
 
 
-    <!-- 3. Hero Section -->
-    <section class="swiper hero-swiper">
+    <!-- 3. Bottom Bar / Main Navigation (Tier 3) -->
+    <nav class="bg-primary hidden xl:block border-t border-white/10">
+        <div class="container mx-auto px-2 max-w-[1500px]">
+            <ul class="flex justify-center items-center space-x-8 2xl:space-x-10 nav-font font-semibold text-white text-sm py-3.5">
+                <li><a href="index.html" class="hover:text-secondary transition pb-1 border-b-2 border-secondary">Home</a></li>
+                
+                <li class="relative group nav-item">
+                    <a href="about.html" class="hover:text-secondary transition flex items-center pb-1">About Us <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
+                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">About School</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Principal's Message</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Management / Leadership</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Salient Features</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Values</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Alumni Connect</a></li>
+                    </ul>
+                </li>
+
+                <li class="relative group nav-item">
+                    <a href="academics.html" class="hover:text-secondary transition flex items-center pb-1">Academics <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
+                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-48 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Primary</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Secondary</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">High School</a></li>
+                    </ul>
+                </li>
+                
+                <li class="relative group nav-item">
+                    <a href="labs.html" class="hover:text-secondary transition flex items-center pb-1">Labs <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
+                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-48 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Computer Lab</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Physics Lab</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Chemistry Lab</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Biology Lab</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Robotics Lab</a></li>
+                    </ul>
+                </li>
+
+                <li class="relative group nav-item">
+                    <a href="activities.html" class="hover:text-secondary transition flex items-center pb-1">Activities <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
+                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-48 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Yoga</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Dramatics</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Sports</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Art & Craft</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="gallery.html" class="hover:text-secondary transition pb-1">Gallery</a></li>
+                <li><a href="#" class="hover:text-secondary transition pb-1">Blog</a></li>
+                <li><a href="contact.html" class="hover:text-secondary transition pb-1">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    
+    </div>
+    <!-- 3. Hero Section (Redesigned) -->
+    <section class="swiper hero-swiper relative">
         <div class="swiper-wrapper">
+            <!-- Slide 1 -->
             <div class="swiper-slide">
-                <div class="hero-slide flex items-center justify-center" style="background-image: url('https://content.jdmagicbox.com/v2/comp/bhagalpur/v8/9999px641.x641.140721170408.g1v8/catalogue/techno-mission-international-school-bhagalpur-ho-bhagalpur-international-schools-GDFNeRRHrm.jpg');">
-                    <div class="hero-overlay"></div>
-                    <div class="container mx-auto px-4 relative z-10 text-center max-w-4xl mt-12">
-                        <h2 class="text-secondary font-bold tracking-wider text-sm md:text-base uppercase mb-3">Welcome to TMISB</h2>
-                        <h1 class="text-white nav-font font-bold text-4xl md:text-6xl leading-tight mb-6">Strong Academics. Future Skills.<br>Stronger Character.</h1>
-                        <p class="text-gray-200 text-lg md:text-xl mb-10 max-w-2xl mx-auto">A future-focused K–12 Day-Cum-Boarding school focused on academic excellence, technology, creativity, sports and character development.</p>
-                        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                            <a href="#" class="bg-primary hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded transition duration-300">Explore Our School</a>
-                            <a href="<?php echo home_url("/admissions"); ?>" class="bg-secondary hover:bg-yellow-500 text-black font-semibold py-3 px-8 rounded transition duration-300">Admissions</a>
+                <div class="hero-slide relative flex items-center" style="background-image: url(\'<?php echo get_template_directory_uri(); ?>/assets/images/Hero1.png\');">
+                    <!-- Elegant Dark Gradient Overlay for left-aligned text -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/90 via-primaryDark/60 to-transparent"></div>
+                    
+                    <div class="container mx-auto px-4 lg:px-12 relative z-10 w-full">
+                        <div class="max-w-3xl animate-fadeInUp">
+                            <div class="inline-block border-l-4 border-secondary pl-3 mb-4">
+                                <h2 class="text-white font-semibold tracking-[0.15em] text-sm uppercase">Welcome to Techno Mission</h2>
+                            </div>
+                            <h1 class="text-white nav-font font-extrabold text-5xl md:text-6xl lg:text-7xl leading-tight mb-6">
+                                Strong Academics.<br>Future Skills.
+                            </h1>
+                            <p class="text-gray-200 text-lg md:text-xl mb-10 font-light max-w-2xl leading-relaxed">
+                                A future-focused K-12 Day-Cum-Boarding school empowering students through academic excellence, innovation, and character development.
+                            </p>
+                            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-5">
+                                <a href="admissions.html" class="bg-secondary text-white font-bold py-3.5 px-8 rounded flex items-center justify-center hover:bg-red-800 transition shadow-lg group">
+                                    Apply Now <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                                </a>
+                                <a href="#" class="bg-transparent border-2 border-white text-white font-bold py-3.5 px-8 rounded flex items-center justify-center hover:bg-white hover:text-primary transition">
+                                    Explore Campus
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Additional slides can go here -->
+
+            <!-- Slide 2 -->
+            <div class="swiper-slide">
+                <div class="hero-slide relative flex items-center" style="background-image: url(\'<?php echo get_template_directory_uri(); ?>/assets/images/Hero2.png\');">
+                    <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/90 via-primaryDark/60 to-transparent"></div>
+                    
+                    <div class="container mx-auto px-4 lg:px-12 relative z-10 w-full">
+                        <div class="max-w-3xl">
+                            <div class="inline-block border-l-4 border-secondary pl-3 mb-4">
+                                <h2 class="text-white font-semibold tracking-[0.15em] text-sm uppercase">World-Class Facilities</h2>
+                            </div>
+                            <h1 class="text-white nav-font font-extrabold text-5xl md:text-6xl lg:text-7xl leading-tight mb-6">
+                                Learn. Grow.<br>Succeed.
+                            </h1>
+                            <p class="text-gray-200 text-lg md:text-xl mb-10 font-light max-w-2xl leading-relaxed">
+                                State-of-the-art smart classrooms, advanced robotics labs, and comprehensive sports complexes designed for holistic development.
+                            </p>
+                            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-5">
+                                <a href="admissions.html" class="bg-secondary text-white font-bold py-3.5 px-8 rounded flex items-center justify-center hover:bg-red-800 transition shadow-lg group">
+                                    Admissions Enquiry <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="swiper-slide">
+                <div class="hero-slide relative flex items-center" style="background-image: url(\'<?php echo get_template_directory_uri(); ?>/assets/images/Hero3.png\');">
+                    <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/90 via-primaryDark/60 to-transparent"></div>
+                    
+                    <div class="container mx-auto px-4 lg:px-12 relative z-10 w-full">
+                        <div class="max-w-3xl">
+                            <div class="inline-block border-l-4 border-secondary pl-3 mb-4">
+                                <h2 class="text-white font-semibold tracking-[0.15em] text-sm uppercase">Secure Environment</h2>
+                            </div>
+                            <h1 class="text-white nav-font font-extrabold text-5xl md:text-6xl lg:text-7xl leading-tight mb-6">
+                                A Home Away<br>From Home.
+                            </h1>
+                            <p class="text-gray-200 text-lg md:text-xl mb-10 font-light max-w-2xl leading-relaxed">
+                                Our premium Day-Cum-Boarding facilities ensure students are nurtured in a safe, inspiring, and engaging community.
+                            </p>
+                            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-5">
+                                <a href="#" class="bg-primary text-white border border-primary font-bold py-3.5 px-8 rounded flex items-center justify-center hover:bg-primaryDark transition shadow-lg">
+                                    View Facilities
+                                </a>
+                                <a href="contact.html" class="bg-transparent border-2 border-white text-white font-bold py-3.5 px-8 rounded flex items-center justify-center hover:bg-white hover:text-primary transition">
+                                    Contact Us
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="swiper-pagination"></div>
+        
+        <!-- Swiper Navigation -->
+        <div class="swiper-pagination !bottom-8"></div>
+        <div class="swiper-button-next !text-white !right-8 hidden md:flex opacity-70 hover:opacity-100 transition scale-75"></div>
+        <div class="swiper-button-prev !text-white !left-8 hidden md:flex opacity-70 hover:opacity-100 transition scale-75"></div>
     </section>
 
     <!-- 4. Latest News Ticker -->
@@ -46,8 +176,8 @@ get_header();
                     <div class="relative">
                         <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="About TMISB" class="rounded-lg shadow-xl w-full object-cover h-[450px]">
                         <div class="absolute -bottom-6 -right-6 bg-secondary p-6 rounded-lg shadow-lg hidden md:block">
-                            <p class="nav-font font-bold text-3xl text-primary mb-1">15+</p>
-                            <p class="text-sm font-semibold text-gray-800">Years of Excellence</p>
+                            <p class="nav-font font-bold text-3xl text-white mb-1">15+</p>
+                            <p class="text-sm font-semibold text-white">Years of Excellence</p>
                         </div>
                     </div>
                 </div>
@@ -65,7 +195,7 @@ get_header();
                         <li class="flex items-start"><i class="fas fa-check-circle text-primary mt-1 mr-3"></i> <span class="text-gray-700">Dedicated Day-cum-Boarding facilities</span></li>
                         <li class="flex items-start"><i class="fas fa-check-circle text-primary mt-1 mr-3"></i> <span class="text-gray-700">Focus on character building and sports</span></li>
                     </ul>
-                    <a href="<?php echo home_url("/about"); ?>" class="bg-primary hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded transition inline-block">Read More</a>
+                    <a href="about.html" class="bg-primary hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded transition inline-block">Read More</a>
                 </div>
             </div>
         </div>
@@ -150,7 +280,7 @@ get_header();
                     <div class="p-6 text-center">
                         <h3 class="nav-font font-bold text-xl text-primary mb-3">Primary</h3>
                         <p class="text-gray-600 text-sm mb-4">Building a strong foundation with inquiry-based learning and creative exploration.</p>
-                        <a href="<?php echo home_url("/academics"); ?>" class="text-secondary font-bold hover:text-primary transition">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                        <a href="academics.html" class="text-secondary font-bold hover:text-primary transition">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
                     </div>
                 </div>
                 <!-- Program Card -->
@@ -161,7 +291,7 @@ get_header();
                     <div class="p-6 text-center">
                         <h3 class="nav-font font-bold text-xl text-primary mb-3">Secondary</h3>
                         <p class="text-gray-600 text-sm mb-4">Fostering critical thinking and academic discipline in growing minds.</p>
-                        <a href="<?php echo home_url("/academics"); ?>" class="text-secondary font-bold hover:text-primary transition">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                        <a href="academics.html" class="text-secondary font-bold hover:text-primary transition">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
                     </div>
                 </div>
                 <!-- Program Card -->
@@ -172,7 +302,7 @@ get_header();
                     <div class="p-6 text-center">
                         <h3 class="nav-font font-bold text-xl text-primary mb-3">High School</h3>
                         <p class="text-gray-600 text-sm mb-4">Comprehensive preparation for board exams and future career pathways.</p>
-                        <a href="<?php echo home_url("/academics"); ?>" class="text-secondary font-bold hover:text-primary transition">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                        <a href="academics.html" class="text-secondary font-bold hover:text-primary transition">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
                     </div>
                 </div>
                 <!-- Program Card -->
@@ -183,7 +313,7 @@ get_header();
                     <div class="p-6 text-center">
                         <h3 class="nav-font font-bold text-xl text-primary mb-3">Day-Cum-Boarding</h3>
                         <p class="text-gray-600 text-sm mb-4">A secure, nurturing residential environment emphasizing life skills.</p>
-                        <a href="<?php echo home_url("/academics"); ?>" class="text-secondary font-bold hover:text-primary transition">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                        <a href="academics.html" class="text-secondary font-bold hover:text-primary transition">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
                     </div>
                 </div>
             </div>
@@ -304,46 +434,117 @@ get_header();
             </div>
             
             <div class="text-center mt-12">
-                <a href="<?php echo home_url("/gallery"); ?>#achievements" class="inline-flex items-center text-primary font-bold hover:text-secondary transition uppercase tracking-wider text-sm border-b-2 border-primary hover:border-secondary pb-1">View All Achievements <i class="fas fa-arrow-right ml-2"></i></a>
+                <a href="gallery.html#achievements" class="inline-flex items-center text-primary font-bold hover:text-secondary transition uppercase tracking-wider text-sm border-b-2 border-primary hover:border-secondary pb-1">View All Achievements <i class="fas fa-arrow-right ml-2"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- 9. Image Gallery -->
-    <section class="section-padding bg-lightBg">
-        <div class="container mx-auto px-4 max-w-7xl">
-            <div class="flex justify-between items-end mb-10">
+    <!-- 9. Image Gallery (Smooth CSS Marquee) -->
+    <section class="section-padding bg-lightBg overflow-hidden">
+        <div class="container mx-auto px-4 max-w-7xl mb-10">
+            <div class="flex justify-between items-end border-b border-gray-200 pb-4">
                 <div>
                     <h4 class="text-secondary font-bold text-sm uppercase tracking-wider mb-2">Campus Life</h4>
                     <h2 class="section-title left-align mb-0">Image Gallery</h2>
                 </div>
-                <a href="#" class="hidden md:inline-block border border-primary text-primary px-6 py-2 rounded hover:bg-primary hover:text-white transition">View All</a>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="col-span-2 row-span-2 overflow-hidden rounded group">
-                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gallery" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                </div>
-                <div class="overflow-hidden rounded group h-48 md:h-64">
-                    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Gallery" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                </div>
-                <div class="overflow-hidden rounded group h-48 md:h-64">
-                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Gallery" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                </div>
-                <div class="overflow-hidden rounded group h-48 md:h-64">
-                    <img src="https://images.unsplash.com/photo-1546410531-ee4cb4131557?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Gallery" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                </div>
-                <div class="overflow-hidden rounded group h-48 md:h-64">
-                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Gallery" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                </div>
-            </div>
-            <div class="text-center mt-8 md:hidden">
-                <a href="#" class="inline-block border border-primary text-primary px-6 py-2 rounded">View All</a>
+                <a href="gallery.html" class="hidden md:inline-block border border-primary text-primary px-6 py-2 rounded hover:bg-primary hover:text-white transition">View All</a>
             </div>
         </div>
+        
+        <!-- CSS Marquee -->
+        <div class="marquee-container w-full relative overflow-hidden flex items-center" style="padding-bottom: 40px; height: 350px;">
+            <div class="marquee-track flex gap-6 absolute left-0">
+                <!-- Slide 1 -->
+                <div class="w-[300px] md:w-[450px] shrink-0">
+                    <div class="rounded-xl overflow-hidden shadow-card h-[250px] md:h-[350px]">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="Classroom" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="w-[300px] md:w-[450px] shrink-0">
+                    <div class="rounded-xl overflow-hidden shadow-card h-[250px] md:h-[350px]">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="Library" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="w-[300px] md:w-[450px] shrink-0">
+                    <div class="rounded-xl overflow-hidden shadow-card h-[250px] md:h-[350px]">
+                        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=800&q=80" alt="Study" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="w-[300px] md:w-[450px] shrink-0">
+                    <div class="rounded-xl overflow-hidden shadow-card h-[250px] md:h-[350px]">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Computers" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <!-- Slide 5 -->
+                <div class="w-[300px] md:w-[450px] shrink-0">
+                    <div class="rounded-xl overflow-hidden shadow-card h-[250px] md:h-[350px]">
+                        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80" alt="Books" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <!-- Duplicate for infinite loop -->
+                <!-- Slide 1 -->
+                <div class="w-[300px] md:w-[450px] shrink-0">
+                    <div class="rounded-xl overflow-hidden shadow-card h-[250px] md:h-[350px]">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="Classroom" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="w-[300px] md:w-[450px] shrink-0">
+                    <div class="rounded-xl overflow-hidden shadow-card h-[250px] md:h-[350px]">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="Library" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="w-[300px] md:w-[450px] shrink-0">
+                    <div class="rounded-xl overflow-hidden shadow-card h-[250px] md:h-[350px]">
+                        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=800&q=80" alt="Study" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="w-[300px] md:w-[450px] shrink-0">
+                    <div class="rounded-xl overflow-hidden shadow-card h-[250px] md:h-[350px]">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Computers" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <!-- Slide 5 -->
+                <div class="w-[300px] md:w-[450px] shrink-0">
+                    <div class="rounded-xl overflow-hidden shadow-card h-[250px] md:h-[350px]">
+                        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80" alt="Books" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <style>
+            .marquee-track {
+                /* We have 5 unique slides + 5 duplicated. We animate to shift by half the total width (the unique width).
+                   Each slide is 450px + 24px gap = 474px (approx). Total unique track width ~ 2370px.
+                   Using transform translatex(-50%) shifts it exactly one full set of images over. */
+                width: max-content;
+                animation: scrollMarquee 20s linear infinite;
+            }
+            .marquee-container:hover .marquee-track {
+                animation-play-state: paused;
+            }
+            @keyframes scrollMarquee {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    /* Scroll exactly half of the total track width (since we duplicated the set exactly once) */
+                    transform: translateX(calc(-50% - 12px));
+                }
+            }
+            @media (max-width: 768px) {
+                /* Gap is 24px (gap-6 in tailwind), so half of the single gap is 12px to offset */
+            }
+        </style>
     </section>
 
-            <!-- 10. Latest News -->
+    <!-- 10. Latest News -->
     <section class="section-padding bg-lightBg">
         <div class="container mx-auto px-4 max-w-7xl">
             <div class="text-center mb-12">
@@ -427,44 +628,62 @@ get_header();
                         
                         <!-- Scrollable Area -->
                         <div class="space-y-4 overflow-y-auto h-full p-6" style="scrollbar-width: thin; scrollbar-color: #d4af37 #f1f1f1;">
-<?php
-$notice_query = new WP_Query(array(
-    'post_type' => 'notice',
-    'posts_per_page' => 10,
-));
-
-if ($notice_query->have_posts()) :
-    $count = 0;
-    while ($notice_query->have_posts()) : $notice_query->the_post();
-        $file_url = get_post_meta(get_the_ID(), '_notice_file_url', true);
-        $link = !empty($file_url) ? esc_url($file_url) : '#';
-        $day = get_the_date('d');
-        $month = get_the_date('M');
-        $is_new = ($count === 0);
-        
-        $bg_class = $is_new ? 'bg-primary/5 text-primary border-primary/10' : 'bg-gray-50 text-gray-500 border-gray-100';
-?>
-                            <!-- Dynamic Notice Item -->
+                            
+                            <!-- Notice Item -->
                             <div class="flex gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition border border-gray-50 hover:border-primary/20 group">
-                                <div class="flex flex-col items-center justify-center <?php echo $bg_class; ?> rounded-lg min-w-[60px] h-[60px] shrink-0 border">
-                                    <span class="text-xl font-bold leading-none"><?php echo $day; ?></span>
-                                    <span class="text-xs uppercase font-semibold mt-1"><?php echo $month; ?></span>
+                                <div class="flex flex-col items-center justify-center bg-primary/5 text-primary rounded-lg min-w-[60px] h-[60px] shrink-0 border border-primary/10">
+                                    <span class="text-xl font-bold leading-none">20</span>
+                                    <span class="text-xs uppercase font-semibold mt-1">Oct</span>
                                 </div>
-                                <div class="flex flex-col justify-center">
-                                    <?php if ($is_new) : ?>
-                                    <span class="inline-block mb-1 text-[10px] font-bold text-primary bg-secondary/20 px-2 py-0.5 rounded uppercase tracking-wider w-max">New</span>
-                                    <?php endif; ?>
-                                    <h4 class="font-bold text-gray-800 text-sm group-hover:text-primary transition leading-snug"><a href="<?php echo $link; ?>" target="_blank"><?php the_title(); ?></a></h4>
+                                <div>
+                                    <span class="inline-block mb-1 text-[10px] font-bold text-primary bg-secondary/20 px-2 py-0.5 rounded uppercase tracking-wider">New</span>
+                                    <h4 class="font-bold text-gray-800 text-sm group-hover:text-primary transition leading-snug"><a href="#">Parent-Teacher Meeting Schedule for Middle School</a></h4>
                                 </div>
                             </div>
-<?php
-        $count++;
-    endwhile;
-    wp_reset_postdata();
-else :
-    echo '<p class="text-gray-500 p-4 text-center mt-4">No new notices currently.</p>';
-endif;
-?>
+                            
+                            <!-- Notice Item -->
+                            <div class="flex gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition border border-gray-50 hover:border-primary/20 group">
+                                <div class="flex flex-col items-center justify-center bg-gray-50 text-gray-500 rounded-lg min-w-[60px] h-[60px] shrink-0 border border-gray-100">
+                                    <span class="text-xl font-bold leading-none">15</span>
+                                    <span class="text-xs uppercase font-semibold mt-1">Oct</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <h4 class="font-bold text-gray-800 text-sm group-hover:text-primary transition leading-snug"><a href="#">Half-Yearly Examination Timetable Released for All Classes</a></h4>
+                                </div>
+                            </div>
+                            
+                            <!-- Notice Item -->
+                            <div class="flex gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition border border-gray-50 hover:border-primary/20 group">
+                                <div class="flex flex-col items-center justify-center bg-gray-50 text-gray-500 rounded-lg min-w-[60px] h-[60px] shrink-0 border border-gray-100">
+                                    <span class="text-xl font-bold leading-none">02</span>
+                                    <span class="text-xs uppercase font-semibold mt-1">Oct</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <h4 class="font-bold text-gray-800 text-sm group-hover:text-primary transition leading-snug"><a href="#">Winter Uniform Guidelines for the Upcoming Session</a></h4>
+                                </div>
+                            </div>
+
+                            <!-- Notice Item -->
+                            <div class="flex gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition border border-gray-50 hover:border-primary/20 group">
+                                <div class="flex flex-col items-center justify-center bg-gray-50 text-gray-500 rounded-lg min-w-[60px] h-[60px] shrink-0 border border-gray-100">
+                                    <span class="text-xl font-bold leading-none">28</span>
+                                    <span class="text-xs uppercase font-semibold mt-1">Sep</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <h4 class="font-bold text-gray-800 text-sm group-hover:text-primary transition leading-snug"><a href="#">Annual Sports Meet Registration Now Open</a></h4>
+                                </div>
+                            </div>
+                            
+                            <!-- Notice Item -->
+                            <div class="flex gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition border border-gray-50 hover:border-primary/20 group">
+                                <div class="flex flex-col items-center justify-center bg-gray-50 text-gray-500 rounded-lg min-w-[60px] h-[60px] shrink-0 border border-gray-100">
+                                    <span class="text-xl font-bold leading-none">25</span>
+                                    <span class="text-xs uppercase font-semibold mt-1">Sep</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <h4 class="font-bold text-gray-800 text-sm group-hover:text-primary transition leading-snug"><a href="#">School Closed for Public Holiday on Friday</a></h4>
+                                </div>
+                            </div>
                             <!-- View All button -->
                             <a href="#" class="flex items-center justify-center w-full py-3 mt-2 text-primary font-bold hover:text-secondary transition text-sm bg-primary/5 rounded-lg border border-primary/10 hover:bg-primary hover:text-white">
                                 View All Notices <i class="fas fa-arrow-right ml-2 text-xs"></i>
@@ -487,10 +706,10 @@ endif;
             <h2 class="nav-font text-4xl md:text-5xl font-extrabold mb-6 leading-tight">Secure Your Child's Future</h2>
             <p class="text-lg md:text-xl text-white/90 mb-10 leading-relaxed font-light">Admissions are now open for the academic year 2026-27. Join the TMISB family and give your child a world-class educational experience.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-5">
-                <a href="<?php echo home_url("/admissions"); ?>" class="bg-secondary text-primary font-bold py-4 px-10 rounded-full hover:bg-yellow-400 transform hover:-translate-y-1 transition duration-300 text-sm md:text-base uppercase tracking-wider shadow-xl flex items-center justify-center">
+                <a href="admissions.html" class="bg-secondary text-primary font-bold py-4 px-10 rounded-full hover:bg-yellow-400 transform hover:-translate-y-1 transition duration-300 text-sm md:text-base uppercase tracking-wider shadow-xl flex items-center justify-center">
                     Apply Now <i class="fas fa-arrow-right ml-2"></i>
                 </a>
-                <a href="<?php echo home_url("/contact"); ?>" class="bg-white/10 backdrop-blur border-2 border-white/50 text-white font-bold py-4 px-10 rounded-full hover:bg-white hover:text-primary transform hover:-translate-y-1 transition duration-300 text-sm md:text-base uppercase tracking-wider flex items-center justify-center">
+                <a href="contact.html" class="bg-white/10 backdrop-blur border-2 border-white/50 text-white font-bold py-4 px-10 rounded-full hover:bg-white hover:text-primary transform hover:-translate-y-1 transition duration-300 text-sm md:text-base uppercase tracking-wider flex items-center justify-center">
                     Schedule a Visit <i class="far fa-calendar-check ml-2"></i>
                 </a>
             </div>
@@ -503,32 +722,85 @@ endif;
         <div class="container mx-auto px-4 max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12">
             
             <!-- Parent Testimonials -->
-            <div>
+            <div class="relative max-w-full overflow-hidden w-full lg:max-w-md xl:max-w-xl">
                 <h4 class="text-secondary font-bold text-sm uppercase tracking-wider mb-2">Voices</h4>
                 <h2 class="section-title left-align">Parent Testimonials</h2>
                 
-                <div class="bg-lightBg p-8 rounded-lg shadow-inner relative mt-8">
-                    <i class="fas fa-quote-left text-4xl text-gray-200 absolute top-4 left-4"></i>
-                    <p class="text-gray-600 italic mb-6 relative z-10 pt-4">
-                        "TMISB has provided my child with the perfect balance of academic challenge and extracurricular opportunities. The day-boarding facility allows them to focus completely on their development in a secure environment."
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4 flex items-center justify-center text-gray-500">
-                            <i class="fas fa-user"></i>
+                <div class="swiper testimonials-swiper mt-8 relative pb-10">
+                    <div class="swiper-wrapper">
+                        <!-- Testimonial 1 -->
+                        <div class="swiper-slide">
+                            <div class="bg-lightBg p-8 rounded-lg shadow-inner relative h-full">
+                                <i class="fas fa-quote-left text-4xl text-gray-200 absolute top-4 left-4"></i>
+                                <p class="text-gray-600 italic mb-6 relative z-10 pt-4">
+                                    "TMISB has provided my child with the perfect balance of academic challenge and extracurricular opportunities. The day-boarding facility allows them to focus completely on their development in a secure environment."
+                                </p>
+                                <div class="flex items-center">
+                                    <img src="https://ui-avatars.com/api/?name=Rajesh+Kumar&background=random" alt="Rajesh Kumar" class="w-12 h-12 rounded-full mr-4 object-cover border-2 border-white shadow-sm">
+                                    <div>
+                                        <h4 class="nav-font font-bold text-gray-800">Rajesh Kumar</h4>
+                                        <p class="text-xs text-gray-500">Parent of Aarav Kumar, Class 10</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <h4 class="nav-font font-bold text-gray-800">[Parent Name]</h4>
-                            <p class="text-sm text-gray-500">Parent of [Student Name], Class 10</p>
+
+                        <!-- Testimonial 2 -->
+                        <div class="swiper-slide">
+                            <div class="bg-lightBg p-8 rounded-lg shadow-inner relative h-full">
+                                <i class="fas fa-quote-left text-4xl text-gray-200 absolute top-4 left-4"></i>
+                                <p class="text-gray-600 italic mb-6 relative z-10 pt-4">
+                                    "The smart classrooms and dedicated STEM labs have sparked a completely new level of curiosity in my daughter. The teachers are exceptionally supportive and always available."
+                                </p>
+                                <div class="flex items-center">
+                                    <img src="https://ui-avatars.com/api/?name=Priya+Sharma&background=random" alt="Priya Sharma" class="w-12 h-12 rounded-full mr-4 object-cover border-2 border-white shadow-sm">
+                                    <div>
+                                        <h4 class="nav-font font-bold text-gray-800">Priya Sharma</h4>
+                                        <p class="text-xs text-gray-500">Parent of Ananya Sharma, Class 8</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="swiper-slide">
+                            <div class="bg-lightBg p-8 rounded-lg shadow-inner relative h-full">
+                                <i class="fas fa-quote-left text-4xl text-gray-200 absolute top-4 left-4"></i>
+                                <p class="text-gray-600 italic mb-6 relative z-10 pt-4">
+                                    "We moved to Bhagalpur recently and TMISB made the transition so smooth. The sports facilities are world-class and the focus on character building is very visible."
+                                </p>
+                                <div class="flex items-center">
+                                    <img src="https://ui-avatars.com/api/?name=Vikram+Singh&background=random" alt="Vikram Singh" class="w-12 h-12 rounded-full mr-4 object-cover border-2 border-white shadow-sm">
+                                    <div>
+                                        <h4 class="nav-font font-bold text-gray-800">Vikram Singh</h4>
+                                        <p class="text-xs text-gray-500">Parent of Aditya Singh, Class 6</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="flex space-x-2 mt-4 justify-center lg:justify-start">
-                    <button class="w-3 h-3 rounded-full bg-primary"></button>
-                    <button class="w-3 h-3 rounded-full bg-gray-300"></button>
-                    <button class="w-3 h-3 rounded-full bg-gray-300"></button>
+                    <!-- Pagination dots inside swiper container to align easily -->
+                    <div class="swiper-pagination !bottom-0 flex justify-center lg:justify-start"></div>
                 </div>
             </div>
+            
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    new Swiper('.testimonials-swiper', {
+                        slidesPerView: 1,
+                        spaceBetween: 30,
+                        loop: true,
+                        autoplay: {
+                            delay: 4000,
+                            disableOnInteraction: false,
+                        },
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true,
+                        },
+                    });
+                });
+            </script>
 
             <!-- FAQ -->
             <div x-data="{ activeAccordion: 1 }">

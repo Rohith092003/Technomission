@@ -2,9 +2,11 @@ tailwind.config = {
     theme: {
         extend: {
             colors: {
-                primary: '#065f46', // Emerald Green
-                secondary: '#d4af37', // Soft Gold
-                lightBg: '#f8fafc',
+                primary: '#003c71', // Classic Navy Blue
+                primaryDark: '#002244', // Darker Navy
+                secondary: '#e31837', // Vivid Red
+                secondaryLight: '#ffffff', // White
+                lightBg: '#f8f9fa', // Light gray background
             },
             fontFamily: {
                 sans: ['Open Sans', 'sans-serif'],
