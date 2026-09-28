@@ -9,7 +9,7 @@ get_header();
         <div class="container mx-auto px-4">
             <h1 class="nav-font font-bold text-4xl text-white mb-4">Academic Curriculum</h1>
             <div class="flex items-center justify-center text-gray-300 text-sm">
-                <a href="index.html" class="hover:text-white transition">Home</a>
+                <a href="<?php echo home_url("/"); ?>" class="hover:text-white transition">Home</a>
                 <i class="fas fa-chevron-right mx-3 text-xs"></i>
                 <span class="text-secondary font-semibold">Academics</span>
             </div>
@@ -148,7 +148,7 @@ get_header();
                         <p class="text-white/80 leading-relaxed mb-8 text-lg font-light">
                             TMISB brings expert faculty to campus for specialized coaching in IIT-JEE, NEET, and other national-level competitive examinations. This saves students precious travel time and provides a synchronized curriculum that covers both Board and Entrance syllabi.
                         </p>
-                        <a href="contact.html" class="inline-flex items-center text-secondary font-bold hover:text-white transition text-sm uppercase tracking-wider">Enquire Now <i class="fas fa-arrow-right ml-2"></i></a>
+                        <a href="<?php echo home_url("/contact"); ?>" class="inline-flex items-center text-secondary font-bold hover:text-white transition text-sm uppercase tracking-wider">Enquire Now <i class="fas fa-arrow-right ml-2"></i></a>
                     </div>
                 </div>
                 
@@ -165,7 +165,7 @@ get_header();
                         <p class="text-gray-600 leading-relaxed mb-8 text-lg font-light">
                             Our unique day-cum-boarding program offers a highly structured, nurturing environment where students spend extended hours on campus. Supervised evening study sessions ensure homework and self-study are completed under expert guidance, leading to better academic outcomes.
                         </p>
-                        <a href="contact.html" class="inline-flex items-center text-primary font-bold hover:text-secondary transition text-sm uppercase tracking-wider">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+                        <a href="<?php echo home_url("/contact"); ?>" class="inline-flex items-center text-primary font-bold hover:text-secondary transition text-sm uppercase tracking-wider">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
                     </div>
                 </div>
             </div>

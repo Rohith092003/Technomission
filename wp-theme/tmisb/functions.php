@@ -66,4 +66,38 @@ function tmisb_save_notice_file_data($post_id) {
     }
 }
 add_action('save_post', 'tmisb_save_notice_file_data');
+
+// Auto-create pages on theme activation
+function tmisb_auto_create_pages() {
+    $pages = array(
+        'about' => array('title' => 'About', 'template' => 'page-about.php'),
+        'academics' => array('title' => 'Academics', 'template' => 'page-academics.php'),
+        'gallery' => array('title' => 'Gallery', 'template' => 'page-gallery.php'),
+        'contact' => array('title' => 'Contact Us', 'template' => 'page-contact.php'),
+        'labs' => array('title' => 'Labs', 'template' => 'page-labs.php'),
+        'activities' => array('title' => 'Activities', 'template' => 'page-activities.php'),
+        'admissions' => array('title' => 'Admissions', 'template' => 'page-admissions.php'),
+    );
+
+    foreach ($pages as $slug => $page_data) {
+        $page_check = get_page_by_path($slug);
+        if (!isset($page_check->ID)) {
+            $new_page_id = wp_insert_post(array(
+                'post_type' => 'page',
+                'post_title' => $page_data['title'],
+                'post_name' => $slug,
+                'post_status' => 'publish',
+            ));
+            if ($new_page_id && !is_wp_error($new_page_id)) {
+                update_post_meta($new_page_id, '_wp_page_template', $page_data['template']);
+            }
+        } else {
+            // Ensure template is set even if page exists
+            update_post_meta($page_check->ID, '_wp_page_template', $page_data['template']);
+        }
+    }
+}
+add_action('after_switch_theme', 'tmisb_auto_create_pages');
+// We will also run it on admin_init just in case the theme is already active
+add_action('admin_init', 'tmisb_auto_create_pages');
 ?>

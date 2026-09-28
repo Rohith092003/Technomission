@@ -28,7 +28,7 @@
                 <span><i class="fas fa-envelope text-secondary mr-2"></i>techno.edu.school@gmail.com</span>
             </div>
             <div class="flex space-x-4 items-center">
-                <a href="admissions.html" class="bg-secondary text-black font-semibold px-4 py-1 rounded hover:bg-yellow-400 transition">Admissions Open 2026–27</a>
+                <a href="<?php echo home_url("/admissions"); ?>" class="bg-secondary text-black font-semibold px-4 py-1 rounded hover:bg-yellow-400 transition">Admissions Open 2026–27</a>
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 max-w-7xl flex justify-between items-center py-4">
             <!-- Logo -->
-            <a href="index.html" class="flex items-center">
+            <a href="<?php echo home_url("/"); ?>" class="flex items-center">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.webp" alt="TMISB Logo" class="h-12 w-auto mr-3">
                 <div>
                     <h1 class="nav-font font-extrabold text-xl md:text-2xl text-primary leading-tight">Techno Mission</h1>
@@ -48,10 +48,10 @@
 
             <!-- Desktop Nav -->
             <nav class="hidden lg:flex items-center space-x-6 nav-font font-semibold text-gray-700 text-sm">
-                <a href="index.html" class="text-primary border-b-2 border-primary py-2">Home</a>
+                <a href="<?php echo home_url("/"); ?>" class="text-primary border-b-2 border-primary py-2">Home</a>
                 
                 <div class="relative nav-item py-2 group">
-                    <a href="about.html" class="hover:text-primary flex items-center">About Us <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                    <a href="<?php echo home_url("/about"); ?>" class="hover:text-primary flex items-center">About Us <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
                     <div class="dropdown-menu absolute hidden bg-white shadow-lg border-t-2 border-primary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100">
                         <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">About School</a>
                         <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">Principal's Message</a>
@@ -63,7 +63,7 @@
                 </div>
 
                 <div class="relative nav-item py-2 group">
-                    <a href="academics.html" class="hover:text-primary flex items-center">Academics <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                    <a href="<?php echo home_url("/academics"); ?>" class="hover:text-primary flex items-center">Academics <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
                     <div class="dropdown-menu absolute hidden bg-white shadow-lg border-t-2 border-primary top-full left-0 w-48 py-2 z-50">
                         <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">Primary</a>
                         <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">Secondary</a>
@@ -72,7 +72,7 @@
                 </div>
                 
                 <div class="relative nav-item py-2 group">
-                    <a href="labs.html" class="hover:text-primary flex items-center">Labs <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                    <a href="<?php echo home_url("/labs"); ?>" class="hover:text-primary flex items-center">Labs <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
                     <div class="dropdown-menu absolute hidden bg-white shadow-lg border-t-2 border-primary top-full left-0 w-48 py-2 z-50">
                         <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">Computer Lab</a>
                         <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">Physics Lab</a>
@@ -83,7 +83,7 @@
                 </div>
 
                 <div class="relative nav-item py-2 group">
-                    <a href="activities.html" class="hover:text-primary flex items-center">Activities <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                    <a href="<?php echo home_url("/activities"); ?>" class="hover:text-primary flex items-center">Activities <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
                     <div class="dropdown-menu absolute hidden bg-white shadow-lg border-t-2 border-primary top-full left-0 w-48 py-2 z-50">
                         <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">Yoga</a>
                         <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 hover:text-primary border-b border-gray-100">Dramatics</a>
@@ -92,11 +92,11 @@
                     </div>
                 </div>
 
-                <a href="gallery.html" class="hover:text-primary py-2">Gallery</a>
+                <a href="<?php echo home_url("/gallery"); ?>" class="hover:text-primary py-2">Gallery</a>
                 <a href="#" class="hover:text-primary py-2">Blog</a>
-                <a href="contact.html" class="hover:text-primary py-2">Contact Us</a>
+                <a href="<?php echo home_url("/contact"); ?>" class="hover:text-primary py-2">Contact Us</a>
                 
-                <a href="admissions.html" class="bg-primary text-white px-5 py-2 rounded shadow hover:bg-blue-800 transition">Apply Now</a>
+                <a href="<?php echo home_url("/admissions"); ?>" class="bg-primary text-white px-5 py-2 rounded shadow hover:bg-blue-800 transition">Apply Now</a>
             </nav>
 
             <!-- Mobile Menu Button -->
@@ -109,7 +109,7 @@
         <!-- Mobile Menu -->
         <div class="lg:hidden absolute w-full bg-white shadow-xl border-t z-40" x-show="mobileMenuOpen" x-transition x-cloak>
             <div class="flex flex-col px-4 py-2 nav-font font-medium text-gray-700">
-                <a href="index.html" class="py-3 border-b border-gray-100 text-primary">Home</a>
+                <a href="<?php echo home_url("/"); ?>" class="py-3 border-b border-gray-100 text-primary">Home</a>
                 <div x-data="{ open: false }">
                     <button @click="open = !open" class="flex justify-between items-center w-full py-3 border-b border-gray-100">
                         About Us <i class="fas fa-chevron-down text-xs transition" :class="open ? 'rotate-180' : ''"></i>
@@ -123,7 +123,7 @@
                 <a href="#" class="py-3 border-b border-gray-100">Academics</a>
                 <a href="#" class="py-3 border-b border-gray-100">Labs</a>
                 <a href="#" class="py-3 border-b border-gray-100">Activities</a>
-                <a href="contact.html" class="py-3 border-b border-gray-100">Contact Us</a>
+                <a href="<?php echo home_url("/contact"); ?>" class="py-3 border-b border-gray-100">Contact Us</a>
             </div>
         </div>
     </header>

@@ -9,7 +9,7 @@ get_header();
         <div class="container mx-auto px-4">
             <h1 class="nav-font font-bold text-4xl text-white mb-4">Practical Learning</h1>
             <div class="flex items-center justify-center text-gray-300 text-sm">
-                <a href="index.html" class="hover:text-white transition">Home</a>
+                <a href="<?php echo home_url("/"); ?>" class="hover:text-white transition">Home</a>
                 <i class="fas fa-chevron-right mx-3 text-xs"></i>
                 <span class="text-secondary font-semibold">Labs</span>
             </div>

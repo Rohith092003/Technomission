@@ -15,7 +15,7 @@ get_header();
                         <p class="text-gray-200 text-lg md:text-xl mb-10 max-w-2xl mx-auto">A future-focused K–12 Day-Cum-Boarding school focused on academic excellence, technology, creativity, sports and character development.</p>
                         <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
                             <a href="#" class="bg-primary hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded transition duration-300">Explore Our School</a>
-                            <a href="admissions.html" class="bg-secondary hover:bg-yellow-500 text-black font-semibold py-3 px-8 rounded transition duration-300">Admissions</a>
+                            <a href="<?php echo home_url("/admissions"); ?>" class="bg-secondary hover:bg-yellow-500 text-black font-semibold py-3 px-8 rounded transition duration-300">Admissions</a>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@ get_header();
                         <li class="flex items-start"><i class="fas fa-check-circle text-primary mt-1 mr-3"></i> <span class="text-gray-700">Dedicated Day-cum-Boarding facilities</span></li>
                         <li class="flex items-start"><i class="fas fa-check-circle text-primary mt-1 mr-3"></i> <span class="text-gray-700">Focus on character building and sports</span></li>
                     </ul>
-                    <a href="about.html" class="bg-primary hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded transition inline-block">Read More</a>
+                    <a href="<?php echo home_url("/about"); ?>" class="bg-primary hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded transition inline-block">Read More</a>
                 </div>
             </div>
         </div>
@@ -150,7 +150,7 @@ get_header();
                     <div class="p-6 text-center">
                         <h3 class="nav-font font-bold text-xl text-primary mb-3">Primary</h3>
                         <p class="text-gray-600 text-sm mb-4">Building a strong foundation with inquiry-based learning and creative exploration.</p>
-                        <a href="academics.html" class="text-secondary font-bold hover:text-primary transition">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                        <a href="<?php echo home_url("/academics"); ?>" class="text-secondary font-bold hover:text-primary transition">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
                     </div>
                 </div>
                 <!-- Program Card -->
@@ -161,7 +161,7 @@ get_header();
                     <div class="p-6 text-center">
                         <h3 class="nav-font font-bold text-xl text-primary mb-3">Secondary</h3>
                         <p class="text-gray-600 text-sm mb-4">Fostering critical thinking and academic discipline in growing minds.</p>
-                        <a href="academics.html" class="text-secondary font-bold hover:text-primary transition">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                        <a href="<?php echo home_url("/academics"); ?>" class="text-secondary font-bold hover:text-primary transition">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
                     </div>
                 </div>
                 <!-- Program Card -->
@@ -172,7 +172,7 @@ get_header();
                     <div class="p-6 text-center">
                         <h3 class="nav-font font-bold text-xl text-primary mb-3">High School</h3>
                         <p class="text-gray-600 text-sm mb-4">Comprehensive preparation for board exams and future career pathways.</p>
-                        <a href="academics.html" class="text-secondary font-bold hover:text-primary transition">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                        <a href="<?php echo home_url("/academics"); ?>" class="text-secondary font-bold hover:text-primary transition">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
                     </div>
                 </div>
                 <!-- Program Card -->
@@ -183,7 +183,7 @@ get_header();
                     <div class="p-6 text-center">
                         <h3 class="nav-font font-bold text-xl text-primary mb-3">Day-Cum-Boarding</h3>
                         <p class="text-gray-600 text-sm mb-4">A secure, nurturing residential environment emphasizing life skills.</p>
-                        <a href="academics.html" class="text-secondary font-bold hover:text-primary transition">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                        <a href="<?php echo home_url("/academics"); ?>" class="text-secondary font-bold hover:text-primary transition">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
                     </div>
                 </div>
             </div>
@@ -304,7 +304,7 @@ get_header();
             </div>
             
             <div class="text-center mt-12">
-                <a href="gallery.html#achievements" class="inline-flex items-center text-primary font-bold hover:text-secondary transition uppercase tracking-wider text-sm border-b-2 border-primary hover:border-secondary pb-1">View All Achievements <i class="fas fa-arrow-right ml-2"></i></a>
+                <a href="<?php echo home_url("/gallery"); ?>#achievements" class="inline-flex items-center text-primary font-bold hover:text-secondary transition uppercase tracking-wider text-sm border-b-2 border-primary hover:border-secondary pb-1">View All Achievements <i class="fas fa-arrow-right ml-2"></i></a>
             </div>
         </div>
     </section>
@@ -487,10 +487,10 @@ endif;
             <h2 class="nav-font text-4xl md:text-5xl font-extrabold mb-6 leading-tight">Secure Your Child's Future</h2>
             <p class="text-lg md:text-xl text-white/90 mb-10 leading-relaxed font-light">Admissions are now open for the academic year 2026-27. Join the TMISB family and give your child a world-class educational experience.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-5">
-                <a href="admissions.html" class="bg-secondary text-primary font-bold py-4 px-10 rounded-full hover:bg-yellow-400 transform hover:-translate-y-1 transition duration-300 text-sm md:text-base uppercase tracking-wider shadow-xl flex items-center justify-center">
+                <a href="<?php echo home_url("/admissions"); ?>" class="bg-secondary text-primary font-bold py-4 px-10 rounded-full hover:bg-yellow-400 transform hover:-translate-y-1 transition duration-300 text-sm md:text-base uppercase tracking-wider shadow-xl flex items-center justify-center">
                     Apply Now <i class="fas fa-arrow-right ml-2"></i>
                 </a>
-                <a href="contact.html" class="bg-white/10 backdrop-blur border-2 border-white/50 text-white font-bold py-4 px-10 rounded-full hover:bg-white hover:text-primary transform hover:-translate-y-1 transition duration-300 text-sm md:text-base uppercase tracking-wider flex items-center justify-center">
+                <a href="<?php echo home_url("/contact"); ?>" class="bg-white/10 backdrop-blur border-2 border-white/50 text-white font-bold py-4 px-10 rounded-full hover:bg-white hover:text-primary transform hover:-translate-y-1 transition duration-300 text-sm md:text-base uppercase tracking-wider flex items-center justify-center">
                     Schedule a Visit <i class="far fa-calendar-check ml-2"></i>
                 </a>
             </div>
