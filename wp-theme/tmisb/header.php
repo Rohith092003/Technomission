@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     
     <script src="<?php echo get_template_directory_uri(); ?>/js/tailwind-config.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
     <?php wp_head(); ?>
 </head>
 <body class="bg-white text-gray-700" x-data="{ mobileMenuOpen: false }">
