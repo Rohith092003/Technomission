@@ -193,11 +193,6 @@ get_header();
                 <!-- Image Side -->
                 <div class="w-full md:w-2/5 relative h-80 md:h-auto">
                     <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Director" class="absolute inset-0 w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 w-full p-6 text-white">
-                        <h4 class="font-bold text-xl mb-1">Er Anshu Kumar Singh</h4>
-                        <p class="text-xs font-semibold uppercase tracking-widest text-secondary">Director, TMISB</p>
-                    </div>
                 </div>
                 
                 <!-- Content Side -->
@@ -216,8 +211,8 @@ get_header();
                         </div>
                         
                         <div class="mt-8 pt-6 border-t border-gray-100">
-                            <!-- Signature placeholder -->
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Signature_of_John_Hancock.png" alt="Signature" class="h-12 opacity-40 hover:opacity-80 transition duration-300">
+                            <h4 class="font-bold text-xl text-primary mb-1">Er Anshu Kumar Singh</h4>
+                            <p class="text-xs font-semibold uppercase tracking-widest text-secondary">Director, TMISB</p>
                         </div>
                     </div>
                 </div>
