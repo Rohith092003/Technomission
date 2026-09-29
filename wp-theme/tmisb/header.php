@@ -14,8 +14,8 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     
-    <script src="<?php echo get_template_directory_uri(); ?>/js/tailwind-config.js"></script>
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
+    <script src="<?php echo get_template_directory_uri(); ?>/js/tailwind-config.js?v=<?php echo time(); ?>"></script>
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?v=<?php echo time(); ?>">
     <?php wp_head(); ?>
 </head>
 <body class="bg-white text-gray-700" x-data="{ mobileMenuOpen: false }">
@@ -52,7 +52,7 @@
             <!-- Center Logo -->
             <div class="w-2/4 flex justify-center">
                 <a href="index.html" class="flex items-center transform hover:scale-105 transition duration-300">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.webp" alt="TMISB Logo" class="h-16 w-auto mr-3">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.webp?v=<?php echo time(); ?>" alt="TMISB Logo" class="h-16 w-auto mr-3">
                     <div class="text-left">
                         <h1 class="nav-font font-extrabold text-2xl md:text-3xl text-primary leading-none tracking-tight uppercase" >Techno Mission</h1>
                         <p class="text-xs text-primary font-bold tracking-[0.2em] uppercase mt-1">International School <span class="bg-primary text-white px-1 ml-1 text-[9px]">BHAGALPUR</span></p>
@@ -62,7 +62,7 @@
             
             <!-- Right Buttons -->
             <div class="w-1/4 flex justify-end">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/29.png" alt="29" class="h-16 w-auto object-contain">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/29.png?v=<?php echo time(); ?>" alt="29" class="h-16 w-auto object-contain">
             </div>
         </div>
     </div>
@@ -71,7 +71,7 @@
     <header class="bg-white shadow-md xl:hidden">
         <div class="container mx-auto px-4 flex justify-between items-center py-3">
             <a href="index.html" class="flex items-center">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.webp" alt="TMISB Logo" class="h-12 w-auto mr-2">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.webp?v=<?php echo time(); ?>" alt="TMISB Logo" class="h-12 w-auto mr-2">
                 <div>
                     <h1 class="nav-font font-bold text-xl text-primary leading-tight">Techno Mission</h1>
                 </div>

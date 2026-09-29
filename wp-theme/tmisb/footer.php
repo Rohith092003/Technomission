@@ -12,7 +12,7 @@
                 <div class="lg:col-span-2">
                     <a href="index.html" class="flex items-center mb-6 inline-block">
                         <div class="flex items-center">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.webp" alt="TMISB Logo" class="h-16 w-auto mr-5 bg-white p-1.5 rounded-lg">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.webp?v=<?php echo time(); ?>" alt="TMISB Logo" class="h-16 w-auto mr-5 bg-white p-1.5 rounded-lg">
                             <div>
                                 <h2 class="nav-font font-extrabold text-xl md:text-2xl text-white leading-tight">Techno Mission</h2>
                                 <p class="text-xs md:text-sm text-white/80 font-semibold tracking-wide mt-0.5 whitespace-nowrap">International School Bhagalpur</p>

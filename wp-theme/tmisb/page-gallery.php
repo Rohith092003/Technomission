@@ -86,27 +86,27 @@ get_header();
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Achievement 1 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
-                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715819718_ewu4r8.jpg" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
+                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715819718_ewu4r8.jpg?v=<?php echo time(); ?>" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
                 </div>
                 
                 <!-- Achievement 2 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
-                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715822383_5whp8p.jpg" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
+                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715822383_5whp8p.jpg?v=<?php echo time(); ?>" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
                 </div>
                 
                 <!-- Achievement 3 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
-                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715823656_7xpfmn.jpg" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
+                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715823656_7xpfmn.jpg?v=<?php echo time(); ?>" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
                 </div>
                 
                 <!-- Achievement 4 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
-                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715825041_n6sp8rg.jpg" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
+                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715825041_n6sp8rg.jpg?v=<?php echo time(); ?>" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
                 </div>
                 
                 <!-- Achievement 5 (The PNG file) -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
-                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715851488_sn61pa.png" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
+                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715851488_sn61pa.png?v=<?php echo time(); ?>" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
                 </div>
             </div>
         </div>

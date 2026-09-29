@@ -414,22 +414,22 @@ get_header();
                 </style>
                 <!-- Achievement 1 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex-none w-[85%] sm:w-[45%] lg:w-auto snap-center">
-                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715819718_ewu4r8.jpg" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
+                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715819718_ewu4r8.jpg?v=<?php echo time(); ?>" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
                 </div>
                 
                 <!-- Achievement 2 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex-none w-[85%] sm:w-[45%] lg:w-auto snap-center">
-                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715822383_5whp8p.jpg" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
+                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715822383_5whp8p.jpg?v=<?php echo time(); ?>" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
                 </div>
                 
                 <!-- Achievement 3 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex-none w-[85%] sm:w-[45%] lg:w-auto snap-center">
-                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715823656_7xpfmn.jpg" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
+                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715823656_7xpfmn.jpg?v=<?php echo time(); ?>" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
                 </div>
                 
                 <!-- Achievement 4 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex-none w-[85%] sm:w-[45%] lg:w-auto snap-center">
-                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715825041_n6sp8rg.jpg" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
+                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715825041_n6sp8rg.jpg?v=<?php echo time(); ?>" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
                 </div>
             </div>
             
@@ -605,7 +605,7 @@ get_header();
                 <!-- Image Side -->
                 <div class="w-full lg:w-1/2">
                     <div class="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl group">
-                        <img src="<?php echo get_template_directory_uri(); ?>/Notice.png" alt="Notice Board" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="<?php echo get_template_directory_uri(); ?>/Notice.png?v=<?php echo time(); ?>" alt="Notice Board" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
                         <div class="absolute bottom-10 left-10 right-10 text-white">
                             <span class="bg-secondary text-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block shadow-md">Important</span>

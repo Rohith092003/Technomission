@@ -61,14 +61,13 @@ function fixAssetPaths(html) {
     let fixed = html;
     
     // Fix src attributes (excluding absolute URLs like http/https)
-    fixed = fixed.replace(/src="(?!http|\/\/|<)([^"]+)"/g, 'src="<?php echo get_template_directory_uri(); ?>/$1"');
+    fixed = fixed.replace(/src="(?!http|\/\/|<)([^"]+)"/g, 'src="<?php echo get_template_directory_uri(); ?>/$1?v=<?php echo time(); ?>"');
     
     // Fix href for assets and css
-    fixed = fixed.replace(/href="(assets\/[^"]+)"/g, 'href="<?php echo get_template_directory_uri(); ?>/$1"');
-    fixed = fixed.replace(/href="(css\/[^"]+)"/g, 'href="<?php echo get_template_directory_uri(); ?>/$1"');
+    fixed = fixed.replace(/href="(assets\/[^"]+)"/g, 'href="<?php echo get_template_directory_uri(); ?>/$1?v=<?php echo time(); ?>"');
+    fixed = fixed.replace(/href="(css\/[^"]+)"/g, 'href="<?php echo get_template_directory_uri(); ?>/$1?v=<?php echo time(); ?>"');
     
     // Fix background inline styles (excluding absolute URLs)
-    // Here we use double quotes for the replacement string so we don't have to escape backslashes weirdly
     fixed = fixed.replace(/url\(['"]?(?!http|\/\/)([^'"\)]+)['"]?\)/g, "url('<?php echo get_template_directory_uri(); ?>/$1')");
 
     return fixed;
