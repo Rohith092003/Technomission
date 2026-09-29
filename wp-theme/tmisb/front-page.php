@@ -62,12 +62,12 @@ get_header();
     <!-- Dynamic Active Nav Script -->
     <script>
     document.addEventListener("DOMContentLoaded", function() {
-        const navLinks = document.querySelectorAll('nav ul > li > a, nav ul > li.nav-item > a');
+        const navLinks = document.querySelectorAll('nav ul > li > a, nav ul > li.nav-item > a, .mobile-nav-link');
         const currentPath = window.location.pathname;
         
         // Remove hardcoded active classes
         navLinks.forEach(link => {
-            link.classList.remove('border-b-2', 'border-secondary');
+            link.classList.remove('border-b-2', 'border-secondary', 'text-secondary');
         });
 
         // Determine current page identifier
@@ -78,7 +78,11 @@ get_header();
 
             // Check if current URL includes the href (works for about.html and /about/)
             if (href !== 'index.html' && href !== '/' && currentPath.includes(href.replace('.html', ''))) {
-                link.classList.add('border-b-2', 'border-secondary');
+                if (link.classList.contains('mobile-nav-link')) {
+                    link.classList.add('text-secondary');
+                } else {
+                    link.classList.add('border-b-2', 'border-secondary');
+                }
                 activeFound = true;
             }
         });
@@ -86,8 +90,12 @@ get_header();
         // Fallback for Home page
         if (!activeFound && (currentPath === '/' || currentPath.endsWith('index.html'))) {
             navLinks.forEach(link => {
-                if (link.getAttribute('href') === 'index.html' || link.getAttribute('href').includes('home_url')) {
-                    link.classList.add('border-b-2', 'border-secondary');
+                if (link.getAttribute('href') === 'index.html' || link.getAttribute('href') === '/' || link.getAttribute('href').includes('home_url')) {
+                    if (link.classList.contains('mobile-nav-link')) {
+                        link.classList.add('text-secondary');
+                    } else {
+                        link.classList.add('border-b-2', 'border-secondary');
+                    }
                 }
             });
         }
@@ -111,7 +119,7 @@ get_header();
                             <div class="inline-block border-l-4 border-secondary pl-3 mb-4">
                                 <h2 class="text-white font-semibold tracking-[0.15em] text-sm uppercase">Welcome to Techno Mission</h2>
                             </div>
-                            <h1 class="text-white nav-font font-extrabold text-5xl md:text-6xl lg:text-7xl leading-tight mb-6">
+                            <h1 class="text-white nav-font font-extrabold text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-tight mb-4 md:mb-6">
                                 Strong Academics.<br>Future Skills.
                             </h1>
                             <p class="text-gray-200 text-lg md:text-xl mb-10 font-light max-w-2xl leading-relaxed">
@@ -140,7 +148,7 @@ get_header();
                             <div class="inline-block border-l-4 border-secondary pl-3 mb-4">
                                 <h2 class="text-white font-semibold tracking-[0.15em] text-sm uppercase">World-Class Facilities</h2>
                             </div>
-                            <h1 class="text-white nav-font font-extrabold text-5xl md:text-6xl lg:text-7xl leading-tight mb-6">
+                            <h1 class="text-white nav-font font-extrabold text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-tight mb-4 md:mb-6">
                                 Learn. Grow.<br>Succeed.
                             </h1>
                             <p class="text-gray-200 text-lg md:text-xl mb-10 font-light max-w-2xl leading-relaxed">
@@ -166,7 +174,7 @@ get_header();
                             <div class="inline-block border-l-4 border-secondary pl-3 mb-4">
                                 <h2 class="text-white font-semibold tracking-[0.15em] text-sm uppercase">Secure Environment</h2>
                             </div>
-                            <h1 class="text-white nav-font font-extrabold text-5xl md:text-6xl lg:text-7xl leading-tight mb-6">
+                            <h1 class="text-white nav-font font-extrabold text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-tight mb-4 md:mb-6">
                                 A Home Away<br>From Home.
                             </h1>
                             <p class="text-gray-200 text-lg md:text-xl mb-10 font-light max-w-2xl leading-relaxed">
@@ -194,7 +202,7 @@ get_header();
 
     <!-- 4. Latest News Ticker -->
     <div class="news-ticker-container">
-        <div class="news-label hidden md:block">LATEST NEWS</div>
+        <div class="news-label hidden md:block">LATEST NEWS</div><span class="md:hidden bg-secondary text-white px-2 py-1 text-[10px] font-bold shrink-0 ml-2 rounded"><i class="fas fa-bell"></i></span>
         <div class="ticker-wrap pl-4 md:pl-0">
             <div class="ticker text-sm md:text-base">
                 <span class="mr-12"><i class="fas fa-bell text-secondary mr-2"></i> Admissions Open 2026–27</span>
@@ -213,7 +221,7 @@ get_header();
                     <div class="relative">
                         <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="About TMISB" class="rounded-lg shadow-xl w-full object-cover h-[450px]">
                         <div class="absolute -bottom-6 -right-6 bg-secondary p-6 rounded-lg shadow-lg hidden md:block">
-                            <p class="nav-font font-bold text-3xl text-white mb-1">15+</p>
+                            <p class="nav-font font-bold text-3xl text-white mb-1">29+</p>
                             <p class="text-sm font-semibold text-white">Years of Excellence</p>
                         </div>
                     </div>
@@ -239,7 +247,7 @@ get_header();
     </section>
 
     <!-- 6. Statistics -->
-    <section class="py-16 bg-primary text-white relative" style="background-image: url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-attachment: fixed;">
+    <section class="py-16 bg-primary text-white relative bg-cover bg-center bg-scroll md:bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
         <div class="absolute inset-0 bg-primary opacity-90"></div>
         <div class="container mx-auto px-4 max-w-7xl relative z-10" 
              x-data="{ 
@@ -275,26 +283,26 @@ get_header();
                  }, { threshold: 0.5 });
                  observer.observe($el);
              ">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="p-4" x-data="animate(1500)">
-                    <i class="fas fa-user-graduate text-4xl text-secondary mb-4"></i>
-                    <h3 class="nav-font font-bold text-4xl mb-2"><span x-text="current">0</span>+</h3>
-                    <p class="text-gray-200 font-medium">Students</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 text-center">
+                <div class="p-2 sm:p-4" x-data="animate(1500)">
+                    <i class="fas fa-user-graduate text-3xl sm:text-4xl text-secondary mb-4"></i>
+                    <h3 class="nav-font font-bold text-2xl sm:text-3xl md:text-4xl mb-1 sm:mb-2"><span x-text="current">0</span>+</h3>
+                    <p class="text-gray-200 font-medium text-xs sm:text-sm md:text-base">Students</p>
                 </div>
-                <div class="p-4" x-data="animate(100)">
-                    <i class="fas fa-chalkboard-teacher text-4xl text-secondary mb-4"></i>
-                    <h3 class="nav-font font-bold text-4xl mb-2"><span x-text="current">0</span>+</h3>
-                    <p class="text-gray-200 font-medium">Faculty Members</p>
+                <div class="p-2 sm:p-4" x-data="animate(100)">
+                    <i class="fas fa-chalkboard-teacher text-3xl sm:text-4xl text-secondary mb-4"></i>
+                    <h3 class="nav-font font-bold text-2xl sm:text-3xl md:text-4xl mb-1 sm:mb-2"><span x-text="current">0</span>+</h3>
+                    <p class="text-gray-200 font-medium text-xs sm:text-sm md:text-base">Faculty Members</p>
                 </div>
-                <div class="p-4" x-data="animate(10)">
-                    <i class="fas fa-building text-4xl text-secondary mb-4"></i>
-                    <h3 class="nav-font font-bold text-4xl mb-2"><span x-text="current">0</span>+</h3>
-                    <p class="text-gray-200 font-medium">Acres Campus</p>
+                <div class="p-2 sm:p-4" x-data="animate(10)">
+                    <i class="fas fa-building text-3xl sm:text-4xl text-secondary mb-4"></i>
+                    <h3 class="nav-font font-bold text-2xl sm:text-3xl md:text-4xl mb-1 sm:mb-2"><span x-text="current">0</span>+</h3>
+                    <p class="text-gray-200 font-medium text-xs sm:text-sm md:text-base">Acres Campus</p>
                 </div>
-                <div class="p-4" x-data="animate(15)">
-                    <i class="fas fa-award text-4xl text-secondary mb-4"></i>
-                    <h3 class="nav-font font-bold text-4xl mb-2"><span x-text="current">0</span>+</h3>
-                    <p class="text-gray-200 font-medium">Years of Excellence</p>
+                <div class="p-2 sm:p-4" x-data="animate(29)">
+                    <i class="fas fa-award text-3xl sm:text-4xl text-secondary mb-4"></i>
+                    <h3 class="nav-font font-bold text-2xl sm:text-3xl md:text-4xl mb-1 sm:mb-2"><span x-text="current">0</span>+</h3>
+                    <p class="text-gray-200 font-medium text-xs sm:text-sm md:text-base">Years of Excellence</p>
                 </div>
             </div>
         </div>
@@ -608,9 +616,7 @@ get_header();
                     transform: translateX(calc(-50% - 12px));
                 }
             }
-            @media (max-width: 768px) {
-                /* Gap is 24px (gap-6 in tailwind), so half of the single gap is 12px to offset */
-            }
+
         </style>
     </section>
 
@@ -674,13 +680,13 @@ get_header();
             <div class="flex flex-col lg:flex-row gap-16 items-center">
                 <!-- Image Side -->
                 <div class="w-full lg:w-1/2">
-                    <div class="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl group">
+                    <div class="relative h-[320px] sm:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl group">
                         <img src="<?php echo get_template_directory_uri(); ?>/Notice.png?v=<?php echo time(); ?>" alt="Notice Board" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
-                        <div class="absolute bottom-10 left-10 right-10 text-white">
+                        <div class="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10 text-white">
                             <span class="bg-secondary text-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block shadow-md">Important</span>
-                            <h3 class="nav-font font-extrabold text-4xl mb-3 leading-tight">Stay Updated with TMISB</h3>
-                            <p class="text-white/90 text-lg font-light">Don't miss out on important announcements, exam schedules, and upcoming school events.</p>
+                            <h3 class="nav-font font-extrabold text-2xl sm:text-3xl md:text-4xl mb-3 leading-tight">Stay Updated with TMISB</h3>
+                            <p class="text-white/90 text-sm sm:text-base md:text-lg font-light">Don't miss out on important announcements, exam schedules, and upcoming school events.</p>
                         </div>
                     </div>
                 </div>
@@ -776,7 +782,7 @@ get_header();
             <h2 class="nav-font text-4xl md:text-5xl font-extrabold mb-6 leading-tight">Secure Your Child's Future</h2>
             <p class="text-lg md:text-xl text-white/90 mb-10 leading-relaxed font-light">Admissions are now open for the academic year 2026-27. Join the TMISB family and give your child a world-class educational experience.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-5">
-                <a href="<?php echo home_url('/admissions/'); ?>" class="bg-secondary text-primary font-bold py-4 px-10 rounded-full hover:bg-yellow-400 transform hover:-translate-y-1 transition duration-300 text-sm md:text-base uppercase tracking-wider shadow-xl flex items-center justify-center">
+                <a href="<?php echo home_url('/admissions/'); ?>" class="bg-secondary text-white font-bold py-4 px-10 rounded-full hover:bg-red-800 transform hover:-translate-y-1 transition duration-300 text-sm md:text-base uppercase tracking-wider shadow-xl flex items-center justify-center">
                     Apply Now <i class="fas fa-arrow-right ml-2"></i>
                 </a>
                 <a href="<?php echo home_url('/contact/'); ?>" class="bg-white/10 backdrop-blur border-2 border-white/50 text-white font-bold py-4 px-10 rounded-full hover:bg-white hover:text-primary transform hover:-translate-y-1 transition duration-300 text-sm md:text-base uppercase tracking-wider flex items-center justify-center">
@@ -862,7 +868,7 @@ get_header();
                         loop: true,
                         autoplay: {
                             delay: 4000,
-                            disableOnInteraction: false,
+                            disableOnInteraction: true,
                         },
                         pagination: {
                             el: '.swiper-pagination',
@@ -938,30 +944,30 @@ get_header();
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-                                <input type="text" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
+                                <input type="text" class="w-full text-base border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                                <input type="text" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
+                                <input type="text" class="w-full text-base border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
                             </div>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                                <input type="email" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
+                                <input type="email" class="w-full text-base border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                                <input type="tel" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
+                                <input type="tel" class="w-full text-base border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
                             </div>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                            <input type="text" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
+                            <input type="text" class="w-full text-base border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
-                            <textarea rows="4" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required></textarea>
+                            <textarea rows="4" class="w-full text-base border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required></textarea>
                         </div>
                         <button type="submit" class="bg-primary hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded transition w-full md:w-auto">Submit Form</button>
                     </form>
@@ -1010,10 +1016,13 @@ get_header();
                             allowfullscreen="" 
                             loading="lazy" 
                             referrerpolicy="no-referrer-when-downgrade"
-                            class="absolute inset-0 z-0">
+                            class="absolute inset-0 z-0 pointer-events-none md:pointer-events-auto">
                         </iframe>
-                        <a href="https://maps.app.goo.gl/fQYFbkphkkN2VVay9" target="_blank" class="absolute inset-0 z-10 hidden group-hover:flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300">
+                        <a href="https://maps.app.goo.gl/fQYFbkphkkN2VVay9" target="_blank" class="absolute inset-0 z-10 hidden md:group-hover:flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300">
                             <span class="bg-primary text-white font-bold py-2 px-6 rounded shadow-lg transform translate-y-4 group-hover:translate-y-0 transition duration-300">Open in Google Maps <i class="fas fa-external-link-alt ml-2"></i></span>
+                        </a>
+                        <a href="https://maps.app.goo.gl/fQYFbkphkkN2VVay9" target="_blank" class="md:hidden absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-primary text-white font-bold py-2 px-6 rounded shadow-lg text-sm whitespace-nowrap z-20">
+                            Open in Maps <i class="fas fa-external-link-alt ml-2"></i>
                         </a>
                     </div>
                 </div>

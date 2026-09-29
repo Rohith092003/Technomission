@@ -100,7 +100,7 @@ get_header();
     </div>
 
     <!-- Page Header -->
-    <section class="page-header py-24 text-center">
+    <section class="page-header py-14 sm:py-20 md:py-24 text-center">
         <div class="container mx-auto px-4">
             <h1 class="nav-font font-bold text-4xl text-white mb-4">Contact Us</h1>
             <div class="flex items-center justify-center text-gray-300 text-sm">
@@ -158,26 +158,26 @@ get_header();
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-                                <input type="text" class="w-full border border-gray-300 rounded px-4 py-2" required>
+                                <input type="text" class="w-full text-base border border-gray-300 rounded px-4 py-2" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                                <input type="text" class="w-full border border-gray-300 rounded px-4 py-2" required>
+                                <input type="text" class="w-full text-base border border-gray-300 rounded px-4 py-2" required>
                             </div>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                                <input type="email" class="w-full border border-gray-300 rounded px-4 py-2" required>
+                                <input type="email" class="w-full text-base border border-gray-300 rounded px-4 py-2" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                                <input type="tel" class="w-full border border-gray-300 rounded px-4 py-2" required>
+                                <input type="tel" class="w-full text-base border border-gray-300 rounded px-4 py-2" required>
                             </div>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
-                            <textarea rows="5" class="w-full border border-gray-300 rounded px-4 py-2" required></textarea>
+                            <textarea rows="5" class="w-full text-base border border-gray-300 rounded px-4 py-2" required></textarea>
                         </div>
                         <button type="submit" class="bg-primary hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded transition w-full">Submit Message</button>
                     </form>
@@ -196,10 +196,13 @@ get_header();
             allowfullscreen="" 
             loading="lazy" 
             referrerpolicy="no-referrer-when-downgrade"
-            class="absolute inset-0 z-0 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition duration-500">
+            class="absolute inset-0 z-0 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition duration-500 pointer-events-none md:pointer-events-auto">
         </iframe>
-        <a href="https://maps.app.goo.gl/fQYFbkphkkN2VVay9" target="_blank" class="absolute inset-0 z-10 hidden group-hover:flex items-center justify-center bg-black/20 backdrop-blur-sm transition duration-300">
+        <a href="https://maps.app.goo.gl/fQYFbkphkkN2VVay9" target="_blank" class="absolute inset-0 z-10 hidden md:group-hover:flex items-center justify-center bg-black/20 backdrop-blur-sm transition duration-300">
             <span class="bg-primary text-white font-bold py-3 px-8 rounded shadow-2xl transform translate-y-4 group-hover:translate-y-0 transition duration-300">Open in Google Maps <i class="fas fa-external-link-alt ml-2"></i></span>
+        </a>
+        <a href="https://maps.app.goo.gl/fQYFbkphkkN2VVay9" target="_blank" class="md:hidden absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-primary text-white font-bold py-2 px-6 rounded shadow-lg text-sm whitespace-nowrap z-20">
+            Open in Maps <i class="fas fa-external-link-alt ml-2"></i>
         </a>
     </section>
 

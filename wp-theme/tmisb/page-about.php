@@ -100,7 +100,7 @@ get_header();
     </div>
 
     <!-- Page Header -->
-    <section class="relative py-32 bg-primaryDark overflow-hidden">
+    <section class="relative py-16 md:py-32 bg-primaryDark overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Hero2.png?v=<?php echo time(); ?>" alt="Campus Background" class="w-full h-full object-cover opacity-40">
             <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/90 to-primaryDark/30"></div>
@@ -176,9 +176,9 @@ get_header();
                         </div>
                     </div>
                     <!-- Experience Badge -->
-                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-2xl flex items-center justify-center">
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-2xl hidden sm:flex items-center justify-center">
                         <div class="w-24 h-24 border-2 border-dashed border-secondary rounded-full flex flex-col items-center justify-center bg-lightBg">
-                            <span class="text-secondary font-bold text-2xl">25+</span>
+                            <span class="text-secondary font-bold text-2xl">29+</span>
                             <span class="text-[9px] uppercase font-bold text-primary tracking-widest">Years</span>
                         </div>
                     </div>
@@ -221,7 +221,7 @@ get_header();
                 <!-- Content Side -->
                 <div class="w-full lg:w-7/12 relative">
                     <!-- Massive decorative quote mark behind text -->
-                    <div class="absolute -top-10 -left-10 text-[180px] text-gray-50 leading-none nav-font font-serif z-0 select-none">"</div>
+                    <div class="absolute -top-10 left-0 md:-left-10 text-[100px] md:text-[180px] text-gray-50 leading-none nav-font font-serif z-0 select-none">"</div>
                     
                     <div class="relative z-10">
                         <div class="flex items-center mb-6">

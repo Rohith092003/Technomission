@@ -100,7 +100,7 @@ get_header();
     </div>
 
     <!-- Page Header -->
-    <section class="page-header py-24 text-center">
+    <section class="page-header py-14 sm:py-20 md:py-24 text-center">
         <div class="container mx-auto px-4">
             <h1 class="nav-font font-bold text-4xl text-white mb-4">Academic Curriculum</h1>
             <div class="flex items-center justify-center text-gray-300 text-sm">
@@ -231,7 +231,7 @@ get_header();
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <!-- Competitive Prep -->
-                <div class="bg-gradient-to-br from-primary to-blue-900 rounded-2xl p-10 text-white shadow-2xl relative overflow-hidden group">
+                <div class="bg-gradient-to-br from-primary to-blue-900 rounded-2xl p-6 sm:p-8 md:p-10 text-white shadow-2xl relative overflow-hidden group">
                     <div class="absolute top-0 right-0 opacity-10 transform translate-x-1/4 -translate-y-1/4 group-hover:scale-110 transition duration-700">
                         <i class="fas fa-trophy text-[180px]"></i>
                     </div>
@@ -248,7 +248,7 @@ get_header();
                 </div>
                 
                 <!-- Day-Cum-Boarding -->
-                <div class="bg-white rounded-2xl p-10 shadow-2xl border border-gray-100 relative overflow-hidden group">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 md:p-10 shadow-2xl border border-gray-100 relative overflow-hidden group">
                     <div class="absolute top-0 right-0 opacity-[0.03] transform translate-x-1/4 -translate-y-1/4 group-hover:scale-110 transition duration-700">
                         <i class="fas fa-home text-[180px] text-primary"></i>
                     </div>

@@ -100,7 +100,7 @@ get_header();
     </div>
 
     <!-- Page Header -->
-    <section class="page-header py-24 text-center">
+    <section class="page-header py-14 sm:py-20 md:py-24 text-center">
         <div class="container mx-auto px-4">
             <h1 class="nav-font font-bold text-4xl text-white mb-4">Activities & Sports</h1>
             <div class="flex items-center justify-center text-gray-300 text-sm">

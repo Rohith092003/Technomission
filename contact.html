@@ -58,7 +58,7 @@
     </div>
 
     <!-- Mobile Header (Visible only on xl < ) -->
-    <header class="bg-white shadow-md xl:hidden">
+    <header class="bg-white shadow-md xl:hidden relative">
         <div class="container mx-auto px-4 flex justify-between items-center py-3">
             <a href="index.html" class="flex items-center">
                 <img src="assets/images/logo.webp" alt="TMISB Logo" class="h-12 w-auto mr-2">
@@ -73,22 +73,29 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div class="absolute w-full bg-primary text-white shadow-xl border-t border-white/10 z-40" x-show="mobileMenuOpen" x-transition x-cloak>
+        <div class="absolute top-full left-0 w-full bg-primary text-white shadow-xl border-t border-white/10 z-40 max-h-[calc(100vh-65px)] overflow-y-auto" x-show="mobileMenuOpen" x-transition x-cloak>
+            <div class="p-4 border-b border-white/10">
+                <a href="admissions.html" class="block text-center bg-secondary text-white font-bold py-2.5 px-4 rounded shadow admission-glow text-sm uppercase tracking-wide">
+                    Admissions Enquiry 2026 - 27
+                </a>
+            </div>
             <div class="flex flex-col px-4 py-2 nav-font font-medium">
-                <a href="index.html" class="py-3 border-b border-white/10 text-secondary">Home</a>
+                <a href="index.html" class="py-3 border-b border-white/10 mobile-nav-link">Home</a>
                 <div x-data="{ open: false }">
                     <button @click="open = !open" class="flex justify-between items-center w-full py-3 border-b border-white/10">
                         About Us <i class="fas fa-chevron-down text-xs transition" :class="open ? 'rotate-180' : ''"></i>
                     </button>
                     <div x-show="open" class="bg-primaryDark px-4 py-2 text-sm flex flex-col">
-                        <a href="#" class="py-2 hover:text-secondary">About School</a>
+                        <a href="about.html" class="py-2 hover:text-secondary">About School</a>
                         <a href="#" class="py-2 hover:text-secondary">Principal's Message</a>
                     </div>
                 </div>
-                <a href="academics.html" class="py-3 border-b border-white/10">Academics</a>
-                <a href="labs.html" class="py-3 border-b border-white/10">Facilities</a>
-                <a href="admissions.html" class="py-3 border-b border-white/10">Admissions</a>
-                <a href="contact.html" class="py-3 border-b border-white/10">Contact Us</a>
+                <a href="academics.html" class="py-3 border-b border-white/10 mobile-nav-link">Academics</a>
+                <a href="labs.html" class="py-3 border-b border-white/10 mobile-nav-link">Labs</a>
+                <a href="activities.html" class="py-3 border-b border-white/10 mobile-nav-link">Activities</a>
+                <a href="gallery.html" class="py-3 border-b border-white/10 mobile-nav-link">Gallery</a>
+                <a href="admissions.html" class="py-3 border-b border-white/10 mobile-nav-link">Admissions</a>
+                <a href="contact.html" class="py-3 border-b border-white/10 mobile-nav-link">Contact Us</a>
             </div>
         </div>
     </header>
@@ -181,6 +188,19 @@
                 }
             });
         }
+
+        // Mobile menu active link highlighting
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileNavLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (!href || href === '#') return;
+            
+            if (href !== 'index.html' && href !== '/' && currentPath.includes(href.replace('.html', ''))) {
+                link.classList.add('text-secondary', 'font-bold');
+            } else if ((currentPath === '/' || currentPath.endsWith('index.html') || currentPath.endsWith('/')) && href === 'index.html') {
+                link.classList.add('text-secondary', 'font-bold');
+            }
+        });
     });
     </script>
     
@@ -189,7 +209,7 @@
     </div>
 
     <!-- Page Header -->
-    <section class="page-header py-24 text-center">
+    <section class="page-header py-14 sm:py-20 md:py-24 text-center">
         <div class="container mx-auto px-4">
             <h1 class="nav-font font-bold text-4xl text-white mb-4">Contact Us</h1>
             <div class="flex items-center justify-center text-gray-300 text-sm">
@@ -247,26 +267,26 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-                                <input type="text" class="w-full border border-gray-300 rounded px-4 py-2" required>
+                                <input type="text" class="w-full border border-gray-300 rounded px-4 py-2 text-base" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                                <input type="text" class="w-full border border-gray-300 rounded px-4 py-2" required>
+                                <input type="text" class="w-full border border-gray-300 rounded px-4 py-2 text-base" required>
                             </div>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                                <input type="email" class="w-full border border-gray-300 rounded px-4 py-2" required>
+                                <input type="email" class="w-full border border-gray-300 rounded px-4 py-2 text-base" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                                <input type="tel" class="w-full border border-gray-300 rounded px-4 py-2" required>
+                                <input type="tel" class="w-full border border-gray-300 rounded px-4 py-2 text-base" required>
                             </div>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
-                            <textarea rows="5" class="w-full border border-gray-300 rounded px-4 py-2" required></textarea>
+                            <textarea rows="5" class="w-full border border-gray-300 rounded px-4 py-2 text-base" required></textarea>
                         </div>
                         <button type="submit" class="bg-primary hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded transition w-full">Submit Message</button>
                     </form>
@@ -285,11 +305,17 @@
             allowfullscreen="" 
             loading="lazy" 
             referrerpolicy="no-referrer-when-downgrade"
-            class="absolute inset-0 z-0 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition duration-500">
+            class="absolute inset-0 z-0 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition duration-500 pointer-events-none md:pointer-events-auto">
         </iframe>
         <a href="https://maps.app.goo.gl/fQYFbkphkkN2VVay9" target="_blank" class="absolute inset-0 z-10 hidden group-hover:flex items-center justify-center bg-black/20 backdrop-blur-sm transition duration-300">
             <span class="bg-primary text-white font-bold py-3 px-8 rounded shadow-2xl transform translate-y-4 group-hover:translate-y-0 transition duration-300">Open in Google Maps <i class="fas fa-external-link-alt ml-2"></i></span>
         </a>
+        <!-- Mobile Open in Maps Button -->
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10 md:hidden">
+            <a href="https://maps.app.goo.gl/fQYFbkphkkN2VVay9" target="_blank" class="bg-primary text-white font-bold py-2.5 px-6 rounded shadow-xl text-sm flex items-center whitespace-nowrap">
+                Open in Maps <i class="fas fa-external-link-alt ml-2"></i>
+            </a>
+        </div>
     </section>
 
     <!-- Footer (Reused) -->

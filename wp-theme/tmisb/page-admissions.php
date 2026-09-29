@@ -100,7 +100,7 @@ get_header();
     </div>
 
     <!-- Page Header -->
-    <section class="page-header py-24 text-center">
+    <section class="page-header py-14 sm:py-20 md:py-24 text-center">
         <div class="container mx-auto px-4">
             <h1 class="nav-font font-bold text-4xl text-white mb-4">Admissions 2026–27</h1>
             <div class="flex items-center justify-center text-gray-300 text-sm">
@@ -175,33 +175,33 @@ get_header();
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <label class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-2">Student's Full Name *</label>
-                                    <input type="text" class="w-full px-0 py-2 border-b-2 border-gray-300 focus:border-primary outline-none transition bg-transparent text-gray-800">
+                                    <input type="text" class="w-full px-0 py-2 text-base border-b-2 border-gray-300 focus:border-primary outline-none transition bg-transparent text-gray-800">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-2">Date of Birth *</label>
-                                    <input type="date" class="w-full px-0 py-2 border-b-2 border-gray-300 focus:border-primary outline-none transition bg-transparent text-gray-800">
+                                    <input type="date" class="w-full px-0 py-2 text-base border-b-2 border-gray-300 focus:border-primary outline-none transition bg-transparent text-gray-800">
                                 </div>
                             </div>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <label class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-2">Parent/Guardian Name *</label>
-                                    <input type="text" class="w-full px-0 py-2 border-b-2 border-gray-300 focus:border-primary outline-none transition bg-transparent text-gray-800">
+                                    <input type="text" class="w-full px-0 py-2 text-base border-b-2 border-gray-300 focus:border-primary outline-none transition bg-transparent text-gray-800">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-2">Contact Number *</label>
-                                    <input type="tel" class="w-full px-0 py-2 border-b-2 border-gray-300 focus:border-primary outline-none transition bg-transparent text-gray-800">
+                                    <input type="tel" class="w-full px-0 py-2 text-base border-b-2 border-gray-300 focus:border-primary outline-none transition bg-transparent text-gray-800">
                                 </div>
                             </div>
 
                             <div>
                                 <label class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-2">Email Address (Optional)</label>
-                                <input type="email" class="w-full px-0 py-2 border-b-2 border-gray-300 focus:border-primary outline-none transition bg-transparent text-gray-800">
+                                <input type="email" class="w-full px-0 py-2 text-base border-b-2 border-gray-300 focus:border-primary outline-none transition bg-transparent text-gray-800">
                             </div>
                             
                             <div>
                                 <label class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-2">Grade Applying For *</label>
-                                <select class="w-full px-0 py-2 border-b-2 border-gray-300 focus:border-primary outline-none transition bg-transparent text-gray-800">
+                                <select class="w-full px-0 py-2 text-base border-b-2 border-gray-300 focus:border-primary outline-none transition bg-transparent text-gray-800">
                                     <option value="" disabled selected>-- Select Grade --</option>
                                     <option value="nursery">Nursery / LKG / UKG</option>
                                     <option value="primary">Primary (Class 1-5)</option>

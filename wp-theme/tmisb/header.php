@@ -66,7 +66,7 @@
     </div>
 
     <!-- Mobile Header (Visible only on xl < ) -->
-    <header class="bg-white shadow-md xl:hidden">
+    <header class="bg-white shadow-md xl:hidden relative">
         <div class="container mx-auto px-4 flex justify-between items-center py-3">
             <a href="<?php echo home_url('/'); ?>" class="flex items-center">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.webp?v=<?php echo time(); ?>" alt="TMISB Logo" class="h-12 w-auto mr-2">
@@ -81,22 +81,29 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div class="absolute w-full bg-primary text-white shadow-xl border-t border-white/10 z-40" x-show="mobileMenuOpen" x-transition x-cloak>
+        <div class="absolute top-full left-0 w-full bg-primary text-white shadow-xl border-t border-white/10 z-40 max-h-[calc(100vh-65px)] overflow-y-auto" x-show="mobileMenuOpen" x-transition x-cloak>
             <div class="flex flex-col px-4 py-2 nav-font font-medium">
-                <a href="<?php echo home_url('/'); ?>" class="py-3 border-b border-white/10 text-secondary">Home</a>
+                <div class="py-3 border-b border-white/10">
+                    <a href="<?php echo home_url('/admissions/'); ?>" class="bg-secondary text-white font-bold px-4 py-2 rounded shadow-sm hover:shadow-md transition text-sm w-full text-center block ring-2 ring-secondary ring-offset-2 ring-offset-primary">
+                        Admissions Enquiry 2026 - 27
+                    </a>
+                </div>
+                <a href="<?php echo home_url('/'); ?>" class="mobile-nav-link py-3 border-b border-white/10">Home</a>
                 <div x-data="{ open: false }">
-                    <button @click="open = !open" class="flex justify-between items-center w-full py-3 border-b border-white/10">
+                    <button @click="open = !open" class="mobile-nav-link flex justify-between items-center w-full py-3 border-b border-white/10">
                         About Us <i class="fas fa-chevron-down text-xs transition" :class="open ? 'rotate-180' : ''"></i>
                     </button>
                     <div x-show="open" class="bg-primaryDark px-4 py-2 text-sm flex flex-col">
-                        <a href="#" class="py-2 hover:text-secondary">About School</a>
-                        <a href="#" class="py-2 hover:text-secondary">Principal's Message</a>
+                        <a href="<?php echo home_url('/about/'); ?>" class="mobile-nav-link py-2 hover:text-secondary">About School</a>
+                        <a href="#" class="mobile-nav-link py-2 hover:text-secondary">Principal's Message</a>
                     </div>
                 </div>
-                <a href="<?php echo home_url('/academics/'); ?>" class="py-3 border-b border-white/10">Academics</a>
-                <a href="<?php echo home_url('/labs/'); ?>" class="py-3 border-b border-white/10">Facilities</a>
-                <a href="<?php echo home_url('/admissions/'); ?>" class="py-3 border-b border-white/10">Admissions</a>
-                <a href="<?php echo home_url('/contact/'); ?>" class="py-3 border-b border-white/10">Contact Us</a>
+                <a href="<?php echo home_url('/academics/'); ?>" class="mobile-nav-link py-3 border-b border-white/10">Academics</a>
+                <a href="<?php echo home_url('/labs/'); ?>" class="mobile-nav-link py-3 border-b border-white/10">Labs</a>
+                <a href="<?php echo home_url('/activities/'); ?>" class="mobile-nav-link py-3 border-b border-white/10">Activities</a>
+                <a href="<?php echo home_url('/gallery/'); ?>" class="mobile-nav-link py-3 border-b border-white/10">Gallery</a>
+                <a href="<?php echo home_url('/admissions/'); ?>" class="mobile-nav-link py-3 border-b border-white/10">Admissions</a>
+                <a href="<?php echo home_url('/contact/'); ?>" class="mobile-nav-link py-3 border-b border-white/10">Contact Us</a>
             </div>
         </div>
     </header>
