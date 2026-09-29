@@ -7,10 +7,10 @@ get_header();
     <nav class="bg-primary hidden xl:block border-t border-white/10">
         <div class="container mx-auto px-2 max-w-[1500px]">
             <ul class="flex justify-center items-center space-x-8 2xl:space-x-10 nav-font font-semibold text-white text-sm py-3.5">
-                <li><a href="index.html" class="hover:text-secondary transition pb-1 border-b-2 border-secondary">Home</a></li>
+                <li><a href="<?php echo home_url('/'); ?>" class="hover:text-secondary transition pb-1 border-b-2 border-secondary">Home</a></li>
                 
                 <li class="relative group nav-item">
-                    <a href="about.html" class="hover:text-secondary transition flex items-center pb-1">About Us <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
+                    <a href="<?php echo home_url('/about/'); ?>" class="hover:text-secondary transition flex items-center pb-1">About Us <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
                     <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">About School</a></li>
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Principal's Message</a></li>
@@ -22,7 +22,7 @@ get_header();
                 </li>
 
                 <li class="relative group nav-item">
-                    <a href="academics.html" class="hover:text-secondary transition flex items-center pb-1">Academics <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
+                    <a href="<?php echo home_url('/academics/'); ?>" class="hover:text-secondary transition flex items-center pb-1">Academics <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
                     <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-48 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Primary</a></li>
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Secondary</a></li>
@@ -31,7 +31,7 @@ get_header();
                 </li>
                 
                 <li class="relative group nav-item">
-                    <a href="labs.html" class="hover:text-secondary transition flex items-center pb-1">Labs <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
+                    <a href="<?php echo home_url('/labs/'); ?>" class="hover:text-secondary transition flex items-center pb-1">Labs <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
                     <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-48 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Computer Lab</a></li>
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Physics Lab</a></li>
@@ -42,7 +42,7 @@ get_header();
                 </li>
 
                 <li class="relative group nav-item">
-                    <a href="activities.html" class="hover:text-secondary transition flex items-center pb-1">Activities <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
+                    <a href="<?php echo home_url('/activities/'); ?>" class="hover:text-secondary transition flex items-center pb-1">Activities <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
                     <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-48 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Yoga</a></li>
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Dramatics</a></li>
@@ -51,9 +51,9 @@ get_header();
                     </ul>
                 </li>
 
-                <li><a href="gallery.html" class="hover:text-secondary transition pb-1">Gallery</a></li>
+                <li><a href="<?php echo home_url('/gallery/'); ?>" class="hover:text-secondary transition pb-1">Gallery</a></li>
                 <li><a href="#" class="hover:text-secondary transition pb-1">Blog</a></li>
-                <li><a href="contact.html" class="hover:text-secondary transition pb-1">Contact Us</a></li>
+                <li><a href="<?php echo home_url('/contact/'); ?>" class="hover:text-secondary transition pb-1">Contact Us</a></li>
             </ul>
         </div>
     </nav>
@@ -81,7 +81,7 @@ get_header();
                                 A future-focused K-12 Day-Cum-Boarding school empowering students through academic excellence, innovation, and character development.
                             </p>
                             <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-5">
-                                <a href="admissions.html" class="bg-secondary text-white font-bold py-3.5 px-8 rounded flex items-center justify-center hover:bg-red-800 transition shadow-lg group">
+                                <a href="<?php echo home_url('/admissions/'); ?>" class="bg-secondary text-white font-bold py-3.5 px-8 rounded flex items-center justify-center hover:bg-red-800 transition shadow-lg group">
                                     Apply Now <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
                                 </a>
                                 <a href="#" class="bg-transparent border-2 border-white text-white font-bold py-3.5 px-8 rounded flex items-center justify-center hover:bg-white hover:text-primary transition">
@@ -110,7 +110,7 @@ get_header();
                                 State-of-the-art smart classrooms, advanced robotics labs, and comprehensive sports complexes designed for holistic development.
                             </p>
                             <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-5">
-                                <a href="admissions.html" class="bg-secondary text-white font-bold py-3.5 px-8 rounded flex items-center justify-center hover:bg-red-800 transition shadow-lg group">
+                                <a href="<?php echo home_url('/admissions/'); ?>" class="bg-secondary text-white font-bold py-3.5 px-8 rounded flex items-center justify-center hover:bg-red-800 transition shadow-lg group">
                                     Admissions Enquiry <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
                                 </a>
                             </div>
@@ -139,7 +139,7 @@ get_header();
                                 <a href="#" class="bg-primary text-white border border-primary font-bold py-3.5 px-8 rounded flex items-center justify-center hover:bg-primaryDark transition shadow-lg">
                                     View Facilities
                                 </a>
-                                <a href="contact.html" class="bg-transparent border-2 border-white text-white font-bold py-3.5 px-8 rounded flex items-center justify-center hover:bg-white hover:text-primary transition">
+                                <a href="<?php echo home_url('/contact/'); ?>" class="bg-transparent border-2 border-white text-white font-bold py-3.5 px-8 rounded flex items-center justify-center hover:bg-white hover:text-primary transition">
                                     Contact Us
                                 </a>
                             </div>
@@ -195,7 +195,7 @@ get_header();
                         <li class="flex items-start"><i class="fas fa-check-circle text-primary mt-1 mr-3"></i> <span class="text-gray-700">Dedicated Day-cum-Boarding facilities</span></li>
                         <li class="flex items-start"><i class="fas fa-check-circle text-primary mt-1 mr-3"></i> <span class="text-gray-700">Focus on character building and sports</span></li>
                     </ul>
-                    <a href="about.html" class="bg-primary hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded transition inline-block">Read More</a>
+                    <a href="<?php echo home_url('/about/'); ?>" class="bg-primary hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded transition inline-block">Read More</a>
                 </div>
             </div>
         </div>
@@ -264,58 +264,91 @@ get_header();
     </section>
 
     <!-- 7. Our Programs -->
-    <section class="section-padding bg-lightBg">
-        <div class="container mx-auto px-4 max-w-7xl">
-            <div class="text-center mb-12">
-                <h4 class="text-secondary font-bold text-sm uppercase tracking-wider mb-2">Academics</h4>
+    <section class="section-padding bg-lightBg relative overflow-hidden">
+        <div class="container mx-auto px-4 max-w-7xl relative z-10">
+            <div class="text-center mb-16">
+                <h4 class="text-secondary font-bold text-sm uppercase tracking-widest mb-3">Academic Excellence</h4>
                 <h2 class="section-title">Our Programs</h2>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Program Card -->
-                <div class="bg-white rounded-lg shadow-card overflow-hidden card-hover">
-                    <div class="h-48 img-zoom-container">
-                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Primary" class="w-full h-full object-cover img-zoom">
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+                
+                <!-- Program Card 1 -->
+                <div class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col border border-gray-100 transform hover:-translate-y-2">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Primary" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                        <div class="absolute top-4 right-4 bg-secondary text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded shadow-md">Foundation</div>
                     </div>
-                    <div class="p-6 text-center">
-                        <h3 class="nav-font font-bold text-xl text-primary mb-3">Primary</h3>
-                        <p class="text-gray-600 text-sm mb-4">Building a strong foundation with inquiry-based learning and creative exploration.</p>
-                        <a href="academics.html" class="text-secondary font-bold hover:text-primary transition">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
-                    </div>
-                </div>
-                <!-- Program Card -->
-                <div class="bg-white rounded-lg shadow-card overflow-hidden card-hover">
-                    <div class="h-48 img-zoom-container">
-                        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Secondary" class="w-full h-full object-cover img-zoom">
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="nav-font font-bold text-xl text-primary mb-3">Secondary</h3>
-                        <p class="text-gray-600 text-sm mb-4">Fostering critical thinking and academic discipline in growing minds.</p>
-                        <a href="academics.html" class="text-secondary font-bold hover:text-primary transition">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                    <div class="p-6 flex-grow flex flex-col relative">
+                        <div class="absolute top-0 left-0 w-0 h-1 bg-secondary transition-all duration-500 group-hover:w-full"></div>
+                        <h3 class="nav-font font-bold text-2xl text-primary mb-3">Primary</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">
+                            Building a strong foundation with inquiry-based learning, interactive play, and creative exploration.
+                        </p>
+                        <a href="<?php echo home_url('/academics/'); ?>" class="inline-flex items-center text-sm font-bold text-secondary hover:text-primary transition-colors">
+                            Explore Program <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform duration-300"></i>
+                        </a>
                     </div>
                 </div>
-                <!-- Program Card -->
-                <div class="bg-white rounded-lg shadow-card overflow-hidden card-hover">
-                    <div class="h-48 img-zoom-container">
-                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Senior Secondary" class="w-full h-full object-cover img-zoom">
+
+                <!-- Program Card 2 -->
+                <div class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col border border-gray-100 transform hover:-translate-y-2">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Secondary" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                        <div class="absolute top-4 right-4 bg-secondary text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded shadow-md">Growth</div>
                     </div>
-                    <div class="p-6 text-center">
-                        <h3 class="nav-font font-bold text-xl text-primary mb-3">High School</h3>
-                        <p class="text-gray-600 text-sm mb-4">Comprehensive preparation for board exams and future career pathways.</p>
-                        <a href="academics.html" class="text-secondary font-bold hover:text-primary transition">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
-                    </div>
-                </div>
-                <!-- Program Card -->
-                <div class="bg-white rounded-lg shadow-card overflow-hidden card-hover">
-                    <div class="h-48 img-zoom-container">
-                        <img src="https://images.unsplash.com/photo-1558021211-6d1403321394?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Boarding" class="w-full h-full object-cover img-zoom">
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="nav-font font-bold text-xl text-primary mb-3">Day-Cum-Boarding</h3>
-                        <p class="text-gray-600 text-sm mb-4">A secure, nurturing residential environment emphasizing life skills.</p>
-                        <a href="academics.html" class="text-secondary font-bold hover:text-primary transition">Read More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                    <div class="p-6 flex-grow flex flex-col relative">
+                        <div class="absolute top-0 left-0 w-0 h-1 bg-secondary transition-all duration-500 group-hover:w-full"></div>
+                        <h3 class="nav-font font-bold text-2xl text-primary mb-3">Secondary</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">
+                            Fostering critical thinking, academic discipline, and leadership skills in growing minds.
+                        </p>
+                        <a href="<?php echo home_url('/academics/'); ?>" class="inline-flex items-center text-sm font-bold text-secondary hover:text-primary transition-colors">
+                            Explore Program <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform duration-300"></i>
+                        </a>
                     </div>
                 </div>
+
+                <!-- Program Card 3 -->
+                <div class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col border border-gray-100 transform hover:-translate-y-2">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="High School" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                        <div class="absolute top-4 right-4 bg-secondary text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded shadow-md">Future Ready</div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col relative">
+                        <div class="absolute top-0 left-0 w-0 h-1 bg-secondary transition-all duration-500 group-hover:w-full"></div>
+                        <h3 class="nav-font font-bold text-2xl text-primary mb-3">High School</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">
+                            Comprehensive preparation for board exams and future career pathways with specialized streams.
+                        </p>
+                        <a href="<?php echo home_url('/academics/'); ?>" class="inline-flex items-center text-sm font-bold text-secondary hover:text-primary transition-colors">
+                            Explore Program <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform duration-300"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program Card 4 -->
+                <div class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col border border-gray-100 transform hover:-translate-y-2">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558021211-6d1403321394?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Boarding" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                        <div class="absolute top-4 right-4 bg-secondary text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded shadow-md">Residential</div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col relative">
+                        <div class="absolute top-0 left-0 w-0 h-1 bg-secondary transition-all duration-500 group-hover:w-full"></div>
+                        <h3 class="nav-font font-bold text-2xl text-primary mb-3">Day-Cum-Boarding</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">
+                            A secure, nurturing residential environment emphasizing independence and essential life skills.
+                        </p>
+                        <a href="<?php echo home_url('/academics/'); ?>" class="inline-flex items-center text-sm font-bold text-secondary hover:text-primary transition-colors">
+                            Explore Program <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform duration-300"></i>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -447,7 +480,7 @@ get_header();
                     <h4 class="text-secondary font-bold text-sm uppercase tracking-wider mb-2">Campus Life</h4>
                     <h2 class="section-title left-align mb-0">Image Gallery</h2>
                 </div>
-                <a href="gallery.html" class="hidden md:inline-block border border-primary text-primary px-6 py-2 rounded hover:bg-primary hover:text-white transition">View All</a>
+                <a href="<?php echo home_url('/gallery/'); ?>" class="hidden md:inline-block border border-primary text-primary px-6 py-2 rounded hover:bg-primary hover:text-white transition">View All</a>
             </div>
         </div>
         
@@ -706,10 +739,10 @@ get_header();
             <h2 class="nav-font text-4xl md:text-5xl font-extrabold mb-6 leading-tight">Secure Your Child's Future</h2>
             <p class="text-lg md:text-xl text-white/90 mb-10 leading-relaxed font-light">Admissions are now open for the academic year 2026-27. Join the TMISB family and give your child a world-class educational experience.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-5">
-                <a href="admissions.html" class="bg-secondary text-primary font-bold py-4 px-10 rounded-full hover:bg-yellow-400 transform hover:-translate-y-1 transition duration-300 text-sm md:text-base uppercase tracking-wider shadow-xl flex items-center justify-center">
+                <a href="<?php echo home_url('/admissions/'); ?>" class="bg-secondary text-primary font-bold py-4 px-10 rounded-full hover:bg-yellow-400 transform hover:-translate-y-1 transition duration-300 text-sm md:text-base uppercase tracking-wider shadow-xl flex items-center justify-center">
                     Apply Now <i class="fas fa-arrow-right ml-2"></i>
                 </a>
-                <a href="contact.html" class="bg-white/10 backdrop-blur border-2 border-white/50 text-white font-bold py-4 px-10 rounded-full hover:bg-white hover:text-primary transform hover:-translate-y-1 transition duration-300 text-sm md:text-base uppercase tracking-wider flex items-center justify-center">
+                <a href="<?php echo home_url('/contact/'); ?>" class="bg-white/10 backdrop-blur border-2 border-white/50 text-white font-bold py-4 px-10 rounded-full hover:bg-white hover:text-primary transform hover:-translate-y-1 transition duration-300 text-sm md:text-base uppercase tracking-wider flex items-center justify-center">
                     Schedule a Visit <i class="far fa-calendar-check ml-2"></i>
                 </a>
             </div>

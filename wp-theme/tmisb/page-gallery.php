@@ -8,10 +8,10 @@ get_header();
     <nav class="bg-primary hidden xl:block border-t border-white/10">
         <div class="container mx-auto px-2 max-w-[1500px]">
             <ul class="flex justify-center items-center space-x-8 2xl:space-x-10 nav-font font-semibold text-white text-sm py-3.5">
-                <li><a href="index.html" class="hover:text-secondary transition pb-1 border-b-2 border-secondary">Home</a></li>
+                <li><a href="<?php echo home_url('/'); ?>" class="hover:text-secondary transition pb-1 border-b-2 border-secondary">Home</a></li>
                 
                 <li class="relative group nav-item">
-                    <a href="about.html" class="hover:text-secondary transition flex items-center pb-1">About Us <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
+                    <a href="<?php echo home_url('/about/'); ?>" class="hover:text-secondary transition flex items-center pb-1">About Us <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
                     <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">About School</a></li>
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Principal's Message</a></li>
@@ -23,7 +23,7 @@ get_header();
                 </li>
 
                 <li class="relative group nav-item">
-                    <a href="academics.html" class="hover:text-secondary transition flex items-center pb-1">Academics <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
+                    <a href="<?php echo home_url('/academics/'); ?>" class="hover:text-secondary transition flex items-center pb-1">Academics <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
                     <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-48 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Primary</a></li>
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Secondary</a></li>
@@ -32,7 +32,7 @@ get_header();
                 </li>
                 
                 <li class="relative group nav-item">
-                    <a href="labs.html" class="hover:text-secondary transition flex items-center pb-1">Labs <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
+                    <a href="<?php echo home_url('/labs/'); ?>" class="hover:text-secondary transition flex items-center pb-1">Labs <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
                     <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-48 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Computer Lab</a></li>
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Physics Lab</a></li>
@@ -43,7 +43,7 @@ get_header();
                 </li>
 
                 <li class="relative group nav-item">
-                    <a href="activities.html" class="hover:text-secondary transition flex items-center pb-1">Activities <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
+                    <a href="<?php echo home_url('/activities/'); ?>" class="hover:text-secondary transition flex items-center pb-1">Activities <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
                     <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-48 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Yoga</a></li>
                         <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Dramatics</a></li>
@@ -52,9 +52,9 @@ get_header();
                     </ul>
                 </li>
 
-                <li><a href="gallery.html" class="hover:text-secondary transition pb-1">Gallery</a></li>
+                <li><a href="<?php echo home_url('/gallery/'); ?>" class="hover:text-secondary transition pb-1">Gallery</a></li>
                 <li><a href="#" class="hover:text-secondary transition pb-1">Blog</a></li>
-                <li><a href="contact.html" class="hover:text-secondary transition pb-1">Contact Us</a></li>
+                <li><a href="<?php echo home_url('/contact/'); ?>" class="hover:text-secondary transition pb-1">Contact Us</a></li>
             </ul>
         </div>
     </nav>
@@ -67,7 +67,7 @@ get_header();
         <div class="container mx-auto px-4">
             <h1 class="nav-font font-bold text-4xl text-white mb-4">Life at TMISB</h1>
             <div class="flex items-center justify-center text-gray-300 text-sm">
-                <a href="index.html" class="hover:text-white transition">Home</a>
+                <a href="<?php echo home_url('/'); ?>" class="hover:text-white transition">Home</a>
                 <i class="fas fa-chevron-right mx-3 text-xs"></i>
                 <span class="text-secondary font-semibold">Gallery</span>
             </div>

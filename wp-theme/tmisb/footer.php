@@ -10,7 +10,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
                 <!-- Brand -->
                 <div class="lg:col-span-2">
-                    <a href="index.html" class="flex items-center mb-6 inline-block">
+                    <a href="<?php echo home_url('/'); ?>" class="flex items-center mb-6 inline-block">
                         <div class="flex items-center">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.webp?v=<?php echo time(); ?>" alt="TMISB Logo" class="h-16 w-auto mr-5 bg-white p-1.5 rounded-lg">
                             <div>
@@ -34,11 +34,11 @@
                 <div>
                     <h4 class="font-bold text-lg mb-6 tracking-wide text-secondary uppercase text-sm">Explore</h4>
                     <ul class="space-y-4 text-sm text-white/80">
-                        <li><a href="about.html" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> About School</a></li>
-                        <li><a href="admissions.html" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Admissions</a></li>
-                        <li><a href="academics.html" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Academics</a></li>
-                        <li><a href="gallery.html" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Photo Gallery</a></li>
-                        <li><a href="contact.html" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Contact Us</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> About School</a></li>
+                        <li><a href="<?php echo home_url('/admissions/'); ?>" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Admissions</a></li>
+                        <li><a href="<?php echo home_url('/academics/'); ?>" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Academics</a></li>
+                        <li><a href="<?php echo home_url('/gallery/'); ?>" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Photo Gallery</a></li>
+                        <li><a href="<?php echo home_url('/contact/'); ?>" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Contact Us</a></li>
                     </ul>
                 </div>
                 
@@ -46,8 +46,8 @@
                 <div>
                     <h4 class="font-bold text-lg mb-6 tracking-wide text-secondary uppercase text-sm">Campus Life</h4>
                     <ul class="space-y-4 text-sm text-white/80">
-                        <li><a href="labs.html" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Laboratories</a></li>
-                        <li><a href="activities.html" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Sports & Activities</a></li>
+                        <li><a href="<?php echo home_url('/labs/'); ?>" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Laboratories</a></li>
+                        <li><a href="<?php echo home_url('/activities/'); ?>" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Sports & Activities</a></li>
                         <li><a href="#" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Student Clubs</a></li>
                         <li><a href="#" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Events & News</a></li>
                         <li><a href="#" class="hover:text-white hover:translate-x-1 inline-block transition duration-300 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mr-3"></span> Boarding Life</a></li>

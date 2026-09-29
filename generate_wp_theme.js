@@ -70,6 +70,10 @@ function fixAssetPaths(html) {
     // Fix background inline styles (excluding absolute URLs)
     fixed = fixed.replace(/url\(['"]?(?!http|\/\/)([^'"\)]+)['"]?\)/g, "url('<?php echo get_template_directory_uri(); ?>/$1')");
 
+    // Fix internal HTML links to clean WordPress URLs
+    fixed = fixed.replace(/href="index\.html"/g, 'href="<?php echo home_url(\'/\'); ?>"');
+    fixed = fixed.replace(/href="([a-zA-Z0-9_-]+)\.html"/g, 'href="<?php echo home_url(\'/$1/\'); ?>"');
+
     return fixed;
 }
 

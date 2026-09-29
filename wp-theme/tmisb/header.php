@@ -28,11 +28,9 @@
                 <span><i class="fas fa-envelope text-secondary mr-2"></i>techno.edu.school@gmail.com</span>
             </div>
             <div class="flex space-x-5 items-center">
-                <a href="#" class="text-white hover:text-secondary transition text-sm" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-white hover:text-secondary transition text-sm" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-white hover:text-secondary transition text-sm" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-white hover:text-secondary transition text-sm" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="#" class="text-white hover:text-secondary transition text-sm" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/Technomissioninternationalschool/" target="_blank" class="text-white hover:text-secondary transition text-sm" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/tmis.bhagalpur/" target="_blank" class="text-white hover:text-secondary transition text-sm" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@technomissionbhagalpur" target="_blank" class="text-white hover:text-secondary transition text-sm" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </div>
@@ -44,14 +42,14 @@
         <div class="container mx-auto px-4 max-w-[1400px] flex justify-between items-center">
             <!-- Left Button -->
             <div class="w-1/4">
-                <a href="admissions.html" class="bg-secondary text-white font-bold px-6 py-2.5 rounded shadow-sm hover:shadow-md transition text-sm inline-block admission-glow ring-2 ring-secondary ring-offset-2 ring-offset-white">
+                <a href="<?php echo home_url('/admissions/'); ?>" class="bg-secondary text-white font-bold px-6 py-2.5 rounded shadow-sm hover:shadow-md transition text-sm inline-block admission-glow ring-2 ring-secondary ring-offset-2 ring-offset-white">
                     Admissions Enquiry 2026 - 27
                 </a>
             </div>
             
             <!-- Center Logo -->
             <div class="w-2/4 flex justify-center">
-                <a href="index.html" class="flex items-center transform hover:scale-105 transition duration-300">
+                <a href="<?php echo home_url('/'); ?>" class="flex items-center transform hover:scale-105 transition duration-300">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.webp?v=<?php echo time(); ?>" alt="TMISB Logo" class="h-16 w-auto mr-3">
                     <div class="text-left">
                         <h1 class="nav-font font-extrabold text-2xl md:text-3xl text-primary leading-none tracking-tight uppercase" >Techno Mission</h1>
@@ -70,7 +68,7 @@
     <!-- Mobile Header (Visible only on xl < ) -->
     <header class="bg-white shadow-md xl:hidden">
         <div class="container mx-auto px-4 flex justify-between items-center py-3">
-            <a href="index.html" class="flex items-center">
+            <a href="<?php echo home_url('/'); ?>" class="flex items-center">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.webp?v=<?php echo time(); ?>" alt="TMISB Logo" class="h-12 w-auto mr-2">
                 <div>
                     <h1 class="nav-font font-bold text-xl text-primary leading-tight">Techno Mission</h1>
@@ -85,7 +83,7 @@
         <!-- Mobile Menu -->
         <div class="absolute w-full bg-primary text-white shadow-xl border-t border-white/10 z-40" x-show="mobileMenuOpen" x-transition x-cloak>
             <div class="flex flex-col px-4 py-2 nav-font font-medium">
-                <a href="index.html" class="py-3 border-b border-white/10 text-secondary">Home</a>
+                <a href="<?php echo home_url('/'); ?>" class="py-3 border-b border-white/10 text-secondary">Home</a>
                 <div x-data="{ open: false }">
                     <button @click="open = !open" class="flex justify-between items-center w-full py-3 border-b border-white/10">
                         About Us <i class="fas fa-chevron-down text-xs transition" :class="open ? 'rotate-180' : ''"></i>
@@ -95,10 +93,10 @@
                         <a href="#" class="py-2 hover:text-secondary">Principal's Message</a>
                     </div>
                 </div>
-                <a href="academics.html" class="py-3 border-b border-white/10">Academics</a>
-                <a href="labs.html" class="py-3 border-b border-white/10">Facilities</a>
-                <a href="admissions.html" class="py-3 border-b border-white/10">Admissions</a>
-                <a href="contact.html" class="py-3 border-b border-white/10">Contact Us</a>
+                <a href="<?php echo home_url('/academics/'); ?>" class="py-3 border-b border-white/10">Academics</a>
+                <a href="<?php echo home_url('/labs/'); ?>" class="py-3 border-b border-white/10">Facilities</a>
+                <a href="<?php echo home_url('/admissions/'); ?>" class="py-3 border-b border-white/10">Admissions</a>
+                <a href="<?php echo home_url('/contact/'); ?>" class="py-3 border-b border-white/10">Contact Us</a>
             </div>
         </div>
     </header>
