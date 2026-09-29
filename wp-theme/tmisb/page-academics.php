@@ -8,7 +8,7 @@ get_header();
     <nav class="bg-primary hidden xl:block border-t border-white/10">
         <div class="container mx-auto px-2 max-w-[1500px]">
             <ul class="flex justify-center items-center space-x-8 2xl:space-x-10 nav-font font-semibold text-white text-sm py-3.5">
-                <li><a href="<?php echo home_url('/'); ?>" class="hover:text-secondary transition pb-1 border-b-2 border-secondary">Home</a></li>
+                <li><a href="<?php echo home_url('/'); ?>" class="hover:text-secondary transition pb-1">Home</a></li>
                 
                 <li class="relative group nav-item">
                     <a href="<?php echo home_url('/about/'); ?>" class="hover:text-secondary transition flex items-center pb-1">About Us <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
@@ -58,6 +58,42 @@ get_header();
             </ul>
         </div>
     </nav>
+
+    <!-- Dynamic Active Nav Script -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const navLinks = document.querySelectorAll('nav ul > li > a, nav ul > li.nav-item > a');
+        const currentPath = window.location.pathname;
+        
+        // Remove hardcoded active classes
+        navLinks.forEach(link => {
+            link.classList.remove('border-b-2', 'border-secondary');
+        });
+
+        // Determine current page identifier
+        let activeFound = false;
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (!href || href === '#') return;
+
+            // Check if current URL includes the href (works for about.html and /about/)
+            if (href !== 'index.html' && href !== '/' && currentPath.includes(href.replace('.html', ''))) {
+                link.classList.add('border-b-2', 'border-secondary');
+                activeFound = true;
+            }
+        });
+
+        // Fallback for Home page
+        if (!activeFound && (currentPath === '/' || currentPath.endsWith('index.html'))) {
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === 'index.html' || link.getAttribute('href').includes('home_url')) {
+                    link.classList.add('border-b-2', 'border-secondary');
+                }
+            });
+        }
+    });
+    </script>
+    
 
     
     </div>
