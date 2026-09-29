@@ -24,9 +24,9 @@ get_header();
                 <li class="relative group nav-item">
                     <a href="<?php echo home_url('/academics/'); ?>" class="hover:text-secondary transition flex items-center pb-1">Academics <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
                     <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-48 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Primary</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Secondary</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">High School</a></li>
+                        <li><a href="<?php echo home_url('/academics/'); ?>#primary" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Primary</a></li>
+                        <li><a href="<?php echo home_url('/academics/'); ?>#secondary" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Secondary</a></li>
+                        <li><a href="<?php echo home_url('/academics/'); ?>#high-school" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">High School</a></li>
                     </ul>
                 </li>
                 
@@ -503,7 +503,7 @@ get_header();
             </div>
             
             <div class="text-center mt-12">
-                <a href="gallery.html#achievements" class="inline-flex items-center text-primary font-bold hover:text-secondary transition uppercase tracking-wider text-sm border-b-2 border-primary hover:border-secondary pb-1">View All Achievements <i class="fas fa-arrow-right ml-2"></i></a>
+                <a href="<?php echo home_url('/gallery/'); ?>#achievements" class="inline-flex items-center text-primary font-bold hover:text-secondary transition uppercase tracking-wider text-sm border-b-2 border-primary hover:border-secondary pb-1">View All Achievements <i class="fas fa-arrow-right ml-2"></i></a>
             </div>
         </div>
     </section>
