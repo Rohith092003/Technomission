@@ -1,104 +1,14 @@
-<?php
-/* Template Name: About Page */
-get_header();
-?>
+const fs = require('fs');
+const path = require('path');
 
+const filePath = path.join(__dirname, 'about.html');
+let html = fs.readFileSync(filePath, 'utf8');
 
-    <!-- 3. Bottom Bar / Main Navigation (Tier 3) -->
-    <nav class="bg-primary hidden xl:block border-t border-white/10">
-        <div class="container mx-auto px-2 max-w-[1500px]">
-            <ul class="flex justify-center items-center space-x-8 2xl:space-x-10 nav-font font-semibold text-white text-sm py-3.5">
-                <li><a href="<?php echo home_url('/'); ?>" class="hover:text-secondary transition pb-1">Home</a></li>
-                
-                <li class="relative group nav-item">
-                    <a href="<?php echo home_url('/about/'); ?>" class="hover:text-secondary transition flex items-center pb-1">About Us <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
-                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">About School</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Principal's Message</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Management / Leadership</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Salient Features</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Values</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Alumni Connect</a></li>
-                    </ul>
-                </li>
+const headerStart = html.indexOf('<!-- Page Header -->');
+const footerStart = html.indexOf('<!-- Footer (Reused) -->');
 
-                <li class="relative group nav-item">
-                    <a href="<?php echo home_url('/academics/'); ?>" class="hover:text-secondary transition flex items-center pb-1">Academics <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
-                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-48 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Primary</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Secondary</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">High School</a></li>
-                    </ul>
-                </li>
-                
-                <li class="relative group nav-item">
-                    <a href="<?php echo home_url('/labs/'); ?>" class="hover:text-secondary transition flex items-center pb-1">Labs <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
-                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-48 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Computer Lab</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Physics Lab</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Chemistry Lab</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Biology Lab</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Robotics Lab</a></li>
-                    </ul>
-                </li>
-
-                <li class="relative group nav-item">
-                    <a href="<?php echo home_url('/activities/'); ?>" class="hover:text-secondary transition flex items-center pb-1">Activities <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
-                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-48 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Yoga</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Dramatics</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Sports</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Art & Craft</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="<?php echo home_url('/gallery/'); ?>" class="hover:text-secondary transition pb-1">Gallery</a></li>
-                <li><a href="#" class="hover:text-secondary transition pb-1">Blog</a></li>
-                <li><a href="<?php echo home_url('/contact/'); ?>" class="hover:text-secondary transition pb-1">Contact Us</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Dynamic Active Nav Script -->
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const navLinks = document.querySelectorAll('nav ul > li > a, nav ul > li.nav-item > a');
-        const currentPath = window.location.pathname;
-        
-        // Remove hardcoded active classes
-        navLinks.forEach(link => {
-            link.classList.remove('border-b-2', 'border-secondary');
-        });
-
-        // Determine current page identifier
-        let activeFound = false;
-        navLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (!href || href === '#') return;
-
-            // Check if current URL includes the href (works for about.html and /about/)
-            if (href !== 'index.html' && href !== '/' && currentPath.includes(href.replace('.html', ''))) {
-                link.classList.add('border-b-2', 'border-secondary');
-                activeFound = true;
-            }
-        });
-
-        // Fallback for Home page
-        if (!activeFound && (currentPath === '/' || currentPath.endsWith('index.html'))) {
-            navLinks.forEach(link => {
-                if (link.getAttribute('href') === 'index.html' || link.getAttribute('href').includes('home_url')) {
-                    link.classList.add('border-b-2', 'border-secondary');
-                }
-            });
-        }
-    });
-    </script>
-    
-
-    
-    </div>
-
-    <!-- Page Header -->
+if (headerStart !== -1 && footerStart !== -1) {
+    const newContent = `<!-- Page Header -->
     <section class="relative py-32 bg-primaryDark overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Campus Background" class="w-full h-full object-cover opacity-20">
@@ -109,7 +19,7 @@ get_header();
                 <div class="inline-block bg-secondary text-white px-3 py-1 rounded text-xs font-bold tracking-widest uppercase mb-4">Discover TMISB</div>
                 <h1 class="nav-font font-bold text-5xl md:text-6xl text-white mb-6 leading-tight">Empowering Minds,<br>Shaping the Future.</h1>
                 <div class="flex items-center text-gray-300 text-sm font-medium">
-                    <a href="<?php echo home_url('/'); ?>" class="hover:text-white transition flex items-center"><i class="fas fa-home mr-2"></i> Home</a>
+                    <a href="index.html" class="hover:text-white transition flex items-center"><i class="fas fa-home mr-2"></i> Home</a>
                     <i class="fas fa-chevron-right mx-4 text-[10px] text-gray-500"></i>
                     <span class="text-secondary">About Us</span>
                 </div>
@@ -225,8 +135,11 @@ get_header();
         </div>
     </section>
 
-    <!-- Footer (Reused) -->
+    `;
     
-<?php
-get_footer();
-?>
+    html = html.substring(0, headerStart) + newContent + html.substring(footerStart);
+    fs.writeFileSync(filePath, html, 'utf8');
+    console.log('Successfully redesigned About Us page.');
+} else {
+    console.log('Markers not found');
+}
