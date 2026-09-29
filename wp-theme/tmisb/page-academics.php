@@ -24,10 +24,11 @@ get_header();
 
                 <li class="relative group nav-item">
                     <a href="<?php echo home_url('/academics/'); ?>" class="hover:text-secondary transition flex items-center pb-1">Academics <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
-                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-48 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
-                        <li><a href="<?php echo home_url('/academics/'); ?>#primary" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Primary</a></li>
-                        <li><a href="<?php echo home_url('/academics/'); ?>#secondary" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Secondary</a></li>
-                        <li><a href="<?php echo home_url('/academics/'); ?>#high-school" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">High School</a></li>
+                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-56 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
+                        <li><a href="<?php echo home_url('/academics/'); ?>#primary" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Primary Education</a></li>
+                        <li><a href="<?php echo home_url('/academics/'); ?>#secondary" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Middle & Secondary</a></li>
+                        <li><a href="<?php echo home_url('/academics/'); ?>#senior-secondary" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Senior Secondary</a></li>
+                        <li><a href="<?php echo home_url('/academics/'); ?>#specialized" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Specialized Programs</a></li>
                     </ul>
                 </li>
                 
@@ -221,7 +222,7 @@ get_header();
     </section>
 
     <!-- 3. Specialized Programs Grid -->
-    <section class="py-20 bg-white">
+    <section id="specialized" class="py-20 bg-white">
         <div class="container mx-auto px-4 max-w-7xl">
             <div class="text-center mb-16">
                 <h4 class="text-secondary font-bold text-sm uppercase tracking-wider mb-2">Beyond Regular Academics</h4>
