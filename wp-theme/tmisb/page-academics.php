@@ -119,7 +119,6 @@ get_header();
                 </span>
                 <h4 class="text-secondary font-bold text-sm uppercase tracking-widest mb-2">Our Academic Divisions</h4>
                 <h2 class="section-title">Academic Wings & Specialized Programs</h2>
-                <div class="w-20 h-1 bg-secondary mx-auto mb-5 rounded-full"></div>
                 <p class="text-gray-600 text-base leading-relaxed">
                     Explore our progressive, stage-by-stage learning continuum designed to nurture curiosity from foundational early childhood to competitive national entrance examinations.
                 </p>

@@ -264,7 +264,6 @@ get_header();
                 </span>
                 <h4 class="text-secondary font-bold text-sm uppercase tracking-widest mb-1">Age Eligibility for Admission</h4>
                 <h2 class="section-title">Eligibility & Age Progression Framework</h2>
-                <div class="w-20 h-1 bg-secondary mx-auto mb-5 rounded-full"></div>
                 <p class="text-gray-600 text-base leading-relaxed">
                     For the 2026–27 academic session, the age reference date specified in the developer's brief is <strong class="text-primary font-bold">31 March 2026</strong>.
                 </p>
@@ -397,7 +396,6 @@ get_header();
                 </span>
                 <h4 class="text-secondary font-bold text-sm uppercase tracking-widest mb-1">Documents Required for Admission</h4>
                 <h2 class="section-title">Required Documents Checklist</h2>
-                <div class="w-20 h-1 bg-secondary mx-auto mb-5 rounded-full"></div>
                 <p class="text-gray-600 text-base leading-relaxed">
                     To help ensure a smooth admission process, parents are requested to submit the documents applicable to the class for which admission is sought.
                 </p>
@@ -634,7 +632,6 @@ get_header();
                 </span>
                 <h4 class="text-secondary font-bold text-sm uppercase tracking-widest mb-1">Entrance Assessment Details</h4>
                 <h2 class="section-title">Understanding Every Student's Learning Readiness</h2>
-                <div class="w-20 h-1 bg-secondary mx-auto mb-5 rounded-full"></div>
                 <p class="text-gray-600 text-base leading-relaxed mb-4">
                     At Techno Mission International School, we believe that admission assessments, where applicable, should help the school understand a student's readiness for the next stage of learning.
                 </p>
