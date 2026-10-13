@@ -132,30 +132,19 @@ const indexPhpContent = `<?php get_header(); ?>
 <?php get_footer(); ?>`;
 fs.writeFileSync(path.join(THEME_DIR, 'index.php'), indexPhpContent);
 
-// 4. Create 404.php (helpful fallback)
-const fourZeroFourPhpContent = `<?php get_header(); ?>
-<main class="py-24 bg-lightBg min-h-[60vh] flex items-center justify-center text-center">
-    <div class="container mx-auto px-4 max-w-xl">
-        <span class="w-16 h-16 rounded-2xl bg-secondary/10 text-secondary flex items-center justify-center text-3xl mx-auto mb-6 shadow-sm">
-            <i class="fas fa-exclamation-triangle"></i>
-        </span>
-        <h1 class="nav-font font-extrabold text-5xl md:text-6xl text-primary mb-4">404</h1>
-        <h2 class="nav-font font-bold text-2xl text-gray-800 mb-4">Page Not Found</h2>
-        <p class="text-gray-600 text-sm md:text-base leading-relaxed mb-8">
-            The page you are looking for may have been moved, renamed, or is temporarily unavailable.
-        </p>
-        <div class="flex justify-center gap-4">
-            <a href="<?php echo home_url('/'); ?>" class="bg-primary hover:bg-primaryDark text-white font-bold py-3 px-6 rounded-lg text-sm uppercase tracking-wider transition shadow">
-                Back to Home
-            </a>
-            <a href="<?php echo home_url('/academics/'); ?>" class="bg-secondary hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg text-sm uppercase tracking-wider transition shadow">
-                Explore Academics
-            </a>
-        </div>
-    </div>
-</main>
-<?php get_footer(); ?>`;
-fs.writeFileSync(path.join(THEME_DIR, '404.php'), fourZeroFourPhpContent);
+// 4. Create 404.php (rich educational error portal)
+if (fs.existsSync(path.join(__dirname, '404.html'))) {
+    const raw404 = fs.readFileSync(path.join(__dirname, '404.html'), 'utf8');
+    const mainStart = raw404.indexOf('<main');
+    const mainEnd = raw404.indexOf('</main>');
+    if (mainStart !== -1 && mainEnd !== -1) {
+        let body404 = raw404.substring(mainStart, mainEnd + 7);
+        body404 = fixAssetPaths(body404);
+        const fourZeroFourPhp = `<?php get_header(); ?>\n${body404}\n<?php get_footer(); ?>`;
+        fs.writeFileSync(path.join(THEME_DIR, '404.php'), fourZeroFourPhp);
+        console.log('Generated rich 404.php from 404.html.');
+    }
+}
 
 function fixAssetPaths(html) {
     let fixed = html;

@@ -42,8 +42,14 @@ const server = http.createServer((req, res) => {
             if (fs.existsSync(htmlPath) && fs.statSync(htmlPath).isFile()) {
                 filePath = htmlPath;
             } else {
-                res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
-                res.end('404 Not Found');
+                const notFoundPath = path.join(PUBLIC_DIR, '404.html');
+                if (fs.existsSync(notFoundPath)) {
+                    res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+                    fs.createReadStream(notFoundPath).pipe(res);
+                } else {
+                    res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+                    res.end('404 Not Found');
+                }
                 return;
             }
         }
