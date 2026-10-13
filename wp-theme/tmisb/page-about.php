@@ -332,9 +332,7 @@ get_header();
                             <p class="text-xs text-secondary font-bold uppercase tracking-widest mt-1">Director, TMISB</p>
                         </div>
                     </div>
-                    <div class="mt-4 p-4 rounded-xl bg-lightBg border border-gray-100 text-center">
-                        <span class="text-xs text-gray-500 font-medium">Techno Mission International School, Bhagalpur</span>
-                    </div>
+
                 </div>
 
                 <!-- Message Content -->
@@ -398,9 +396,7 @@ get_header();
                             <p class="text-xs text-secondary font-bold uppercase tracking-widest mt-1">Principal, TMISB</p>
                         </div>
                     </div>
-                    <div class="mt-4 p-4 rounded-xl bg-white border border-gray-100 text-center shadow-sm">
-                        <span class="text-xs text-gray-500 font-medium">Techno Mission International School, Bhagalpur</span>
-                    </div>
+
                 </div>
 
                 <!-- Message Content -->
