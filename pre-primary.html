@@ -133,7 +133,20 @@
                     </div>
                 </div>
                 <a href="gallery.html" class="py-3 border-b border-white/10 mobile-nav-link">Gallery</a>
-                <a href="admissions.html" class="py-3 border-b border-white/10 mobile-nav-link">Admissions</a>
+                                    <div x-data="{ open: false }">
+                        <button @click="open = !open" class="flex justify-between items-center w-full py-3 border-b border-white/10">
+                            Admissions <i class="fas fa-chevron-down text-xs transition" :class="open ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="open" class="bg-primaryDark px-4 py-2 text-sm flex flex-col">
+                            <a href="admissions.html" class="py-2 hover:text-secondary font-bold">Admissions 2026–27 Overview</a>
+                            <a href="admissions.html#process" class="py-2 hover:text-secondary">Admission Process (5 Steps)</a>
+                            <a href="admissions.html#apply-online" class="py-2 hover:text-secondary">Apply Online (Enquiry Form)</a>
+                            <a href="admissions.html#eligibility" class="py-2 hover:text-secondary">Eligibility & Age Criteria</a>
+                            <a href="admissions.html#documents" class="py-2 hover:text-secondary">Required Documents Checklist</a>
+                            <a href="admissions.html#assessment" class="py-2 hover:text-secondary">Entrance Assessment Details</a>
+                            <a href="admissions.html#faqs" class="py-2 hover:text-secondary">Admissions FAQs</a>
+                        </div>
+                    </div>
                 <a href="contact.html" class="py-3 border-b border-white/10 mobile-nav-link">Contact Us</a>
             </div>
         </div>
@@ -180,6 +193,18 @@
                         <li><a href="facilities.html#transport" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Safe Transport</a></li>
                         <li><a href="facilities.html#library" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Library & Resource Centre</a></li>
                         <li><a href="facilities.html#sports" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Sports, NCC & Activities</a></li>
+                    </ul>
+                </li>
+
+                                <li class="relative group nav-item">
+                    <a href="admissions.html" class="hover:text-secondary transition flex items-center pb-1">Admissions <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
+                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
+                        <li><a href="admissions.html#process" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Admission Process (5 Steps)</a></li>
+                        <li><a href="admissions.html#apply-online" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Apply Online (Enquiry Form)</a></li>
+                        <li><a href="admissions.html#eligibility" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Eligibility & Age Criteria</a></li>
+                        <li><a href="admissions.html#documents" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Required Documents Checklist</a></li>
+                        <li><a href="admissions.html#assessment" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Entrance Assessment Details</a></li>
+                        <li><a href="admissions.html#faqs" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Admissions FAQs</a></li>
                     </ul>
                 </li>
 
