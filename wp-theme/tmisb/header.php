@@ -82,28 +82,35 @@
         
         <!-- Mobile Menu -->
         <div class="absolute top-full left-0 w-full bg-primary text-white shadow-xl border-t border-white/10 z-40 max-h-[calc(100vh-65px)] overflow-y-auto" x-show="mobileMenuOpen" x-transition x-cloak>
+            <!-- Admissions CTA in mobile -->
+            <div class="p-4 border-b border-white/10">
+                <a href="<?php echo home_url('/admissions/'); ?>" class="block text-center bg-secondary text-white font-bold py-2.5 px-4 rounded shadow admission-glow text-sm uppercase tracking-wide">
+                    Admissions Enquiry 2026 - 27
+                </a>
+            </div>
             <div class="flex flex-col px-4 py-2 nav-font font-medium">
-                <div class="py-3 border-b border-white/10">
-                    <a href="<?php echo home_url('/admissions/'); ?>" class="bg-secondary text-white font-bold px-4 py-2 rounded shadow-sm hover:shadow-md transition text-sm w-full text-center block ring-2 ring-secondary ring-offset-2 ring-offset-primary">
-                        Admissions Enquiry 2026 - 27
-                    </a>
-                </div>
-                <a href="<?php echo home_url('/'); ?>" class="mobile-nav-link py-3 border-b border-white/10">Home</a>
+                <a href="<?php echo home_url('/'); ?>" class="py-3 border-b border-white/10 mobile-nav-link">Home</a>
                 <div x-data="{ open: false }">
-                    <button @click="open = !open" class="mobile-nav-link flex justify-between items-center w-full py-3 border-b border-white/10">
+                    <button @click="open = !open" class="flex justify-between items-center w-full py-3 border-b border-white/10">
                         About Us <i class="fas fa-chevron-down text-xs transition" :class="open ? 'rotate-180' : ''"></i>
                     </button>
                     <div x-show="open" class="bg-primaryDark px-4 py-2 text-sm flex flex-col">
-                        <a href="<?php echo home_url('/about/'); ?>" class="mobile-nav-link py-2 hover:text-secondary">About School</a>
-                        <a href="#" class="mobile-nav-link py-2 hover:text-secondary">Principal's Message</a>
+                        <a href="<?php echo home_url('/about/'); ?>#overview" class="py-2 hover:text-secondary">About School</a>
+                        <a href="<?php echo home_url('/about/'); ?>#vision-mission" class="py-2 hover:text-secondary">Vision & Mission</a>
+                        <a href="<?php echo home_url('/about/'); ?>#director" class="py-2 hover:text-secondary">Director's Message</a>
+                        <a href="<?php echo home_url('/about/'); ?>#principal" class="py-2 hover:text-secondary">Principal's Message</a>
+                        <a href="<?php echo home_url('/about/'); ?>#values" class="py-2 hover:text-secondary">Core Values</a>
+                        <a href="<?php echo home_url('/about/'); ?>#why-tmisb" class="py-2 hover:text-secondary">Why Choose TMISB</a>
+                        <a href="<?php echo home_url('/about/'); ?>#affiliation" class="py-2 hover:text-secondary">CBSE Affiliation</a>
+                        <a href="<?php echo home_url('/about/'); ?>#faculty" class="py-2 hover:text-secondary">Faculty & Staff</a>
                     </div>
                 </div>
-                <a href="<?php echo home_url('/academics/'); ?>" class="mobile-nav-link py-3 border-b border-white/10">Academics</a>
-                <a href="<?php echo home_url('/labs/'); ?>" class="mobile-nav-link py-3 border-b border-white/10">Labs</a>
-                <a href="<?php echo home_url('/activities/'); ?>" class="mobile-nav-link py-3 border-b border-white/10">Activities</a>
-                <a href="<?php echo home_url('/gallery/'); ?>" class="mobile-nav-link py-3 border-b border-white/10">Gallery</a>
-                <a href="<?php echo home_url('/admissions/'); ?>" class="mobile-nav-link py-3 border-b border-white/10">Admissions</a>
-                <a href="<?php echo home_url('/contact/'); ?>" class="mobile-nav-link py-3 border-b border-white/10">Contact Us</a>
+                <a href="<?php echo home_url('/academics/'); ?>" class="py-3 border-b border-white/10 mobile-nav-link">Academics</a>
+                <a href="<?php echo home_url('/labs/'); ?>" class="py-3 border-b border-white/10 mobile-nav-link">Labs</a>
+                <a href="<?php echo home_url('/activities/'); ?>" class="py-3 border-b border-white/10 mobile-nav-link">Activities</a>
+                <a href="<?php echo home_url('/gallery/'); ?>" class="py-3 border-b border-white/10 mobile-nav-link">Gallery</a>
+                <a href="<?php echo home_url('/admissions/'); ?>" class="py-3 border-b border-white/10 mobile-nav-link">Admissions</a>
+                <a href="<?php echo home_url('/contact/'); ?>" class="py-3 border-b border-white/10 mobile-nav-link">Contact Us</a>
             </div>
         </div>
     </header>

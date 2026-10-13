@@ -13,12 +13,14 @@ get_header();
                 <li class="relative group nav-item">
                     <a href="<?php echo home_url('/about/'); ?>" class="hover:text-secondary transition flex items-center pb-1">About Us <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
                     <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">About School</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Principal's Message</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Management / Leadership</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Salient Features</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Values</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Alumni Connect</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#overview" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">About School</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#vision-mission" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Vision & Mission</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#director" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Director's Message</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#principal" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Principal's Message</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#values" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Core Values</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#why-tmisb" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Why Choose TMISB</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#affiliation" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">CBSE Affiliation</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#faculty" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Faculty & Staff</a></li>
                     </ul>
                 </li>
 
@@ -92,6 +94,19 @@ get_header();
                 }
             });
         }
+
+        // Mobile menu active link highlighting
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileNavLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (!href || href === '#') return;
+            
+            if (href !== 'index.html' && href !== '/' && currentPath.includes(href.replace('.html', ''))) {
+                link.classList.add('text-secondary', 'font-bold');
+            } else if ((currentPath === '/' || currentPath.endsWith('index.html') || currentPath.endsWith('/')) && href === 'index.html') {
+                link.classList.add('text-secondary', 'font-bold');
+            }
+        });
     });
     </script>
     
@@ -158,26 +173,26 @@ get_header();
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-                                <input type="text" class="w-full text-base border border-gray-300 rounded px-4 py-2" required>
+                                <input type="text" class="w-full border border-gray-300 rounded px-4 py-2 text-base" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                                <input type="text" class="w-full text-base border border-gray-300 rounded px-4 py-2" required>
+                                <input type="text" class="w-full border border-gray-300 rounded px-4 py-2 text-base" required>
                             </div>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                                <input type="email" class="w-full text-base border border-gray-300 rounded px-4 py-2" required>
+                                <input type="email" class="w-full border border-gray-300 rounded px-4 py-2 text-base" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                                <input type="tel" class="w-full text-base border border-gray-300 rounded px-4 py-2" required>
+                                <input type="tel" class="w-full border border-gray-300 rounded px-4 py-2 text-base" required>
                             </div>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
-                            <textarea rows="5" class="w-full text-base border border-gray-300 rounded px-4 py-2" required></textarea>
+                            <textarea rows="5" class="w-full border border-gray-300 rounded px-4 py-2 text-base" required></textarea>
                         </div>
                         <button type="submit" class="bg-primary hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded transition w-full">Submit Message</button>
                     </form>
@@ -198,12 +213,15 @@ get_header();
             referrerpolicy="no-referrer-when-downgrade"
             class="absolute inset-0 z-0 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition duration-500 pointer-events-none md:pointer-events-auto">
         </iframe>
-        <a href="https://maps.app.goo.gl/fQYFbkphkkN2VVay9" target="_blank" class="absolute inset-0 z-10 hidden md:group-hover:flex items-center justify-center bg-black/20 backdrop-blur-sm transition duration-300">
+        <a href="https://maps.app.goo.gl/fQYFbkphkkN2VVay9" target="_blank" class="absolute inset-0 z-10 hidden group-hover:flex items-center justify-center bg-black/20 backdrop-blur-sm transition duration-300">
             <span class="bg-primary text-white font-bold py-3 px-8 rounded shadow-2xl transform translate-y-4 group-hover:translate-y-0 transition duration-300">Open in Google Maps <i class="fas fa-external-link-alt ml-2"></i></span>
         </a>
-        <a href="https://maps.app.goo.gl/fQYFbkphkkN2VVay9" target="_blank" class="md:hidden absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-primary text-white font-bold py-2 px-6 rounded shadow-lg text-sm whitespace-nowrap z-20">
-            Open in Maps <i class="fas fa-external-link-alt ml-2"></i>
-        </a>
+        <!-- Mobile Open in Maps Button -->
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10 md:hidden">
+            <a href="https://maps.app.goo.gl/fQYFbkphkkN2VVay9" target="_blank" class="bg-primary text-white font-bold py-2.5 px-6 rounded shadow-xl text-sm flex items-center whitespace-nowrap">
+                Open in Maps <i class="fas fa-external-link-alt ml-2"></i>
+            </a>
+        </div>
     </section>
 
     <!-- Footer (Reused) -->

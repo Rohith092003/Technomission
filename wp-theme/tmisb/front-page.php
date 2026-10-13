@@ -12,12 +12,14 @@ get_header();
                 <li class="relative group nav-item">
                     <a href="<?php echo home_url('/about/'); ?>" class="hover:text-secondary transition flex items-center pb-1">About Us <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
                     <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">About School</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Principal's Message</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Management / Leadership</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Salient Features</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Values</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Alumni Connect</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#overview" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">About School</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#vision-mission" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Vision & Mission</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#director" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Director's Message</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#principal" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Principal's Message</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#values" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Core Values</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#why-tmisb" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Why Choose TMISB</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#affiliation" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">CBSE Affiliation</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#faculty" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Faculty & Staff</a></li>
                     </ul>
                 </li>
 
@@ -62,12 +64,12 @@ get_header();
     <!-- Dynamic Active Nav Script -->
     <script>
     document.addEventListener("DOMContentLoaded", function() {
-        const navLinks = document.querySelectorAll('nav ul > li > a, nav ul > li.nav-item > a, .mobile-nav-link');
+        const navLinks = document.querySelectorAll('nav ul > li > a, nav ul > li.nav-item > a');
         const currentPath = window.location.pathname;
         
         // Remove hardcoded active classes
         navLinks.forEach(link => {
-            link.classList.remove('border-b-2', 'border-secondary', 'text-secondary');
+            link.classList.remove('border-b-2', 'border-secondary');
         });
 
         // Determine current page identifier
@@ -78,11 +80,7 @@ get_header();
 
             // Check if current URL includes the href (works for about.html and /about/)
             if (href !== 'index.html' && href !== '/' && currentPath.includes(href.replace('.html', ''))) {
-                if (link.classList.contains('mobile-nav-link')) {
-                    link.classList.add('text-secondary');
-                } else {
-                    link.classList.add('border-b-2', 'border-secondary');
-                }
+                link.classList.add('border-b-2', 'border-secondary');
                 activeFound = true;
             }
         });
@@ -90,15 +88,24 @@ get_header();
         // Fallback for Home page
         if (!activeFound && (currentPath === '/' || currentPath.endsWith('index.html'))) {
             navLinks.forEach(link => {
-                if (link.getAttribute('href') === 'index.html' || link.getAttribute('href') === '/' || link.getAttribute('href').includes('home_url')) {
-                    if (link.classList.contains('mobile-nav-link')) {
-                        link.classList.add('text-secondary');
-                    } else {
-                        link.classList.add('border-b-2', 'border-secondary');
-                    }
+                if (link.getAttribute('href') === 'index.html' || link.getAttribute('href').includes('home_url')) {
+                    link.classList.add('border-b-2', 'border-secondary');
                 }
             });
         }
+
+        // Mobile menu active link highlighting
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileNavLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (!href || href === '#') return;
+            
+            if (href !== 'index.html' && href !== '/' && currentPath.includes(href.replace('.html', ''))) {
+                link.classList.add('text-secondary', 'font-bold');
+            } else if ((currentPath === '/' || currentPath.endsWith('index.html') || currentPath.endsWith('/')) && href === 'index.html') {
+                link.classList.add('text-secondary', 'font-bold');
+            }
+        });
     });
     </script>
     
@@ -202,7 +209,8 @@ get_header();
 
     <!-- 4. Latest News Ticker -->
     <div class="news-ticker-container">
-        <div class="news-label hidden md:block">LATEST NEWS</div><span class="md:hidden bg-secondary text-white px-2 py-1 text-[10px] font-bold shrink-0 ml-2 rounded"><i class="fas fa-bell"></i></span>
+        <div class="news-label hidden md:block">LATEST NEWS</div>
+        <span class="md:hidden bg-secondary text-white px-2 py-1 text-[10px] font-bold shrink-0 ml-2 rounded"><i class="fas fa-bell"></i></span>
         <div class="ticker-wrap pl-4 md:pl-0">
             <div class="ticker text-sm md:text-base">
                 <span class="mr-12"><i class="fas fa-bell text-secondary mr-2"></i> Admissions Open 2026–27</span>
@@ -285,24 +293,24 @@ get_header();
              ">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 text-center">
                 <div class="p-2 sm:p-4" x-data="animate(1500)">
-                    <i class="fas fa-user-graduate text-3xl sm:text-4xl text-secondary mb-4"></i>
+                    <i class="fas fa-user-graduate text-3xl sm:text-4xl text-secondary mb-3 sm:mb-4"></i>
                     <h3 class="nav-font font-bold text-2xl sm:text-3xl md:text-4xl mb-1 sm:mb-2"><span x-text="current">0</span>+</h3>
-                    <p class="text-gray-200 font-medium text-xs sm:text-sm md:text-base">Students</p>
+                    <p class="text-gray-200 text-xs sm:text-sm md:text-base font-medium">Students</p>
                 </div>
                 <div class="p-2 sm:p-4" x-data="animate(100)">
-                    <i class="fas fa-chalkboard-teacher text-3xl sm:text-4xl text-secondary mb-4"></i>
+                    <i class="fas fa-chalkboard-teacher text-3xl sm:text-4xl text-secondary mb-3 sm:mb-4"></i>
                     <h3 class="nav-font font-bold text-2xl sm:text-3xl md:text-4xl mb-1 sm:mb-2"><span x-text="current">0</span>+</h3>
-                    <p class="text-gray-200 font-medium text-xs sm:text-sm md:text-base">Faculty Members</p>
+                    <p class="text-gray-200 text-xs sm:text-sm md:text-base font-medium">Faculty Members</p>
                 </div>
                 <div class="p-2 sm:p-4" x-data="animate(10)">
-                    <i class="fas fa-building text-3xl sm:text-4xl text-secondary mb-4"></i>
+                    <i class="fas fa-building text-3xl sm:text-4xl text-secondary mb-3 sm:mb-4"></i>
                     <h3 class="nav-font font-bold text-2xl sm:text-3xl md:text-4xl mb-1 sm:mb-2"><span x-text="current">0</span>+</h3>
-                    <p class="text-gray-200 font-medium text-xs sm:text-sm md:text-base">Acres Campus</p>
+                    <p class="text-gray-200 text-xs sm:text-sm md:text-base font-medium">Acres Campus</p>
                 </div>
                 <div class="p-2 sm:p-4" x-data="animate(29)">
-                    <i class="fas fa-award text-3xl sm:text-4xl text-secondary mb-4"></i>
+                    <i class="fas fa-award text-3xl sm:text-4xl text-secondary mb-3 sm:mb-4"></i>
                     <h3 class="nav-font font-bold text-2xl sm:text-3xl md:text-4xl mb-1 sm:mb-2"><span x-text="current">0</span>+</h3>
-                    <p class="text-gray-200 font-medium text-xs sm:text-sm md:text-base">Years of Excellence</p>
+                    <p class="text-gray-200 text-xs sm:text-sm md:text-base font-medium">Years of Excellence</p>
                 </div>
             </div>
         </div>
@@ -616,7 +624,6 @@ get_header();
                     transform: translateX(calc(-50% - 12px));
                 }
             }
-
         </style>
     </section>
 
@@ -684,9 +691,9 @@ get_header();
                         <img src="<?php echo get_template_directory_uri(); ?>/Notice.png?v=<?php echo time(); ?>" alt="Notice Board" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
                         <div class="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10 text-white">
-                            <span class="bg-secondary text-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block shadow-md">Important</span>
-                            <h3 class="nav-font font-extrabold text-2xl sm:text-3xl md:text-4xl mb-3 leading-tight">Stay Updated with TMISB</h3>
-                            <p class="text-white/90 text-sm sm:text-base md:text-lg font-light">Don't miss out on important announcements, exam schedules, and upcoming school events.</p>
+                            <span class="bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 sm:mb-4 inline-block shadow-md">Important</span>
+                            <h3 class="nav-font font-extrabold text-2xl sm:text-3xl lg:text-4xl mb-2 sm:mb-3 leading-tight">Stay Updated with TMISB</h3>
+                            <p class="text-white/90 text-sm sm:text-base lg:text-lg font-light line-clamp-2 sm:line-clamp-none">Don't miss out on important announcements, exam schedules, and upcoming school events.</p>
                         </div>
                     </div>
                 </div>
@@ -944,30 +951,30 @@ get_header();
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-                                <input type="text" class="w-full text-base border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
+                                <input type="text" class="w-full border border-gray-300 rounded px-4 py-2 text-base focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                                <input type="text" class="w-full text-base border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
+                                <input type="text" class="w-full border border-gray-300 rounded px-4 py-2 text-base focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
                             </div>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                                <input type="email" class="w-full text-base border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
+                                <input type="email" class="w-full border border-gray-300 rounded px-4 py-2 text-base focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                                <input type="tel" class="w-full text-base border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
+                                <input type="tel" class="w-full border border-gray-300 rounded px-4 py-2 text-base focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
                             </div>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                            <input type="text" class="w-full text-base border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
+                            <input type="text" class="w-full border border-gray-300 rounded px-4 py-2 text-base focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
-                            <textarea rows="4" class="w-full text-base border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required></textarea>
+                            <textarea rows="4" class="w-full border border-gray-300 rounded px-4 py-2 text-base focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" required></textarea>
                         </div>
                         <button type="submit" class="bg-primary hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded transition w-full md:w-auto">Submit Form</button>
                     </form>
@@ -1018,12 +1025,15 @@ get_header();
                             referrerpolicy="no-referrer-when-downgrade"
                             class="absolute inset-0 z-0 pointer-events-none md:pointer-events-auto">
                         </iframe>
-                        <a href="https://maps.app.goo.gl/fQYFbkphkkN2VVay9" target="_blank" class="absolute inset-0 z-10 hidden md:group-hover:flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300">
+                        <a href="https://maps.app.goo.gl/fQYFbkphkkN2VVay9" target="_blank" class="absolute inset-0 z-10 hidden group-hover:flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300">
                             <span class="bg-primary text-white font-bold py-2 px-6 rounded shadow-lg transform translate-y-4 group-hover:translate-y-0 transition duration-300">Open in Google Maps <i class="fas fa-external-link-alt ml-2"></i></span>
                         </a>
-                        <a href="https://maps.app.goo.gl/fQYFbkphkkN2VVay9" target="_blank" class="md:hidden absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-primary text-white font-bold py-2 px-6 rounded shadow-lg text-sm whitespace-nowrap z-20">
-                            Open in Maps <i class="fas fa-external-link-alt ml-2"></i>
-                        </a>
+                        <!-- Mobile: explicit button to open map -->
+                        <div class="md:hidden absolute bottom-3 right-3 z-10">
+                            <a href="https://maps.app.goo.gl/fQYFbkphkkN2VVay9" target="_blank" class="bg-primary text-white text-xs font-bold py-2 px-4 rounded shadow">
+                                Open in Maps <i class="fas fa-external-link-alt ml-1"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
