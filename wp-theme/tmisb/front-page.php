@@ -130,7 +130,7 @@ get_header();
                                 Strong Academics.<br>Future Skills.
                             </h1>
                             <p class="text-gray-200 text-lg md:text-xl mb-10 font-light max-w-2xl leading-relaxed">
-                                A future-focused K-12 Day-Cum-Boarding school empowering students through academic excellence, innovation, and character development.
+                                A future-focused K-12 CBSE affiliated school empowering students through academic excellence, innovation, and character development.
                             </p>
                             <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-5">
                                 <a href="<?php echo home_url('/admissions/'); ?>" class="bg-secondary text-white font-bold py-3.5 px-8 rounded flex items-center justify-center hover:bg-red-800 transition shadow-lg group">
@@ -179,13 +179,13 @@ get_header();
                     <div class="container mx-auto px-4 lg:px-12 relative z-10 w-full">
                         <div class="max-w-3xl">
                             <div class="inline-block border-l-4 border-secondary pl-3 mb-4">
-                                <h2 class="text-white font-semibold tracking-[0.15em] text-sm uppercase">Secure Environment</h2>
+                                <h2 class="text-white font-semibold tracking-[0.15em] text-sm uppercase">Inspiring Campus</h2>
                             </div>
                             <h1 class="text-white nav-font font-extrabold text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-tight mb-4 md:mb-6">
-                                A Home Away<br>From Home.
+                                Nurturing Minds,<br>Shaping Futures.
                             </h1>
                             <p class="text-gray-200 text-lg md:text-xl mb-10 font-light max-w-2xl leading-relaxed">
-                                Our premium Day-Cum-Boarding facilities ensure students are nurtured in a safe, inspiring, and engaging community.
+                                Our modern campus infrastructure and nurturing environment ensure students excel in academics, sports, and life skills.
                             </p>
                             <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-5">
                                 <a href="#" class="bg-primary text-white border border-primary font-bold py-3.5 px-8 rounded flex items-center justify-center hover:bg-primaryDark transition shadow-lg">
@@ -241,11 +241,11 @@ get_header();
                         Techno Mission International School, Bhagalpur (TMISB) stands as a beacon of educational excellence. We believe in providing a holistic environment where academic rigor meets modern technology, ensuring our students are prepared for the challenges of tomorrow.
                     </p>
                     <p class="text-gray-600 mb-8 leading-relaxed">
-                        Our day-cum-boarding model fosters independent thinking, strong character, and a lifelong love for learning. With world-class facilities and a dedicated faculty, TMISB is committed to nurturing the unique potential within every child.
+                        Our educational philosophy combines academic learning with critical thinking, creativity, and discipline. Rooted in Indian values and a global outlook, TMISB is committed to nurturing the unique potential within every child.
                     </p>
                     <ul class="mb-8 space-y-3">
                         <li class="flex items-start"><i class="fas fa-check-circle text-primary mt-1 mr-3"></i> <span class="text-gray-700">Holistic Curriculum integrating technology & arts</span></li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-primary mt-1 mr-3"></i> <span class="text-gray-700">Dedicated Day-cum-Boarding facilities</span></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-primary mt-1 mr-3"></i> <span class="text-gray-700">CBSE Affiliated Senior Secondary Curriculum</span></li>
                         <li class="flex items-start"><i class="fas fa-check-circle text-primary mt-1 mr-3"></i> <span class="text-gray-700">Focus on character building and sports</span></li>
                     </ul>
                     <a href="<?php echo home_url('/about/'); ?>" class="bg-primary hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded transition inline-block">Read More</a>
@@ -386,17 +386,17 @@ get_header();
                 <!-- Program Card 4 -->
                 <div class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col border border-gray-100 transform hover:-translate-y-2">
                     <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1558021211-6d1403321394?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Boarding" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Competitive Prep" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500"></div>
-                        <div class="absolute top-4 right-4 bg-secondary text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded shadow-md">Residential</div>
+                        <div class="absolute top-4 right-4 bg-secondary text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded shadow-md">Competitive Edge</div>
                     </div>
                     <div class="p-6 flex-grow flex flex-col relative">
                         <div class="absolute top-0 left-0 w-0 h-1 bg-secondary transition-all duration-500 group-hover:w-full"></div>
-                        <h3 class="nav-font font-bold text-2xl text-primary mb-3">Day-Cum-Boarding</h3>
+                        <h3 class="nav-font font-bold text-2xl text-primary mb-3">Competitive Prep</h3>
                         <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">
-                            A secure, nurturing residential environment emphasizing independence and essential life skills.
+                            On-campus integrated coaching for IIT-JEE, NEET, and Olympiads synchronized with board curriculum.
                         </p>
-                        <a href="<?php echo home_url('/academics/'); ?>" class="inline-flex items-center text-sm font-bold text-secondary hover:text-primary transition-colors">
+                        <a href="<?php echo home_url('/academics/'); ?>#specialized" class="inline-flex items-center text-sm font-bold text-secondary hover:text-primary transition-colors">
                             Explore Program <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform duration-300"></i>
                         </a>
                     </div>
@@ -457,10 +457,10 @@ get_header();
                 
                 <div class="border border-gray-100 p-6 rounded-lg text-center card-hover bg-lightBg">
                     <div class="w-16 h-16 mx-auto bg-primary text-white rounded-full flex items-center justify-center text-2xl mb-4">
-                        <i class="fas fa-bed"></i>
+                        <i class="fas fa-bus"></i>
                     </div>
-                    <h3 class="font-bold text-lg text-gray-800 mb-2">Boarding</h3>
-                    <p class="text-gray-500 text-sm">Safe, comfortable and supervised residential wings.</p>
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Transport Fleet</h3>
+                    <p class="text-gray-500 text-sm">Safe, reliable, and GPS-tracked school buses covering key city routes.</p>
                 </div>
 
                 <div class="border border-gray-100 p-6 rounded-lg text-center card-hover bg-lightBg">
@@ -816,7 +816,7 @@ get_header();
                             <div class="bg-lightBg p-8 rounded-lg shadow-inner relative h-full">
                                 <i class="fas fa-quote-left text-4xl text-gray-200 absolute top-4 left-4"></i>
                                 <p class="text-gray-600 italic mb-6 relative z-10 pt-4">
-                                    "TMISB has provided my child with the perfect balance of academic challenge and extracurricular opportunities. The day-boarding facility allows them to focus completely on their development in a secure environment."
+                                    "TMISB has provided my child with the perfect balance of academic challenge and extracurricular opportunities. The supportive campus environment allows them to focus completely on their personal and intellectual development."
                                 </p>
                                 <div class="flex items-center">
                                     <img src="https://ui-avatars.com/api/?name=Rajesh+Kumar&background=random" alt="Rajesh Kumar" class="w-12 h-12 rounded-full mr-4 object-cover border-2 border-white shadow-sm">
@@ -927,11 +927,11 @@ get_header();
                     <!-- FAQ Item 4 -->
                     <div class="border border-gray-200 rounded">
                         <button @click="activeAccordion = activeAccordion === 4 ? null : 4" class="w-full text-left px-5 py-4 font-semibold text-gray-800 flex justify-between items-center focus:outline-none bg-gray-50">
-                            Is boarding available?
+                            What curriculum is followed at TMISB?
                             <i class="fas fa-chevron-down transition-transform" :class="activeAccordion === 4 ? 'rotate-180' : ''"></i>
                         </button>
                         <div x-show="activeAccordion === 4" x-collapse x-cloak class="px-5 py-4 text-gray-600 border-t border-gray-200 text-sm">
-                            [Yes, TMISB operates as a Day-Cum-Boarding school with excellent residential facilities.]
+                            TMISB is affiliated with the Central Board of Secondary Education (CBSE), New Delhi (Affiliation No. 330331) up to Senior Secondary level, providing a rigorous curriculum combined with integrated competitive exam preparation.
                         </div>
                     </div>
                 </div>

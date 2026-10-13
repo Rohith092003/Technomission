@@ -262,18 +262,18 @@ get_header();
                     </div>
                 </div>
                 
-                <!-- Day-Cum-Boarding -->
+                <!-- Foundation & Olympiad Program -->
                 <div class="bg-white rounded-2xl p-6 sm:p-8 md:p-10 shadow-2xl border border-gray-100 relative overflow-hidden group">
                     <div class="absolute top-0 right-0 opacity-[0.03] transform translate-x-1/4 -translate-y-1/4 group-hover:scale-110 transition duration-700">
-                        <i class="fas fa-home text-[180px] text-primary"></i>
+                        <i class="fas fa-lightbulb text-[180px] text-primary"></i>
                     </div>
                     <div class="relative z-10">
                         <div class="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-lg">
-                            <i class="fas fa-bed"></i>
+                            <i class="fas fa-brain"></i>
                         </div>
-                        <h3 class="nav-font font-bold text-3xl text-primary mb-4 leading-tight">Day-Cum-Boarding Facility</h3>
+                        <h3 class="nav-font font-bold text-3xl text-primary mb-4 leading-tight">Olympiad & Foundation Wing</h3>
                         <p class="text-gray-600 leading-relaxed mb-8 text-lg font-light">
-                            Our unique day-cum-boarding program offers a highly structured, nurturing environment where students spend extended hours on campus. Supervised evening study sessions ensure homework and self-study are completed under expert guidance, leading to better academic outcomes.
+                            Targeted foundation courses designed for classes 6 to 10 covering NTSE, National Olympiads, and analytical reasoning. Supervised guidance helps build strong conceptual fundamentals and early problem-solving skills for future competitive success.
                         </p>
                         <a href="<?php echo home_url('/contact/'); ?>" class="inline-flex items-center text-primary font-bold hover:text-secondary transition text-sm uppercase tracking-wider">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
                     </div>

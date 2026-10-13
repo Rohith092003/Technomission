@@ -243,7 +243,7 @@ get_header();
                 <h4 class="text-secondary font-bold text-sm uppercase tracking-wider mb-2">Have Questions?</h4>
                 <h2 class="section-title">Frequently Asked Questions</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto text-base">
-                    Find comprehensive answers to commonly asked questions regarding admissions, age criteria, document verification, boarding facilities, and fee guidelines for the 2026–27 session.
+                    Find comprehensive answers to commonly asked questions regarding admissions, age criteria, document verification, curriculum guidelines, and fee schedules for the 2026–27 session.
                 </p>
             </div>
 
@@ -392,30 +392,11 @@ get_header();
                     <button @click="activeAccordion = activeAccordion === 9 ? null : 9" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 9 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
                         <span class="flex items-center gap-3 pr-4">
                             <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 9 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">09</span>
-                            <span class="text-base md:text-lg leading-snug">Does TMISB provide hostel or boarding facilities?</span>
+                            <span class="text-base md:text-lg leading-snug">How can I obtain the fee structure and confirm admission?</span>
                         </span>
                         <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 9 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
                     </button>
                     <div x-show="activeAccordion === 9" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
-                        <p class="mb-3">
-                            Parents interested in residential facilities should contact the school to confirm boarding availability, classes eligible for admission, accommodation arrangements, supervision, meal facilities, and applicable charges.
-                        </p>
-                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-blue-50 text-primary text-xs font-medium border border-blue-100">
-                            <i class="fas fa-bed"></i> Inquire with the administration desk for separate boys' and girls' residential rules and fee schedules.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 10 -->
-                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300" :class="activeAccordion === 10 ? 'shadow-md border-primary/40 bg-white' : 'hover:border-gray-300 bg-white'">
-                    <button @click="activeAccordion = activeAccordion === 10 ? null : 10" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 10 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
-                        <span class="flex items-center gap-3 pr-4">
-                            <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 10 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">10</span>
-                            <span class="text-base md:text-lg leading-snug">How can I obtain the fee structure and confirm admission?</span>
-                        </span>
-                        <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 10 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
-                    </button>
-                    <div x-show="activeAccordion === 10" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
                         <p>
                             Parents can request the current approved fee schedule directly from the school's admission office. The applicable charges, payment deadlines, and any additional costs should be confirmed before admission. Admission is finalised only after the school completes its prescribed formalities and communicates confirmation to the parent or guardian.
                         </p>
