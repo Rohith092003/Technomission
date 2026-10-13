@@ -105,7 +105,20 @@
                         <a href="<?php echo home_url('/about/'); ?>#faculty" class="py-2 hover:text-secondary">Faculty & Staff</a>
                     </div>
                 </div>
-                <a href="<?php echo home_url('/academics/'); ?>" class="py-3 border-b border-white/10 mobile-nav-link">Academics</a>
+                <div x-data="{ open: false }">
+                    <button @click="open = !open" class="flex justify-between items-center w-full py-3 border-b border-white/10">
+                        Academics <i class="fas fa-chevron-down text-xs transition" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" class="bg-primaryDark px-4 py-2 text-sm flex flex-col">
+                        <a href="<?php echo home_url('/academics/'); ?>#overview" class="py-2 hover:text-secondary">Academic Philosophy</a>
+                        <a href="<?php echo home_url('/academics/'); ?>#pre-primary" class="py-2 hover:text-secondary">Pre-Primary Wing</a>
+                        <a href="<?php echo home_url('/academics/'); ?>#primary" class="py-2 hover:text-secondary">Primary Wing (I–V)</a>
+                        <a href="<?php echo home_url('/academics/'); ?>#secondary" class="py-2 hover:text-secondary">Middle & Secondary (VI–X)</a>
+                        <a href="<?php echo home_url('/academics/'); ?>#senior-secondary" class="py-2 hover:text-secondary">Senior Secondary (XI–XII)</a>
+                        <a href="<?php echo home_url('/academics/'); ?>#competitive" class="py-2 hover:text-secondary">Competitive Prep (JEE/NEET)</a>
+                        <a href="<?php echo home_url('/academics/'); ?>#methodology" class="py-2 hover:text-secondary">Teaching & Evaluation</a>
+                    </div>
+                </div>
                 <a href="<?php echo home_url('/labs/'); ?>" class="py-3 border-b border-white/10 mobile-nav-link">Labs</a>
                 <a href="<?php echo home_url('/activities/'); ?>" class="py-3 border-b border-white/10 mobile-nav-link">Activities</a>
                 <a href="<?php echo home_url('/gallery/'); ?>" class="py-3 border-b border-white/10 mobile-nav-link">Gallery</a>

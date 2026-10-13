@@ -26,11 +26,14 @@ get_header();
 
                 <li class="relative group nav-item">
                     <a href="<?php echo home_url('/academics/'); ?>" class="hover:text-secondary transition flex items-center pb-1">Academics <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
-                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-56 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
-                        <li><a href="<?php echo home_url('/academics/'); ?>#primary" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Primary Education</a></li>
-                        <li><a href="<?php echo home_url('/academics/'); ?>#secondary" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Middle & Secondary</a></li>
-                        <li><a href="<?php echo home_url('/academics/'); ?>#senior-secondary" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Senior Secondary</a></li>
-                        <li><a href="<?php echo home_url('/academics/'); ?>#specialized" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Specialized Programs</a></li>
+                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
+                        <li><a href="<?php echo home_url('/academics/'); ?>#overview" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Academic Philosophy</a></li>
+                        <li><a href="<?php echo home_url('/academics/'); ?>#pre-primary" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Pre-Primary (Nursery–UKG)</a></li>
+                        <li><a href="<?php echo home_url('/academics/'); ?>#primary" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Primary Wing (Classes I–V)</a></li>
+                        <li><a href="<?php echo home_url('/academics/'); ?>#secondary" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Middle & Secondary (VI–X)</a></li>
+                        <li><a href="<?php echo home_url('/academics/'); ?>#senior-secondary" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Senior Secondary (XI–XII)</a></li>
+                        <li><a href="<?php echo home_url('/academics/'); ?>#competitive" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Competitive Prep (JEE/NEET)</a></li>
+                        <li><a href="<?php echo home_url('/academics/'); ?>#methodology" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Teaching & Evaluation</a></li>
                     </ul>
                 </li>
                 
@@ -115,169 +118,680 @@ get_header();
     </div>
 
     <!-- Page Header -->
-    <section class="page-header py-14 sm:py-20 md:py-24 text-center">
-        <div class="container mx-auto px-4">
-            <h1 class="nav-font font-bold text-4xl text-white mb-4">Academic Curriculum</h1>
-            <div class="flex items-center justify-center text-gray-300 text-sm">
-                <a href="<?php echo home_url('/'); ?>" class="hover:text-white transition">Home</a>
-                <i class="fas fa-chevron-right mx-3 text-xs"></i>
-                <span class="text-secondary font-semibold">Academics</span>
+    <section class="relative py-16 md:py-32 bg-primaryDark overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Academic Background" class="w-full h-full object-cover opacity-25">
+            <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/95 via-primaryDark/85 to-primaryDark/50"></div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10 max-w-7xl">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 bg-secondary text-white px-3.5 py-1.5 rounded text-xs font-bold tracking-widest uppercase mb-4 shadow">
+                    <i class="fas fa-book-open"></i> Academic Excellence & Character
+                </div>
+                <h1 class="nav-font font-extrabold text-4xl sm:text-5xl md:text-6xl text-white mb-4 leading-tight">
+                    Academics at <span class="text-secondary">TMISB</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-yellow-300 font-semibold italic mb-6">
+                    "Beyond Books. Beyond Boundaries."
+                </p>
+                <div class="flex items-center text-gray-300 text-sm font-medium">
+                    <a href="<?php echo home_url('/'); ?>" class="hover:text-white transition flex items-center"><i class="fas fa-home mr-2"></i> Home</a>
+                    <i class="fas fa-chevron-right mx-3 text-xs text-gray-500"></i>
+                    <span class="text-secondary font-semibold">Academics</span>
+                </div>
             </div>
         </div>
     </section>
 
-        <!-- 1. Academic Philosophy / Curriculum Overview -->
-    <section class="py-20 bg-white">
+    <!-- 1. Academic Philosophy & Overview -->
+    <section class="section-padding bg-white relative overflow-hidden" id="overview">
         <div class="container mx-auto px-4 max-w-7xl">
             <div class="flex flex-col lg:flex-row gap-16 items-center">
-                <div class="w-full lg:w-1/2">
-                    <h4 class="text-secondary font-bold text-sm uppercase tracking-wider mb-2">Our Philosophy</h4>
-                    <h2 class="section-title left-align">Empowering Minds for a Global Future</h2>
-                    <p class="text-gray-600 mb-6 leading-relaxed text-lg">
-                        At Techno Mission International School, we follow the prestigious <strong class="text-primary">CBSE curriculum</strong>, seamlessly blending traditional values with modern, progressive education methodologies.
+                <!-- Text Content -->
+                <div class="w-full lg:w-7/12">
+                    <div class="flex items-center mb-3">
+                        <span class="w-10 h-1 bg-secondary rounded-full mr-3"></span>
+                        <h4 class="text-secondary font-bold text-sm uppercase tracking-widest">Our Educational Philosophy</h4>
+                    </div>
+                    <h2 class="section-title left-align mb-6">
+                        Nurturing Curiosity, Creativity & Lifelong Learning
+                    </h2>
+                    
+                    <p class="text-gray-700 text-lg leading-relaxed mb-5 font-normal">
+                        At <strong class="text-primary font-semibold">Techno Mission International School, Bhagalpur</strong>, we believe that education should nurture curiosity, develop creativity and prepare children to meet the challenges of the future. Our academic approach goes beyond textbooks and examinations to encourage independent thinking, innovation, practical learning and the development of strong moral values.
                     </p>
-                    <p class="text-gray-600 mb-8 leading-relaxed">
-                        Our academic framework is designed not just for rote learning, but to foster critical thinking, problem-solving, and intellectual curiosity. We believe that every child is unique, and our student-centric approach ensures personalized attention to help them realize their maximum potential.
+                    <p class="text-gray-600 leading-relaxed mb-5">
+                        We recognise that every child is unique and learns differently. Through age-appropriate teaching methods, activity-based learning, creative exploration and continuous guidance, we aim to develop each student's intellectual, physical, emotional and social abilities.
                     </p>
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl shrink-0"><i class="fas fa-laptop-code"></i></div>
-                            <span class="font-bold text-gray-800 text-sm">Tech-Integrated<br>Classrooms</span>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl shrink-0"><i class="fas fa-chalkboard-teacher"></i></div>
-                            <span class="font-bold text-gray-800 text-sm">Experienced<br>Faculty</span>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl shrink-0"><i class="fas fa-flask"></i></div>
-                            <span class="font-bold text-gray-800 text-sm">Practical<br>Learning</span>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl shrink-0"><i class="fas fa-globe-asia"></i></div>
-                            <span class="font-bold text-gray-800 text-sm">Global<br>Perspective</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full lg:w-1/2">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl h-[500px]">
-                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Academic Philosophy" class="w-full h-full object-cover">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Alongside academic excellence, we emphasise the importance of yoga, meditation, physical fitness, cultural awareness and mindfulness. From learning through rhymes and playful activities in the early years to scientific exploration and innovative thinking in higher classes, we seek to create an environment where learning is meaningful, engaging and enjoyable.
+                    </p>
 
-    <!-- 2. Academic Stages -->
-    <section class="py-20 bg-lightBg border-y border-gray-100" id="stages">
-        <div class="container mx-auto px-4 max-w-7xl">
-            <div class="text-center mb-16">
-                <h4 class="text-secondary font-bold text-sm uppercase tracking-wider mb-2">Learning Journey</h4>
-                <h2 class="section-title">Our Educational Stages</h2>
-            </div>
-            
-            <div class="space-y-12">
-                <!-- Stage 1 -->
-                <div id="primary" class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden flex flex-col md:flex-row group">
-                    <div class="w-full md:w-2/5 h-64 md:h-auto relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Primary" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    </div>
-                    <div class="w-full md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
-                        <div class="text-secondary mb-3"><i class="fas fa-star text-xl"></i></div>
-                        <h3 class="nav-font font-bold text-3xl text-primary mb-4">Primary Education (Classes I-V)</h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            The primary years are crucial for laying a strong foundation. Our curriculum focuses on language proficiency, numerical ability, environmental awareness, and creative expression. We employ activity-based learning to make education engaging and joyful.
+                    <!-- Quote Highlight Box -->
+                    <div class="bg-lightBg border-l-4 border-secondary p-5 rounded-r-xl shadow-sm mb-6">
+                        <p class="text-primary font-semibold italic text-base md:text-lg mb-1">
+                            “Our objective is to nurture confident learners, creative thinkers and responsible citizens who are equipped with knowledge, character and the courage to explore new possibilities.”
                         </p>
-                        <ul class="space-y-3 text-sm text-gray-700 font-medium">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3 text-lg"></i> Focus on foundational literacy and numeracy</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3 text-lg"></i> Experiential and play-way methods</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3 text-lg"></i> Introduction to basic computer skills</li>
-                        </ul>
+                        <span class="text-xs text-gray-500 font-bold uppercase tracking-wider">— Techno Mission Academic Mission</span>
                     </div>
-                </div>
 
-                <!-- Stage 2 -->
-                <div id="secondary" class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden flex flex-col md:flex-row-reverse group">
-                    <div class="w-full md:w-2/5 h-64 md:h-auto relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Middle & Secondary" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    </div>
-                    <div class="w-full md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
-                        <div class="text-secondary mb-3"><i class="fas fa-book-reader text-xl"></i></div>
-                        <h3 class="nav-font font-bold text-3xl text-primary mb-4">Middle & Secondary (Classes VI-X)</h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            As students mature, our academic rigor increases. We strictly follow the CBSE curriculum, emphasizing analytical skills, project-based learning, and interdisciplinary approaches to prepare them thoroughly for the Class X Board Examinations.
-                        </p>
-                        <ul class="space-y-3 text-sm text-gray-700 font-medium">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3 text-lg"></i> Comprehensive subject knowledge</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3 text-lg"></i> Regular assessments and feedback loops</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3 text-lg"></i> Focus on mental wellness and career counseling</li>
-                        </ul>
+                    <!-- 4 Quick Key Pillars -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+                        <div class="p-3 bg-lightBg rounded-xl border border-gray-100 text-center">
+                            <i class="fas fa-lightbulb text-secondary text-xl mb-1 block"></i>
+                            <span class="text-xs font-bold text-primary">Inquiry & Curiosity</span>
+                        </div>
+                        <div class="p-3 bg-lightBg rounded-xl border border-gray-100 text-center">
+                            <i class="fas fa-spa text-secondary text-xl mb-1 block"></i>
+                            <span class="text-xs font-bold text-primary">Yoga & Mindfulness</span>
+                        </div>
+                        <div class="p-3 bg-lightBg rounded-xl border border-gray-100 text-center">
+                            <i class="fas fa-flask text-secondary text-xl mb-1 block"></i>
+                            <span class="text-xs font-bold text-primary">Practical Learning</span>
+                        </div>
+                        <div class="p-3 bg-lightBg rounded-xl border border-gray-100 text-center">
+                            <i class="fas fa-shield-alt text-secondary text-xl mb-1 block"></i>
+                            <span class="text-xs font-bold text-primary">Moral Character</span>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Stage 3 -->
-                <div id="senior-secondary" class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden flex flex-col md:flex-row group">
-                    <div class="w-full md:w-2/5 h-64 md:h-auto relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Senior Secondary" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    </div>
-                    <div class="w-full md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
-                        <div class="text-secondary mb-3"><i class="fas fa-graduation-cap text-xl"></i></div>
-                        <h3 class="nav-font font-bold text-3xl text-primary mb-4">Senior Secondary (Classes XI-XII)</h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            The defining years of school life. We offer robust streams in Science (PCM/PCB) and Commerce. With highly experienced faculty, state-of-the-art laboratories, and comprehensive study materials, we ensure students excel in Board Exams while simultaneously preparing for competitive entrances.
-                        </p>
-                        <ul class="space-y-3 text-sm text-gray-700 font-medium">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3 text-lg"></i> Specialized faculty for higher-level subjects</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3 text-lg"></i> Advanced laboratory sessions</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3 text-lg"></i> Integrated coaching for IIT-JEE / NEET</li>
-                        </ul>
+                <!-- Image & Graphic Side -->
+                <div class="w-full lg:w-5/12 relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Students in Classroom" class="rounded-2xl shadow-2xl w-full h-[520px] object-cover">
+                        <div class="absolute inset-0 rounded-2xl bg-gradient-to-t from-primaryDark/85 via-transparent to-transparent"></div>
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-2xl border border-gray-100 hidden sm:flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-xl bg-secondary text-white flex items-center justify-center text-2xl font-bold shadow">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 font-bold uppercase tracking-wider">CBSE Affiliated</p>
+                                <p class="text-base font-bold text-primary">Senior Secondary (#330331)</p>
+                            </div>
+                        </div>
+
+                        <!-- Philosophy Card Overlay -->
+                        <div class="absolute top-6 left-6 right-6 bg-primary/90 backdrop-blur-sm p-4 rounded-xl text-white border border-white/20">
+                            <p class="text-xs uppercase text-yellow-300 font-bold tracking-widest mb-1">Guiding Principle</p>
+                            <p class="text-sm font-medium italic">"Beyond Books. Beyond Boundaries."</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. Specialized Programs Grid -->
-    <section id="specialized" class="py-20 bg-white">
+    <!-- 2. Pre-Primary Wing (Nursery, LKG, UKG) -->
+    <section class="section-padding bg-lightBg border-t border-gray-200" id="pre-primary">
         <div class="container mx-auto px-4 max-w-7xl">
             <div class="text-center mb-16">
-                <h4 class="text-secondary font-bold text-sm uppercase tracking-wider mb-2">Beyond Regular Academics</h4>
-                <h2 class="section-title">Specialized Programs</h2>
+                <span class="inline-block bg-primary/10 text-primary font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-3">
+                    Classes: Nursery, LKG & UKG
+                </span>
+                <h4 class="text-secondary font-bold text-sm uppercase tracking-widest mb-2">Early Childhood Care & Education</h4>
+                <h2 class="section-title">Pre-Primary Wing</h2>
+                <p class="text-lg text-primary font-semibold italic max-w-2xl mx-auto mb-3">
+                    "A joyful beginning to lifelong learning"
+                </p>
+                <p class="text-gray-600 max-w-3xl mx-auto text-base leading-relaxed">
+                    The early years form the foundation of a child's learning journey. At TMISB, we aim to make these years joyful, stimulating and enriching through play-way pedagogy, rhymes, storytelling, music, movement and activity-based learning.
+                </p>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <!-- Competitive Prep -->
-                <div class="bg-gradient-to-br from-primary to-blue-900 rounded-2xl p-6 sm:p-8 md:p-10 text-white shadow-2xl relative overflow-hidden group">
+
+            <!-- 5 Pillar Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-secondary/10 text-secondary flex items-center justify-center text-2xl mb-6 group-hover:bg-secondary group-hover:text-white transition duration-300">
+                        <i class="fas fa-shapes"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-xl text-primary mb-3">Play-Way & Activity Learning</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Children explore concepts through games, puzzles, building blocks, art, colours, shapes and hands-on activities. These experiences help them understand their surroundings while developing natural curiosity, creativity and confidence.
+                    </p>
+                </div>
+
+                <!-- 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-primary group-hover:text-white transition duration-300">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-xl text-primary mb-3">Rhymes & Storytelling</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Rhymes, songs, storytelling and rhythmic activities make learning enjoyable and memorable. They help children develop vocabulary, clear pronunciation, active listening skills, memory, language fluency and an early appreciation of rhythm.
+                    </p>
+                </div>
+
+                <!-- 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-secondary/10 text-secondary flex items-center justify-center text-2xl mb-6 group-hover:bg-secondary group-hover:text-white transition duration-300">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-xl text-primary mb-3">Cognitive & Motor Skills</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Age-appropriate activities involving counting, sorting, drawing, colouring, clay modelling and movement help strengthen observation, logical thinking, hand-eye coordination and essential fine and gross motor skills.
+                    </p>
+                </div>
+
+                <!-- 4 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-primary group-hover:text-white transition duration-300">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-xl text-primary mb-3">Yoga & Meditation</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Simple, age-appropriate yoga postures, breathing activities and short guided relaxation sessions help children develop body awareness, balance, concentration and calmness in an enjoyable, supportive, and playful manner.
+                    </p>
+                </div>
+
+                <!-- 5 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition group lg:col-span-2">
+                    <div class="w-14 h-14 rounded-2xl bg-secondary/10 text-secondary flex items-center justify-center text-2xl mb-6 group-hover:bg-secondary group-hover:text-white transition duration-300">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-xl text-primary mb-3">Social & Emotional Growth</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Group play and collaborative classroom activities encourage sharing, cooperation, patience, empathy and respect for others. Children learn to express their feelings, build positive friendships, and develop healthy interpersonal habits from their very first steps in school.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Promise Box -->
+            <div class="mt-12 bg-white rounded-2xl p-6 border border-gray-200 text-center max-w-3xl mx-auto shadow-sm">
+                <p class="text-gray-700 font-medium text-sm md:text-base">
+                    <i class="fas fa-heart text-secondary mr-2"></i> Our aim is to provide a nurturing environment in which every child feels encouraged to explore, express themselves and develop a positive attitude towards learning.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Primary Wing (Classes I–V) -->
+    <section class="section-padding bg-white" id="primary">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-secondary/10 text-secondary font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-3">
+                    Classes: I – V
+                </span>
+                <h4 class="text-secondary font-bold text-sm uppercase tracking-widest mb-2">Foundational Years</h4>
+                <h2 class="section-title">Primary Wing</h2>
+                <p class="text-lg text-primary font-semibold italic max-w-2xl mx-auto mb-3">
+                    "Building strong foundations and nurturing curiosity"
+                </p>
+                <p class="text-gray-600 max-w-3xl mx-auto text-base leading-relaxed">
+                    The primary years are essential for developing the knowledge, skills and learning habits that support future academic success. At TMISB, we aim to build strong foundations in literacy, numeracy, communication and scientific awareness while encouraging creativity and independent thinking.
+                </p>
+            </div>
+
+            <!-- 6 Pillar Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 1 -->
+                <div class="bg-lightBg rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition group">
+                    <span class="w-10 h-10 rounded-lg bg-primary text-white flex items-center justify-center font-bold text-sm mb-4">01</span>
+                    <h3 class="nav-font font-bold text-lg text-primary mb-2">Foundational Literacy & Numeracy</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Students develop reading comprehension, structured writing, vocabulary, mathematical reasoning and problem-solving skills through structured lessons, regular practice and engaging activities.
+                    </p>
+                </div>
+
+                <!-- 2 -->
+                <div class="bg-lightBg rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition group">
+                    <span class="w-10 h-10 rounded-lg bg-secondary text-white flex items-center justify-center font-bold text-sm mb-4">02</span>
+                    <h3 class="nav-font font-bold text-lg text-primary mb-2">Languages & Communication</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Reading, storytelling, recitation, rhymes, interactive discussions and creative writing help students express their ideas clearly, build rich vocabulary, and communicate with confidence.
+                    </p>
+                </div>
+
+                <!-- 3 -->
+                <div class="bg-lightBg rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition group">
+                    <span class="w-10 h-10 rounded-lg bg-primary text-white flex items-center justify-center font-bold text-sm mb-4">03</span>
+                    <h3 class="nav-font font-bold text-lg text-primary mb-2">Environmental Awareness</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Students are encouraged to understand nature, environmental conservation, cleanliness and responsible use of resources through direct observation, hands-on projects and everyday learning.
+                    </p>
+                </div>
+
+                <!-- 4 -->
+                <div class="bg-lightBg rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition group">
+                    <span class="w-10 h-10 rounded-lg bg-secondary text-white flex items-center justify-center font-bold text-sm mb-4">04</span>
+                    <h3 class="nav-font font-bold text-lg text-primary mb-2">Technology & Innovation</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Age-appropriate computer education and creative digital activities introduce students to technology tools, logical thinking and simple problem-solving, encouraging them to think beyond conventional answers.
+                    </p>
+                </div>
+
+                <!-- 5 -->
+                <div class="bg-lightBg rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition group">
+                    <span class="w-10 h-10 rounded-lg bg-primary text-white flex items-center justify-center font-bold text-sm mb-4">05</span>
+                    <h3 class="nav-font font-bold text-lg text-primary mb-2">Yoga, Meditation & Physical Fitness</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Regular age-appropriate yoga, breathing exercises and mindfulness activities support concentration, physical coordination, self-discipline and emotional balance alongside sports and movement games.
+                    </p>
+                </div>
+
+                <!-- 6 -->
+                <div class="bg-lightBg rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition group">
+                    <span class="w-10 h-10 rounded-lg bg-secondary text-white flex items-center justify-center font-bold text-sm mb-4">06</span>
+                    <h3 class="nav-font font-bold text-lg text-primary mb-2">Learning Through Projects</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Art, science models, group assignments and practical activities help students connect concepts with real-life situations, developing teamwork, creative imagination and presentation confidence.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Objective Box -->
+            <div class="mt-12 bg-lightBg rounded-2xl p-6 border border-gray-200 text-center max-w-3xl mx-auto shadow-sm">
+                <p class="text-primary font-semibold text-sm md:text-base">
+                    <i class="fas fa-check-circle text-secondary mr-2"></i> Our objective is to nurture inquisitive learners who possess strong academic foundations, communicate effectively and approach new challenges with curiosity and creativity.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Middle & Secondary Wing (Classes VI–X) -->
+    <section class="section-padding bg-lightBg border-t border-gray-200" id="secondary">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-primary/10 text-primary font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-3">
+                    Classes: VI – X (CBSE Curriculum)
+                </span>
+                <h4 class="text-secondary font-bold text-sm uppercase tracking-widest mb-2">Preparatory & Analytical Stage</h4>
+                <h2 class="section-title">Middle & Secondary Wing</h2>
+                <p class="text-lg text-primary font-semibold italic max-w-2xl mx-auto mb-3">
+                    "Critical thinking, innovation and academic excellence"
+                </p>
+                <p class="text-gray-600 max-w-3xl mx-auto text-base leading-relaxed">
+                    The middle and secondary years provide opportunities for students to deepen their understanding, strengthen analytical abilities and discover their areas of interest. At TMISB, we aim to develop learners who can question assumptions, evaluate information, solve problems and apply knowledge effectively.
+                </p>
+            </div>
+
+            <!-- 5 Pillar Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition group">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-xl mb-4 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-lg text-primary mb-2">Subject-Based Depth</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Students develop a deeper understanding of languages, mathematics, science, social sciences and prescribed CBSE subjects through structured teaching and regular practice.
+                    </p>
+                </div>
+
+                <!-- 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition group">
+                    <div class="w-12 h-12 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center text-xl mb-4 group-hover:bg-secondary group-hover:text-white transition">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-lg text-primary mb-2">Experiential & Lab Learning</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Practical demonstrations, laboratory experiments, projects and investigations encourage students to test ideas, interpret observations and connect theoretical knowledge with real-world applications.
+                    </p>
+                </div>
+
+                <!-- 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition group">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-xl mb-4 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-lg text-primary mb-2">Innovation & Problem-Solving</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Students are encouraged to ask meaningful questions, explore alternative solutions and develop original ideas. STEM-oriented activities, models and technology provide opportunities for collaborative design thinking.
+                    </p>
+                </div>
+
+                <!-- 4 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition group">
+                    <div class="w-12 h-12 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center text-xl mb-4 group-hover:bg-secondary group-hover:text-white transition">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-lg text-primary mb-2">Yoga, Meditation & Well-Being</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Age-appropriate yoga and meditation practices help students develop concentration, self-awareness, emotional regulation and resilience, complementing academic preparation with mindful, balanced routines.
+                    </p>
+                </div>
+
+                <!-- 5 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition group lg:col-span-2">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-xl mb-4 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-lg text-primary mb-2">Structured Board Exam Preparation</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Periodic assessments, assignments, projects and term examinations monitor progress. As students approach Class X CBSE board examinations, focused revision, practice papers, time management techniques and constructive feedback support systematic, stress-free preparation.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Objective Box -->
+            <div class="mt-12 bg-white rounded-2xl p-6 border border-gray-200 text-center max-w-3xl mx-auto shadow-sm">
+                <p class="text-primary font-semibold text-sm md:text-base">
+                    <i class="fas fa-award text-secondary mr-2"></i> Our objective is to develop disciplined, confident and innovative learners who combine academic knowledge with analytical thinking, adaptability and responsible decision-making.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Senior Secondary Wing (Classes XI–XII) -->
+    <section class="section-padding bg-white" id="senior-secondary">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-secondary/10 text-secondary font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-3">
+                    Classes: XI – XII (+2 Level)
+                </span>
+                <h4 class="text-secondary font-bold text-sm uppercase tracking-widest mb-2">Specialisation & Transition to Careers</h4>
+                <h2 class="section-title">Senior Secondary Wing</h2>
+                <p class="text-lg text-primary font-semibold italic max-w-2xl mx-auto mb-3">
+                    "Specialisation, independent thinking and future readiness"
+                </p>
+                <p class="text-gray-600 max-w-3xl mx-auto text-base leading-relaxed">
+                    Senior secondary education marks an important transition towards higher education and professional aspirations. At TMISB, our aim is to help students deepen their subject knowledge, develop independent learning habits and make informed decisions about their future.
+                </p>
+            </div>
+
+            <!-- Two Stream Showcase Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+                <!-- Science Stream -->
+                <div class="bg-gradient-to-br from-primary to-primaryDark text-white rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden group">
                     <div class="absolute top-0 right-0 opacity-10 transform translate-x-1/4 -translate-y-1/4 group-hover:scale-110 transition duration-700">
-                        <i class="fas fa-trophy text-[180px]"></i>
+                        <i class="fas fa-atom text-[200px]"></i>
                     </div>
                     <div class="relative z-10">
-                        <div class="w-16 h-16 bg-secondary text-primary rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-lg">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <h3 class="nav-font font-bold text-3xl mb-4 leading-tight">Integrated Competitive Coaching</h3>
-                        <p class="text-white/80 leading-relaxed mb-8 text-lg font-light">
-                            TMISB brings expert faculty to campus for specialized coaching in IIT-JEE, NEET, and other national-level competitive examinations. This saves students precious travel time and provides a synchronized curriculum that covers both Board and Entrance syllabi.
+                        <span class="inline-block bg-secondary text-white font-bold text-xs uppercase tracking-widest px-3 py-1 rounded mb-4 shadow">
+                            Stream 01
+                        </span>
+                        <h3 class="nav-font font-bold text-3xl text-white mb-4">Science Stream</h3>
+                        <p class="text-gray-200 text-sm md:text-base leading-relaxed mb-6 font-light">
+                            Designed for aspirants aiming for engineering, medicine, research, technology, and pure sciences. Focuses on deep conceptual understanding and rigorous laboratory investigation.
                         </p>
-                        <a href="<?php echo home_url('/contact/'); ?>" class="inline-flex items-center text-secondary font-bold hover:text-white transition text-sm uppercase tracking-wider">Enquire Now <i class="fas fa-arrow-right ml-2"></i></a>
+                        <div class="space-y-3 border-t border-white/20 pt-6 text-sm">
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-yellow-300 mt-1"></i>
+                                <span><strong>Core Combinations:</strong> Physics, Chemistry & Mathematics (PCM) or Physics, Chemistry & Biology (PCB).</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-yellow-300 mt-1"></i>
+                                <span><strong>Approved Electives:</strong> Computer Science, Physical Education, or other CBSE approved subjects.</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-yellow-300 mt-1"></i>
+                                <span><strong>Hands-On Edge:</strong> Advanced physics, chemistry, biology and computer labs for practical mastery.</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- Foundation & Olympiad Program -->
-                <div class="bg-white rounded-2xl p-6 sm:p-8 md:p-10 shadow-2xl border border-gray-100 relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 opacity-[0.03] transform translate-x-1/4 -translate-y-1/4 group-hover:scale-110 transition duration-700">
-                        <i class="fas fa-lightbulb text-[180px] text-primary"></i>
+
+                <!-- Commerce Stream -->
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-2xl border-2 border-gray-100 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 opacity-5 transform translate-x-1/4 -translate-y-1/4 group-hover:scale-110 transition duration-700">
+                        <i class="fas fa-chart-line text-[200px] text-primary"></i>
                     </div>
                     <div class="relative z-10">
-                        <div class="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-lg">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h3 class="nav-font font-bold text-3xl text-primary mb-4 leading-tight">Olympiad & Foundation Wing</h3>
-                        <p class="text-gray-600 leading-relaxed mb-8 text-lg font-light">
-                            Targeted foundation courses designed for classes 6 to 10 covering NTSE, National Olympiads, and analytical reasoning. Supervised guidance helps build strong conceptual fundamentals and early problem-solving skills for future competitive success.
+                        <span class="inline-block bg-primary text-white font-bold text-xs uppercase tracking-widest px-3 py-1 rounded mb-4 shadow">
+                            Stream 02
+                        </span>
+                        <h3 class="nav-font font-bold text-3xl text-primary mb-4">Commerce Stream</h3>
+                        <p class="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
+                            Tailored for students targeting commerce, chartered accountancy (CA), business management, economics, finance, corporate law, and entrepreneurship.
                         </p>
-                        <a href="<?php echo home_url('/contact/'); ?>" class="inline-flex items-center text-primary font-bold hover:text-secondary transition text-sm uppercase tracking-wider">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+                        <div class="space-y-3 border-t border-gray-200 pt-6 text-sm text-gray-700">
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-secondary mt-1"></i>
+                                <span><strong>Core Combinations:</strong> Accountancy, Business Studies, and Economics.</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-secondary mt-1"></i>
+                                <span><strong>Elective Options:</strong> Mathematics, Applied Mathematics, or other approved electives.</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-secondary mt-1"></i>
+                                <span><strong>Practical Application:</strong> Case studies, project works, data analysis, and financial problem-solving.</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- 3 Supportive Pillars in Senior Secondary -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+                <div class="bg-lightBg rounded-2xl p-6 border border-gray-100">
+                    <div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-lg mb-3">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <h4 class="nav-font font-bold text-base text-primary mb-2">Research & Application</h4>
+                    <p class="text-gray-600 text-xs leading-relaxed">
+                        Connecting theoretical concepts with practical applications, data analysis, research projects and independent problem-solving skills.
+                    </p>
+                </div>
+
+                <div class="bg-lightBg rounded-2xl p-6 border border-gray-100">
+                    <div class="w-10 h-10 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center text-lg mb-3">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h4 class="nav-font font-bold text-base text-primary mb-2">Entrance Exam Readiness</h4>
+                    <p class="text-gray-600 text-xs leading-relaxed">
+                        Academic support for competitive entrances helping students strengthen fundamentals, practice application questions, and master exam strategies.
+                    </p>
+                </div>
+
+                <div class="bg-lightBg rounded-2xl p-6 border border-gray-100">
+                    <div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center text-lg mb-3">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h4 class="nav-font font-bold text-base text-primary mb-2">Personal Well-Being & Discipline</h4>
+                    <p class="text-gray-600 text-xs leading-relaxed">
+                        Healthy daily routines, physical activities and mindfulness practices supporting balanced mental health under academic rigor.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Note -->
+            <p class="text-center text-xs text-gray-500 italic">
+                * Note: The school confirms actual streams, subject combinations and electives offered in accordance with approved CBSE affiliation guidelines.
+            </p>
+        </div>
+    </section>
+
+    <!-- 6. Integrated Competitive Preparation — JEE / NEET -->
+    <section class="section-padding bg-gradient-to-br from-primary to-primaryDark text-white relative overflow-hidden" id="competitive">
+        <div class="container mx-auto px-4 max-w-7xl relative z-10">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-secondary text-white font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-3 shadow">
+                    On-Campus Competitive Wing
+                </span>
+                <h4 class="text-yellow-300 font-bold text-sm uppercase tracking-widest mb-2">Engineering & Medical Entrances</h4>
+                <h2 class="nav-font font-extrabold text-3xl md:text-5xl text-white mb-4">Integrated Competitive Preparation</h2>
+                <p class="text-lg md:text-xl text-yellow-300 font-semibold italic max-w-2xl mx-auto mb-3">
+                    "Turning aspirations into purposeful preparation"
+                </p>
+                <p class="text-gray-200 max-w-3xl mx-auto text-base leading-relaxed font-light">
+                    For students aspiring to pursue engineering, medicine and related fields, competitive examinations require conceptual clarity, consistent practice, analytical thinking and disciplined preparation. Where offered by TMISB, competitive examination support aims to complement the regular school curriculum and help students prepare systematically for their chosen academic pathways.
+                </p>
+            </div>
+
+            <!-- 5 Strategic Pillars Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- 1 -->
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-secondary text-white flex items-center justify-center text-xl mb-4 shadow">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-xl text-white mb-2">Conceptual Clarity</h3>
+                    <p class="text-gray-200 text-sm leading-relaxed font-light">
+                        Strengthening fundamentals in relevant subjects and applying concepts systematically to challenging examination-style problems.
+                    </p>
+                </div>
+
+                <!-- 2 -->
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-yellow-400 text-primary flex items-center justify-center text-xl mb-4 shadow">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-xl text-white mb-2">Syllabus Coordination</h3>
+                    <p class="text-gray-200 text-sm leading-relaxed font-light">
+                        Aligning school CBSE learning and entrance examination preparation to save travel time and avoid conflicting preparation schedules.
+                    </p>
+                </div>
+
+                <!-- 3 -->
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-secondary text-white flex items-center justify-center text-xl mb-4 shadow">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-xl text-white mb-2">Guided Doubt Clarification</h3>
+                    <p class="text-gray-200 text-sm leading-relaxed font-light">
+                        Providing regular opportunities with mentors to address difficult concepts, resolve doubts, and reinforce deep understanding.
+                    </p>
+                </div>
+
+                <!-- 4 -->
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-yellow-400 text-primary flex items-center justify-center text-xl mb-4 shadow">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-xl text-white mb-2">Practice & Assessment</h3>
+                    <p class="text-gray-200 text-sm leading-relaxed font-light">
+                        Using subject-wise exercises, structured test series, mock exams, and analytics reviews to identify strengths and areas for improvement.
+                    </p>
+                </div>
+
+                <!-- 5 -->
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition group lg:col-span-2">
+                    <div class="w-12 h-12 rounded-xl bg-secondary text-white flex items-center justify-center text-xl mb-4 shadow">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-xl text-white mb-2">Time Management & Systematic Revision</h3>
+                    <p class="text-gray-200 text-sm leading-relaxed font-light">
+                        Encouraging consistent study schedules, planned revision calendars, and balanced preparation for school board exams and national competitive entrances.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Affirmation Box -->
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center max-w-3xl mx-auto">
+                <p class="text-yellow-300 font-semibold text-sm md:text-base">
+                    “Our emphasis is on helping students develop the knowledge, confidence and perseverance required to pursue their aspirations with purpose.”
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Academic Methodology & Evaluation -->
+    <section class="section-padding bg-lightBg border-t border-gray-200" id="methodology">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-primary/10 text-primary font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-3">
+                    Evaluation & Teaching Pedagogy
+                </span>
+                <h4 class="text-secondary font-bold text-sm uppercase tracking-widest mb-2">Pedagogical Framework</h4>
+                <h2 class="section-title">Academic Methodology & Evaluation</h2>
+                <p class="text-lg text-primary font-semibold italic max-w-2xl mx-auto mb-3">
+                    "Learning, reflection and continuous improvement"
+                </p>
+                <p class="text-gray-600 max-w-3xl mx-auto text-base leading-relaxed">
+                    At TMISB, we believe that effective education combines clear instruction, active participation, regular assessment and constructive feedback. Our aim is to help students understand concepts, recognise their strengths and steadily improve their performance.
+                </p>
+            </div>
+
+            <!-- 6 Methodology Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition group">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-xl mb-4 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="fas fa-users-class"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-lg text-primary mb-2">Student-Centred Teaching</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Lessons encourage active questioning, discussion, exploration and application rather than relying exclusively on memorisation or passive listening.
+                    </p>
+                </div>
+
+                <!-- 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition group">
+                    <div class="w-12 h-12 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center text-xl mb-4 group-hover:bg-secondary group-hover:text-white transition">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-lg text-primary mb-2">Continuous Assessment</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Classwork, assignments, projects, periodic tests and prescribed assessments help teachers monitor student progress and identify areas requiring additional support.
+                    </p>
+                </div>
+
+                <!-- 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition group">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-xl mb-4 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-lg text-primary mb-2">Term Examinations</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Structured examinations help students consolidate learning, practise revision techniques and develop effective, stress-free time-management skills.
+                    </p>
+                </div>
+
+                <!-- 4 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition group">
+                    <div class="w-12 h-12 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center text-xl mb-4 group-hover:bg-secondary group-hover:text-white transition">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-lg text-primary mb-2">Innovation Through Learning</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Students are encouraged to approach problems creatively, explore different solutions and learn from mistakes through projects, science models and hands-on activities.
+                    </p>
+                </div>
+
+                <!-- 5 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition group">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-xl mb-4 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-lg text-primary mb-2">Yoga & Concentration</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Age-appropriate yoga, breathing exercises and meditation complement classroom learning by encouraging focus, self-awareness and emotional balance in school routines.
+                    </p>
+                </div>
+
+                <!-- 6 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition group">
+                    <div class="w-12 h-12 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center text-xl mb-4 group-hover:bg-secondary group-hover:text-white transition">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3 class="nav-font font-bold text-lg text-primary mb-2">Parent–Teacher Partnership</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Regular parent–teacher interactions provide an opportunity to discuss academic progress, behaviour, and interests, creating a unified and consistent learning environment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Grand Academic Philosophy Banner -->
+    <section class="py-20 bg-primary text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-primaryDark via-primary to-primaryDark opacity-95"></div>
+        <div class="container mx-auto px-4 max-w-5xl relative z-10 text-center">
+            <span class="inline-block bg-secondary text-white font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-4 shadow">
+                Our Core Educational Commitment
+            </span>
+            <h2 class="nav-font font-extrabold text-3xl md:text-5xl text-yellow-300 mb-6">
+                “Beyond Books. Beyond Boundaries.”
+            </h2>
+            <p class="text-lg md:text-xl text-gray-100 leading-relaxed font-light mb-8 max-w-3xl mx-auto">
+                We aspire to combine academic excellence with innovation, creativity, mindfulness and strong human values. From rhymes in the early years to scientific inquiry in higher classes, our aim is to make every stage of learning purposeful, engaging and relevant to the future.
+            </p>
+            <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 max-w-2xl mx-auto mb-8">
+                <p class="text-white font-bold text-base md:text-lg">
+                    “We nurture curious minds, creative thinkers and responsible citizens.”
+                </p>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="<?php echo home_url('/admissions/'); ?>" class="bg-secondary hover:bg-red-700 text-white font-bold py-3.5 px-8 rounded-lg shadow-xl uppercase tracking-wider text-sm transition">
+                    Admissions Enquiry 2026–27
+                </a>
+                <a href="<?php echo home_url('/contact/'); ?>" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 font-bold py-3.5 px-8 rounded-lg shadow uppercase tracking-wider text-sm transition">
+                    Contact Academic Office
+                </a>
             </div>
         </div>
     </section>
