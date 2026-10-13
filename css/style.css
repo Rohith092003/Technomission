@@ -178,21 +178,7 @@ h1, h2, h3, h4, h5, h6, .nav-font { font-family: 'Poppins', sans-serif; }
     --anim-duration-slow: 0.85s;
 }
 
-/* 2. Scroll Reading Progress Bar */
-#scroll-progress-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 3px;
-    background: linear-gradient(90deg, #e31837 0%, #ff4b68 50%, #003c71 100%);
-    z-index: 99999;
-    box-shadow: 0 0 10px rgba(227, 24, 55, 0.6);
-    transition: width 0.1s ease-out;
-    pointer-events: none;
-}
-
-/* 3. Floating Scroll-To-Top Button */
+/* 2. Floating Scroll-To-Top Button */
 #back-to-top {
     position: fixed;
     bottom: 28px;

@@ -20,40 +20,11 @@
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function initAnimations() {
-        initScrollProgressBar();
         initBackToTopButton();
         initHeaderScrollWatcher();
         initButtonShine();
         initScrollReveals();
         initCounters();
-    }
-
-    /* ----------------------------------------------------
-       1. Top Reading Scroll Progress Bar
-       ---------------------------------------------------- */
-    function initScrollProgressBar() {
-        if (prefersReducedMotion) return;
-        
-        let bar = document.getElementById('scroll-progress-bar');
-        if (!bar) {
-            bar = document.createElement('div');
-            bar.id = 'scroll-progress-bar';
-            document.body.appendChild(bar);
-        }
-
-        let ticking = false;
-        window.addEventListener('scroll', function () {
-            if (!ticking) {
-                window.requestAnimationFrame(function () {
-                    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                    const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-                    bar.style.width = scrolled + '%';
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }, { passive: true });
     }
 
     /* ----------------------------------------------------
