@@ -180,7 +180,23 @@ get_header();
                             <p class="text-gray-500 text-xs mt-1">Submit your details and our admission counselor will contact you within 24 hours.</p>
                         </div>
                         
-                        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Your admission enquiry has been submitted. Our team will contact you shortly.');">
+                        <?php
+// Display Forminator form if available, otherwise show styled template form
+$form_rendered = false;
+if ( shortcode_exists( 'forminator_form' ) ) {
+    $form_posts = get_posts( array(
+        'post_type'      => 'forminator_forms',
+        'post_status'    => 'publish',
+        'posts_per_page' => 1,
+    ) );
+    if ( ! empty( $form_posts ) ) {
+        echo do_shortcode( '[forminator_form id="' . $form_posts[0]->ID . '"]' );
+        $form_rendered = true;
+    }
+}
+if ( ! $form_rendered ) :
+?>
+<form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Your admission enquiry has been submitted. Our team will contact you shortly.');">
                             <div>
                                 <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Student Full Name *</label>
                                 <input type="text" required placeholder="Enter student full name" class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition text-sm">
@@ -253,6 +269,7 @@ get_header();
                                 <i class="fas fa-paper-plane"></i> Submit Admission Enquiry
                             </button>
                         </form>
+<?php endif; ?>
 
                         <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
                             <span><i class="fas fa-lock mr-1 text-primary"></i> Data Confidentiality Assured</span>

@@ -230,6 +230,33 @@ pages.forEach(p => {
             let bodyContent = content.substring(headerEnd, footerStart);
             bodyContent = fixAssetPaths(bodyContent);
             
+            if (p.template === 'page-admissions.php') {
+                const formStart = bodyContent.indexOf('<form class="space-y-4"');
+                const formEnd = bodyContent.indexOf('</form>', formStart);
+                if (formStart !== -1 && formEnd !== -1) {
+                    const fallbackForm = bodyContent.substring(formStart, formEnd + 7);
+                    const phpReplacement = `<?php
+// Display Forminator form if available, otherwise show styled template form
+$form_rendered = false;
+if ( shortcode_exists( 'forminator_form' ) ) {
+    $form_posts = get_posts( array(
+        'post_type'      => 'forminator_forms',
+        'post_status'    => 'publish',
+        'posts_per_page' => 1,
+    ) );
+    if ( ! empty( $form_posts ) ) {
+        echo do_shortcode( '[forminator_form id="' . $form_posts[0]->ID . '"]' );
+        $form_rendered = true;
+    }
+}
+if ( ! $form_rendered ) :
+?>
+${fallbackForm}
+<?php endif; ?>`;
+                    bodyContent = bodyContent.substring(0, formStart) + phpReplacement + bodyContent.substring(formEnd + 7);
+                }
+            }
+            
             const templateTitle = p.file.replace('.html', '').split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
             let wpTemplate = `<?php\n/* Template Name: ${templateTitle} Page */\nget_header();\n?>\n`;
             if (p.template === 'front-page.php') {
