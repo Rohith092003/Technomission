@@ -495,20 +495,130 @@ get_header();
 
             </div>
 
-            <!-- Important Instructions Card -->
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 max-w-4xl mx-auto">
-                <h4 class="nav-font font-bold text-lg text-primary mb-4 flex items-center gap-2">
-                    <i class="fas fa-exclamation-triangle text-secondary"></i> Important Instructions for Document Submission
-                </h4>
-                <ol class="space-y-3 text-xs md:text-sm text-gray-700 list-decimal list-inside leading-relaxed mb-6">
-                    <li><strong>Accurate Information:</strong> Parents should provide accurate information in the admission application.</li>
-                    <li><strong>Specified Format:</strong> Documents must be submitted in the format specified by the admission office.</li>
-                    <li><strong>Verification of Originals:</strong> Original documents may be required for verification, with copies retained as per school policy.</li>
-                    <li><strong>Transfer Formalities:</strong> For students transferring from another school, the applicable Transfer Certificate and previous academic records must be submitted.</li>
-                    <li><strong>Office Assistance:</strong> The admission office should be contacted if any required document is unavailable or if clarification is needed.</li>
-                </ol>
-                <div class="bg-gray-50 border-t border-gray-100 pt-3 text-xs text-gray-500 italic">
-                    * Please confirm the class-specific document requirements with the school before completing the admission process.
+            <!-- Important Instructions Card (Redesigned) -->
+            <div class="max-w-5xl mx-auto bg-white rounded-2xl p-8 md:p-10 shadow-lg border border-gray-100 relative overflow-hidden">
+                <!-- Top Brand Accent Line -->
+                <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-secondary via-primary to-secondary"></div>
+
+                <!-- Header Row -->
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 mb-8 pb-6 border-b border-gray-100">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-2xl bg-amber-500/10 text-secondary flex items-center justify-center text-2xl shrink-0 shadow-sm border border-amber-500/20">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div>
+                            <span class="inline-flex items-center gap-1.5 bg-amber-50 text-amber-800 border border-amber-200 px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-1">
+                                <i class="fas fa-shield-alt text-secondary text-[11px]"></i> Mandatory Verification Protocols
+                            </span>
+                            <h3 class="nav-font font-bold text-2xl md:text-3xl text-primary leading-tight">
+                                Important Instructions for Document Submission
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="hidden lg:block text-right">
+                        <span class="text-xs text-gray-500 font-medium">Session 2026–27</span>
+                        <div class="text-xs font-bold text-primary flex items-center gap-1 mt-0.5">
+                            <i class="fas fa-lock text-secondary"></i> Verified Verification Desk
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid of Instruction Cards (1 to 4) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+                    
+                    <!-- Instruction 1 -->
+                    <div class="bg-gray-50/80 hover:bg-white rounded-xl p-5 border border-gray-200/80 hover:border-primary/30 hover:shadow-md transition-all duration-300 group flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center font-bold text-sm shrink-0 shadow group-hover:scale-105 transition-transform">
+                            01
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <h4 class="font-bold text-primary text-base">Accurate Information</h4>
+                                <span class="bg-blue-100 text-primary text-[10px] font-bold px-2 py-0.5 rounded">Accuracy</span>
+                            </div>
+                            <p class="text-gray-600 text-xs md:text-sm leading-relaxed">
+                                Parents must ensure that all details provided in the admission application are complete, authentic, and strictly match the student's official government records and birth certificate.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Instruction 2 -->
+                    <div class="bg-gray-50/80 hover:bg-white rounded-xl p-5 border border-gray-200/80 hover:border-secondary/30 hover:shadow-md transition-all duration-300 group flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-secondary text-white flex items-center justify-center font-bold text-sm shrink-0 shadow group-hover:scale-105 transition-transform">
+                            02
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <h4 class="font-bold text-primary text-base">Specified Format</h4>
+                                <span class="bg-red-50 text-secondary text-[10px] font-bold px-2 py-0.5 rounded">Compliance</span>
+                            </div>
+                            <p class="text-gray-600 text-xs md:text-sm leading-relaxed">
+                                Documents must be submitted in the exact format prescribed by the school office (legible physical copies or clear digital scans with appropriate self-attestation).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Instruction 3 -->
+                    <div class="bg-gray-50/80 hover:bg-white rounded-xl p-5 border border-gray-200/80 hover:border-primary/30 hover:shadow-md transition-all duration-300 group flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-primaryDark text-white flex items-center justify-center font-bold text-sm shrink-0 shadow group-hover:scale-105 transition-transform">
+                            03
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <h4 class="font-bold text-primary text-base">Verification of Originals</h4>
+                                <span class="bg-purple-50 text-primaryDark text-[10px] font-bold px-2 py-0.5 rounded">Validation</span>
+                            </div>
+                            <p class="text-gray-600 text-xs md:text-sm leading-relaxed">
+                                Original certificates must be presented for physical cross-verification at the time of admission. Certified photocopies will be retained for the school archives.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Instruction 4 -->
+                    <div class="bg-gray-50/80 hover:bg-white rounded-xl p-5 border border-gray-200/80 hover:border-secondary/30 hover:shadow-md transition-all duration-300 group flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow group-hover:scale-105 transition-transform">
+                            04
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <h4 class="font-bold text-primary text-base">Transfer Formalities</h4>
+                                <span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded">Transfers</span>
+                            </div>
+                            <p class="text-gray-600 text-xs md:text-sm leading-relaxed">
+                                For candidates relocating from another recognised school, the original Transfer Certificate (TC/SLC) and previous academic progress reports must be submitted without discrepancy.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Instruction 5: Support & Office Assistance Banner -->
+                <div class="bg-gradient-to-r from-primary/5 via-primary/10 to-transparent rounded-xl p-5 border border-primary/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+                    <div class="flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center font-bold text-sm shrink-0 shadow">
+                            05
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2 mb-0.5">
+                                <h4 class="font-bold text-primary text-base">Office Assistance & Missing Documents</h4>
+                                <span class="bg-green-100 text-green-800 text-[10px] font-bold px-2 py-0.5 rounded">Desk Support</span>
+                            </div>
+                            <p class="text-gray-600 text-xs md:text-sm leading-relaxed">
+                                If any specific certificate is delayed or unavailable, contact the admission office immediately for provisional documentation guidance.
+                            </p>
+                        </div>
+                    </div>
+                    <a href="tel:+919431214985" class="shrink-0 inline-flex items-center gap-2 bg-primary hover:bg-primaryDark text-white px-4 py-2.5 rounded-lg text-xs font-bold shadow-sm transition">
+                        <i class="fas fa-phone-alt text-secondary"></i> Call Desk: 9431214985
+                    </a>
+                </div>
+
+                <!-- Bottom Advisory Note -->
+                <div class="bg-amber-50/80 border-l-4 border-amber-500 rounded-r-xl p-4 flex items-center gap-3">
+                    <i class="fas fa-info-circle text-amber-600 text-base shrink-0"></i>
+                    <p class="text-xs md:text-sm text-amber-900 font-medium leading-relaxed">
+                        <span class="font-bold text-amber-950">Important Reminder:</span> Please confirm the class-specific document requirements and verification schedule with the admissions office before completing the enrollment process.
+                    </p>
                 </div>
             </div>
 
