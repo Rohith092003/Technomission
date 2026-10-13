@@ -6,6 +6,7 @@
     <title>Admissions | TMISB</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="js/tailwind-config.js"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -327,6 +328,213 @@
                 </div>
 
             </div>
+        </div>
+    </section>
+
+    <!-- Admissions Frequently Asked Questions (FAQs) -->
+    <section id="faqs" class="section-padding bg-white border-t border-gray-100">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-12">
+                <h4 class="text-secondary font-bold text-sm uppercase tracking-wider mb-2">Have Questions?</h4>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-base">
+                    Find comprehensive answers to commonly asked questions regarding admissions, age criteria, document verification, boarding facilities, and fee guidelines for the 2026–27 session.
+                </p>
+            </div>
+
+            <!-- Accordion Container -->
+            <div class="space-y-4" x-data="{ activeAccordion: 1 }">
+                
+                <!-- FAQ 1 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300" :class="activeAccordion === 1 ? 'shadow-md border-primary/40 bg-white' : 'hover:border-gray-300 bg-white'">
+                    <button @click="activeAccordion = activeAccordion === 1 ? null : 1" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 1 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
+                        <span class="flex items-center gap-3 pr-4">
+                            <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 1 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">01</span>
+                            <span class="text-base md:text-lg leading-snug">When do admissions open for the 2026–27 academic session?</span>
+                        </span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 1 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
+                    </button>
+                    <div x-show="activeAccordion === 1" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
+                        <p class="mb-3">
+                            Admission enquiries for the 2026–27 session may be made through the school's official website or admission office. Parents are advised to contact the school for current application dates, class-wise vacancies, and the registration schedule.
+                        </p>
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-blue-50 text-primary text-xs font-medium border border-blue-100">
+                            <i class="fas fa-info-circle"></i> Official opening and closing dates for applications are confirmed via the school notice board and admission office.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300" :class="activeAccordion === 2 ? 'shadow-md border-primary/40 bg-white' : 'hover:border-gray-300 bg-white'">
+                    <button @click="activeAccordion = activeAccordion === 2 ? null : 2" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 2 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
+                        <span class="flex items-center gap-3 pr-4">
+                            <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 2 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">02</span>
+                            <span class="text-base md:text-lg leading-snug">How can I apply for admission to TMISB?</span>
+                        </span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 2 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
+                    </button>
+                    <div x-show="activeAccordion === 2" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
+                        <p>
+                            Parents can begin by submitting the online admission enquiry form above or contacting the school office directly. The admission process generally involves registration, an interaction or assessment where applicable, document verification, and admission confirmation in accordance with the school's approved policy.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300" :class="activeAccordion === 3 ? 'shadow-md border-primary/40 bg-white' : 'hover:border-gray-300 bg-white'">
+                    <button @click="activeAccordion = activeAccordion === 3 ? null : 3" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 3 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
+                        <span class="flex items-center gap-3 pr-4">
+                            <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 3 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">03</span>
+                            <span class="text-base md:text-lg leading-snug">Which classes are open for admission?</span>
+                        </span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 3 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
+                    </button>
+                    <div x-show="activeAccordion === 3" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
+                        <p>
+                            Admission is subject to the classes offered by the school, available seats, and the applicable eligibility criteria. Parents should contact the admission office to confirm vacancies for their child's intended class.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300" :class="activeAccordion === 4 ? 'shadow-md border-primary/40 bg-white' : 'hover:border-gray-300 bg-white'">
+                    <button @click="activeAccordion = activeAccordion === 4 ? null : 4" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 4 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
+                        <span class="flex items-center gap-3 pr-4">
+                            <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 4 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">04</span>
+                            <span class="text-base md:text-lg leading-snug">What are the age criteria for admission?</span>
+                        </span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 4 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
+                    </button>
+                    <div x-show="activeAccordion === 4" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
+                        <p>
+                            Age eligibility depends on the class applied for and the applicable admission rules. Parents should refer to the school's approved age-eligibility table for the relevant academic session and confirm any specific requirements with the admission office.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300" :class="activeAccordion === 5 ? 'shadow-md border-primary/40 bg-white' : 'hover:border-gray-300 bg-white'">
+                    <button @click="activeAccordion = activeAccordion === 5 ? null : 5" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 5 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
+                        <span class="flex items-center gap-3 pr-4">
+                            <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 5 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">05</span>
+                            <span class="text-base md:text-lg leading-snug">Is an entrance test required for admission?</span>
+                        </span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 5 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
+                    </button>
+                    <div x-show="activeAccordion === 5" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
+                        <p>
+                            The assessment or interaction requirements depend on the class applied for and the school's admission policy. The school will communicate the applicable format, subjects, syllabus or learning areas and schedule to parents before the assessment.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300" :class="activeAccordion === 6 ? 'shadow-md border-primary/40 bg-white' : 'hover:border-gray-300 bg-white'">
+                    <button @click="activeAccordion = activeAccordion === 6 ? null : 6" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 6 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
+                        <span class="flex items-center gap-3 pr-4">
+                            <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 6 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">06</span>
+                            <span class="text-base md:text-lg leading-snug">What documents are required for admission?</span>
+                        </span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 6 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
+                    </button>
+                    <div x-show="activeAccordion === 6" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
+                        <p>
+                            Documents may include proof of date of birth, previous academic records, a Transfer Certificate or School Leaving Certificate where applicable, student photographs, and other documents prescribed by the school. Parents should refer to the official admission checklist for the complete requirements applicable to their child's class.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300" :class="activeAccordion === 7 ? 'shadow-md border-primary/40 bg-white' : 'hover:border-gray-300 bg-white'">
+                    <button @click="activeAccordion = activeAccordion === 7 ? null : 7" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 7 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
+                        <span class="flex items-center gap-3 pr-4">
+                            <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 7 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">07</span>
+                            <span class="text-base md:text-lg leading-snug">Does the school offer a sibling discount or any other fee concession?</span>
+                        </span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 7 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
+                    </button>
+                    <div x-show="activeAccordion === 7" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
+                        <p class="mb-3">
+                            Any sibling concession, scholarship, or fee concession is subject to the school's approved policy and eligibility conditions. Parents should contact the accounts or admission office to confirm whether a concession is available, the applicable amount, and the procedure for applying.
+                        </p>
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-blue-50 text-primary text-xs font-medium border border-blue-100">
+                            <i class="fas fa-info-circle"></i> Please check with the accounts department for active concession categories for the 2026–27 session.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300" :class="activeAccordion === 8 ? 'shadow-md border-primary/40 bg-white' : 'hover:border-gray-300 bg-white'">
+                    <button @click="activeAccordion = activeAccordion === 8 ? null : 8" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 8 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
+                        <span class="flex items-center gap-3 pr-4">
+                            <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 8 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">08</span>
+                            <span class="text-base md:text-lg leading-snug">Can a student transfer to TMISB in the middle of the academic session?</span>
+                        </span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 8 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
+                    </button>
+                    <div x-show="activeAccordion === 8" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
+                        <p class="mb-3">
+                            Mid-session transfer requests may be considered subject to seat availability, eligibility, the student's previous academic records, and the school's admission policy. Parents should contact the admission office before initiating the transfer and confirm the documents and formalities required.
+                        </p>
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-amber-50 text-amber-800 text-xs font-medium border border-amber-200">
+                            <i class="fas fa-exclamation-triangle text-secondary"></i> Admission to Classes X and XII is strictly subject to applicable CBSE board rules and cannot be assumed through the ordinary transfer process.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 9 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300" :class="activeAccordion === 9 ? 'shadow-md border-primary/40 bg-white' : 'hover:border-gray-300 bg-white'">
+                    <button @click="activeAccordion = activeAccordion === 9 ? null : 9" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 9 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
+                        <span class="flex items-center gap-3 pr-4">
+                            <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 9 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">09</span>
+                            <span class="text-base md:text-lg leading-snug">Does TMISB provide hostel or boarding facilities?</span>
+                        </span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 9 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
+                    </button>
+                    <div x-show="activeAccordion === 9" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
+                        <p class="mb-3">
+                            Parents interested in residential facilities should contact the school to confirm boarding availability, classes eligible for admission, accommodation arrangements, supervision, meal facilities, and applicable charges.
+                        </p>
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-blue-50 text-primary text-xs font-medium border border-blue-100">
+                            <i class="fas fa-bed"></i> Inquire with the administration desk for separate boys' and girls' residential rules and fee schedules.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 10 -->
+                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300" :class="activeAccordion === 10 ? 'shadow-md border-primary/40 bg-white' : 'hover:border-gray-300 bg-white'">
+                    <button @click="activeAccordion = activeAccordion === 10 ? null : 10" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 10 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
+                        <span class="flex items-center gap-3 pr-4">
+                            <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 10 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">10</span>
+                            <span class="text-base md:text-lg leading-snug">How can I obtain the fee structure and confirm admission?</span>
+                        </span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 10 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
+                    </button>
+                    <div x-show="activeAccordion === 10" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
+                        <p>
+                            Parents can request the current approved fee schedule directly from the school's admission office. The applicable charges, payment deadlines, and any additional costs should be confirmed before admission. Admission is finalised only after the school completes its prescribed formalities and communicates confirmation to the parent or guardian.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Need Further Help CTA Card -->
+            <div class="mt-12 bg-lightBg rounded-2xl p-8 border border-gray-200 text-center flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-left">
+                    <h4 class="nav-font font-bold text-xl text-primary mb-1">Still have questions regarding admissions?</h4>
+                    <p class="text-gray-600 text-sm">Our admissions counsel team is available to assist you Monday through Saturday, 9:00 AM – 3:00 PM.</p>
+                </div>
+                <div class="flex items-center gap-3 shrink-0">
+                    <a href="tel:+919431214985" class="bg-primary hover:bg-primaryDark text-white font-bold py-3 px-6 rounded-lg text-sm transition shadow flex items-center">
+                        <i class="fas fa-phone-alt mr-2 text-secondary"></i> Call Helpline
+                    </a>
+                    <a href="contact.html" class="bg-white hover:bg-gray-100 text-gray-800 border border-gray-300 font-bold py-3 px-6 rounded-lg text-sm transition">
+                        Contact Desk
+                    </a>
+                </div>
+            </div>
+
         </div>
     </section>
 
