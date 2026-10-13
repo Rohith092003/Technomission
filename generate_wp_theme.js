@@ -4,7 +4,12 @@ const { execSync } = require('child_process');
 
 const THEME_NAME = 'tmisb';
 const THEME_DIR = path.join(__dirname, 'wp-theme', THEME_NAME);
-const HTML_FILES = ['index.html', 'about.html', 'academics.html', 'gallery.html', 'contact.html', 'labs.html', 'activities.html', 'admissions.html'];
+const HTML_FILES = [
+    'index.html', 'about.html', 'academics.html', 'gallery.html', 'contact.html',
+    'labs.html', 'activities.html', 'admissions.html', 'pre-primary.html',
+    'primary.html', 'secondary.html', 'senior-secondary.html',
+    'competitive-coaching.html', 'teaching-methodology.html'
+];
 
 if (!fs.existsSync(THEME_DIR)) {
     fs.mkdirSync(THEME_DIR, { recursive: true });
@@ -110,6 +115,12 @@ const pages = [
     { file: 'labs.html', template: 'page-labs.php' },
     { file: 'activities.html', template: 'page-activities.php' },
     { file: 'admissions.html', template: 'page-admissions.php' },
+    { file: 'pre-primary.html', template: 'page-pre-primary.php' },
+    { file: 'primary.html', template: 'page-primary.php' },
+    { file: 'secondary.html', template: 'page-secondary.php' },
+    { file: 'senior-secondary.html', template: 'page-senior-secondary.php' },
+    { file: 'competitive-coaching.html', template: 'page-competitive-coaching.php' },
+    { file: 'teaching-methodology.html', template: 'page-teaching-methodology.php' },
 ];
 
 pages.forEach(p => {
