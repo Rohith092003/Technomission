@@ -15,6 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     
     <script src="<?php echo get_template_directory_uri(); ?>/js/tailwind-config.js?v=<?php echo time(); ?>"></script>
+    <script defer src="<?php echo get_template_directory_uri(); ?>/js/animations.js?v=<?php echo time(); ?>"></script>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?v=<?php echo time(); ?>">
     <?php wp_head(); ?>
 </head>

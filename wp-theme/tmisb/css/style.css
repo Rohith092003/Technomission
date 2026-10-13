@@ -163,3 +163,268 @@ h1, h2, h3, h4, h5, h6, .nav-font { font-family: 'Poppins', sans-serif; }
 .swiper-slide:not(.swiper-slide-active) .animate-fadeInUp {
     opacity: 0;
 }
+
+/* ========================================================
+   PROFESSIONAL ANIMATIONS & MICRO-INTERACTIONS SYSTEM
+   ======================================================== */
+
+/* 1. Global Timing Variables & Cubic Bezier Curves */
+:root {
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-in-out-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+    --anim-duration-fast: 0.3s;
+    --anim-duration-normal: 0.6s;
+    --anim-duration-slow: 0.85s;
+}
+
+/* 2. Scroll Reading Progress Bar */
+#scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #e31837 0%, #ff4b68 50%, #003c71 100%);
+    z-index: 99999;
+    box-shadow: 0 0 10px rgba(227, 24, 55, 0.6);
+    transition: width 0.1s ease-out;
+    pointer-events: none;
+}
+
+/* 3. Floating Scroll-To-Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #003c71;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    box-shadow: 0 8px 24px rgba(0, 60, 113, 0.35);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    z-index: 900;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.9);
+    transition: all 0.35s var(--ease-out-expo);
+}
+#back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+#back-to-top:hover {
+    background: #e31837;
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 12px 28px rgba(227, 24, 55, 0.45);
+}
+#back-to-top:active {
+    transform: translateY(0) scale(0.95);
+}
+
+/* 4. Scroll-Driven Reveal Elements */
+.reveal,
+.reveal-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--anim-duration-slow) var(--ease-out-expo),
+                transform var(--anim-duration-slow) var(--ease-out-expo);
+    will-change: opacity, transform;
+}
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-36px);
+    transition: opacity var(--anim-duration-slow) var(--ease-out-expo),
+                transform var(--anim-duration-slow) var(--ease-out-expo);
+    will-change: opacity, transform;
+}
+.reveal-right {
+    opacity: 0;
+    transform: translateX(36px);
+    transition: opacity var(--anim-duration-slow) var(--ease-out-expo),
+                transform var(--anim-duration-slow) var(--ease-out-expo);
+    will-change: opacity, transform;
+}
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.93);
+    transition: opacity var(--anim-duration-slow) var(--ease-out-expo),
+                transform var(--anim-duration-slow) var(--ease-out-expo);
+    will-change: opacity, transform;
+}
+.reveal-fade {
+    opacity: 0;
+    transition: opacity var(--anim-duration-slow) var(--ease-out-expo);
+    will-change: opacity;
+}
+
+/* Active State Triggered by IntersectionObserver */
+.is-revealed {
+    opacity: 1 !important;
+    transform: translate(0, 0) scale(1) !important;
+}
+
+/* 5. Cascading / Stagger Delays */
+.delay-100 { transition-delay: 100ms !important; }
+.delay-150 { transition-delay: 150ms !important; }
+.delay-200 { transition-delay: 200ms !important; }
+.delay-250 { transition-delay: 250ms !important; }
+.delay-300 { transition-delay: 300ms !important; }
+.delay-400 { transition-delay: 400ms !important; }
+.delay-500 { transition-delay: 500ms !important; }
+
+/* 6. Card Hover & Lift Elevation */
+.card-hover,
+.hover-lift {
+    transition: transform 0.35s var(--ease-out-expo),
+                box-shadow 0.35s var(--ease-out-expo),
+                border-color 0.35s ease;
+}
+.card-hover:hover,
+.hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 35px -10px rgba(0, 60, 113, 0.14),
+                0 10px 18px -6px rgba(0, 0, 0, 0.05);
+}
+
+/* 7. Image Ken-Burns Hover Zoom */
+.img-zoom-container {
+    overflow: hidden;
+}
+.img-zoom {
+    transition: transform 0.7s var(--ease-out-expo), filter 0.5s ease;
+}
+.card-hover:hover .img-zoom,
+.img-zoom-container:hover .img-zoom {
+    transform: scale(1.06);
+}
+
+/* 8. Button Shimmer / Radiant Sheen */
+.btn-shine {
+    position: relative;
+    overflow: hidden;
+}
+.btn-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.32) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(25deg);
+    transition: left 0.75s var(--ease-out-expo);
+    pointer-events: none;
+}
+.btn-shine:hover::after {
+    left: 140%;
+}
+
+/* 9. Floating Badge Keyframe */
+@keyframes softFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+.animate-float {
+    animation: softFloat 4s ease-in-out infinite;
+}
+
+/* 10. Subtle Pulse Keyframe */
+@keyframes subtlePulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.025); opacity: 0.95; }
+}
+.animate-pulse-subtle {
+    animation: subtlePulse 3s ease-in-out infinite;
+}
+
+/* 11. Animated Section Title Underline Sheen */
+.section-title::after {
+    background: linear-gradient(90deg, #e31837 0%, #ff526c 50%, #e31837 100%);
+    background-size: 200% auto;
+    animation: gradientShift 5s linear infinite;
+}
+@keyframes gradientShift {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+/* 12. Dropdown Menu Smooth Slide & Fade */
+.dropdown-menu {
+    transform: translateY(8px);
+    transition: opacity 0.25s var(--ease-out-expo),
+                transform 0.25s var(--ease-out-expo),
+                visibility 0.25s;
+}
+.nav-item:hover .dropdown-menu {
+    transform: translateY(0);
+}
+
+/* 13. Nav Link Hover Slide Underline */
+.nav-hover-line {
+    position: relative;
+}
+.nav-hover-line::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #e31837;
+    transition: width 0.3s var(--ease-out-expo), left 0.3s var(--ease-out-expo);
+}
+.nav-hover-line:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* 14. Icon Hover Micro-Interaction */
+.icon-box-animate {
+    transition: transform 0.35s var(--ease-out-expo), color 0.3s ease;
+}
+.card-hover:hover .icon-box-animate,
+.hover-lift:hover .icon-box-animate {
+    transform: scale(1.12) rotate(-3deg);
+}
+
+/* 15. Header Scrolled State Glassmorphism */
+.header-scrolled {
+    backdrop-filter: blur(12px) !important;
+    background-color: rgba(255, 255, 255, 0.96) !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 60, 113, 0.15) !important;
+}
+
+/* 16. Prefers-Reduced-Motion accessibility safeguard */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .reveal,
+    .reveal-up,
+    .reveal-left,
+    .reveal-right,
+    .reveal-scale,
+    .reveal-fade {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
