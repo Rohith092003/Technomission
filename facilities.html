@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth scroll-pt-32">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Facilities & Infrastructure | Techno Mission International School, Bhagalpur</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for standard icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="js/tailwind-config.js"></script>
+    <script defer src="js/animations.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-white text-gray-700 font-sans" x-data="{ mobileMenuOpen: false }">
+
+    <!-- 1. Top Bar (Tier 1) -->
+    <div class="bg-primaryDark text-white py-1.5 hidden md:block text-xs font-semibold tracking-wide">
+        <div class="container mx-auto px-4 max-w-[1400px] flex justify-between items-center">
+            <div class="flex space-x-6 items-center">
+                <span><i class="fas fa-phone-alt text-secondary mr-2"></i>+91 9431214985, 6412610985</span>
+                <span><i class="fas fa-envelope text-secondary mr-2"></i>techno.edu.school@gmail.com</span>
+            </div>
+            <div class="flex space-x-5 items-center">
+                <a href="https://www.facebook.com/Technomissioninternationalschool/" target="_blank" class="text-white hover:text-secondary transition text-sm" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/tmis.bhagalpur/" target="_blank" class="text-white hover:text-secondary transition text-sm" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@technomissionbhagalpur" target="_blank" class="text-white hover:text-secondary transition text-sm" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Header Wrapper -->
+    <div class="sticky top-0 z-50 w-full shadow-2xl flex flex-col">
+        <!-- 2. Middle Bar (Tier 2) -->
+        <div class="bg-white py-4 border-b border-gray-100 hidden xl:block">
+            <div class="container mx-auto px-4 max-w-[1400px] flex justify-between items-center">
+                <!-- Left Button -->
+                <div class="w-1/4">
+                    <a href="admissions.html" class="bg-secondary text-white font-bold px-6 py-2.5 rounded shadow-sm hover:shadow-md transition text-sm inline-block admission-glow ring-2 ring-secondary ring-offset-2 ring-offset-white">
+                        Admissions Enquiry 2026 - 27
+                    </a>
+                </div>
+                
+                <!-- Center Logo -->
+                <div class="w-2/4 flex justify-center">
+                    <a href="index.html" class="flex items-center transform hover:scale-[1.02] transition duration-300">
+                        <img src="assets/images/logo.webp" alt="TMISB Logo" class="h-16 w-auto mr-3 shrink-0">
+                        <div class="text-left">
+                            <h1 class="nav-font font-extrabold text-2xl md:text-3xl text-primary leading-none tracking-tight uppercase">Techno Mission</h1>
+                            <p class="text-xs text-primary font-bold tracking-[0.2em] uppercase mt-1">International School <span class="bg-primary text-white px-1 ml-1 text-[9px]">BHAGALPUR</span></p>
+                            <div class="mt-1 flex items-center gap-1.5 text-[11px] font-semibold text-gray-600">
+                                <span class="text-gray-500">Affiliated to CBSE</span>
+                                <span class="text-gray-300">|</span>
+                                <span class="inline-flex items-center gap-1 text-secondary font-bold">
+                                    <i class="fas fa-check-circle text-[10px]"></i> Affiliation No. 330331
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Right Buttons -->
+                <div class="w-1/4 flex justify-end">
+                    <img src="assets/images/29.png" alt="29 Years" class="h-16 w-auto object-contain">
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Header (Visible only on xl < ) -->
+        <header class="bg-white shadow-md xl:hidden relative">
+            <div class="container mx-auto px-4 flex justify-between items-center py-3">
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/images/logo.webp" alt="TMISB Logo" class="h-12 w-auto mr-2">
+                    <div>
+                        <h1 class="nav-font font-bold text-xl text-primary leading-tight">Techno Mission</h1>
+                        <p class="text-[10px] text-gray-500 font-bold leading-tight">CBSE Affiliation No: <span class="text-secondary font-extrabold">330331</span></p>
+                    </div>
+                </a>
+                <button class="text-2xl text-primary focus:outline-none" @click="mobileMenuOpen = !mobileMenuOpen" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars" x-show="!mobileMenuOpen"></i>
+                    <i class="fas fa-times" x-show="mobileMenuOpen" x-cloak></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="absolute top-full left-0 w-full bg-primary text-white shadow-xl border-t border-white/10 z-40 max-h-[calc(100vh-65px)] overflow-y-auto" x-show="mobileMenuOpen" x-transition x-cloak>
+                <div class="p-4 border-b border-white/10">
+                    <a href="admissions.html" class="block text-center bg-secondary text-white font-bold py-2.5 px-4 rounded shadow admission-glow text-sm uppercase tracking-wide">
+                        Admissions Enquiry 2026 - 27
+                    </a>
+                </div>
+                <div class="flex flex-col px-4 py-2 nav-font font-medium">
+                    <a href="index.html" class="py-3 border-b border-white/10 mobile-nav-link">Home</a>
+                    <div x-data="{ open: false }">
+                        <button @click="open = !open" class="flex justify-between items-center w-full py-3 border-b border-white/10">
+                            About Us <i class="fas fa-chevron-down text-xs transition" :class="open ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="open" class="bg-primaryDark px-4 py-2 text-sm flex flex-col">
+                            <a href="about.html#overview" class="py-2 hover:text-secondary">About School</a>
+                            <a href="about.html#vision-mission" class="py-2 hover:text-secondary">Vision & Mission</a>
+                            <a href="about.html#values" class="py-2 hover:text-secondary">Our Core Values</a>
+                            <a href="about.html#affiliation" class="py-2 hover:text-secondary">CBSE Affiliation</a>
+                            <a href="about.html#director" class="py-2 hover:text-secondary">Director's Desk</a>
+                            <a href="about.html#principal" class="py-2 hover:text-secondary">Principal's Desk</a>
+                            <a href="about.html#why-tmisb" class="py-2 hover:text-secondary">Why Choose TMISB</a>
+                            <a href="about.html#faculty" class="py-2 hover:text-secondary">Faculty & Staff</a>
+                        </div>
+                    </div>
+                    <div x-data="{ open: false }">
+                        <button @click="open = !open" class="flex justify-between items-center w-full py-3 border-b border-white/10">
+                            Academics <i class="fas fa-chevron-down text-xs transition" :class="open ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="open" class="bg-primaryDark px-4 py-2 text-sm flex flex-col">
+                            <a href="academics.html" class="py-2 hover:text-secondary">Academic Overview</a>
+                            <a href="pre-primary.html" class="py-2 hover:text-secondary">Pre-Primary (Nursery–UKG)</a>
+                            <a href="primary.html" class="py-2 hover:text-secondary">Primary Wing (Classes I–V)</a>
+                            <a href="secondary.html" class="py-2 hover:text-secondary">Middle & Secondary (VI–X)</a>
+                            <a href="senior-secondary.html" class="py-2 hover:text-secondary">Senior Secondary (XI–XII)</a>
+                            <a href="competitive-coaching.html" class="py-2 hover:text-secondary">Competitive Prep (JEE/NEET)</a>
+                            <a href="teaching-methodology.html" class="py-2 hover:text-secondary">Teaching & Evaluation</a>
+                        </div>
+                    </div>
+                    <div x-data="{ open: false }">
+                        <button @click="open = !open" class="flex justify-between items-center w-full py-3 border-b border-white/10 text-secondary font-bold">
+                            Facilities <i class="fas fa-chevron-down text-xs transition" :class="open ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="open" class="bg-primaryDark px-4 py-2 text-sm flex flex-col">
+                            <a href="facilities.html" class="py-2 hover:text-secondary">Facilities Overview</a>
+                            <a href="facilities.html#labs" class="py-2 hover:text-secondary">Laboratories</a>
+                            <a href="facilities.html#classrooms" class="py-2 hover:text-secondary">Digital Classrooms</a>
+                            <a href="facilities.html#transport" class="py-2 hover:text-secondary">Safe Transport</a>
+                            <a href="facilities.html#library" class="py-2 hover:text-secondary">Library & Resource Centre</a>
+                            <a href="facilities.html#sports" class="py-2 hover:text-secondary">Sports, NCC & Activities</a>
+                        </div>
+                    </div>
+                    <a href="gallery.html" class="py-3 border-b border-white/10 mobile-nav-link">Gallery</a>
+                    <a href="admissions.html" class="py-3 border-b border-white/10 mobile-nav-link">Admissions</a>
+                    <a href="contact.html" class="py-3 border-b border-white/10 mobile-nav-link">Contact Us</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- 3. Bottom Bar / Main Navigation (Tier 3) -->
+        <nav class="bg-primary hidden xl:block border-t border-white/10">
+            <div class="container mx-auto px-2 max-w-[1500px]">
+                <ul class="flex justify-center items-center space-x-8 2xl:space-x-10 nav-font font-semibold text-white text-sm py-3.5">
+                    <li><a href="index.html" class="hover:text-secondary transition pb-1">Home</a></li>
+                    
+                    <li class="relative group nav-item">
+                        <a href="about.html" class="hover:text-secondary transition flex items-center pb-1">About Us <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
+                        <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
+                            <li><a href="about.html#overview" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">About School</a></li>
+                            <li><a href="about.html#vision-mission" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Vision & Mission</a></li>
+                            <li><a href="about.html#values" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Our Core Values</a></li>
+                            <li><a href="about.html#affiliation" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">CBSE Affiliation</a></li>
+                            <li><a href="about.html#director" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Director's Desk</a></li>
+                            <li><a href="about.html#principal" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Principal's Desk</a></li>
+                            <li><a href="about.html#why-tmisb" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Why Choose TMISB</a></li>
+                            <li><a href="about.html#faculty" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Faculty & Staff</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="relative group nav-item">
+                        <a href="academics.html" class="hover:text-secondary transition flex items-center pb-1">Academics <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
+                        <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
+                            <li><a href="academics.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Academic Overview</a></li>
+                            <li><a href="pre-primary.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Pre-Primary (Nursery–UKG)</a></li>
+                            <li><a href="primary.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Primary Wing (Classes I–V)</a></li>
+                            <li><a href="secondary.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Middle & Secondary (VI–X)</a></li>
+                            <li><a href="senior-secondary.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Senior Secondary (XI–XII)</a></li>
+                            <li><a href="competitive-coaching.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Competitive Prep (JEE/NEET)</a></li>
+                            <li><a href="teaching-methodology.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Teaching & Evaluation</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="relative group nav-item">
+                        <a href="facilities.html" class="text-secondary font-bold border-b-2 border-secondary flex items-center pb-1">Facilities <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
+                        <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-56 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
+                            <li><a href="facilities.html#labs" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Laboratories</a></li>
+                            <li><a href="facilities.html#classrooms" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Digital Classrooms</a></li>
+                            <li><a href="facilities.html#transport" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Safe Transport</a></li>
+                            <li><a href="facilities.html#library" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Library & Resource Centre</a></li>
+                            <li><a href="facilities.html#sports" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Sports, NCC & Activities</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="gallery.html" class="hover:text-secondary transition pb-1">Gallery</a></li>
+                    <li><a href="admissions.html" class="hover:text-secondary transition pb-1">Admissions</a></li>
+                    <li><a href="contact.html" class="hover:text-secondary transition pb-1">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Page Header -->
+    <section class="relative py-16 md:py-24 bg-primaryDark overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="TMISB Campus" class="w-full h-full object-cover opacity-25">
+            <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/95 via-primaryDark/80 to-primaryDark/50"></div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10 max-w-7xl">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 bg-secondary text-white px-3.5 py-1.5 rounded text-xs font-bold tracking-widest uppercase mb-4 shadow">
+                    <i class="fas fa-university"></i> World-Class Infrastructure
+                </div>
+                <h1 class="nav-font font-extrabold text-4xl sm:text-5xl md:text-6xl text-white mb-4 leading-tight">
+                    Campus Facilities &amp; <br><span class="text-secondary">Learning Spaces</span>
+                </h1>
+                <p class="text-base sm:text-lg text-gray-200 leading-relaxed mb-6 font-normal">
+                    Techno Mission International School provides a secure, technologically enriched, and stimulating campus environment designed to cultivate curiosity, physical vitality, scientific rigor, and character.
+                </p>
+                <div class="flex items-center text-gray-300 text-sm font-medium">
+                    <a href="index.html" class="hover:text-white transition flex items-center"><i class="fas fa-home mr-2"></i> Home</a>
+                    <i class="fas fa-chevron-right mx-3 text-xs text-gray-500"></i>
+                    <span class="text-secondary font-semibold">Facilities</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Navigation Jump Bar -->
+    <div class="bg-lightBg border-b border-gray-200 sticky top-[72px] xl:top-[124px] z-30 shadow-sm">
+        <div class="container mx-auto px-4 max-w-7xl py-3 overflow-x-auto">
+            <div class="flex items-center justify-start md:justify-center gap-3 sm:gap-4 text-xs sm:text-sm font-bold whitespace-nowrap">
+                <a href="#labs" class="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700 hover:bg-primary hover:text-white hover:border-primary transition shadow-sm flex items-center gap-2">
+                    <i class="fas fa-flask text-secondary"></i> Laboratories
+                </a>
+                <a href="#classrooms" class="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700 hover:bg-primary hover:text-white hover:border-primary transition shadow-sm flex items-center gap-2">
+                    <i class="fas fa-chalkboard-teacher text-secondary"></i> Digital Classrooms
+                </a>
+                <a href="#transport" class="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700 hover:bg-primary hover:text-white hover:border-primary transition shadow-sm flex items-center gap-2">
+                    <i class="fas fa-bus text-secondary"></i> Transport Network
+                </a>
+                <a href="#library" class="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700 hover:bg-primary hover:text-white hover:border-primary transition shadow-sm flex items-center gap-2">
+                    <i class="fas fa-book-reader text-secondary"></i> Library
+                </a>
+                <a href="#sports" class="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700 hover:bg-primary hover:text-white hover:border-primary transition shadow-sm flex items-center gap-2">
+                    <i class="fas fa-running text-secondary"></i> Sports &amp; NCC
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. LABORATORIES SECTION (#labs) -->
+    <section class="section-padding bg-white relative" id="labs">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="text-center mb-16">
+                <div class="flex items-center justify-center mb-3">
+                    <span class="w-10 h-1 bg-secondary rounded-full mr-3"></span>
+                    <h4 class="text-secondary font-bold text-sm uppercase tracking-widest">Hands-On Inquiry</h4>
+                    <span class="w-10 h-1 bg-secondary rounded-full ml-3"></span>
+                </div>
+                <h2 class="section-title">State-of-the-Art Laboratories</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed">
+                    Experiential learning forms the backbone of the TMISB academic philosophy. Our specialized laboratories are equipped with modern apparatus, rigorous safety protocols, and digital demonstration stations.
+                </p>
+            </div>
+
+            <!-- Lab Highlights Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Physics Lab -->
+                <div class="bg-lightBg rounded-2xl p-8 border border-gray-200/80 hover:border-primary/40 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-2xl mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <h3 class="nav-font font-bold text-xl text-primary mb-3">Physics Laboratory</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Equipped with high-precision optical benches, spectrometers, electrical bridges, magnetic measurement instruments, and mechanics apparatus for deep conceptual clarity.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs font-semibold text-gray-700 border-t border-gray-200/60 pt-4">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-secondary"></i> Optical benches &amp; laser refraction kits</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-secondary"></i> Digital Vernier calipers &amp; resistance bridges</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-secondary"></i> CBSE Board exam experiment setups</li>
+                    </ul>
+                </div>
+
+                <!-- Chemistry Lab -->
+                <div class="bg-lightBg rounded-2xl p-8 border border-gray-200/80 hover:border-primary/40 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center text-2xl mb-6 group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
+                            <i class="fas fa-vial"></i>
+                        </div>
+                        <h3 class="nav-font font-bold text-xl text-primary mb-3">Chemistry Laboratory</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            A well-ventilated laboratory featuring acid-resistant ceramic countertops, individual gas burner lines, emergency eyewash stations, and dedicated titration benches.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs font-semibold text-gray-700 border-t border-gray-200/60 pt-4">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-secondary"></i> Ventilated fume hoods &amp; safe chemical storage</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-secondary"></i> Digital analytical balances &amp; glassware sets</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-secondary"></i> Supervised qualitative &amp; quantitative analysis</li>
+                    </ul>
+                </div>
+
+                <!-- Biology Lab -->
+                <div class="bg-lightBg rounded-2xl p-8 border border-gray-200/80 hover:border-primary/40 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                            <i class="fas fa-dna"></i>
+                        </div>
+                        <h3 class="nav-font font-bold text-xl text-primary mb-3">Biology Laboratory</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Enables students to explore living ecosystems and anatomical structures through compound microscopes, human skeletal models, botany slides, and preserved zoological specimens.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs font-semibold text-gray-700 border-t border-gray-200/60 pt-4">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-secondary"></i> Monocular &amp; binocular research microscopes</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-secondary"></i> Human 3D physiological models &amp; specimens</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-secondary"></i> Botany herbarium &amp; physiological charts</li>
+                    </ul>
+                </div>
+
+                <!-- Computer & IT Lab -->
+                <div class="bg-lightBg rounded-2xl p-8 border border-gray-200/80 hover:border-primary/40 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center text-2xl mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="nav-font font-bold text-xl text-primary mb-3">Computer Science &amp; IT Lab</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Fully air-conditioned computer center connected to high-speed fiber internet, offering individual terminals for coding in Python, C++, HTML/web development, and digital literacy.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs font-semibold text-gray-700 border-t border-gray-200/60 pt-4">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-secondary"></i> 1:1 student-to-computer ratio during lab hours</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-secondary"></i> High-speed optical fiber connectivity</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-secondary"></i> Licensed educational tools &amp; coding IDEs</li>
+                    </ul>
+                </div>
+
+                <!-- STEM & Robotics Lab -->
+                <div class="bg-lightBg rounded-2xl p-8 border border-gray-200/80 hover:border-primary/40 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center text-2xl mb-6 group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="nav-font font-bold text-xl text-primary mb-3">STEM &amp; Robotics Studio</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Hands-on innovation playground where students build circuits, program microcontrollers, assemble robotic models, and test design-thinking ideas to solve practical problems.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs font-semibold text-gray-700 border-t border-gray-200/60 pt-4">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-secondary"></i> Microcontrollers, sensors &amp; DIY robotics kits</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-secondary"></i> Logic-building &amp; algorithm development</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-secondary"></i> Science fair &amp; innovation project mentoring</li>
+                    </ul>
+                </div>
+
+                <!-- Composite Science & Mathematics Lab -->
+                <div class="bg-lightBg rounded-2xl p-8 border border-gray-200/80 hover:border-primary/40 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl mb-6 group-hover:bg-amber-600 group-hover:text-white transition-colors duration-300">
+                            <i class="fas fa-shapes"></i>
+                        </div>
+                        <h3 class="nav-font font-bold text-xl text-primary mb-3">Mathematics &amp; Activity Lab</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Demystifying abstract geometric, algebraic, and statistical concepts using physical manipulatives, 3D solids, measuring instruments, and mathematical puzzles.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs font-semibold text-gray-700 border-t border-gray-200/60 pt-4">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-secondary"></i> Tangible 3D geometric proofs &amp; models</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-secondary"></i> Number systems &amp; practical arithmetic kits</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-secondary"></i> Experiential discovery for Primary &amp; Middle wings</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. DIGITAL CLASSROOMS SECTION (#classrooms) -->
+    <section class="section-padding bg-lightBg border-t border-gray-200" id="classrooms">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+                
+                <!-- Text Column -->
+                <div class="w-full lg:w-6/12">
+                    <div class="flex items-center mb-3">
+                        <span class="w-10 h-1 bg-secondary rounded-full mr-3"></span>
+                        <h4 class="text-secondary font-bold text-sm uppercase tracking-widest">Interactive Learning Environments</h4>
+                    </div>
+                    <h2 class="section-title left-align mb-6">
+                        Smart &amp; Digital Classrooms
+                    </h2>
+                    <p class="text-gray-700 text-base sm:text-lg leading-relaxed mb-6 font-normal">
+                        Every classroom at TMISB is thoughtfully architected to blend conventional interactive teaching with 21st-century multimedia clarity, creating a collaborative, engaging, and joyful atmosphere for students.
+                    </p>
+
+                    <div class="space-y-5">
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white shadow-sm border border-gray-200/70">
+                            <div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 text-lg mt-0.5">
+                                <i class="fas fa-tv"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-base text-gray-900 mb-1">Interactive Smart Boards &amp; AV Content</h4>
+                                <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                                    High-definition smart displays project curriculum-mapped 2D/3D visualizations, animations, and historical documentaries to make complex principles immediately intuitive.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white shadow-sm border border-gray-200/70">
+                            <div class="w-10 h-10 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center shrink-0 text-lg mt-0.5">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-base text-gray-900 mb-1">Natural Light &amp; Ergonomic Furniture</h4>
+                                <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                                    Spacious, airy classrooms designed with dual-side ventilation, abundant natural sunlight, and posture-friendly dual desks configured for individual focus and teamwork.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white shadow-sm border border-gray-200/70">
+                            <div class="w-10 h-10 rounded-lg bg-blue-100 text-primary flex items-center justify-center shrink-0 text-lg mt-0.5">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-base text-gray-900 mb-1">CCTV Monitored &amp; PA Intercom Equipped</h4>
+                                <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                                    Round-the-clock safety monitoring across all wings with central public address systems ensuring prompt communication and disciplined campus management.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Showcase Column -->
+                <div class="w-full lg:w-6/12">
+                    <div class="relative">
+                        <div class="rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                            <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="TMISB Digital Classroom" class="w-full h-[420px] object-cover">
+                        </div>
+                        <!-- Floating Stat Card -->
+                        <div class="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-xl border border-gray-100 hidden sm:flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-secondary text-white flex items-center justify-center text-xl font-bold shadow">
+                                <i class="fas fa-check-double"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 font-bold uppercase tracking-wider">Multimedia Enabled</p>
+                                <p class="text-base font-bold text-primary">Interactive Audio-Visuals</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. TRANSPORT NETWORK SECTION (#transport) -->
+    <section class="section-padding bg-white border-t border-gray-200" id="transport">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="text-center mb-16">
+                <div class="flex items-center justify-center mb-3">
+                    <span class="w-10 h-1 bg-secondary rounded-full mr-3"></span>
+                    <h4 class="text-secondary font-bold text-sm uppercase tracking-widest">Safe Commute</h4>
+                    <span class="w-10 h-1 bg-secondary rounded-full ml-3"></span>
+                </div>
+                <h2 class="section-title">School Transport &amp; Commute Network</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed">
+                    TMISB operates an extensive, punctual, and safe transport fleet connecting students across Bhagalpur City and adjoining township corridors to our Jagatpur campus.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                
+                <div class="bg-lightBg rounded-xl p-6 border border-gray-100 text-center hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-xl mx-auto mb-4">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h4 class="font-bold text-base text-gray-900 mb-2">GPS-Enabled Telematics</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        Every vehicle is fitted with GPS navigation enabling precise location tracking and monitored route adherence.
+                    </p>
+                </div>
+
+                <div class="bg-lightBg rounded-xl p-6 border border-gray-100 text-center hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center text-xl mx-auto mb-4">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h4 class="font-bold text-base text-gray-900 mb-2">Verified Drivers &amp; Escorts</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        Experienced, verified drivers assisted by trained attendants and female escorts for younger students.
+                    </p>
+                </div>
+
+                <div class="bg-lightBg rounded-xl p-6 border border-gray-100 text-center hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl mx-auto mb-4">
+                        <i class="fas fa-medkit"></i>
+                    </div>
+                    <h4 class="font-bold text-base text-gray-900 mb-2">First Aid &amp; Fire Safety</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        On-board fire extinguishers, emergency exit windows, and fully stocked first-aid medical supplies.
+                    </p>
+                </div>
+
+                <div class="bg-lightBg rounded-xl p-6 border border-gray-100 text-center hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl mx-auto mb-4">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h4 class="font-bold text-base text-gray-900 mb-2">Wide Coverage Grid</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        Well-planned routes covering urban neighborhoods, railway hubs, and key residential zones across Silk City.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Transport Note Card -->
+            <div class="bg-primary text-white rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center text-2xl text-secondary shrink-0">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-white mb-1">Route &amp; Stop Details</h4>
+                        <p class="text-xs sm:text-sm text-gray-200">
+                            Parents seeking bus route schedules, pickup points, and quarterly transport fee schedules are requested to consult the school transport desk during admission registration.
+                        </p>
+                    </div>
+                </div>
+                <a href="contact.html" class="bg-secondary hover:bg-red-700 text-white font-bold py-2.5 px-6 rounded-lg text-xs uppercase tracking-wider transition shrink-0 shadow">
+                    Transport Desk Enquiry
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. LIBRARY SECTION (#library) -->
+    <section class="section-padding bg-lightBg border-t border-gray-200" id="library">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="flex flex-col lg:flex-row-reverse gap-12 lg:gap-16 items-center">
+                
+                <!-- Text Column -->
+                <div class="w-full lg:w-6/12">
+                    <div class="flex items-center mb-3">
+                        <span class="w-10 h-1 bg-secondary rounded-full mr-3"></span>
+                        <h4 class="text-secondary font-bold text-sm uppercase tracking-widest">Knowledge Resource Centre</h4>
+                    </div>
+                    <h2 class="section-title left-align mb-6">
+                        School Library &amp; Reading Room
+                    </h2>
+                    <p class="text-gray-700 text-base sm:text-lg leading-relaxed mb-6 font-normal">
+                        The school library serves as the intellectual sanctuary of TMISB, fostering independent inquiry, critical thinking, and a lifelong passion for reading from the earliest grades to board exam years.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                        <div class="p-4 rounded-xl bg-white border border-gray-200 shadow-sm">
+                            <i class="fas fa-book text-secondary text-xl mb-2"></i>
+                            <h4 class="font-bold text-sm text-gray-900 mb-1">Extensive Literature</h4>
+                            <p class="text-xs text-gray-600">Rich collection of fiction, non-fiction, biographies, world classics, and children’s literature in English and Hindi.</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-white border border-gray-200 shadow-sm">
+                            <i class="fas fa-graduation-cap text-primary text-xl mb-2"></i>
+                            <h4 class="font-bold text-sm text-gray-900 mb-1">Competitive Stacks</h4>
+                            <p class="text-xs text-gray-600">Dedicated reference stacks for CBSE Board exams, Olympiads, NTSE, IIT-JEE, NEET, and CA entrance tests.</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-white border border-gray-200 shadow-sm">
+                            <i class="fas fa-newspaper text-emerald-600 text-xl mb-2"></i>
+                            <h4 class="font-bold text-sm text-gray-900 mb-1">Periodicals &amp; Dailies</h4>
+                            <p class="text-xs text-gray-600">Subscribed educational journals, monthly science magazines, and national daily newspapers to build general awareness.</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-white border border-gray-200 shadow-sm">
+                            <i class="fas fa-feather-alt text-amber-600 text-xl mb-2"></i>
+                            <h4 class="font-bold text-sm text-gray-900 mb-1">Quiet Study Zone</h4>
+                            <p class="text-xs text-gray-600">Naturally illuminated, distraction-free environment with reading carrels designed for sustained contemplation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Column -->
+                <div class="w-full lg:w-6/12">
+                    <div class="relative">
+                        <div class="rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                            <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="TMISB Library" class="w-full h-[420px] object-cover">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SPORTS, NCC & ACTIVITIES SECTION (#sports) -->
+    <section class="section-padding bg-white border-t border-gray-200" id="sports">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="text-center mb-16">
+                <div class="flex items-center justify-center mb-3">
+                    <span class="w-10 h-1 bg-secondary rounded-full mr-3"></span>
+                    <h4 class="text-secondary font-bold text-sm uppercase tracking-widest">Character, Fitness &amp; Discipline</h4>
+                    <span class="w-10 h-1 bg-secondary rounded-full ml-3"></span>
+                </div>
+                <h2 class="section-title">Sports, NCC &amp; Co-Curricular Activities</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed">
+                    Education at Techno Mission extends beyond classrooms into playgrounds and parade fields. We place immense value on physical fitness, teamwork, resilience, patriotism, and cultural self-expression.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Outdoor Sports -->
+                <div class="bg-lightBg rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition group">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1526676037777-05a232554f77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-secondary text-xs font-bold uppercase tracking-wider mb-2">
+                            <i class="fas fa-trophy"></i> Outdoor Grounds
+                        </div>
+                        <h3 class="nav-font font-bold text-xl text-primary mb-3">Outdoor Sports &amp; Athletics</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Extensive outdoor sports grounds offering facilities for cricket, football, basketball, volleyball, badminton, and running track athletics coached by qualified physical education faculty.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="bg-white border border-gray-200 text-gray-700 text-xs px-2.5 py-1 rounded">Cricket</span>
+                            <span class="bg-white border border-gray-200 text-gray-700 text-xs px-2.5 py-1 rounded">Football</span>
+                            <span class="bg-white border border-gray-200 text-gray-700 text-xs px-2.5 py-1 rounded">Basketball</span>
+                            <span class="bg-white border border-gray-200 text-gray-700 text-xs px-2.5 py-1 rounded">Athletics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NCC & Scouts -->
+                <div class="bg-lightBg rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition group">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-wider mb-2">
+                            <i class="fas fa-shield-alt"></i> National Discipline
+                        </div>
+                        <h3 class="nav-font font-bold text-xl text-primary mb-3">NCC &amp; Scouts &amp; Guides</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Inculcating civic duty, parade drill discipline, leadership, camaraderie, disaster management awareness, and patriotic devotion through structured cadet activities and camps.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="bg-white border border-gray-200 text-gray-700 text-xs px-2.5 py-1 rounded">Parade Drills</span>
+                            <span class="bg-white border border-gray-200 text-gray-700 text-xs px-2.5 py-1 rounded">Leadership</span>
+                            <span class="bg-white border border-gray-200 text-gray-700 text-xs px-2.5 py-1 rounded">Community Service</span>
+                            <span class="bg-white border border-gray-200 text-gray-700 text-xs px-2.5 py-1 rounded">Annual Camps</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yoga & Meditation -->
+                <div class="bg-lightBg rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition group">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-emerald-700 text-xs font-bold uppercase tracking-wider mb-2">
+                            <i class="fas fa-spa"></i> Mindfulness &amp; Wellness
+                        </div>
+                        <h3 class="nav-font font-bold text-xl text-primary mb-3">Yoga &amp; Meditation</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Rooted in ancient Indian wisdom, daily yoga, pranayama, and mindful meditation sessions develop mental focus, emotional poise, physical flexibility, and resilience in our students.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="bg-white border border-gray-200 text-gray-700 text-xs px-2.5 py-1 rounded">Daily Pranayama</span>
+                            <span class="bg-white border border-gray-200 text-gray-700 text-xs px-2.5 py-1 rounded">Guided Meditation</span>
+                            <span class="bg-white border border-gray-200 text-gray-700 text-xs px-2.5 py-1 rounded">Stress Management</span>
+                            <span class="bg-white border border-gray-200 text-gray-700 text-xs px-2.5 py-1 rounded">Inner Balance</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="py-16 bg-gradient-to-r from-primary to-primaryDark text-white relative overflow-hidden">
+        <div class="container mx-auto px-4 max-w-7xl relative z-10 text-center">
+            <h2 class="nav-font font-extrabold text-3xl md:text-4xl text-white mb-4">
+                Experience the TMISB Campus First-Hand
+            </h2>
+            <p class="text-gray-200 max-w-2xl mx-auto text-base sm:text-lg mb-8 leading-relaxed">
+                We warmly invite parents and prospective students to tour our classrooms, laboratories, sports grounds, and learning spaces at Jagatpur, Bhagalpur.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="admissions.html" class="bg-secondary hover:bg-red-700 text-white font-bold py-3.5 px-8 rounded-lg shadow-lg text-sm uppercase tracking-wider transition transform hover:-translate-y-0.5">
+                    Admissions Enquiry 2026–27
+                </a>
+                <a href="contact.html" class="bg-white text-primary hover:bg-gray-100 font-bold py-3.5 px-8 rounded-lg shadow text-sm uppercase tracking-wider transition">
+                    Contact School Office
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-gray-300 pt-16 pb-8 border-t-[5px] border-secondary">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <!-- Col 1 -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <img src="assets/images/logo.webp" alt="TMISB Logo" class="h-16 w-auto bg-white p-2 rounded mr-4">
+                        <div>
+                            <h3 class="nav-font font-extrabold text-white text-lg tracking-tight uppercase">Techno Mission</h3>
+                            <p class="text-[10px] text-gray-300 tracking-widest uppercase">International School</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-6 leading-relaxed">
+                        We Share Your Dreams. We Shape Your Future. Affiliated to CBSE (Affiliation No. 330331), New Delhi up to Senior Secondary level.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="https://www.facebook.com/Technomissioninternationalschool/" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition" aria-label="Facebook"><i class="fab fa-facebook-f text-sm"></i></a>
+                        <a href="https://www.instagram.com/tmis.bhagalpur/" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition" aria-label="Instagram"><i class="fab fa-instagram text-sm"></i></a>
+                        <a href="https://www.youtube.com/@technomissionbhagalpur" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition" aria-label="YouTube"><i class="fab fa-youtube text-sm"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="nav-font font-bold text-white text-base tracking-wider uppercase mb-6 pb-2 border-b-2 border-secondary inline-block">Quick Links</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="about.html" class="hover:text-secondary transition flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2 text-secondary"></i> About Us</a></li>
+                        <li><a href="academics.html" class="hover:text-secondary transition flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2 text-secondary"></i> Academics Overview</a></li>
+                        <li><a href="facilities.html" class="hover:text-secondary transition flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2 text-secondary"></i> Campus Facilities</a></li>
+                        <li><a href="admissions.html" class="hover:text-secondary transition flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2 text-secondary"></i> Admissions 2026–27</a></li>
+                        <li><a href="gallery.html" class="hover:text-secondary transition flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2 text-secondary"></i> Photo Gallery</a></li>
+                        <li><a href="contact.html" class="hover:text-secondary transition flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2 text-secondary"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Academic Wings -->
+                <div>
+                    <h4 class="nav-font font-bold text-white text-base tracking-wider uppercase mb-6 pb-2 border-b-2 border-secondary inline-block">Academic Wings</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="pre-primary.html" class="hover:text-secondary transition flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2 text-secondary"></i> Pre-Primary (Nursery–UKG)</a></li>
+                        <li><a href="primary.html" class="hover:text-secondary transition flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2 text-secondary"></i> Primary Wing (Classes I–V)</a></li>
+                        <li><a href="secondary.html" class="hover:text-secondary transition flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2 text-secondary"></i> Middle &amp; Secondary (VI–X)</a></li>
+                        <li><a href="senior-secondary.html" class="hover:text-secondary transition flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2 text-secondary"></i> Senior Secondary (XI–XII)</a></li>
+                        <li><a href="competitive-coaching.html" class="hover:text-secondary transition flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2 text-secondary"></i> JEE &amp; NEET Coaching</a></li>
+                        <li><a href="teaching-methodology.html" class="hover:text-secondary transition flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2 text-secondary"></i> Teaching Methodology</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact Info -->
+                <div>
+                    <h4 class="nav-font font-bold text-white text-base tracking-wider uppercase mb-6 pb-2 border-b-2 border-secondary inline-block">Contact Info</h4>
+                    <ul class="space-y-4 text-sm text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-secondary mt-1 mr-3 shrink-0"></i>
+                            <span>Jagatpur, Bhagalpur, Bihar – 812002</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-secondary mr-3 shrink-0"></i>
+                            <span>+91 9431214985, 6412610985</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-secondary mr-3 shrink-0"></i>
+                            <span>techno.edu.school@gmail.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-certificate text-secondary mr-3 shrink-0"></i>
+                            <span>CBSE Affiliation No: 330331</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+                <p>&copy; 2026 Techno Mission International School, Bhagalpur. All Rights Reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="contact.html" class="hover:text-white transition">Mandatory Disclosures</a>
+                    <a href="admissions.html" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="contact.html" class="hover:text-white transition">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

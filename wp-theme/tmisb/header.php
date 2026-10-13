@@ -128,8 +128,19 @@
                         <a href="<?php echo home_url('/teaching-methodology/'); ?>" class="py-2 hover:text-secondary">Teaching & Evaluation</a>
                     </div>
                 </div>
-                <a href="<?php echo home_url('/labs/'); ?>" class="py-3 border-b border-white/10 mobile-nav-link">Labs</a>
-                <a href="<?php echo home_url('/activities/'); ?>" class="py-3 border-b border-white/10 mobile-nav-link">Activities</a>
+                <div x-data="{ open: false }">
+                    <button @click="open = !open" class="flex justify-between items-center w-full py-3 border-b border-white/10">
+                        Facilities <i class="fas fa-chevron-down text-xs transition" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" class="bg-primaryDark px-4 py-2 text-sm flex flex-col">
+                        <a href="<?php echo home_url('/facilities/'); ?>" class="py-2 hover:text-secondary">Facilities Overview</a>
+                        <a href="<?php echo home_url('/facilities/'); ?>#labs" class="py-2 hover:text-secondary">Laboratories</a>
+                        <a href="<?php echo home_url('/facilities/'); ?>#classrooms" class="py-2 hover:text-secondary">Digital Classrooms</a>
+                        <a href="<?php echo home_url('/facilities/'); ?>#transport" class="py-2 hover:text-secondary">Safe Transport</a>
+                        <a href="<?php echo home_url('/facilities/'); ?>#library" class="py-2 hover:text-secondary">Library & Resource Centre</a>
+                        <a href="<?php echo home_url('/facilities/'); ?>#sports" class="py-2 hover:text-secondary">Sports, NCC & Activities</a>
+                    </div>
+                </div>
                 <a href="<?php echo home_url('/gallery/'); ?>" class="py-3 border-b border-white/10 mobile-nav-link">Gallery</a>
                 <a href="<?php echo home_url('/admissions/'); ?>" class="py-3 border-b border-white/10 mobile-nav-link">Admissions</a>
                 <a href="<?php echo home_url('/contact/'); ?>" class="py-3 border-b border-white/10 mobile-nav-link">Contact Us</a>
@@ -171,23 +182,13 @@
                 </li>
                 
                 <li class="relative group nav-item">
-                    <a href="<?php echo home_url('/labs/'); ?>" class="hover:text-secondary transition flex items-center pb-1">Labs <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
-                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-48 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Computer Lab</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Physics Lab</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Chemistry Lab</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Biology Lab</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Robotics Lab</a></li>
-                    </ul>
-                </li>
-
-                <li class="relative group nav-item">
-                    <a href="<?php echo home_url('/activities/'); ?>" class="hover:text-secondary transition flex items-center pb-1">Activities <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
-                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-48 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Yoga</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Dramatics</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Sports</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Art & Craft</a></li>
+                    <a href="<?php echo home_url('/facilities/'); ?>" class="hover:text-secondary transition flex items-center pb-1">Facilities <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
+                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-56 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
+                        <li><a href="<?php echo home_url('/facilities/'); ?>#labs" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Laboratories</a></li>
+                        <li><a href="<?php echo home_url('/facilities/'); ?>#classrooms" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Digital Classrooms</a></li>
+                        <li><a href="<?php echo home_url('/facilities/'); ?>#transport" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Safe Transport</a></li>
+                        <li><a href="<?php echo home_url('/facilities/'); ?>#library" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Library & Resource Centre</a></li>
+                        <li><a href="<?php echo home_url('/facilities/'); ?>#sports" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Sports, NCC & Activities</a></li>
                     </ul>
                 </li>
 

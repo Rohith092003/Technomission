@@ -25,6 +25,10 @@ function tmisb_custom_template_redirect( $template ) {
         $slug = end( $segments );
         
         if ( ! empty( $slug ) ) {
+            if ( in_array( $slug, array( 'labs', 'activities' ) ) ) {
+                wp_redirect( home_url( '/facilities/' ), 301 );
+                exit;
+            }
             $custom_template = get_template_directory() . '/page-' . sanitize_title( $slug ) . '.php';
             if ( file_exists( $custom_template ) ) {
                 global $wp_query;
@@ -41,7 +45,7 @@ add_filter( 'template_include', 'tmisb_custom_template_redirect', 99 );
 
 /**
  * 2. Auto Page Creator:
- * Automatically creates and publishes all 13 standard school pages in WordPress with their proper templates.
+ * Automatically creates and publishes all standard school pages in WordPress with their proper templates.
  */
 function tmisb_auto_create_pages() {
     $pages = array(
@@ -50,8 +54,7 @@ function tmisb_auto_create_pages() {
         'admissions' => array('title' => 'Admissions 2026–27', 'template' => 'page-admissions.php'),
         'gallery' => array('title' => 'Gallery', 'template' => 'page-gallery.php'),
         'contact' => array('title' => 'Contact Us', 'template' => 'page-contact.php'),
-        'labs' => array('title' => 'Laboratories', 'template' => 'page-labs.php'),
-        'activities' => array('title' => 'Activities', 'template' => 'page-activities.php'),
+        'facilities' => array('title' => 'Campus Facilities & Infrastructure', 'template' => 'page-facilities.php'),
         'pre-primary' => array('title' => 'Pre-Primary Wing', 'template' => 'page-pre-primary.php'),
         'primary' => array('title' => 'Primary Wing', 'template' => 'page-primary.php'),
         'secondary' => array('title' => 'Middle & Secondary Wing', 'template' => 'page-secondary.php'),

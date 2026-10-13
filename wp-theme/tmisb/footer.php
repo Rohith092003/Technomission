@@ -38,7 +38,7 @@
                 <div class="lg:col-span-2">
                     <h4 class="font-bold text-lg mb-6 text-white border-b border-gray-700 pb-2 inline-block">Campus</h4>
                     <ul class="space-y-3">
-                        <li><a href="<?php echo home_url('/labs/'); ?>" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> Laboratories</a></li>
+                        <li><a href="<?php echo home_url('/facilities/'); ?>" class="hover:text-secondary transition flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2 text-secondary"></i> Campus Facilities</a></li>
                         <li><a href="<?php echo home_url('/activities/'); ?>" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> Sports</a></li>
                         <li><a href="#" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> Clubs</a></li>
                         <li><a href="#" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> Events</a></li>
