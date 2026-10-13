@@ -1056,44 +1056,55 @@
                     <!-- FAQ Item 1 -->
                     <div class="border border-gray-200 rounded">
                         <button @click="activeAccordion = activeAccordion === 1 ? null : 1" class="w-full text-left px-5 py-4 font-semibold text-gray-800 flex justify-between items-center focus:outline-none bg-gray-50">
-                            What is the admission process?
+                            What is the admission process for the 2026–27 session?
                             <i class="fas fa-chevron-down transition-transform" :class="activeAccordion === 1 ? 'rotate-180' : ''"></i>
                         </button>
-                        <div x-show="activeAccordion === 1" x-collapse x-cloak class="px-5 py-4 text-gray-600 border-t border-gray-200 text-sm">
-                            [Verified admission process details will be updated here. Please contact the admissions office directly.]
+                        <div x-show="activeAccordion === 1" x-collapse x-cloak class="px-5 py-4 text-gray-600 border-t border-gray-200 text-sm leading-relaxed">
+                            The admission procedure follows a streamlined 5-step roadmap: (1) <strong>Admission Enquiry</strong> online or on-campus, (2) <strong>Registration</strong> with basic applicant details, (3) <strong>Interaction or Assessment</strong> based on age and grade readiness, (4) <strong>Document Verification</strong> of academic records and birth proof, and (5) <strong>Admission Confirmation</strong> upon fee payment and seat allotment. Visit our <a href="admissions.html" class="text-secondary font-semibold hover:underline">Admissions Page</a> or call +91 9431214985 to begin.
                         </div>
                     </div>
                     
                     <!-- FAQ Item 2 -->
                     <div class="border border-gray-200 rounded">
                         <button @click="activeAccordion = activeAccordion === 2 ? null : 2" class="w-full text-left px-5 py-4 font-semibold text-gray-800 flex justify-between items-center focus:outline-none bg-gray-50">
-                            Which curriculum does TMISB follow?
+                            What are the age eligibility criteria for admission?
                             <i class="fas fa-chevron-down transition-transform" :class="activeAccordion === 2 ? 'rotate-180' : ''"></i>
                         </button>
-                        <div x-show="activeAccordion === 2" x-collapse x-cloak class="px-5 py-4 text-gray-600 border-t border-gray-200 text-sm">
-                            [TMISB curriculum details. E.g., CBSE pattern emphasizing holistic development.]
+                        <div x-show="activeAccordion === 2" x-collapse x-cloak class="px-5 py-4 text-gray-600 border-t border-gray-200 text-sm leading-relaxed">
+                            For the 2026–27 academic year, age cut-offs are calculated as of <strong>31 March 2026</strong>. Minimum entry age for <strong>Nursery</strong> is 3+ years, <strong>LKG</strong> is 4+ years, <strong>UKG</strong> is 5+ years, and <strong>Class I</strong> is 6+ years. Class-wise age bands progress accordingly through Primary, Middle, Secondary, and Senior Secondary wings.
                         </div>
                     </div>
                     
                     <!-- FAQ Item 3 -->
                     <div class="border border-gray-200 rounded">
                         <button @click="activeAccordion = activeAccordion === 3 ? null : 3" class="w-full text-left px-5 py-4 font-semibold text-gray-800 flex justify-between items-center focus:outline-none bg-gray-50">
-                            Is transportation available?
+                            What documents are required during admission?
                             <i class="fas fa-chevron-down transition-transform" :class="activeAccordion === 3 ? 'rotate-180' : ''"></i>
                         </button>
-                        <div x-show="activeAccordion === 3" x-collapse x-cloak class="px-5 py-4 text-gray-600 border-t border-gray-200 text-sm">
-                            [Yes, we provide safe and secure transportation covering major routes in and around Bhagalpur.]
+                        <div x-show="activeAccordion === 3" x-collapse x-cloak class="px-5 py-4 text-gray-600 border-t border-gray-200 text-sm leading-relaxed">
+                            Required documents include: (1) Official Birth Certificate, (2) Previous academic session report card or marksheet, (3) Transfer Certificate (TC) / School Leaving Certificate from the previous recognised school (Class II onwards), (4) Student & Parent/Guardian Aadhaar or ID proofs, and (5) Recent passport-size photographs of the student and parents.
                         </div>
                     </div>
 
                     <!-- FAQ Item 4 -->
                     <div class="border border-gray-200 rounded">
                         <button @click="activeAccordion = activeAccordion === 4 ? null : 4" class="w-full text-left px-5 py-4 font-semibold text-gray-800 flex justify-between items-center focus:outline-none bg-gray-50">
-                            What curriculum is followed at TMISB?
+                            Which board curriculum and competitive prep does TMISB offer?
                             <i class="fas fa-chevron-down transition-transform" :class="activeAccordion === 4 ? 'rotate-180' : ''"></i>
                         </button>
-                        <div x-show="activeAccordion === 4" x-collapse x-cloak class="px-5 py-4 text-gray-600 border-t border-gray-200 text-sm">
-                            TMISB is affiliated with the Central Board of Secondary Education (CBSE), New Delhi (Affiliation No. 330331) up to Senior Secondary level, providing a rigorous curriculum combined with integrated competitive exam preparation.
+                        <div x-show="activeAccordion === 4" x-collapse x-cloak class="px-5 py-4 text-gray-600 border-t border-gray-200 text-sm leading-relaxed">
+                            TMISB is affiliated with the <strong>Central Board of Secondary Education (CBSE Affiliation No. 330331)</strong>, New Delhi, up to Senior Secondary (+2 Science & Commerce). In addition to holistic board curricula, we provide integrated classroom coaching and mentoring for national competitive examinations such as <strong>IIT-JEE, NEET, CA Foundation, and Olympiads</strong>.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="border border-gray-200 rounded">
+                        <button @click="activeAccordion = activeAccordion === 5 ? null : 5" class="w-full text-left px-5 py-4 font-semibold text-gray-800 flex justify-between items-center focus:outline-none bg-gray-50">
+                            Does the school provide safe transportation facilities across Bhagalpur?
+                            <i class="fas fa-chevron-down transition-transform" :class="activeAccordion === 5 ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="activeAccordion === 5" x-collapse x-cloak class="px-5 py-4 text-gray-600 border-t border-gray-200 text-sm leading-relaxed">
+                            Yes. TMISB maintains a dedicated fleet of GPS-monitored school buses covering all major arterial and suburban routes in Bhagalpur. Every bus is equipped with speed governors, first-aid kits, and fire safety equipment, operated by certified drivers, verified conductors, and female attendants for maximum student security.
                         </div>
                     </div>
                 </div>
