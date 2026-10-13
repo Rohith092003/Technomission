@@ -98,11 +98,11 @@
                     <div x-show="open" class="bg-primaryDark px-4 py-2 text-sm flex flex-col">
                         <a href="<?php echo home_url('/about/'); ?>#overview" class="py-2 hover:text-secondary">About School</a>
                         <a href="<?php echo home_url('/about/'); ?>#vision-mission" class="py-2 hover:text-secondary">Vision & Mission</a>
-                        <a href="<?php echo home_url('/about/'); ?>#director" class="py-2 hover:text-secondary">Director's Message</a>
-                        <a href="<?php echo home_url('/about/'); ?>#principal" class="py-2 hover:text-secondary">Principal's Message</a>
-                        <a href="<?php echo home_url('/about/'); ?>#values" class="py-2 hover:text-secondary">Core Values</a>
-                        <a href="<?php echo home_url('/about/'); ?>#why-tmisb" class="py-2 hover:text-secondary">Why Choose TMISB</a>
+                        <a href="<?php echo home_url('/about/'); ?>#values" class="py-2 hover:text-secondary">Our Core Values</a>
                         <a href="<?php echo home_url('/about/'); ?>#affiliation" class="py-2 hover:text-secondary">CBSE Affiliation</a>
+                        <a href="<?php echo home_url('/about/'); ?>#director" class="py-2 hover:text-secondary">Director's Desk</a>
+                        <a href="<?php echo home_url('/about/'); ?>#principal" class="py-2 hover:text-secondary">Principal's Desk</a>
+                        <a href="<?php echo home_url('/about/'); ?>#why-tmisb" class="py-2 hover:text-secondary">Why Choose TMISB</a>
                         <a href="<?php echo home_url('/about/'); ?>#faculty" class="py-2 hover:text-secondary">Faculty & Staff</a>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
                     <button @click="open = !open" class="flex justify-between items-center w-full py-3 border-b border-white/10">
                         Academics <i class="fas fa-chevron-down text-xs transition" :class="open ? 'rotate-180' : ''"></i>
                     </button>
-                                        <div x-show="open" class="bg-primaryDark px-4 py-2 text-sm flex flex-col">
+                    <div x-show="open" class="bg-primaryDark px-4 py-2 text-sm flex flex-col">
                         <a href="<?php echo home_url('/academics/'); ?>" class="py-2 hover:text-secondary">Academic Overview</a>
                         <a href="<?php echo home_url('/pre-primary/'); ?>" class="py-2 hover:text-secondary">Pre-Primary (Nursery–UKG)</a>
                         <a href="<?php echo home_url('/primary/'); ?>" class="py-2 hover:text-secondary">Primary Wing (Classes I–V)</a>
@@ -137,7 +137,21 @@
                 
                 <li class="relative group nav-item">
                     <a href="<?php echo home_url('/about/'); ?>" class="hover:text-secondary transition flex items-center pb-1">About Us <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
-                                        <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
+                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
+                        <li><a href="<?php echo home_url('/about/'); ?>#overview" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">About School</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#vision-mission" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Vision & Mission</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#values" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Our Core Values</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#affiliation" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">CBSE Affiliation</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#director" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Director's Desk</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#principal" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Principal's Desk</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#why-tmisb" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Why Choose TMISB</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#faculty" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Faculty & Staff</a></li>
+                    </ul>
+                </li>
+
+                <li class="relative group nav-item">
+                    <a href="<?php echo home_url('/academics/'); ?>" class="hover:text-secondary transition flex items-center pb-1">Academics <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
+                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
                         <li><a href="<?php echo home_url('/academics/'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Academic Overview</a></li>
                         <li><a href="<?php echo home_url('/pre-primary/'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Pre-Primary (Nursery–UKG)</a></li>
                         <li><a href="<?php echo home_url('/primary/'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Primary Wing (Classes I–V)</a></li>
@@ -145,19 +159,6 @@
                         <li><a href="<?php echo home_url('/senior-secondary/'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Senior Secondary (XI–XII)</a></li>
                         <li><a href="<?php echo home_url('/competitive-coaching/'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Competitive Prep (JEE/NEET)</a></li>
                         <li><a href="<?php echo home_url('/teaching-methodology/'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Teaching & Evaluation</a></li>
-                    </ul>
-                </li>
-
-                <li class="relative group nav-item">
-                    <a href="<?php echo home_url('/academics/'); ?>" class="hover:text-secondary transition flex items-center pb-1">Academics <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70"></i></a>
-                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
-                        <li><a href="<?php echo home_url('/academics/'); ?>#overview" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Academic Philosophy</a></li>
-                        <li><a href="<?php echo home_url('/academics/'); ?>#pre-primary" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Pre-Primary (Nursery–UKG)</a></li>
-                        <li><a href="<?php echo home_url('/academics/'); ?>#primary" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Primary Wing (Classes I–V)</a></li>
-                        <li><a href="<?php echo home_url('/academics/'); ?>#secondary" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Middle & Secondary (VI–X)</a></li>
-                        <li><a href="<?php echo home_url('/academics/'); ?>#senior-secondary" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Senior Secondary (XI–XII)</a></li>
-                        <li><a href="<?php echo home_url('/academics/'); ?>#competitive" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Competitive Prep (JEE/NEET)</a></li>
-                        <li><a href="<?php echo home_url('/academics/'); ?>#methodology" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Teaching & Evaluation</a></li>
                     </ul>
                 </li>
                 
