@@ -647,23 +647,60 @@ get_header();
 
             </div>
 
-            <!-- Assessment Procedure and Communication Box -->
-            <div class="max-w-4xl mx-auto bg-gradient-to-r from-primaryDark to-primary text-white rounded-2xl p-8 shadow-xl">
-                <div class="flex items-start gap-4">
-                    <div class="w-12 h-12 rounded-xl bg-secondary text-white flex items-center justify-center text-2xl shrink-0">
-                        <i class="fas fa-bullhorn"></i>
+            <!-- Assessment Procedure and Communication Card (Redesigned) -->
+            <div class="max-w-5xl mx-auto bg-white rounded-2xl p-8 md:p-10 shadow-lg border border-gray-100 relative overflow-hidden">
+                <!-- Top Brand Accent Line -->
+                <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary via-secondary to-primary"></div>
+
+                <!-- Header Row -->
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 mb-8 pb-6 border-b border-gray-100">
+                    <div class="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-2xl shrink-0 shadow-sm border border-primary/20">
+                        <i class="fas fa-bullhorn text-secondary"></i>
                     </div>
                     <div>
-                        <h4 class="nav-font font-bold text-xl text-yellow-300 mb-2">Assessment Procedure and Communication</h4>
-                        <p class="text-gray-200 text-xs md:text-sm leading-relaxed mb-4 font-light">
-                            The school will communicate the applicable assessment format, date, subjects, syllabus or learning areas and reporting instructions to parents before the assessment.
-                        </p>
-                        <p class="text-gray-200 text-xs md:text-sm leading-relaxed mb-4 font-light">
-                            Parents are encouraged to ensure that students are familiar with the concepts and skills expected at their current stage of learning. The purpose is to support an appropriate academic transition and identify areas where guidance may be useful.
-                        </p>
-                        <div class="text-[11px] text-gray-300 bg-white/10 px-3.5 py-2 rounded-lg border border-white/20">
-                            <strong>Note:</strong> The actual assessment format, subjects, syllabus and class-wise requirements will be as prescribed by the school for the relevant admission session.
+                        <span class="inline-flex items-center gap-2 bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-1">
+                            <i class="fas fa-info-circle text-primary"></i> Guidelines & Notice
+                        </span>
+                        <h3 class="nav-font font-bold text-2xl md:text-3xl text-primary leading-tight">
+                            Assessment Procedure & Communication
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Two-Column Information Highlights -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <!-- Point 1 -->
+                    <div class="bg-gray-50/80 rounded-xl p-5 border border-gray-100 flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-white text-secondary shadow-sm flex items-center justify-center text-base shrink-0 mt-0.5 border border-gray-200">
+                            <i class="fas fa-calendar-check"></i>
                         </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm md:text-base mb-1.5">Advance Syllabus & Schedule Notice</h4>
+                            <p class="text-gray-600 text-xs md:text-sm leading-relaxed font-normal">
+                                The school will communicate the applicable assessment format, date, subjects, syllabus or learning areas, and reporting instructions to parents well before the assessment.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Point 2 -->
+                    <div class="bg-gray-50/80 rounded-xl p-5 border border-gray-100 flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-white text-primary shadow-sm flex items-center justify-center text-base shrink-0 mt-0.5 border border-gray-200">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm md:text-base mb-1.5">Supportive & Balanced Transition</h4>
+                            <p class="text-gray-600 text-xs md:text-sm leading-relaxed font-normal">
+                                Parents are encouraged to ensure that students are familiar with the concepts and skills expected at their current stage of learning. The purpose is to support an appropriate academic transition and identify areas where guidance may be useful.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Note Callout Box -->
+                <div class="bg-amber-50/80 border-l-4 border-amber-500 rounded-r-xl p-4 md:p-5 flex items-start gap-3">
+                    <i class="fas fa-shield-alt text-amber-600 text-lg mt-0.5 shrink-0"></i>
+                    <div class="text-xs md:text-sm text-amber-900 leading-relaxed font-normal">
+                        <strong class="font-semibold text-amber-950">Important Note:</strong> The actual assessment format, subjects, syllabus and class-wise requirements will be as prescribed by the school for the relevant admission session.
                     </div>
                 </div>
             </div>
