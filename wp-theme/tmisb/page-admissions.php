@@ -117,120 +117,251 @@ get_header();
     </div>
 
     <!-- Page Header -->
-    <section class="page-header py-14 sm:py-20 md:py-24 text-center">
-        <div class="container mx-auto px-4">
-            <h1 class="nav-font font-bold text-4xl text-white mb-4">Admissions 2026–27</h1>
-            <div class="flex items-center justify-center text-gray-300 text-sm">
-                <a href="<?php echo home_url('/'); ?>" class="hover:text-white transition">Home</a>
-                <i class="fas fa-chevron-right mx-3 text-xs"></i>
-                <span class="text-secondary font-semibold">Admissions</span>
+    <section class="relative py-16 md:py-28 bg-primaryDark overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="TMISB Admissions" class="w-full h-full object-cover opacity-25">
+            <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/95 via-primaryDark/85 to-primaryDark/50"></div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10 max-w-7xl">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 bg-secondary text-white px-3.5 py-1.5 rounded text-xs font-bold tracking-widest uppercase mb-4 shadow">
+                    <i class="fas fa-user-graduate"></i> Academic Session 2026–27
+                </div>
+                <h1 class="nav-font font-extrabold text-4xl sm:text-5xl md:text-6xl text-white mb-4 leading-tight">
+                    Admissions <span class="text-secondary">2026–27</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-yellow-300 font-semibold italic mb-5">
+                    "Your Child's Journey Begins Here"
+                </p>
+                <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-6 font-light">
+                    Choosing the right school is an important decision for every family. At Techno Mission International School, Bhagalpur, we aim to make the admission process clear, accessible and convenient for parents.
+                </p>
+                <div class="flex items-center text-gray-300 text-sm font-medium">
+                    <a href="<?php echo home_url('/'); ?>" class="hover:text-white transition flex items-center"><i class="fas fa-home mr-2"></i> Home</a>
+                    <i class="fas fa-chevron-right mx-3 text-xs text-gray-500"></i>
+                    <span class="text-secondary font-semibold">Admissions</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Content Section -->
-    <section class="py-20 bg-gray-50">
+    <!-- Quick In-Page Sticky Navigation Bar -->
+    <div class="sticky top-20 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm hidden md:block">
         <div class="container mx-auto px-4 max-w-7xl">
-            
+            <div class="flex justify-between items-center py-3 overflow-x-auto text-xs font-bold uppercase tracking-wider text-gray-600">
+                <div class="flex gap-6">
+                    <a href="#process" class="hover:text-primary hover:border-b-2 hover:border-secondary py-1 transition flex items-center gap-1.5"><i class="fas fa-tasks text-secondary"></i> 5-Step Process</a>
+                    <a href="#apply-online" class="hover:text-primary hover:border-b-2 hover:border-secondary py-1 transition flex items-center gap-1.5"><i class="fas fa-edit text-secondary"></i> Apply Online</a>
+                    <a href="#eligibility" class="hover:text-primary hover:border-b-2 hover:border-secondary py-1 transition flex items-center gap-1.5"><i class="fas fa-birthday-cake text-secondary"></i> Age Criteria</a>
+                    <a href="#documents" class="hover:text-primary hover:border-b-2 hover:border-secondary py-1 transition flex items-center gap-1.5"><i class="fas fa-file-alt text-secondary"></i> Document Checklist</a>
+                    <a href="#assessment" class="hover:text-primary hover:border-b-2 hover:border-secondary py-1 transition flex items-center gap-1.5"><i class="fas fa-clipboard-check text-secondary"></i> Entrance Assessment</a>
+                    <a href="#faqs" class="hover:text-primary hover:border-b-2 hover:border-secondary py-1 transition flex items-center gap-1.5"><i class="fas fa-question-circle text-secondary"></i> FAQs</a>
+                </div>
+                <div class="text-primary font-semibold lowercase">
+                    <i class="fas fa-phone-alt text-secondary mr-1"></i> +91 9431214985
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 1 & 2: Admission Process & Online Application Form -->
+    <section class="section-padding bg-gray-50" id="process">
+        <div class="container mx-auto px-4 max-w-7xl">
             <div class="flex flex-col lg:flex-row gap-12">
                 
-                <!-- Left: Info & Process -->
-                <div class="w-full lg:w-1/2">
-                    <h2 class="nav-font font-bold text-3xl text-primary mb-6">Welcome to TMISB</h2>
-                    <p class="text-gray-600 mb-8 leading-relaxed">
-                        We are thrilled that you are considering Techno Mission International School for your child's education. We seek students who are enthusiastic, curious, and ready to embrace our holistic educational approach.
-                    </p>
-                    
-                    <h3 class="nav-font font-bold text-2xl text-gray-800 mb-6 border-b-2 border-primary pb-2 inline-block">Admission Process</h3>
-                    <div class="mt-4 space-y-8">
+                <!-- Left: 5-Step Process -->
+                <div class="w-full lg:w-7/12">
+                    <div class="mb-8">
+                        <span class="w-10 h-1 bg-secondary rounded-full inline-block mb-3"></span>
+                        <h4 class="text-secondary font-bold text-sm uppercase tracking-widest mb-1">Simple & Transparent</h4>
+                        <h2 class="nav-font font-bold text-3xl md:text-4xl text-primary mb-4">
+                            Step-by-Step Admission Process
+                        </h2>
+                        <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+                            We guide families through every milestone of enrollment to ensure a supportive, seamless transition into TMISB.
+                        </p>
+                    </div>
+
+                    <!-- 5 Steps List -->
+                    <div class="space-y-6">
                         
                         <!-- Step 1 -->
-                        <div class="flex items-start">
-                            <div class="flex items-center justify-center w-8 h-8 rounded bg-primary text-white font-bold shrink-0 mt-1 mr-5">
-                                1
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-lg text-gray-800 mb-1">Online Registration</h4>
-                                <p class="text-sm text-gray-600 leading-relaxed border-l-2 border-gray-200 pl-4 py-1">Fill out the official online application form with the prospective student's details. Ensure all provided information matches official records.</p>
+                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center font-bold text-lg shrink-0 shadow">
+                                    01
+                                </div>
+                                <div>
+                                    <h3 class="nav-font font-bold text-xl text-primary mb-1">Step 1: Admission Enquiry</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed mb-2 font-normal">
+                                        Parents can enquire about admission through the school's website, by contacting the admission office or by visiting the school campus. Our team can provide information about available classes, eligibility, curriculum, fees and the admission procedure.
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        
+
                         <!-- Step 2 -->
-                        <div class="flex items-start">
-                            <div class="flex items-center justify-center w-8 h-8 rounded bg-primary text-white font-bold shrink-0 mt-1 mr-5">
-                                2
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-lg text-gray-800 mb-1">Interaction & Assessment</h4>
-                                <p class="text-sm text-gray-600 leading-relaxed border-l-2 border-gray-200 pl-4 py-1">A brief interaction session or aptitude test will be scheduled, varying based on the grade applied for, to understand the student's current proficiency.</p>
+                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-secondary text-white flex items-center justify-center font-bold text-lg shrink-0 shadow">
+                                    02
+                                </div>
+                                <div>
+                                    <h3 class="nav-font font-bold text-xl text-primary mb-1">Step 2: Registration</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed mb-2 font-normal">
+                                        Parents are required to complete the prescribed registration form and provide the necessary student and parent/guardian details. Registration allows the school to process the application but does not, by itself, guarantee admission.
+                                    </p>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Step 3 -->
-                        <div class="flex items-start">
-                            <div class="flex items-center justify-center w-8 h-8 rounded bg-primary text-white font-bold shrink-0 mt-1 mr-5">
-                                3
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-lg text-gray-800 mb-1">Document Verification & Fee</h4>
-                                <p class="text-sm text-gray-600 leading-relaxed border-l-2 border-gray-200 pl-4 py-1">Submit required physical documents (Birth Certificate, Previous Report Card, Aadhar) to the school office and complete the initial fee deposit.</p>
+                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center font-bold text-lg shrink-0 shadow">
+                                    03
+                                </div>
+                                <div>
+                                    <h3 class="nav-font font-bold text-xl text-primary mb-1">Step 3: Interaction or Entrance Assessment</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed mb-2 font-normal">
+                                        Depending on the class applied for, the school may conduct an age-appropriate interaction, a basic learning assessment or a written entrance assessment. The purpose is to understand the student's readiness for the relevant class and identify any academic support that may be required.
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        
+
+                        <!-- Step 4 -->
+                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-secondary text-white flex items-center justify-center font-bold text-lg shrink-0 shadow">
+                                    04
+                                </div>
+                                <div>
+                                    <h3 class="nav-font font-bold text-xl text-primary mb-1">Step 4: Document Verification</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed mb-2 font-normal">
+                                        The school verifies the documents required for admission, including proof of date of birth and previous academic records, where applicable. Parents may be asked to provide additional documents depending on the class and individual circumstances.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center font-bold text-lg shrink-0 shadow">
+                                    05
+                                </div>
+                                <div>
+                                    <h3 class="nav-font font-bold text-xl text-primary mb-1">Step 5: Admission Confirmation</h3>
+                                    <p class="text-gray-600 text-sm leading-relaxed mb-2 font-normal">
+                                        Admission is confirmed after the school completes the prescribed assessment and verification procedures, approves the application and receives the required fees and documents within the stipulated period.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Important Notice Callout -->
+                    <div class="mt-8 bg-blue-50 border-l-4 border-primary p-5 rounded-r-xl">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-info-circle text-primary text-lg mt-0.5"></i>
+                            <div class="text-xs md:text-sm text-gray-700 leading-relaxed font-medium">
+                                Parents are advised to retain the registration acknowledgement and follow the instructions communicated by the admission office. For admission enquiries, please contact the school office or submit the online admission enquiry form.
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Right: Application Form -->
-                <div class="w-full lg:w-1/2">
-                    <div class="bg-gray-50 border border-gray-200 p-8 md:p-12">
-                        <div class="mb-8 border-b border-gray-300 pb-4">
-                            <h3 class="nav-font font-bold text-2xl text-gray-800 uppercase tracking-wide">Apply Online</h3>
-                            <p class="text-gray-500 text-sm mt-1">Application for Academic Session 2026-27</p>
+                <!-- Right: Application Form (Sticky on Desktop) -->
+                <div class="w-full lg:w-5/12" id="apply-online">
+                    <div class="bg-white border border-gray-200 rounded-2xl shadow-xl p-8 md:p-10 sticky top-36">
+                        <div class="mb-6 pb-4 border-b border-gray-100">
+                            <span class="bg-secondary text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded inline-block mb-2 shadow">
+                                Admissions Open 2026–27
+                            </span>
+                            <h3 class="nav-font font-bold text-2xl text-primary">Online Admission Enquiry</h3>
+                            <p class="text-gray-500 text-xs mt-1">Submit your details and our admission counselor will contact you within 24 hours.</p>
                         </div>
                         
-                        <form class="space-y-6">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! Your admission enquiry has been submitted. Our team will contact you shortly.');">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Student Full Name *</label>
+                                <input type="text" required placeholder="Enter student full name" class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition text-sm">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
-                                    <label class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-2">Student's Full Name *</label>
-                                    <input type="text" class="w-full px-0 py-2 border-b-2 border-gray-300 focus:border-primary outline-none transition bg-transparent text-gray-800 text-base">
+                                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Date of Birth *</label>
+                                    <input type="date" required class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition text-sm text-gray-700">
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-2">Date of Birth *</label>
-                                    <input type="date" class="w-full px-0 py-2 border-b-2 border-gray-300 focus:border-primary outline-none transition bg-transparent text-gray-800 text-base">
+                                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Gender *</label>
+                                    <select required class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition text-sm text-gray-700 bg-white">
+                                        <option value="" disabled selected>Select Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
                                 </div>
                             </div>
                             
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
-                                    <label class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-2">Parent/Guardian Name *</label>
-                                    <input type="text" class="w-full px-0 py-2 border-b-2 border-gray-300 focus:border-primary outline-none transition bg-transparent text-gray-800 text-base">
+                                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Parent / Guardian Name *</label>
+                                    <input type="text" required placeholder="Parent or guardian name" class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition text-sm">
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-2">Contact Number *</label>
-                                    <input type="tel" class="w-full px-0 py-2 border-b-2 border-gray-300 focus:border-primary outline-none transition bg-transparent text-gray-800 text-base">
+                                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Contact Number *</label>
+                                    <input type="tel" required placeholder="10-digit mobile number" class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition text-sm">
                                 </div>
                             </div>
 
                             <div>
-                                <label class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-2">Email Address (Optional)</label>
-                                <input type="email" class="w-full px-0 py-2 border-b-2 border-gray-300 focus:border-primary outline-none transition bg-transparent text-gray-800 text-base">
+                                <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Email Address (Optional)</label>
+                                <input type="email" placeholder="email@example.com" class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition text-sm">
                             </div>
                             
                             <div>
-                                <label class="block text-xs font-bold text-gray-600 uppercase tracking-wider mb-2">Grade Applying For *</label>
-                                <select class="w-full px-0 py-2 border-b-2 border-gray-300 focus:border-primary outline-none transition bg-transparent text-gray-800 text-base">
-                                    <option value="" disabled selected>-- Select Grade --</option>
-                                    <option value="nursery">Nursery / LKG / UKG</option>
-                                    <option value="primary">Primary (Class 1-5)</option>
-                                    <option value="secondary">Secondary (Class 6-10)</option>
-                                    <option value="senior">Senior Secondary (Class 11-12)</option>
+                                <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Class Applying For *</label>
+                                <select required class="w-full px-3.5 py-2.5 rounded-lg border border-gray-300 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition text-sm text-gray-700 bg-white">
+                                    <option value="" disabled selected>-- Select Class / Grade --</option>
+                                    <optgroup label="Pre-Primary Wing">
+                                        <option value="nursery">Nursery (Age 3+)</option>
+                                        <option value="lkg">LKG (Age 4+)</option>
+                                        <option value="ukg">UKG (Age 5+)</option>
+                                    </optgroup>
+                                    <optgroup label="Primary Wing">
+                                        <option value="class-1">Class I (Age 6+)</option>
+                                        <option value="class-2">Class II</option>
+                                        <option value="class-3">Class III</option>
+                                        <option value="class-4">Class IV</option>
+                                        <option value="class-5">Class V</option>
+                                    </optgroup>
+                                    <optgroup label="Middle & Secondary Wing">
+                                        <option value="class-6">Class VI</option>
+                                        <option value="class-7">Class VII</option>
+                                        <option value="class-8">Class VIII</option>
+                                        <option value="class-9">Class IX</option>
+                                        <option value="class-10">Class X (Transfer subject to CBSE)</option>
+                                    </optgroup>
+                                    <optgroup label="Senior Secondary Wing">
+                                        <option value="class-11-science">Class XI — Science (PCM / PCB)</option>
+                                        <option value="class-11-commerce">Class XI — Commerce</option>
+                                        <option value="class-12">Class XII (Transfer subject to CBSE)</option>
+                                    </optgroup>
                                 </select>
                             </div>
 
-                            <button type="button" class="w-full bg-primary hover:bg-gray-900 text-white font-bold uppercase tracking-widest text-sm py-4 mt-6 transition duration-300">
-                                Submit Application
+                            <button type="submit" class="w-full bg-secondary hover:bg-red-700 text-white font-bold uppercase tracking-wider text-sm py-3.5 rounded-lg transition duration-300 shadow-md flex items-center justify-center gap-2">
+                                <i class="fas fa-paper-plane"></i> Submit Admission Enquiry
                             </button>
                         </form>
+
+                        <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                            <span><i class="fas fa-lock mr-1 text-primary"></i> Data Confidentiality Assured</span>
+                            <a href="tel:+919431214985" class="text-primary font-bold hover:underline">Direct Desk: 9431214985</a>
+                        </div>
                     </div>
                 </div>
 
@@ -238,195 +369,423 @@ get_header();
         </div>
     </section>
 
-    <!-- Admissions Frequently Asked Questions (FAQs) -->
-    <section id="faqs" class="section-padding bg-white border-t border-gray-100">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <div class="text-center mb-12">
-                <h4 class="text-secondary font-bold text-sm uppercase tracking-wider mb-2">Have Questions?</h4>
-                <h2 class="section-title">Frequently Asked Questions</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto text-base">
-                    Find comprehensive answers to commonly asked questions regarding admissions, age criteria, document verification, curriculum guidelines, and fee schedules for the 2026–27 session.
+    <!-- Section 3: Eligibility and Age Criteria -->
+    <section class="section-padding bg-white border-t border-gray-200" id="eligibility">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-3">
+                    Class-Wise Norms
+                </span>
+                <h4 class="text-secondary font-bold text-sm uppercase tracking-widest mb-1">Age Eligibility for Admission</h4>
+                <h2 class="section-title">Eligibility & Age Progression Framework</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto mb-5 rounded-full"></div>
+                <p class="text-gray-600 text-base leading-relaxed">
+                    For the 2026–27 academic session, the age reference date specified in the developer's brief is <strong class="text-primary font-bold">31 March 2026</strong>.
                 </p>
             </div>
 
-            <!-- Accordion Container -->
-            <div class="space-y-4" x-data="{ activeAccordion: 1 }">
+            <!-- Framework Context Alert -->
+            <div class="max-w-4xl mx-auto bg-amber-50 border border-amber-200 rounded-xl p-4 mb-8 text-amber-900 text-xs md:text-sm leading-relaxed flex items-start gap-3">
+                <i class="fas fa-exclamation-circle text-secondary text-lg mt-0.5 shrink-0"></i>
+                <div>
+                    The following table is a provisional age-progression framework for management review, not a verified TMISB admission policy. The progression reflects the commonly used age bands aligned with entry to Nursery at age 3+ and Class I at age 6+. Please confirm the official class-specific age cut-offs with the admission desk.
+                </div>
+            </div>
+
+            <!-- Age Criteria Table -->
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden mb-12">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead>
+                            <tr class="bg-primary text-white text-xs uppercase tracking-wider font-bold">
+                                <th class="py-4 px-6">Class / Level</th>
+                                <th class="py-4 px-6">Minimum Age (as of 31 March 2026)</th>
+                                <th class="py-4 px-6">Typical Age Band</th>
+                                <th class="py-4 px-6">Entry Readiness Key</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100 text-gray-700 font-normal">
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-3.5 px-6 font-bold text-primary">Nursery</td>
+                                <td class="py-3.5 px-6"><span class="bg-green-100 text-green-800 font-bold px-2.5 py-0.5 rounded text-xs">3 Years +</span></td>
+                                <td class="py-3.5 px-6">3 to 4 Years</td>
+                                <td class="py-3.5 px-6 text-xs text-gray-500">Play-way & sensory readiness</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition bg-gray-50/50">
+                                <td class="py-3.5 px-6 font-bold text-primary">LKG (Lower Kindergarten)</td>
+                                <td class="py-3.5 px-6"><span class="bg-green-100 text-green-800 font-bold px-2.5 py-0.5 rounded text-xs">4 Years +</span></td>
+                                <td class="py-3.5 px-6">4 to 5 Years</td>
+                                <td class="py-3.5 px-6 text-xs text-gray-500">Rhymes, basic shapes & numbers</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-3.5 px-6 font-bold text-primary">UKG (Upper Kindergarten)</td>
+                                <td class="py-3.5 px-6"><span class="bg-green-100 text-green-800 font-bold px-2.5 py-0.5 rounded text-xs">5 Years +</span></td>
+                                <td class="py-3.5 px-6">5 to 6 Years</td>
+                                <td class="py-3.5 px-6 text-xs text-gray-500">Pre-literacy & motor coordination</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition bg-gray-50/50">
+                                <td class="py-3.5 px-6 font-bold text-primary">Class I</td>
+                                <td class="py-3.5 px-6"><span class="bg-blue-100 text-primary font-bold px-2.5 py-0.5 rounded text-xs">6 Years +</span></td>
+                                <td class="py-3.5 px-6">6 to 7 Years</td>
+                                <td class="py-3.5 px-6 text-xs text-gray-500">Foundational literacy & numeracy</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-3.5 px-6 font-bold text-primary">Class II</td>
+                                <td class="py-3.5 px-6 font-semibold">7 Years +</td>
+                                <td class="py-3.5 px-6">7 to 8 Years</td>
+                                <td class="py-3.5 px-6 text-xs text-gray-500">Reading fluency & basic arithmetic</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition bg-gray-50/50">
+                                <td class="py-3.5 px-6 font-bold text-primary">Class III</td>
+                                <td class="py-3.5 px-6 font-semibold">8 Years +</td>
+                                <td class="py-3.5 px-6">8 to 9 Years</td>
+                                <td class="py-3.5 px-6 text-xs text-gray-500">Language expression & environmental awareness</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-3.5 px-6 font-bold text-primary">Class IV</td>
+                                <td class="py-3.5 px-6 font-semibold">9 Years +</td>
+                                <td class="py-3.5 px-6">9 to 10 Years</td>
+                                <td class="py-3.5 px-6 text-xs text-gray-500">Mathematical problem solving</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition bg-gray-50/50">
+                                <td class="py-3.5 px-6 font-bold text-primary">Class V</td>
+                                <td class="py-3.5 px-6 font-semibold">10 Years +</td>
+                                <td class="py-3.5 px-6">10 to 11 Years</td>
+                                <td class="py-3.5 px-6 text-xs text-gray-500">Primary graduation readiness</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-3.5 px-6 font-bold text-primary">Class VI</td>
+                                <td class="py-3.5 px-6 font-semibold">11 Years +</td>
+                                <td class="py-3.5 px-6">11 to 12 Years</td>
+                                <td class="py-3.5 px-6 text-xs text-gray-500">Middle school subject-based curriculum</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition bg-gray-50/50">
+                                <td class="py-3.5 px-6 font-bold text-primary">Class VII</td>
+                                <td class="py-3.5 px-6 font-semibold">12 Years +</td>
+                                <td class="py-3.5 px-6">12 to 13 Years</td>
+                                <td class="py-3.5 px-6 text-xs text-gray-500">Science laboratory exploration</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-3.5 px-6 font-bold text-primary">Class VIII</td>
+                                <td class="py-3.5 px-6 font-semibold">13 Years +</td>
+                                <td class="py-3.5 px-6">13 to 14 Years</td>
+                                <td class="py-3.5 px-6 text-xs text-gray-500">Analytical & logical reasoning</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition bg-gray-50/50">
+                                <td class="py-3.5 px-6 font-bold text-primary">Class IX</td>
+                                <td class="py-3.5 px-6 font-semibold">14 Years +</td>
+                                <td class="py-3.5 px-6">14 to 15 Years</td>
+                                <td class="py-3.5 px-6 text-xs text-gray-500">Secondary CBSE foundation</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-3.5 px-6 font-bold text-primary">Class X</td>
+                                <td class="py-3.5 px-6 font-semibold">15 Years +</td>
+                                <td class="py-3.5 px-6">15 to 16 Years</td>
+                                <td class="py-3.5 px-6 text-xs text-gray-500">Transfer strictly subject to CBSE norms</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition bg-gray-50/50">
+                                <td class="py-3.5 px-6 font-bold text-primary">Class XI (Science / Commerce)</td>
+                                <td class="py-3.5 px-6 font-semibold">16 Years +</td>
+                                <td class="py-3.5 px-6">Passed Class X</td>
+                                <td class="py-3.5 px-6 text-xs text-gray-500">Class X Board Marks & Stream suitability</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition">
+                                <td class="py-3.5 px-6 font-bold text-primary">Class XII</td>
+                                <td class="py-3.5 px-6 font-semibold">17 Years +</td>
+                                <td class="py-3.5 px-6">Passed Class XI</td>
+                                <td class="py-3.5 px-6 text-xs text-gray-500">Transfer strictly subject to CBSE norms</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Required Documents Checklist -->
+    <section class="section-padding bg-lightBg border-t border-gray-200" id="documents">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-3">
+                    Verification Requirements
+                </span>
+                <h4 class="text-secondary font-bold text-sm uppercase tracking-widest mb-1">Documents Required for Admission</h4>
+                <h2 class="section-title">Required Documents Checklist</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto mb-5 rounded-full"></div>
+                <p class="text-gray-600 text-base leading-relaxed">
+                    To help ensure a smooth admission process, parents are requested to submit the documents applicable to the class for which admission is sought.
+                </p>
+            </div>
+
+            <!-- 3 Category Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                 
-                <!-- FAQ 1 -->
-                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300" :class="activeAccordion === 1 ? 'shadow-md border-primary/40 bg-white' : 'hover:border-gray-300 bg-white'">
-                    <button @click="activeAccordion = activeAccordion === 1 ? null : 1" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 1 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
-                        <span class="flex items-center gap-3 pr-4">
-                            <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 1 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">01</span>
-                            <span class="text-base md:text-lg leading-snug">When do admissions open for the 2026–27 academic session?</span>
-                        </span>
-                        <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 1 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
-                    </button>
-                    <div x-show="activeAccordion === 1" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
-                        <p class="mb-3">
-                            Admission enquiries for the 2026–27 session may be made through the school's official website or admission office. Parents are advised to contact the school for current application dates, class-wise vacancies, and the registration schedule.
-                        </p>
-                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-blue-50 text-primary text-xs font-medium border border-blue-100">
-                            <i class="fas fa-info-circle"></i> Official opening and closing dates for applications are confirmed via the school notice board and admission office.
+                <!-- 1. Student Documents -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center text-xl mb-6 shadow">
+                            <i class="fas fa-child"></i>
                         </div>
+                        <h3 class="nav-font font-bold text-xl text-primary mb-4 pb-2 border-b border-gray-100">
+                            Student Documents
+                        </h3>
+                        <ul class="space-y-3 text-xs md:text-sm text-gray-600">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fas fa-check-circle text-secondary text-sm mt-0.5 shrink-0"></i>
+                                <span>Proof of date of birth, such as a birth certificate or other document accepted under the school's admission policy.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fas fa-check-circle text-secondary text-sm mt-0.5 shrink-0"></i>
+                                <span>Previous year's report card or academic progress record, where applicable.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fas fa-check-circle text-secondary text-sm mt-0.5 shrink-0"></i>
+                                <span>Transfer Certificate (TC) or School Leaving Certificate (SLC), where applicable.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fas fa-check-circle text-secondary text-sm mt-0.5 shrink-0"></i>
+                                <span>Recent passport-size photographs of the student.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fas fa-check-circle text-secondary text-sm mt-0.5 shrink-0"></i>
+                                <span>Any additional academic or eligibility documents required for the class concerned.</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- FAQ 2 -->
-                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300" :class="activeAccordion === 2 ? 'shadow-md border-primary/40 bg-white' : 'hover:border-gray-300 bg-white'">
-                    <button @click="activeAccordion = activeAccordion === 2 ? null : 2" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 2 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
-                        <span class="flex items-center gap-3 pr-4">
-                            <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 2 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">02</span>
-                            <span class="text-base md:text-lg leading-snug">How can I apply for admission to TMISB?</span>
-                        </span>
-                        <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 2 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
-                    </button>
-                    <div x-show="activeAccordion === 2" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
-                        <p>
-                            Parents can begin by submitting the online admission enquiry form above or contacting the school office directly. The admission process generally involves registration, an interaction or assessment where applicable, document verification, and admission confirmation in accordance with the school's approved policy.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300" :class="activeAccordion === 3 ? 'shadow-md border-primary/40 bg-white' : 'hover:border-gray-300 bg-white'">
-                    <button @click="activeAccordion = activeAccordion === 3 ? null : 3" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 3 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
-                        <span class="flex items-center gap-3 pr-4">
-                            <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 3 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">03</span>
-                            <span class="text-base md:text-lg leading-snug">Which classes are open for admission?</span>
-                        </span>
-                        <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 3 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
-                    </button>
-                    <div x-show="activeAccordion === 3" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
-                        <p>
-                            Admission is subject to the classes offered by the school, available seats, and the applicable eligibility criteria. Parents should contact the admission office to confirm vacancies for their child's intended class.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- FAQ 4 -->
-                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300" :class="activeAccordion === 4 ? 'shadow-md border-primary/40 bg-white' : 'hover:border-gray-300 bg-white'">
-                    <button @click="activeAccordion = activeAccordion === 4 ? null : 4" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 4 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
-                        <span class="flex items-center gap-3 pr-4">
-                            <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 4 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">04</span>
-                            <span class="text-base md:text-lg leading-snug">What are the age criteria for admission?</span>
-                        </span>
-                        <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 4 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
-                    </button>
-                    <div x-show="activeAccordion === 4" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
-                        <p>
-                            Age eligibility depends on the class applied for and the applicable admission rules. Parents should refer to the school's approved age-eligibility table for the relevant academic session and confirm any specific requirements with the admission office.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- FAQ 5 -->
-                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300" :class="activeAccordion === 5 ? 'shadow-md border-primary/40 bg-white' : 'hover:border-gray-300 bg-white'">
-                    <button @click="activeAccordion = activeAccordion === 5 ? null : 5" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 5 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
-                        <span class="flex items-center gap-3 pr-4">
-                            <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 5 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">05</span>
-                            <span class="text-base md:text-lg leading-snug">Is an entrance test required for admission?</span>
-                        </span>
-                        <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 5 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
-                    </button>
-                    <div x-show="activeAccordion === 5" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
-                        <p>
-                            The assessment or interaction requirements depend on the class applied for and the school's admission policy. The school will communicate the applicable format, subjects, syllabus or learning areas and schedule to parents before the assessment.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- FAQ 6 -->
-                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300" :class="activeAccordion === 6 ? 'shadow-md border-primary/40 bg-white' : 'hover:border-gray-300 bg-white'">
-                    <button @click="activeAccordion = activeAccordion === 6 ? null : 6" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 6 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
-                        <span class="flex items-center gap-3 pr-4">
-                            <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 6 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">06</span>
-                            <span class="text-base md:text-lg leading-snug">What documents are required for admission?</span>
-                        </span>
-                        <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 6 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
-                    </button>
-                    <div x-show="activeAccordion === 6" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
-                        <p>
-                            Documents may include proof of date of birth, previous academic records, a Transfer Certificate or School Leaving Certificate where applicable, student photographs, and other documents prescribed by the school. Parents should refer to the official admission checklist for the complete requirements applicable to their child's class.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- FAQ 7 -->
-                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300" :class="activeAccordion === 7 ? 'shadow-md border-primary/40 bg-white' : 'hover:border-gray-300 bg-white'">
-                    <button @click="activeAccordion = activeAccordion === 7 ? null : 7" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 7 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
-                        <span class="flex items-center gap-3 pr-4">
-                            <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 7 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">07</span>
-                            <span class="text-base md:text-lg leading-snug">Does the school offer a sibling discount or any other fee concession?</span>
-                        </span>
-                        <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 7 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
-                    </button>
-                    <div x-show="activeAccordion === 7" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
-                        <p class="mb-3">
-                            Any sibling concession, scholarship, or fee concession is subject to the school's approved policy and eligibility conditions. Parents should contact the accounts or admission office to confirm whether a concession is available, the applicable amount, and the procedure for applying.
-                        </p>
-                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-blue-50 text-primary text-xs font-medium border border-blue-100">
-                            <i class="fas fa-info-circle"></i> Please check with the accounts department for active concession categories for the 2026–27 session.
+                <!-- 2. Parent/Guardian Documents -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-secondary text-white flex items-center justify-center text-xl mb-6 shadow">
+                            <i class="fas fa-user-friends"></i>
                         </div>
+                        <h3 class="nav-font font-bold text-xl text-primary mb-4 pb-2 border-b border-gray-100">
+                            Parent / Guardian Documents
+                        </h3>
+                        <ul class="space-y-3 text-xs md:text-sm text-gray-600">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fas fa-check-circle text-secondary text-sm mt-0.5 shrink-0"></i>
+                                <span>Parent or guardian identification and contact details.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fas fa-check-circle text-secondary text-sm mt-0.5 shrink-0"></i>
+                                <span>Aadhaar or other identity documentation, as required under the school's approved policy.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fas fa-check-circle text-secondary text-sm mt-0.5 shrink-0"></i>
+                                <span>Recent passport-size photographs of parents/guardians, if required by the school.</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- FAQ 8 -->
-                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300" :class="activeAccordion === 8 ? 'shadow-md border-primary/40 bg-white' : 'hover:border-gray-300 bg-white'">
-                    <button @click="activeAccordion = activeAccordion === 8 ? null : 8" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 8 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
-                        <span class="flex items-center gap-3 pr-4">
-                            <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 8 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">08</span>
-                            <span class="text-base md:text-lg leading-snug">Can a student transfer to TMISB in the middle of the academic session?</span>
-                        </span>
-                        <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 8 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
-                    </button>
-                    <div x-show="activeAccordion === 8" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
-                        <p class="mb-3">
-                            Mid-session transfer requests may be considered subject to seat availability, eligibility, the student's previous academic records, and the school's admission policy. Parents should contact the admission office before initiating the transfer and confirm the documents and formalities required.
-                        </p>
-                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-amber-50 text-amber-800 text-xs font-medium border border-amber-200">
-                            <i class="fas fa-exclamation-triangle text-secondary"></i> Admission to Classes X and XII is strictly subject to applicable CBSE board rules and cannot be assumed through the ordinary transfer process.
+                <!-- 3. Additional Documents, Where Applicable -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-primaryDark text-white flex items-center justify-center text-xl mb-6 shadow">
+                            <i class="fas fa-folder-open"></i>
                         </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 9 -->
-                <div class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-300" :class="activeAccordion === 9 ? 'shadow-md border-primary/40 bg-white' : 'hover:border-gray-300 bg-white'">
-                    <button @click="activeAccordion = activeAccordion === 9 ? null : 9" class="w-full text-left px-6 py-5 font-bold text-gray-800 flex justify-between items-center focus:outline-none transition-colors" :class="activeAccordion === 9 ? 'bg-primary/5 text-primary' : 'hover:bg-gray-50'">
-                        <span class="flex items-center gap-3 pr-4">
-                            <span class="w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors" :class="activeAccordion === 9 ? 'bg-primary text-white shadow-sm' : 'bg-gray-100 text-gray-600'">09</span>
-                            <span class="text-base md:text-lg leading-snug">How can I obtain the fee structure and confirm admission?</span>
-                        </span>
-                        <i class="fas fa-chevron-down text-xs transition-transform duration-300 shrink-0" :class="activeAccordion === 9 ? 'rotate-180 text-primary' : 'text-gray-400'"></i>
-                    </button>
-                    <div x-show="activeAccordion === 9" x-collapse x-cloak class="px-6 pb-6 pt-2 text-gray-600 text-sm md:text-base leading-relaxed border-t border-gray-100">
-                        <p>
-                            Parents can request the current approved fee schedule directly from the school's admission office. The applicable charges, payment deadlines, and any additional costs should be confirmed before admission. Admission is finalised only after the school completes its prescribed formalities and communicates confirmation to the parent or guardian.
-                        </p>
+                        <h3 class="nav-font font-bold text-xl text-primary mb-4 pb-2 border-b border-gray-100">
+                            Additional Documents
+                        </h3>
+                        <p class="text-xs text-gray-400 uppercase font-semibold mb-3">Where Applicable</p>
+                        <ul class="space-y-3 text-xs md:text-sm text-gray-600">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fas fa-check-circle text-secondary text-sm mt-0.5 shrink-0"></i>
+                                <span>Caste / category certificate, where relevant to an applicable scheme or requirement.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fas fa-check-circle text-secondary text-sm mt-0.5 shrink-0"></i>
+                                <span>Documents supporting any applicable admission concession or special consideration.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fas fa-check-circle text-secondary text-sm mt-0.5 shrink-0"></i>
+                                <span>Any other documents specifically requested by the school for verification.</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
             </div>
 
-            <!-- Need Further Help CTA Card -->
-            <div class="mt-12 bg-lightBg rounded-2xl p-8 border border-gray-200 text-center flex flex-col md:flex-row items-center justify-between gap-6">
-                <div class="text-left">
-                    <h4 class="nav-font font-bold text-xl text-primary mb-1">Still have questions regarding admissions?</h4>
-                    <p class="text-gray-600 text-sm">Our admissions counsel team is available to assist you Monday through Saturday, 9:00 AM – 3:00 PM.</p>
-                </div>
-                <div class="flex items-center gap-3 shrink-0">
-                    <a href="tel:+919431214985" class="bg-primary hover:bg-primaryDark text-white font-bold py-3 px-6 rounded-lg text-sm transition shadow flex items-center">
-                        <i class="fas fa-phone-alt mr-2 text-secondary"></i> Call Helpline
-                    </a>
-                    <a href="<?php echo home_url('/contact/'); ?>" class="bg-white hover:bg-gray-100 text-gray-800 border border-gray-300 font-bold py-3 px-6 rounded-lg text-sm transition">
-                        Contact Desk
-                    </a>
+            <!-- Important Instructions Card -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 max-w-4xl mx-auto">
+                <h4 class="nav-font font-bold text-lg text-primary mb-4 flex items-center gap-2">
+                    <i class="fas fa-exclamation-triangle text-secondary"></i> Important Instructions for Document Submission
+                </h4>
+                <ol class="space-y-3 text-xs md:text-sm text-gray-700 list-decimal list-inside leading-relaxed mb-6">
+                    <li><strong>Accurate Information:</strong> Parents should provide accurate information in the admission application.</li>
+                    <li><strong>Specified Format:</strong> Documents must be submitted in the format specified by the admission office.</li>
+                    <li><strong>Verification of Originals:</strong> Original documents may be required for verification, with copies retained as per school policy.</li>
+                    <li><strong>Transfer Formalities:</strong> For students transferring from another school, the applicable Transfer Certificate and previous academic records must be submitted.</li>
+                    <li><strong>Office Assistance:</strong> The admission office should be contacted if any required document is unavailable or if clarification is needed.</li>
+                </ol>
+                <div class="bg-gray-50 border-t border-gray-100 pt-3 text-xs text-gray-500 italic">
+                    * Please confirm the class-specific document requirements with the school before completing the admission process.
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- Footer (Reused) -->
+    <!-- Section 5: Entrance Assessment Details -->
+    <section class="section-padding bg-white border-t border-gray-200" id="assessment">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full mb-3">
+                    Evaluation Approach
+                </span>
+                <h4 class="text-secondary font-bold text-sm uppercase tracking-widest mb-1">Entrance Assessment Details</h4>
+                <h2 class="section-title">Understanding Every Student's Learning Readiness</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto mb-5 rounded-full"></div>
+                <p class="text-gray-600 text-base leading-relaxed mb-4">
+                    At Techno Mission International School, we believe that admission assessments, where applicable, should help the school understand a student's readiness for the next stage of learning.
+                </p>
+                <p class="text-gray-500 text-sm leading-relaxed italic">
+                    The assessment process should be appropriate to the student's age and class. It should focus on understanding existing knowledge, foundational skills and learning readiness rather than creating unnecessary pressure.
+                </p>
+            </div>
+
+            <!-- 4 Stage Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 max-w-6xl mx-auto">
+                
+                <!-- 1. Pre-Primary Admissions -->
+                <div class="bg-lightBg rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-primary/10 text-primary font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full">
+                            Nursery, LKG & UKG
+                        </span>
+                        <div class="w-10 h-10 rounded-lg bg-primary text-white flex items-center justify-center text-lg">
+                            <i class="fas fa-shapes"></i>
+                        </div>
+                    </div>
+                    <h3 class="nav-font font-bold text-xl text-primary mb-2">Pre-Primary Admissions</h3>
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed mb-4">
+                        For young children, the school may use an age-appropriate interaction or observation-based assessment, depending on its approved admission policy.
+                    </p>
+                    <div class="bg-white rounded-xl p-4 border border-gray-100 mb-4">
+                        <p class="text-xs font-bold text-primary uppercase tracking-wider mb-2">The interaction may involve:</p>
+                        <ul class="space-y-2 text-xs text-gray-600">
+                            <li class="flex items-center gap-2"><i class="fas fa-circle text-[6px] text-secondary"></i> Basic recognition of colours, shapes, pictures and familiar objects.</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-circle text-[6px] text-secondary"></i> Simple conversation and listening activities.</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-circle text-[6px] text-secondary"></i> Early number and language awareness appropriate to child's age.</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-circle text-[6px] text-secondary"></i> Observation of communication, participation and general readiness.</li>
+                        </ul>
+                    </div>
+                    <p class="text-xs text-secondary font-semibold italic">
+                        The process should be welcoming and comfortable for the child.
+                    </p>
+                </div>
+
+                <!-- 2. Primary Admissions -->
+                <div class="bg-lightBg rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-secondary/10 text-secondary font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full">
+                            Classes I – V
+                        </span>
+                        <div class="w-10 h-10 rounded-lg bg-secondary text-white flex items-center justify-center text-lg">
+                            <i class="fas fa-cubes"></i>
+                        </div>
+                    </div>
+                    <h3 class="nav-font font-bold text-xl text-primary mb-2">Primary Admissions</h3>
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed mb-4">
+                        For primary classes, an assessment may evaluate foundational skills relevant to the class applied for.
+                    </p>
+                    <div class="bg-white rounded-xl p-4 border border-gray-100 mb-4">
+                        <p class="text-xs font-bold text-primary uppercase tracking-wider mb-2">Areas evaluated may include:</p>
+                        <ul class="space-y-2 text-xs text-gray-600">
+                            <li class="flex items-center gap-2"><i class="fas fa-circle text-[6px] text-secondary"></i> English or relevant language skills prescribed by the school.</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-circle text-[6px] text-secondary"></i> Reading, comprehension and basic writing.</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-circle text-[6px] text-secondary"></i> Mathematics, including number recognition and arithmetic.</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-circle text-[6px] text-secondary"></i> General awareness and foundational environmental understanding.</li>
+                        </ul>
+                    </div>
+                    <p class="text-xs text-secondary font-semibold italic">
+                        The assessment should be aligned with expected learning outcomes of the relevant entry class.
+                    </p>
+                </div>
+
+                <!-- 3. Middle and Secondary Admissions -->
+                <div class="bg-lightBg rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-primary/10 text-primary font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full">
+                            Classes VI – X
+                        </span>
+                        <div class="w-10 h-10 rounded-lg bg-primary text-white flex items-center justify-center text-lg">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                    <h3 class="nav-font font-bold text-xl text-primary mb-2">Middle & Secondary Admissions</h3>
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed mb-4">
+                        For middle and secondary classes, the school may assess the student's understanding of subjects studied in the previous class.
+                    </p>
+                    <div class="bg-white rounded-xl p-4 border border-gray-100 mb-4">
+                        <p class="text-xs font-bold text-primary uppercase tracking-wider mb-2">Depending on entry class, assessment may include:</p>
+                        <ul class="space-y-2 text-xs text-gray-600">
+                            <li class="flex items-center gap-2"><i class="fas fa-circle text-[6px] text-secondary"></i> English and relevant language skills.</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-circle text-[6px] text-secondary"></i> Mathematics and logical reasoning.</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-circle text-[6px] text-secondary"></i> Science and application of basic concepts.</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-circle text-[6px] text-secondary"></i> Other prescribed subjects under school policy.</li>
+                        </ul>
+                    </div>
+                    <p class="text-xs text-secondary font-semibold italic">
+                        Admission to higher classes requires verification of previous records and eligibility satisfaction.
+                    </p>
+                </div>
+
+                <!-- 4. Senior Secondary Admissions -->
+                <div class="bg-lightBg rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-secondary/10 text-secondary font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full">
+                            Class XI (Science / Commerce)
+                        </span>
+                        <div class="w-10 h-10 rounded-lg bg-secondary text-white flex items-center justify-center text-lg">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                    </div>
+                    <h3 class="nav-font font-bold text-xl text-primary mb-2">Senior Secondary Admissions — Class XI</h3>
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed mb-4">
+                        Admission to Class XI is subject to successful completion of Class X or an equivalent recognised examination, the school's eligibility requirements, subject availability and seat availability.
+                    </p>
+                    <div class="bg-white rounded-xl p-4 border border-gray-100 mb-4">
+                        <p class="text-xs font-bold text-primary uppercase tracking-wider mb-2">Stream Determination:</p>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            The school may consider the student's Class X results and subject-specific preparedness when determining eligibility for the available streams and subject combinations (Science PCM/PCB, Commerce, and Electives).
+                        </p>
+                    </div>
+                    <p class="text-xs text-secondary font-semibold italic">
+                        Formal admission subject to verification of Class X board marksheet & TC.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Assessment Procedure and Communication Box -->
+            <div class="max-w-4xl mx-auto bg-gradient-to-r from-primaryDark to-primary text-white rounded-2xl p-8 shadow-xl">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-secondary text-white flex items-center justify-center text-2xl shrink-0">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <div>
+                        <h4 class="nav-font font-bold text-xl text-yellow-300 mb-2">Assessment Procedure and Communication</h4>
+                        <p class="text-gray-200 text-xs md:text-sm leading-relaxed mb-4 font-light">
+                            The school will communicate the applicable assessment format, date, subjects, syllabus or learning areas and reporting instructions to parents before the assessment.
+                        </p>
+                        <p class="text-gray-200 text-xs md:text-sm leading-relaxed mb-4 font-light">
+                            Parents are encouraged to ensure that students are familiar with the concepts and skills expected at their current stage of learning. The purpose is to support an appropriate academic transition and identify areas where guidance may be useful.
+                        </p>
+                        <div class="text-[11px] text-gray-300 bg-white/10 px-3.5 py-2 rounded-lg border border-white/20">
+                            <strong>Note:</strong> The actual assessment format, subjects, syllabus and class-wise requirements will be as prescribed by the school for the relevant admission session.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+<!-- Footer (Reused) -->
     
 <?php
 get_footer();
