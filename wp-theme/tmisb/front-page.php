@@ -908,7 +908,7 @@ get_header();
                             </div>
                             <div>
                                 <h4 class="font-bold text-gray-800">Email Address</h4>
-                                <p class="text-gray-600 text-sm mt-1">techno.edu.school@gmail.com<br>admissions@[tmisb-domain.com]</p>
+                                <p class="text-gray-600 text-sm mt-1">techno.edu.school@gmail.com</p>
                             </div>
                         </div>
                     </div>
