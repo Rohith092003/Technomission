@@ -5,7 +5,7 @@ get_header();
 <!-- Page Header -->
     <section class="relative py-16 md:py-24 bg-primaryDark overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="TMISB Campus" class="w-full h-full object-cover opacity-25">
+            <img src="<?php echo get_template_directory_uri(); ?>/school images google/63f03e7eda38af09f9012e779a2c2745.webp?v=<?php echo time(); ?>" alt="TMISB Campus" class="w-full h-full object-cover opacity-25">
             <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/95 via-primaryDark/80 to-primaryDark/50"></div>
         </div>
         <div class="container mx-auto px-4 relative z-10 max-w-7xl">
@@ -42,6 +42,27 @@ get_header();
                 <p class="text-gray-600 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed">
                     Experiential learning forms the backbone of the TMISB academic philosophy. Our specialized laboratories are equipped with modern apparatus, rigorous safety protocols, and digital demonstration stations.
                 </p>
+            </div>
+
+            <!-- Featured Real Science Lab Showcase -->
+            <div class="mb-12 rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-white grid grid-cols-1 lg:grid-cols-12 items-center">
+                <div class="lg:col-span-7 h-[300px] md:h-[380px]">
+                    <img src="<?php echo get_template_directory_uri(); ?>/school images google/Science lab.webp?v=<?php echo time(); ?>" alt="TMISB Science Laboratory" class="w-full h-full object-cover">
+                </div>
+                <div class="lg:col-span-5 p-6 md:p-8">
+                    <div class="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-3 py-1 rounded text-xs font-bold uppercase tracking-wider mb-3">
+                        <i class="fas fa-microscope"></i> Practical Science in Action
+                    </div>
+                    <h3 class="nav-font font-bold text-2xl text-primary mb-3">Hands-On Laboratory Discovery</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Students and faculty collaborating in our composite science laboratory, conducting real microscope research and curriculum experiments aligned with CBSE standards.
+                    </p>
+                    <div class="flex flex-wrap items-center gap-4 text-xs font-semibold text-gray-700">
+                        <span class="flex items-center gap-1.5"><i class="fas fa-check text-secondary"></i> Optical Microscopes</span>
+                        <span class="flex items-center gap-1.5"><i class="fas fa-check text-secondary"></i> Supervised Sessions</span>
+                        <span class="flex items-center gap-1.5"><i class="fas fa-check text-secondary"></i> Practical Records</span>
+                    </div>
+                </div>
             </div>
 
             <!-- Lab Highlights Grid -->

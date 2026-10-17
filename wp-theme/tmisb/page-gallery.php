@@ -74,7 +74,7 @@ get_header();
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 <!-- Item 1 -->
                 <div x-show="filter === 'all' || filter === 'campus'" x-transition class="group relative rounded-xl overflow-hidden shadow-md cursor-pointer aspect-square">
-                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Campus Building" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <img src="<?php echo get_template_directory_uri(); ?>/school images google/campus_infrastructure_1771715691851_8ss6lp.jpg?v=<?php echo time(); ?>" alt="Campus Building" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
                         <h4 class="text-white font-bold text-lg">Main Campus</h4>
                         <p class="text-gray-200 text-sm">State-of-the-art infrastructure</p>
@@ -83,7 +83,7 @@ get_header();
                 
                 <!-- Item 2 -->
                 <div x-show="filter === 'all' || filter === 'academics'" x-transition class="group relative rounded-xl overflow-hidden shadow-md cursor-pointer aspect-square">
-                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Classroom" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <img src="<?php echo get_template_directory_uri(); ?>/School Images/classrooms_learning_1771715713266_lltmd9.jpg?v=<?php echo time(); ?>" alt="Interactive Classroom" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
                         <h4 class="text-white font-bold text-lg">Smart Classrooms</h4>
                         <p class="text-gray-200 text-sm">Interactive learning environments</p>
@@ -92,7 +92,7 @@ get_header();
                 
                 <!-- Item 3 -->
                 <div x-show="filter === 'all' || filter === 'academics'" x-transition class="group relative rounded-xl overflow-hidden shadow-md cursor-pointer aspect-square">
-                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Science Lab" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <img src="<?php echo get_template_directory_uri(); ?>/school images google/Science lab.webp?v=<?php echo time(); ?>" alt="Science Lab" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
                         <h4 class="text-white font-bold text-lg">Science Labs</h4>
                         <p class="text-gray-200 text-sm">Practical experimentation</p>
@@ -101,7 +101,7 @@ get_header();
                 
                 <!-- Item 4 -->
                 <div x-show="filter === 'all' || filter === 'sports'" x-transition class="group relative rounded-xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] md:col-span-2">
-                    <img src="https://images.unsplash.com/photo-1526676037777-05a232554f77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sports Ground" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <img src="<?php echo get_template_directory_uri(); ?>/school images google/9f8218_0a2316ea7be24810a46e7e5841f94e6c~mv2.jpeg?v=<?php echo time(); ?>" alt="Sports Ground" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
                         <h4 class="text-white font-bold text-lg">Annual Sports Day</h4>
                         <p class="text-gray-200 text-sm">Fostering teamwork and physical health</p>
@@ -110,7 +110,7 @@ get_header();
                 
                 <!-- Item 5 -->
                 <div x-show="filter === 'all' || filter === 'campus'" x-transition class="group relative rounded-xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] md:aspect-square">
-                    <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Library" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <img src="<?php echo get_template_directory_uri(); ?>/school images google/63f03e7eda38af09f9012e779a2c2745.webp?v=<?php echo time(); ?>" alt="Library" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
                         <h4 class="text-white font-bold text-lg">Central Library</h4>
                         <p class="text-gray-200 text-sm">A vast collection of knowledge</p>
@@ -119,7 +119,7 @@ get_header();
 
                 <!-- Item 6 -->
                 <div x-show="filter === 'all' || filter === 'academics'" x-transition class="group relative rounded-xl overflow-hidden shadow-md cursor-pointer aspect-square">
-                    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Students Studying" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <img src="<?php echo get_template_directory_uri(); ?>/school images google/685f11c1b5a24f6bbf7ff382b40717c5.webp?v=<?php echo time(); ?>" alt="Students Studying" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
                         <h4 class="text-white font-bold text-lg">Group Study</h4>
                         <p class="text-gray-200 text-sm">Collaborative learning</p>
@@ -128,7 +128,7 @@ get_header();
 
                 <!-- Item 7 -->
                 <div x-show="filter === 'all' || filter === 'sports'" x-transition class="group relative rounded-xl overflow-hidden shadow-md cursor-pointer aspect-square">
-                    <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cultural Event" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <img src="<?php echo get_template_directory_uri(); ?>/School Images/classrooms_learning_1771715744842_14puoq.jpg?v=<?php echo time(); ?>" alt="School Seminar & Leadership Event" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
                         <h4 class="text-white font-bold text-lg">Cultural Fest</h4>
                         <p class="text-gray-200 text-sm">Celebrating diversity and arts</p>

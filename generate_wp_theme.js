@@ -294,6 +294,9 @@ try {
     if(fs.existsSync(path.join(__dirname, 'Notice.png'))) {
         execSync(`copy /Y "${path.join(__dirname, 'Notice.png')}" "${path.join(THEME_DIR, 'Notice.png')}"`);
     }
+    if(fs.existsSync(path.join(__dirname, 'school images google'))) {
+        execSync(`xcopy /E /I /Y "${path.join(__dirname, 'school images google')}" "${path.join(THEME_DIR, 'school images google')}"`);
+    }
     console.log('Copied assets successfully.');
 } catch (e) {
     console.error('Error copying assets:', e.message);
