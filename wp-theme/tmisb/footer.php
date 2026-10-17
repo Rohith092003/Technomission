@@ -31,6 +31,7 @@
                         <li><a href="<?php echo home_url('/academics/'); ?>" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> Academics</a></li>
                         <li><a href="<?php echo home_url('/gallery/'); ?>" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> Gallery</a></li>
                         <li><a href="<?php echo home_url('/contact/'); ?>" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> Contact</a></li>
+                        <li><a href="<?php echo home_url('/cbse-disclosure/'); ?>" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> Mandatory Disclosure</a></li>
                     </ul>
                 </div>
                 

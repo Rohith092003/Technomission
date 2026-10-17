@@ -160,6 +160,7 @@
                         <a href="<?php echo home_url('/about/'); ?>#principal" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Principal's Desk</a>
                         <a href="<?php echo home_url('/about/'); ?>#why-tmisb" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Why Choose TMISB</a>
                         <a href="<?php echo home_url('/about/'); ?>#faculty" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Faculty & Staff</a>
+                        <a href="<?php echo home_url('/cbse-disclosure/'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-primary font-semibold hover:bg-white rounded transition">CBSE Mandatory Disclosure</a>
                     </div>
                 </div>
 
@@ -276,7 +277,8 @@
                         <li><a href="<?php echo home_url('/about/'); ?>#director" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Director's Desk</a></li>
                         <li><a href="<?php echo home_url('/about/'); ?>#principal" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Principal's Desk</a></li>
                         <li><a href="<?php echo home_url('/about/'); ?>#why-tmisb" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Why Choose TMISB</a></li>
-                        <li><a href="<?php echo home_url('/about/'); ?>#faculty" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Faculty & Staff</a></li>
+                        <li><a href="<?php echo home_url('/about/'); ?>#faculty" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Faculty & Staff</a></li>
+                        <li><a href="<?php echo home_url('/cbse-disclosure/'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-secondary font-bold text-primary">Mandatory Public Disclosure</a></li>
                     </ul>
                 </li>
 

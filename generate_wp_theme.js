@@ -89,6 +89,7 @@ function tmisb_auto_create_pages() {
         'senior-secondary' => array('title' => 'Senior Secondary Wing', 'template' => 'page-senior-secondary.php'),
         'competitive-coaching' => array('title' => 'Integrated Competitive Prep', 'template' => 'page-competitive-coaching.php'),
         'teaching-methodology' => array('title' => 'Teaching Methodology & Evaluation', 'template' => 'page-teaching-methodology.php'),
+        'cbse-disclosure' => array('title' => 'CBSE Mandatory Public Disclosure', 'template' => 'page-cbse-disclosure.php'),
     );
 
     foreach ( $pages as $slug => $data ) {
@@ -209,6 +210,7 @@ const pages = [
     { file: 'senior-secondary.html', template: 'page-senior-secondary.php' },
     { file: 'competitive-coaching.html', template: 'page-competitive-coaching.php' },
     { file: 'teaching-methodology.html', template: 'page-teaching-methodology.php' },
+    { file: 'cbse-disclosure.html', template: 'page-cbse-disclosure.php' },
 ];
 
 pages.forEach(p => {
