@@ -181,14 +181,22 @@ get_header();
                         </div>
                         
                         <?php
-// Display Forminator form if available, otherwise show styled template form
+// Display Forminator Admissions form if available, otherwise show styled template form
 $form_rendered = false;
 if ( shortcode_exists( 'forminator_form' ) ) {
     $form_posts = get_posts( array(
         'post_type'      => 'forminator_forms',
         'post_status'    => 'publish',
+        's'              => 'Admission',
         'posts_per_page' => 1,
     ) );
+    if ( empty( $form_posts ) ) {
+        $form_posts = get_posts( array(
+            'post_type'      => 'forminator_forms',
+            'post_status'    => 'publish',
+            'posts_per_page' => 1,
+        ) );
+    }
     if ( ! empty( $form_posts ) ) {
         echo do_shortcode( '[forminator_form id="' . $form_posts[0]->ID . '"]' );
         $form_rendered = true;

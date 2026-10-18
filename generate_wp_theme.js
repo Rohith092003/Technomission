@@ -238,16 +238,52 @@ pages.forEach(p => {
                 if (formStart !== -1 && formEnd !== -1) {
                     const fallbackForm = bodyContent.substring(formStart, formEnd + 7);
                     const phpReplacement = `<?php
-// Display Forminator form if available, otherwise show styled template form
+// Display Forminator Admissions form if available, otherwise show styled template form
 $form_rendered = false;
 if ( shortcode_exists( 'forminator_form' ) ) {
     $form_posts = get_posts( array(
         'post_type'      => 'forminator_forms',
         'post_status'    => 'publish',
+        's'              => 'Admission',
         'posts_per_page' => 1,
     ) );
+    if ( empty( $form_posts ) ) {
+        $form_posts = get_posts( array(
+            'post_type'      => 'forminator_forms',
+            'post_status'    => 'publish',
+            'posts_per_page' => 1,
+        ) );
+    }
     if ( ! empty( $form_posts ) ) {
         echo do_shortcode( '[forminator_form id="' . $form_posts[0]->ID . '"]' );
+        $form_rendered = true;
+    }
+}
+if ( ! $form_rendered ) :
+?>
+${fallbackForm}
+<?php endif; ?>`;
+                    bodyContent = bodyContent.substring(0, formStart) + phpReplacement + bodyContent.substring(formEnd + 7);
+                }
+            }
+
+            if (p.template === 'page-contact.php') {
+                const formStart = bodyContent.indexOf('<form action="#" method="POST" class="space-y-4">');
+                const formEnd = bodyContent.indexOf('</form>', formStart);
+                if (formStart !== -1 && formEnd !== -1) {
+                    const fallbackForm = bodyContent.substring(formStart, formEnd + 7);
+                    const phpReplacement = `<?php
+// Display Forminator Contact form if available, otherwise show styled template form
+$form_rendered = false;
+if ( shortcode_exists( 'forminator_form' ) ) {
+    $contact_forms = get_posts( array(
+        'post_type'      => 'forminator_forms',
+        'post_status'    => 'publish',
+        's'              => 'Contact',
+        'posts_per_page' => 1,
+    ) );
+    if ( ! empty( $contact_forms ) ) {
+        echo do_shortcode( '[forminator_form id="' . $contact_forms[0]->ID . '"]' );
         $form_rendered = true;
     }
 }

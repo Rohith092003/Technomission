@@ -57,7 +57,24 @@ get_header();
                 <!-- Form -->
                 <div class="bg-lightBg p-8 rounded-lg shadow-md border border-gray-100">
                     <h3 class="nav-font font-bold text-2xl text-gray-800 mb-6">Send Us a Message</h3>
-                    <form action="#" method="POST" class="space-y-4">
+                    <?php
+// Display Forminator Contact form if available, otherwise show styled template form
+$form_rendered = false;
+if ( shortcode_exists( 'forminator_form' ) ) {
+    $contact_forms = get_posts( array(
+        'post_type'      => 'forminator_forms',
+        'post_status'    => 'publish',
+        's'              => 'Contact',
+        'posts_per_page' => 1,
+    ) );
+    if ( ! empty( $contact_forms ) ) {
+        echo do_shortcode( '[forminator_form id="' . $contact_forms[0]->ID . '"]' );
+        $form_rendered = true;
+    }
+}
+if ( ! $form_rendered ) :
+?>
+<form action="#" method="POST" class="space-y-4">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
@@ -84,6 +101,7 @@ get_header();
                         </div>
                         <button type="submit" class="bg-primary hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded transition w-full">Submit Message</button>
                     </form>
+<?php endif; ?>
                 </div>
             </div>
         </div>
