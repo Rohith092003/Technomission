@@ -300,7 +300,7 @@ if ( ! $form_rendered ) :
             <div class="max-w-4xl mx-auto bg-amber-50 border border-amber-200 rounded-xl p-4 mb-8 text-amber-900 text-xs md:text-sm leading-relaxed flex items-start gap-3">
                 <i class="fas fa-exclamation-circle text-secondary text-lg mt-0.5 shrink-0"></i>
                 <div>
-                    The following table is a provisional age-progression framework for management review, not a verified TMISB admission policy. The progression reflects the commonly used age bands aligned with entry to Nursery at age 3+ and Class I at age 6+. Please confirm the official class-specific age cut-offs with the admission desk.
+                    The following table is a provisional age-progression framework for management review, not a verified TMISB admission policy. The minimum age criteria is aligned with entry to Nursery at age 3+ and Class I at age 6+ as per CBSE and NEP guidelines. Please confirm the official class-specific age cut-offs with the admission desk.
                 </div>
             </div>
 
@@ -312,99 +312,83 @@ if ( ! $form_rendered ) :
                             <tr class="bg-primary text-white text-xs uppercase tracking-wider font-bold">
                                 <th class="py-4 px-6">Class / Level</th>
                                 <th class="py-4 px-6">Minimum Age (as of 31 March 2026)</th>
-                                <th class="py-4 px-6">Typical Age Band</th>
-                                <th class="py-4 px-6">Entry Readiness Key</th>
+                                                                <th class="py-4 px-6">Entry Readiness Key</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-100 text-gray-700 font-normal">
                             <tr class="hover:bg-gray-50 transition">
                                 <td class="py-3.5 px-6 font-bold text-primary">Nursery</td>
                                 <td class="py-3.5 px-6"><span class="bg-green-100 text-green-800 font-bold px-2.5 py-0.5 rounded text-xs">3 Years +</span></td>
-                                <td class="py-3.5 px-6">3 to 4 Years</td>
                                 <td class="py-3.5 px-6 text-xs text-gray-500">Play-way & sensory readiness</td>
                             </tr>
                             <tr class="hover:bg-gray-50 transition bg-gray-50/50">
                                 <td class="py-3.5 px-6 font-bold text-primary">LKG (Lower Kindergarten)</td>
                                 <td class="py-3.5 px-6"><span class="bg-green-100 text-green-800 font-bold px-2.5 py-0.5 rounded text-xs">4 Years +</span></td>
-                                <td class="py-3.5 px-6">4 to 5 Years</td>
                                 <td class="py-3.5 px-6 text-xs text-gray-500">Rhymes, basic shapes & numbers</td>
                             </tr>
                             <tr class="hover:bg-gray-50 transition">
                                 <td class="py-3.5 px-6 font-bold text-primary">UKG (Upper Kindergarten)</td>
                                 <td class="py-3.5 px-6"><span class="bg-green-100 text-green-800 font-bold px-2.5 py-0.5 rounded text-xs">5 Years +</span></td>
-                                <td class="py-3.5 px-6">5 to 6 Years</td>
                                 <td class="py-3.5 px-6 text-xs text-gray-500">Pre-literacy & motor coordination</td>
                             </tr>
                             <tr class="hover:bg-gray-50 transition bg-gray-50/50">
                                 <td class="py-3.5 px-6 font-bold text-primary">Class I</td>
                                 <td class="py-3.5 px-6"><span class="bg-blue-100 text-primary font-bold px-2.5 py-0.5 rounded text-xs">6 Years +</span></td>
-                                <td class="py-3.5 px-6">6 to 7 Years</td>
                                 <td class="py-3.5 px-6 text-xs text-gray-500">Foundational literacy & numeracy</td>
                             </tr>
                             <tr class="hover:bg-gray-50 transition">
                                 <td class="py-3.5 px-6 font-bold text-primary">Class II</td>
                                 <td class="py-3.5 px-6 font-semibold">7 Years +</td>
-                                <td class="py-3.5 px-6">7 to 8 Years</td>
                                 <td class="py-3.5 px-6 text-xs text-gray-500">Reading fluency & basic arithmetic</td>
                             </tr>
                             <tr class="hover:bg-gray-50 transition bg-gray-50/50">
                                 <td class="py-3.5 px-6 font-bold text-primary">Class III</td>
                                 <td class="py-3.5 px-6 font-semibold">8 Years +</td>
-                                <td class="py-3.5 px-6">8 to 9 Years</td>
                                 <td class="py-3.5 px-6 text-xs text-gray-500">Language expression & environmental awareness</td>
                             </tr>
                             <tr class="hover:bg-gray-50 transition">
                                 <td class="py-3.5 px-6 font-bold text-primary">Class IV</td>
                                 <td class="py-3.5 px-6 font-semibold">9 Years +</td>
-                                <td class="py-3.5 px-6">9 to 10 Years</td>
                                 <td class="py-3.5 px-6 text-xs text-gray-500">Mathematical problem solving</td>
                             </tr>
                             <tr class="hover:bg-gray-50 transition bg-gray-50/50">
                                 <td class="py-3.5 px-6 font-bold text-primary">Class V</td>
                                 <td class="py-3.5 px-6 font-semibold">10 Years +</td>
-                                <td class="py-3.5 px-6">10 to 11 Years</td>
                                 <td class="py-3.5 px-6 text-xs text-gray-500">Primary graduation readiness</td>
                             </tr>
                             <tr class="hover:bg-gray-50 transition">
                                 <td class="py-3.5 px-6 font-bold text-primary">Class VI</td>
                                 <td class="py-3.5 px-6 font-semibold">11 Years +</td>
-                                <td class="py-3.5 px-6">11 to 12 Years</td>
                                 <td class="py-3.5 px-6 text-xs text-gray-500">Middle school subject-based curriculum</td>
                             </tr>
                             <tr class="hover:bg-gray-50 transition bg-gray-50/50">
                                 <td class="py-3.5 px-6 font-bold text-primary">Class VII</td>
                                 <td class="py-3.5 px-6 font-semibold">12 Years +</td>
-                                <td class="py-3.5 px-6">12 to 13 Years</td>
                                 <td class="py-3.5 px-6 text-xs text-gray-500">Science laboratory exploration</td>
                             </tr>
                             <tr class="hover:bg-gray-50 transition">
                                 <td class="py-3.5 px-6 font-bold text-primary">Class VIII</td>
                                 <td class="py-3.5 px-6 font-semibold">13 Years +</td>
-                                <td class="py-3.5 px-6">13 to 14 Years</td>
                                 <td class="py-3.5 px-6 text-xs text-gray-500">Analytical & logical reasoning</td>
                             </tr>
                             <tr class="hover:bg-gray-50 transition bg-gray-50/50">
                                 <td class="py-3.5 px-6 font-bold text-primary">Class IX</td>
                                 <td class="py-3.5 px-6 font-semibold">14 Years +</td>
-                                <td class="py-3.5 px-6">14 to 15 Years</td>
                                 <td class="py-3.5 px-6 text-xs text-gray-500">Secondary CBSE foundation</td>
                             </tr>
                             <tr class="hover:bg-gray-50 transition">
                                 <td class="py-3.5 px-6 font-bold text-primary">Class X</td>
                                 <td class="py-3.5 px-6 font-semibold">15 Years +</td>
-                                <td class="py-3.5 px-6">15 to 16 Years</td>
                                 <td class="py-3.5 px-6 text-xs text-gray-500">Transfer strictly subject to CBSE norms</td>
                             </tr>
                             <tr class="hover:bg-gray-50 transition bg-gray-50/50">
                                 <td class="py-3.5 px-6 font-bold text-primary">Class XI (Science / Commerce)</td>
                                 <td class="py-3.5 px-6 font-semibold">16 Years +</td>
-                                <td class="py-3.5 px-6">Passed Class X</td>
                                 <td class="py-3.5 px-6 text-xs text-gray-500">Class X Board Marks & Stream suitability</td>
                             </tr>
                             <tr class="hover:bg-gray-50 transition">
                                 <td class="py-3.5 px-6 font-bold text-primary">Class XII</td>
                                 <td class="py-3.5 px-6 font-semibold">17 Years +</td>
-                                <td class="py-3.5 px-6">Passed Class XI</td>
                                 <td class="py-3.5 px-6 text-xs text-gray-500">Transfer strictly subject to CBSE norms</td>
                             </tr>
                         </tbody>
