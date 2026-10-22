@@ -263,14 +263,594 @@
         </div>
     </header>
 
-        <!-- 3. Main Navigation (Desktop) -->
-        <nav class="bg-primary hidden xl:block border-t border-white/10">
-            <div class="container mx-auto px-2 max-w-[1500px]">
-                <ul class="flex justify-center items-center space-x-8 2xl:space-x-10 nav-font font-semibold text-white text-sm py-3.5">
-                    <li><a href="index.html" class="hover:text-secondary transition pb-1">Home</a></li>
-                    <li><a href="about.html" class="hover:text-secondary transition pb-1">About Us</a></li>
-                    <li><a href="academics.html" class="hover:text-secondary transition pb-1">Academics</a></li>
-                    <li><a href="facilities.html" class="hover:text-secondary transition flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2 text-secondary"></i> Campus Facilities</a></li>
+        <!DOCTYPE html>
+<html lang="en" class="scroll-smooth scroll-pt-32">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techno Mission International School, Bhagalpur | TMISB</title>
+    <!-- Tailwind CSS for rapid structural styling similar to the reference -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for standard icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Swiper for carousels/sliders -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <!-- Alpine.js for interactive elements (dropdowns, accordions, mobile menu) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    
+    <script src="js/tailwind-config.js"></script>
+    <script defer src="js/animations.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-white text-gray-700" x-data="{ mobileMenuOpen: false }">
+
+    <!-- 1. Top Bar (Tier 1) -->
+    <div class="bg-primaryDark text-white py-1.5 hidden md:block text-xs font-semibold tracking-wide">
+        <div class="container mx-auto px-4 max-w-[1400px] flex justify-between items-center">
+            <div class="flex space-x-6 items-center">
+                <span><i class="fas fa-phone-alt text-secondary mr-2"></i>+91 9431214985, 6412610985</span>
+                <span><i class="fas fa-envelope text-secondary mr-2"></i>techno.edu.school@gmail.com</span>
+            </div>
+            <div class="flex space-x-4 items-center">
+                <a href="cbse-disclosure.html" class="inline-flex items-center gap-1.5 text-white/90 hover:text-white bg-white/10 hover:bg-secondary transition px-2.5 py-0.5 rounded text-[11px] font-bold tracking-wide border border-white/20">
+                    <i class="fas fa-file-contract text-secondary"></i> Mandatory Public Disclosure
+                </a>
+                <span class="text-white/25">|</span>
+                <div class="flex space-x-3.5 items-center">
+                    <a href="https://www.facebook.com/Technomissioninternationalschool/" target="_blank" class="text-white hover:text-secondary transition text-sm" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/tmis.bhagalpur/" target="_blank" class="text-white hover:text-secondary transition text-sm" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@technomissionbhagalpur" target="_blank" class="text-white hover:text-secondary transition text-sm" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Header Wrapper -->
+    <div class="sticky top-0 z-50 w-full shadow-2xl flex flex-col">
+        <!-- 2. Middle Bar (Tier 2) -->
+    <div class="bg-white py-4 border-b border-gray-100 hidden xl:block">
+        <div class="container mx-auto px-4 max-w-[1400px] flex justify-between items-center">
+            <!-- Left Button -->
+            <div class="w-1/4">
+                <a href="admissions.html" class="bg-secondary text-white font-bold px-6 py-2.5 rounded shadow-sm hover:shadow-md transition text-sm inline-block admission-glow ring-2 ring-secondary ring-offset-2 ring-offset-white">
+                    Admissions Enquiry 2026 - 27
+                </a>
+            </div>
+            
+            <!-- Center Logo -->
+            <div class="w-2/4 flex justify-center">
+                <a href="index.html" class="flex items-center transform hover:scale-[1.02] transition duration-300">
+                    <img src="assets/images/logo.webp" alt="TMISB Logo" class="h-16 w-auto mr-3 shrink-0">
+                    <div class="text-left">
+                        <h1 class="nav-font font-extrabold text-2xl md:text-3xl text-primary leading-none tracking-tight uppercase">Techno Mission</h1>
+                        <p class="text-xs text-primary font-bold tracking-[0.2em] uppercase mt-1">International School <span class="bg-primary text-white px-1 ml-1 text-[9px]">BHAGALPUR</span></p>
+                        <div class="mt-1 flex items-center gap-1.5 text-[11px] font-semibold text-gray-600">
+                            <span class="text-gray-500">Affiliated to CBSE</span>
+                            <span class="text-gray-300">|</span>
+                            <span class="inline-flex items-center gap-1 text-secondary font-bold">
+                                <i class="fas fa-check-circle text-[10px]"></i> Affiliation No. 330331
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Right Buttons -->
+            <div class="w-1/4 flex justify-end">
+                <img src="assets/images/29.png" alt="29" class="h-16 w-auto object-contain">
+            </div>
+        </div>
+    </div>
+
+            <!-- Mobile Header (Visible only on xl < ) -->
+    <header class="bg-white shadow-sm xl:hidden relative z-40 border-b border-gray-100">
+        <div class="container mx-auto px-4 flex justify-between items-center py-3">
+            <a href="index.html" class="flex items-center">
+                <img src="assets/images/logo.webp" alt="TMISB Logo" class="h-12 w-auto mr-2.5">
+                <div>
+                    <h1 class="nav-font font-bold text-xl text-primary leading-tight">Techno Mission</h1>
+                    <p class="text-[10px] text-gray-500 font-semibold leading-tight">CBSE Affiliation No: <span class="text-secondary font-bold">330331</span></p>
+                </div>
+            </a>
+            <button 
+                class="w-10 h-10 rounded-lg bg-gray-50 hover:bg-gray-100 active:bg-gray-200 text-primary border border-gray-200 flex items-center justify-center text-lg focus:outline-none transition shadow-sm" 
+                @click="mobileMenuOpen = true" 
+                aria-label="Open navigation menu"
+            >
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Full-Screen Mobile Navigation Overlay (Clean White Design) -->
+        <div 
+            class="fixed inset-0 w-full h-full min-h-screen z-[9999] bg-white flex flex-col text-gray-800" 
+            x-show="mobileMenuOpen" 
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 translate-x-full"
+            x-transition:enter-end="opacity-100 translate-x-0"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100 translate-x-0"
+            x-transition:leave-end="opacity-0 translate-x-full"
+            x-effect="document.body.style.overflow = mobileMenuOpen ? 'hidden' : ''"
+            @keydown.escape.window="mobileMenuOpen = false"
+            x-cloak
+        >
+            <!-- 1. Clean Top Bar with Close Button -->
+            <div class="flex items-center justify-between px-5 py-4 border-b border-gray-200 bg-white shrink-0">
+                <a href="index.html" class="flex items-center gap-2.5" @click="mobileMenuOpen = false">
+                    <img src="assets/images/logo.webp" alt="TMISB Logo" class="h-11 w-auto">
+                    <div>
+                        <h2 class="nav-font font-bold text-lg text-primary leading-tight">Techno Mission</h2>
+                        <p class="text-[10px] text-gray-500 font-medium leading-tight">
+                            Affiliated to CBSE <span class="text-gray-300">|</span> <span class="text-secondary font-bold">330331</span>
+                        </p>
+                    </div>
+                </a>
+                
+                <!-- Close Button -->
+                <button 
+                    @click="mobileMenuOpen = false" 
+                    class="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-gray-700 flex items-center justify-center text-base transition duration-150 focus:outline-none border border-gray-200"
+                    aria-label="Close navigation menu"
+                >
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- 2. Admissions CTA Bar -->
+            <div class="p-4 bg-gray-50 border-b border-gray-200 shrink-0">
+                <a href="admissions.html" @click="mobileMenuOpen = false" class="block text-center bg-secondary hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg shadow-sm text-xs sm:text-sm uppercase tracking-wider transition">
+                    Admissions Enquiry 2026 – 27
+                </a>
+            </div>
+
+            <!-- 3. Navigation Links (Clean, Human, Consistent Typography) -->
+            <div class="flex-1 overflow-y-auto px-5 py-3 divide-y divide-gray-100 nav-font">
+                <!-- Home -->
+                <div class="py-1">
+                    <a href="index.html" @click="mobileMenuOpen = false" class="flex items-center justify-between py-3 px-2 text-primary font-semibold text-base hover:text-secondary transition mobile-nav-link">
+                        <span>Home</span>
+                        <i class="fas fa-chevron-right text-xs text-gray-300"></i>
+                    </a>
+                </div>
+
+                <!-- About Us Accordion -->
+                <div x-data="{ open: false }" class="py-1">
+                    <button @click="open = !open" class="flex justify-between items-center w-full py-3 px-2 text-gray-800 font-semibold text-base hover:text-primary transition">
+                        <span>About Us</span>
+                        <i class="fas fa-chevron-down text-xs transition duration-200 text-gray-400" :class="open ? 'rotate-180 text-primary' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse x-cloak class="bg-gray-50 rounded-lg my-1.5 px-3 py-2 text-sm flex flex-col space-y-1 border border-gray-100">
+                        <a href="about.html#overview" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">About School</a>
+                        <a href="about.html#vision-mission" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Vision & Mission</a>
+                        <a href="about.html#values" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Our Core Values</a>
+                        <a href="about.html#affiliation" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">CBSE Affiliation</a>
+                        <a href="about.html#director" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Director's Desk</a>
+                        <a href="about.html#principal" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Principal's Desk</a>
+                        <a href="about.html#why-tmisb" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Why Choose TMISB</a>
+                        <a href="about.html#faculty" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Faculty & Staff</a>
+                        <a href="cbse-disclosure.html" @click="mobileMenuOpen = false" class="py-2 px-2 text-primary font-semibold hover:bg-white rounded transition">CBSE Mandatory Disclosure</a>
+                    </div>
+                </div>
+
+                <!-- Academics Accordion -->
+                <div x-data="{ open: false }" class="py-1">
+                    <button @click="open = !open" class="flex justify-between items-center w-full py-3 px-2 text-gray-800 font-semibold text-base hover:text-primary transition">
+                        <span>Academics</span>
+                        <i class="fas fa-chevron-down text-xs transition duration-200 text-gray-400" :class="open ? 'rotate-180 text-primary' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse x-cloak class="bg-gray-50 rounded-lg my-1.5 px-3 py-2 text-sm flex flex-col space-y-1 border border-gray-100">
+                        <a href="academics.html" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Academic Overview</a>
+                        <a href="pre-primary.html" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Pre-Primary (Nursery–UKG)</a>
+                        <a href="primary.html" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Primary Wing (Classes I–V)</a>
+                        <a href="secondary.html" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Middle & Secondary (VI–X)</a>
+                        <a href="senior-secondary.html" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Senior Secondary (XI–XII)</a>
+                        <a href="competitive-coaching.html" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Competitive Prep (JEE/NEET)</a>
+                        <a href="teaching-methodology.html" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Teaching & Evaluation</a>
+                    </div>
+                </div>
+
+                <!-- Facilities Accordion -->
+                <div x-data="{ open: false }" class="py-1">
+                    <button @click="open = !open" class="flex justify-between items-center w-full py-3 px-2 text-gray-800 font-semibold text-base hover:text-primary transition">
+                        <span>Facilities</span>
+                        <i class="fas fa-chevron-down text-xs transition duration-200 text-gray-400" :class="open ? 'rotate-180 text-primary' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse x-cloak class="bg-gray-50 rounded-lg my-1.5 px-3 py-2 text-sm flex flex-col space-y-1 border border-gray-100">
+                        <a href="facilities.html" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Facilities Overview</a>
+                        <a href="facilities.html#labs" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Laboratories</a>
+                        <a href="facilities.html#classrooms" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Digital Classrooms</a>
+                        <a href="facilities.html#transport" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Safe Transport</a>
+                        <a href="facilities.html#library" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Library & Resource Centre</a>
+                        <a href="facilities.html#sports" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Sports, NCC & Activities</a>
+                    </div>
+                </div>
+
+                <!-- Admissions Accordion -->
+                <div x-data="{ open: false }" class="py-1">
+                    <button @click="open = !open" class="flex justify-between items-center w-full py-3 px-2 text-gray-800 font-semibold text-base hover:text-primary transition">
+                        <span>Admissions</span>
+                        <i class="fas fa-chevron-down text-xs transition duration-200 text-gray-400" :class="open ? 'rotate-180 text-primary' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse x-cloak class="bg-gray-50 rounded-lg my-1.5 px-3 py-2 text-sm flex flex-col space-y-1 border border-gray-100">
+                        <a href="admissions.html" @click="mobileMenuOpen = false" class="py-2 px-2 text-primary font-semibold hover:bg-white rounded transition">Admissions 2026–27 Overview</a>
+                        <a href="admissions.html#process" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Admission Process (5 Steps)</a>
+                        <a href="admissions.html#apply-online" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Apply Online (Enquiry Form)</a>
+                        <a href="admissions.html#eligibility" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Eligibility & Age Criteria</a>
+                        <a href="admissions.html#documents" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Required Documents Checklist</a>
+                        <a href="admissions.html#assessment" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Entrance Assessment Details</a>
+                        <a href="admissions.html#faqs" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Admissions FAQs</a>
+                    </div>
+                </div>
+
+                <!-- Gallery -->
+                <div class="py-1">
+                    <a href="gallery.html" @click="mobileMenuOpen = false" class="flex items-center justify-between py-3 px-2 text-gray-800 font-semibold text-base hover:text-primary transition mobile-nav-link">
+                        <span>Gallery</span>
+                        <i class="fas fa-chevron-right text-xs text-gray-300"></i>
+                    </a>
+                </div>
+
+                <!-- Blog -->
+                <div class="py-1">
+                    <a href="#" @click="mobileMenuOpen = false" class="flex items-center justify-between py-3 px-2 text-gray-800 font-semibold text-base hover:text-primary transition mobile-nav-link">
+                        <span>Blog</span>
+                        <i class="fas fa-chevron-right text-xs text-gray-300"></i>
+                    </a>
+                </div>
+
+                <!-- Contact Us -->
+                <div class="py-1">
+                    <a href="contact.html" @click="mobileMenuOpen = false" class="flex items-center justify-between py-3 px-2 text-gray-800 font-semibold text-base hover:text-primary transition mobile-nav-link">
+                        <span>Contact Us</span>
+                        <i class="fas fa-chevron-right text-xs text-gray-300"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. Clean Footer (Phone, Email, Socials) -->
+            <div class="p-5 border-t border-gray-200 bg-gray-50 shrink-0 space-y-3">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-gray-600">
+                    <a href="tel:+919431214985" class="flex items-center gap-2 hover:text-primary transition">
+                        <i class="fas fa-phone-alt text-secondary"></i> +91 9431214985
+                    </a>
+                    <a href="mailto:techno.edu.school@gmail.com" class="flex items-center gap-2 hover:text-primary transition">
+                        <i class="fas fa-envelope text-secondary"></i> techno.edu.school@gmail.com
+                    </a>
+                </div>
+                <div class="flex items-center justify-between pt-2 border-t border-gray-200 text-xs text-gray-500">
+                    <span>Bhagalpur, Bihar</span>
+                    <div class="flex items-center space-x-2.5">
+                        <a href="https://www.facebook.com/Technomissioninternationalschool/" target="_blank" class="w-8 h-8 rounded-full bg-white border border-gray-200 hover:border-primary hover:text-primary flex items-center justify-center text-xs text-gray-600 transition" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/tmis.bhagalpur/" target="_blank" class="w-8 h-8 rounded-full bg-white border border-gray-200 hover:border-primary hover:text-primary flex items-center justify-center text-xs text-gray-600 transition" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@technomissionbhagalpur" target="_blank" class="w-8 h-8 rounded-full bg-white border border-gray-200 hover:border-primary hover:text-primary flex items-center justify-center text-xs text-gray-600 transition" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+        <!-- 3. Bottom Bar / Main Navigation (Tier 3) -->
+    <nav class="bg-primary hidden xl:block border-t border-white/10">
+        <div class="container mx-auto px-2 max-w-[1500px]">
+            <ul class="flex justify-center items-center space-x-7 2xl:space-x-9 nav-font font-semibold text-white text-sm">
+                <li>
+                    <a href="index.html" class="nav-link-top inline-flex items-center py-3.5 border-b-2 border-transparent hover:text-secondary hover:border-secondary transition">
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <li class="relative group nav-item">
+                    <a href="about.html" class="nav-link-top inline-flex items-center py-3.5 border-b-2 border-transparent hover:text-secondary hover:border-secondary transition">
+                        <span>About Us</span>
+                        <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70 transition-transform duration-200 group-hover:rotate-180"></i>
+                    </a>
+                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
+                        <li><a href="about.html#overview" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">About School</a></li>
+                        <li><a href="about.html#vision-mission" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Vision & Mission</a></li>
+                        <li><a href="about.html#values" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Our Core Values</a></li>
+                        <li><a href="about.html#affiliation" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">CBSE Affiliation</a></li>
+                        <li><a href="about.html#director" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Director's Desk</a></li>
+                        <li><a href="about.html#principal" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Principal's Desk</a></li>
+                        <li><a href="about.html#why-tmisb" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Why Choose TMISB</a></li>
+                        <li><a href="about.html#faculty" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Faculty & Staff</a></li>
+                        <li><a href="cbse-disclosure.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-secondary font-bold text-primary">Mandatory Public Disclosure</a></li>
+                    </ul>
+                </li>
+
+                <li class="relative group nav-item">
+                    <a href="academics.html" class="nav-link-top inline-flex items-center py-3.5 border-b-2 border-transparent hover:text-secondary hover:border-secondary transition">
+                        <span>Academics</span>
+                        <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70 transition-transform duration-200 group-hover:rotate-180"></i>
+                    </a>
+                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
+                        <li><a href="academics.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Academic Overview</a></li>
+                        <li><a href="pre-primary.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Pre-Primary (Nursery–UKG)</a></li>
+                        <li><a href="primary.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Primary Wing (Classes I–V)</a></li>
+                        <li><a href="secondary.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Middle & Secondary (VI–X)</a></li>
+                        <li><a href="senior-secondary.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Senior Secondary (XI–XII)</a></li>
+                        <li><a href="competitive-coaching.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Competitive Prep (JEE/NEET)</a></li>
+                        <li><a href="teaching-methodology.html" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Teaching & Evaluation</a></li>
+                    </ul>
+                </li>
+                
+                <li class="relative group nav-item">
+                    <a href="facilities.html" class="nav-link-top inline-flex items-center py-3.5 border-b-2 border-transparent hover:text-secondary hover:border-secondary transition">
+                        <span>Facilities</span>
+                        <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70 transition-transform duration-200 group-hover:rotate-180"></i>
+                    </a>
+                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-56 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
+                        <li><a href="facilities.html#labs" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Laboratories</a></li>
+                        <li><a href="facilities.html#classrooms" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Digital Classrooms</a></li>
+                        <li><a href="facilities.html#transport" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Safe Transport</a></li>
+                        <li><a href="facilities.html#library" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Library & Resource Centre</a></li>
+                        <li><a href="facilities.html#sports" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Sports, NCC & Activities</a></li>
+                    </ul>
+                </li>
+
+                <li class="relative group nav-item">
+                    <a href="admissions.html" class="nav-link-top inline-flex items-center py-3.5 border-b-2 border-transparent hover:text-secondary hover:border-secondary transition">
+                        <span>Admissions</span>
+                        <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70 transition-transform duration-200 group-hover:rotate-180"></i>
+                    </a>
+                    <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
+                        <li><a href="admissions.html#process" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Admission Process (5 Steps)</a></li>
+                        <li><a href="admissions.html#apply-online" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Apply Online (Enquiry Form)</a></li>
+                        <li><a href="admissions.html#eligibility" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Eligibility & Age Criteria</a></li>
+                        <li><a href="admissions.html#documents" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Required Documents Checklist</a></li>
+                        <li><a href="admissions.html#assessment" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Entrance Assessment Details</a></li>
+                        <li><a href="admissions.html#faqs" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Admissions FAQs</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="gallery.html" class="nav-link-top inline-flex items-center py-3.5 border-b-2 border-transparent hover:text-secondary hover:border-secondary transition">
+                        <span>Gallery</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link-top inline-flex items-center py-3.5 border-b-2 border-transparent hover:text-secondary hover:border-secondary transition">
+                        <span>Blog</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html" class="nav-link-top inline-flex items-center py-3.5 border-b-2 border-transparent hover:text-secondary hover:border-secondary transition">
+                        <span>Contact Us</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dynamic Active Nav Script -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const navLinks = document.querySelectorAll('nav .nav-link-top');
+        const currentPath = window.location.pathname;
+        
+        // Remove active state
+        navLinks.forEach(link => {
+            link.classList.remove('border-secondary');
+            link.classList.add('border-transparent');
+        });
+
+        // Determine current page identifier
+        let activeFound = false;
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (!href || href === '#') return;
+
+            // Check if current URL includes the href (works for about.html and /about/)
+            if (href !== 'index.html' && href !== '/' && currentPath.includes(href.replace('.html', ''))) {
+                link.classList.remove('border-transparent');
+                link.classList.add('border-secondary');
+                activeFound = true;
+            }
+        });
+
+        // Fallback for Home page
+        if (!activeFound && (currentPath === '/' || currentPath.endsWith('index.html') || currentPath.endsWith('/'))) {
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === 'index.html' || (href && href.includes('home_url'))) {
+                    link.classList.remove('border-transparent');
+                    link.classList.add('border-secondary');
+                }
+            });
+        }
+
+        // Mobile menu active link highlighting
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileNavLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (!href || href === '#') return;
+            
+            if (href !== 'index.html' && href !== '/' && currentPath.includes(href.replace('.html', ''))) {
+                link.classList.add('text-secondary', 'font-bold');
+            } else if ((currentPath === '/' || currentPath.endsWith('index.html') || currentPath.endsWith('/')) && href === 'index.html') {
+                link.classList.add('text-secondary', 'font-bold');
+            }
+        });
+    });
+    </script>
+    
+
+    
+    </div>
+    
+    </div>
+
+    <main class="flex-grow py-16 md:py-24 relative overflow-hidden flex items-center justify-center">
+        <!-- Decorative Ambient Background Elements -->
+        <div class="absolute inset-0 z-0 pointer-events-none opacity-40">
+            <div class="absolute -top-32 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+            <div class="school-particles absolute inset-0 opacity-20"></div>
+        </div>
+
+        <div class="container mx-auto px-4 max-w-5xl relative z-10 text-center">
+            
+            <!-- Status Badge -->
+            <div class="inline-flex items-center gap-2 bg-secondary/10 text-secondary border border-secondary/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
+                <i class="fas fa-compass text-secondary"></i> Navigation Assistance • Error 404
+            </div>
+
+            <!-- Stylized Monumental 404 Number -->
+            <div class="relative inline-block mb-4">
+                <span class="nav-font font-black text-8xl sm:text-9xl md:text-[150px] leading-none text-transparent bg-clip-text bg-gradient-to-r from-primary via-primaryDark to-secondary select-none tracking-tight drop-shadow-sm">
+                    404
+                </span>
+                <div class="absolute -top-3 -right-3 sm:-top-5 sm:-right-6 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-secondary text-white flex items-center justify-center text-xl sm:text-2xl shadow-xl shadow-secondary/30 animate-float border-2 border-white">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+            </div>
+
+            <!-- Main Heading & Friendly Explanation -->
+            <h1 class="nav-font font-extrabold text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-4 tracking-tight">
+                Oops! This Page Took An Unscheduled Recess
+            </h1>
+            <p class="text-gray-600 text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-10">
+                Even the brightest scholars take an unexpected turn once in a while. The resource or link you are seeking may have moved to a new wing, been renamed, or is temporarily unavailable.
+            </p>
+
+            <!-- Quick Action Buttons -->
+            <div class="flex flex-wrap justify-center items-center gap-4 mb-16">
+                <a href="index.html" class="bg-primary hover:bg-primaryDark text-white font-bold py-3.5 px-8 rounded-xl text-sm uppercase tracking-wider transition shadow-lg hover:shadow-xl flex items-center btn-shine">
+                    <i class="fas fa-home mr-2.5 text-secondary"></i> Back to Campus Home
+                </a>
+                <a href="admissions.html" class="bg-secondary hover:bg-red-700 text-white font-bold py-3.5 px-8 rounded-xl text-sm uppercase tracking-wider transition shadow-lg hover:shadow-xl flex items-center btn-shine">
+                    <i class="fas fa-user-graduate mr-2.5"></i> Admissions 2026–27
+                </a>
+                <a href="academics.html" class="bg-white hover:bg-gray-100 text-primary border border-gray-300 font-bold py-3.5 px-7 rounded-xl text-sm uppercase tracking-wider transition shadow-sm hover:shadow flex items-center">
+                    <i class="fas fa-book-open mr-2.5 text-secondary"></i> Academic Wings
+                </a>
+            </div>
+
+            <!-- Helpful Navigation Directory Cards (4-Column Grid) -->
+            <div class="text-left mb-16">
+                <div class="text-center mb-8">
+                    <h3 class="nav-font font-bold text-xl text-primary mb-1">Looking for something specific?</h3>
+                    <p class="text-gray-500 text-xs sm:text-sm">Explore our primary portals and find what you need in seconds.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Card 1: Academic Wings -->
+                    <a href="academics.html" class="bg-white p-6 rounded-2xl border border-gray-200/80 shadow-sm hover:shadow-xl transition-all duration-300 card-hover group block">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-xl mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <h4 class="nav-font font-bold text-base text-gray-900 group-hover:text-primary mb-1 transition-colors">Academic Wings</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed mb-3">Pre-Primary, Primary, Middle, Secondary & Senior Secondary curricula.</p>
+                        <span class="text-xs font-bold text-secondary inline-flex items-center group-hover:translate-x-1 transition-transform">
+                            Explore Wings <i class="fas fa-arrow-right ml-1.5 text-[10px]"></i>
+                        </span>
+                    </a>
+
+                    <!-- Card 2: Admissions & Criteria -->
+                    <a href="admissions.html" class="bg-white p-6 rounded-2xl border border-gray-200/80 shadow-sm hover:shadow-xl transition-all duration-300 card-hover group block">
+                        <div class="w-12 h-12 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center text-xl mb-4 group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
+                            <i class="fas fa-file-signature"></i>
+                        </div>
+                        <h4 class="nav-font font-bold text-base text-gray-900 group-hover:text-secondary mb-1 transition-colors">Admissions 2026–27</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed mb-3">5-step process, age criteria, document checklist & application enquiry.</p>
+                        <span class="text-xs font-bold text-secondary inline-flex items-center group-hover:translate-x-1 transition-transform">
+                            Apply Online <i class="fas fa-arrow-right ml-1.5 text-[10px]"></i>
+                        </span>
+                    </a>
+
+                    <!-- Card 3: Laboratories & Facilities -->
+                    <a href="labs.html" class="bg-white p-6 rounded-2xl border border-gray-200/80 shadow-sm hover:shadow-xl transition-all duration-300 card-hover group block">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-xl mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h4 class="nav-font font-bold text-base text-gray-900 group-hover:text-primary mb-1 transition-colors">Campus Laboratories</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed mb-3">Computer, Physics, Chemistry, Biology and advanced robotics facilities.</p>
+                        <span class="text-xs font-bold text-secondary inline-flex items-center group-hover:translate-x-1 transition-transform">
+                            View Labs <i class="fas fa-arrow-right ml-1.5 text-[10px]"></i>
+                        </span>
+                    </a>
+
+                    <!-- Card 4: Contact & Campus Visit -->
+                    <a href="contact.html" class="bg-white p-6 rounded-2xl border border-gray-200/80 shadow-sm hover:shadow-xl transition-all duration-300 card-hover group block">
+                        <div class="w-12 h-12 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center text-xl mb-4 group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h4 class="nav-font font-bold text-base text-gray-900 group-hover:text-secondary mb-1 transition-colors">Contact & Campus</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed mb-3">Get directions, campus timings, phone numbers and desk support.</p>
+                        <span class="text-xs font-bold text-secondary inline-flex items-center group-hover:translate-x-1 transition-transform">
+                            Get Directions <i class="fas fa-arrow-right ml-1.5 text-[10px]"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Campus Support Helpline Box -->
+            <div class="bg-white rounded-2xl p-6 md:p-8 border border-gray-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 text-left">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl shrink-0 shadow-sm">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div>
+                        <h4 class="nav-font font-bold text-lg text-primary">Need Direct Assistance?</h4>
+                        <p class="text-xs md:text-sm text-gray-600">Our Admissions & Information Helpdesk is open Mon–Sat, 9:00 AM – 3:00 PM.</p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 shrink-0">
+                    <a href="tel:+919431214985" class="bg-primary hover:bg-primaryDark text-white font-bold py-2.5 px-5 rounded-lg text-xs uppercase tracking-wider transition shadow flex items-center">
+                        <i class="fas fa-phone-alt mr-2 text-secondary"></i> +91 9431214985
+                    </a>
+                    <a href="mailto:techno.edu.school@gmail.com" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2.5 px-5 rounded-lg text-xs uppercase tracking-wider transition flex items-center">
+                        <i class="fas fa-envelope mr-2 text-primary"></i> Email Desk
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-primary text-gray-300 pt-16 pb-20 md:pb-8 border-t-[5px] border-secondary">
+        <div class="container mx-auto px-4 max-w-7xl">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-12">
+                
+                <!-- Brand Section (4 columns) -->
+                <div class="lg:col-span-4 pr-0 lg:pr-6">
+                    <a href="index.html" class="flex items-center mb-6">
+                        <img src="assets/images/logo.webp" alt="TMISB Logo" class="h-16 w-auto bg-white p-2 rounded mr-4">
+                        <div>
+                            <h2 class="nav-font font-bold text-2xl text-white leading-tight">Techno Mission</h2>
+                            <p class="text-[13px] text-gray-400 font-medium tracking-wide mt-1">International School</p>
+                        </div>
+                    </a>
+                    <p class="text-sm mb-6 leading-relaxed">
+                        Creating future-ready global citizens through rigorous academics, cutting-edge technology, and strong moral character since 1997.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="https://www.facebook.com/Technomissioninternationalschool/" target="_blank" class="w-9 h-9 rounded bg-white/10 flex items-center justify-center text-white hover:bg-secondary transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/tmis.bhagalpur/" target="_blank" class="w-9 h-9 rounded bg-white/10 flex items-center justify-center text-white hover:bg-secondary transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@technomissionbhagalpur" target="_blank" class="w-9 h-9 rounded bg-white/10 flex items-center justify-center text-white hover:bg-secondary transition-colors"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links (2 columns) -->
+                <div class="lg:col-span-2 lg:col-start-6">
+                    <h4 class="font-bold text-lg mb-6 text-white border-b border-gray-700 pb-2 inline-block">Explore</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> About Us</a></li>
+                        <li><a href="admissions.html" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> Admissions</a></li>
+                        <li><a href="academics.html" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> Academics</a></li>
+                        <li><a href="gallery.html" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> Gallery</a></li>
+                        <li><a href="contact.html" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> Contact</a></li>
+                        <li><a href="cbse-disclosure.html" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> Mandatory Disclosure</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Campus Life (2 columns) -->
+                <div class="lg:col-span-2">
+                    <h4 class="font-bold text-lg mb-6 text-white border-b border-gray-700 pb-2 inline-block">Campus</h4>
+                    <ul class="space-y-3">
+                        <li><a href="facilities.html" class="hover:text-secondary transition flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2 text-secondary"></i> Campus Facilities</a></li>
                         <li><a href="activities.html" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> Sports</a></li>
                         <li><a href="#" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> Clubs</a></li>
                         <li><a href="#" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> Events</a></li>
@@ -303,6 +883,18 @@
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Sticky Bottom Bar -->
+    <div class="mobile-sticky-footer md:hidden" role="region" aria-label="Quick Admissions and Contact Actions">
+        <a href="admissions.html" class="flex items-center gap-2 min-w-0 text-primary hover:text-secondary transition group py-0.5">
+            <span class="w-2 h-2 rounded-full bg-secondary shrink-0 animate-pulse"></span>
+            <span class="text-xs font-bold text-primary group-hover:text-secondary transition-colors tracking-wide truncate">Admissions <span class="text-[11px] font-semibold text-gray-500">2026–27</span></span>
+        </a>
+        <a href="tel:+919431214985" class="shrink-0 bg-secondary hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow transition active:scale-95">
+            <i class="fas fa-phone-alt text-[10px]"></i>
+            <span>Call Us</span>
+        </a>
+    </div>
 
 </body>
 </html>
