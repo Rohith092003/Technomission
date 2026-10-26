@@ -1,0 +1,198 @@
+{
+  "type": "form",
+  "status": "publish",
+  "data": {
+    "settings": {
+      "pagination-header-design": "show",
+      "paginationHeader": "nav",
+      "last-previous-indicator": "Previous",
+      "previous-indicator": "Previous",
+      "next-indicator": "Next",
+      "formName": "Admissions Enquiry 2026–27",
+      "version": "1.58.1",
+      "form-border-style": "solid",
+      "form-padding": "",
+      "form-border": "",
+      "fields-style": "open",
+      "validation": "on_submit",
+      "form-style": "flat",
+      "enable-ajax": "true",
+      "autoclose": "true",
+      "submission-indicator": "show",
+      "indicator-label": "Submitting enquiry...",
+      "form_name": "admissions-enquiry-2026-27",
+      "form_status": "publish",
+      "use-custom-css": "1",
+      "custom_css": ".forminator-button-submit { background-color: #e31837 !important; border-radius: 8px !important; font-weight: 700 !important; text-transform: uppercase !important; }\n.forminator-button-submit:hover { background-color: #c2142d !important; }\n.forminator-label { font-weight: 600 !important; color: #003c71 !important; font-size: 13px !important; }",
+      "sc_message": "<div class='p-4 bg-green-50 border border-green-200 text-green-800 rounded-lg'><strong>Thank you!</strong> Your admission enquiry has been submitted successfully. Our admission counselor will contact you within 24 hours.</div>",
+      "cform-color-settings": "true",
+      "button-submit-background-static": "#e31837",
+      "button-submit-background-hover": "#c2142d",
+      "button-submit-font-color": "#ffffff",
+      "label-font-color": "#003c71"
+    },
+    "fields": [
+      {
+        "wrapper_id": "wrapper-student-name",
+        "element_id": "text-1",
+        "type": "text",
+        "cols": 12,
+        "required": true,
+        "field_label": "Student Full Name",
+        "placeholder": "Enter student full name",
+        "validation": false,
+        "validation_text": ""
+      },
+      {
+        "wrapper_id": "wrapper-dob-gender",
+        "element_id": "date-1",
+        "type": "date",
+        "cols": 6,
+        "required": true,
+        "field_label": "Date of Birth",
+        "date_format": "dd/mm/yy",
+        "date_type": "picker",
+        "icon": "true"
+      },
+      {
+        "wrapper_id": "wrapper-dob-gender",
+        "element_id": "select-1",
+        "type": "select",
+        "cols": 6,
+        "required": true,
+        "field_label": "Gender",
+        "placeholder": "Select Gender",
+        "options": [
+          {
+            "label": "Male",
+            "value": "male"
+          },
+          {
+            "label": "Female",
+            "value": "female"
+          },
+          {
+            "label": "Other",
+            "value": "other"
+          }
+        ]
+      },
+      {
+        "wrapper_id": "wrapper-parent-contact",
+        "element_id": "text-2",
+        "type": "text",
+        "cols": 6,
+        "required": true,
+        "field_label": "Parent / Guardian Name",
+        "placeholder": "Parent or guardian name",
+        "validation": false
+      },
+      {
+        "wrapper_id": "wrapper-parent-contact",
+        "element_id": "phone-1",
+        "type": "phone",
+        "cols": 6,
+        "required": true,
+        "field_label": "Contact Number",
+        "placeholder": "10-digit mobile number",
+        "validation": "standard",
+        "validation_text": "Please enter a valid phone number"
+      },
+      {
+        "wrapper_id": "wrapper-email",
+        "element_id": "email-1",
+        "type": "email",
+        "cols": 12,
+        "required": false,
+        "field_label": "Email Address (Optional)",
+        "placeholder": "email@example.com",
+        "validation": true
+      },
+      {
+        "wrapper_id": "wrapper-class",
+        "element_id": "select-2",
+        "type": "select",
+        "cols": 12,
+        "required": true,
+        "field_label": "Class Applying For",
+        "placeholder": "-- Select Class / Grade --",
+        "options": [
+          {
+            "label": "Nursery (Age 3+)",
+            "value": "nursery"
+          },
+          {
+            "label": "LKG (Age 4+)",
+            "value": "lkg"
+          },
+          {
+            "label": "UKG (Age 5+)",
+            "value": "ukg"
+          },
+          {
+            "label": "Class I (Age 6+)",
+            "value": "class-1"
+          },
+          {
+            "label": "Class II",
+            "value": "class-2"
+          },
+          {
+            "label": "Class III",
+            "value": "class-3"
+          },
+          {
+            "label": "Class IV",
+            "value": "class-4"
+          },
+          {
+            "label": "Class V",
+            "value": "class-5"
+          },
+          {
+            "label": "Class VI",
+            "value": "class-6"
+          },
+          {
+            "label": "Class VII",
+            "value": "class-7"
+          },
+          {
+            "label": "Class VIII",
+            "value": "class-8"
+          },
+          {
+            "label": "Class IX",
+            "value": "class-9"
+          },
+          {
+            "label": "Class X (Transfer subject to CBSE)",
+            "value": "class-10"
+          },
+          {
+            "label": "Class XI — Science (PCM / PCB)",
+            "value": "class-11-science"
+          },
+          {
+            "label": "Class XI — Commerce",
+            "value": "class-11-commerce"
+          },
+          {
+            "label": "Class XII (Transfer subject to CBSE)",
+            "value": "class-12"
+          }
+        ]
+      }
+    ],
+    "notifications": [
+      {
+        "slug": "notification-admissions-desk",
+        "label": "Admissions Desk Notification",
+        "email-recipients": "default",
+        "recipients": "techno.edu.school@gmail.com",
+        "email-subject": "New Admission Enquiry 2026–27: {text-1} ({select-2})",
+        "email-editor": "<p><strong>New Admission Enquiry Received:</strong></p><ul><li><strong>Student Name:</strong> {text-1}</li><li><strong>Date of Birth:</strong> {date-1}</li><li><strong>Gender:</strong> {select-1}</li><li><strong>Parent/Guardian:</strong> {text-2}</li><li><strong>Contact Phone:</strong> {phone-1}</li><li><strong>Email Address:</strong> {email-1}</li><li><strong>Class Applying For:</strong> {select-2}</li></ul><p>Submitted via Techno Mission International School Website.</p>"
+      }
+    ]
+  }
+}

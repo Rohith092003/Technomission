@@ -1309,6 +1309,12 @@ if (fs.existsSync(path.join(__dirname, 'school images google'))) {
 if (fs.existsSync(path.join(__dirname, 'Notice.png'))) {
     fs.copyFileSync(path.join(__dirname, 'Notice.png'), path.join(THEME_DIR, 'Notice.png'));
 }
+if (fs.existsSync(path.join(__dirname, 'admissions-enquiry-forminator.json'))) {
+    fs.copyFileSync(path.join(__dirname, 'admissions-enquiry-forminator.json'), path.join(THEME_DIR, 'admissions-enquiry-forminator.json'));
+}
+if (fs.existsSync(path.join(__dirname, 'contact-us-forminator.json'))) {
+    fs.copyFileSync(path.join(__dirname, 'contact-us-forminator.json'), path.join(THEME_DIR, 'contact-us-forminator.json'));
+}
 console.log('Copied assets successfully.');
 
 // Compress theme package to ZIP
