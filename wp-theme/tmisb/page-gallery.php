@@ -212,6 +212,44 @@ get_header();
             
             <!-- Gallery Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <?php
+            $campus_photos = new WP_Query( array(
+                'post_type'      => 'tmisb_gallery',
+                'posts_per_page' => -1,
+                'post_status'    => 'publish',
+                'orderby'        => array( 'menu_order' => 'ASC', 'date' => 'DESC' ),
+            ) );
+
+            if ( $campus_photos->have_posts() ) :
+                while ( $campus_photos->have_posts() ) : $campus_photos->the_post();
+                    $cat        = get_post_meta( get_the_ID(), '_tmisb_gallery_category', true ) ?: 'campus';
+                    $caption    = get_post_meta( get_the_ID(), '_tmisb_gallery_caption', true );
+                    $layout     = get_post_meta( get_the_ID(), '_tmisb_gallery_layout', true ) ?: 'standard';
+                    $legacy_img = get_post_meta( get_the_ID(), '_tmisb_gallery_legacy_image', true );
+                    
+                    $img_url = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+                    if ( ! $img_url && $legacy_img ) {
+                        $img_url = get_template_directory_uri() . '/' . $legacy_img;
+                    }
+                    $card_class = ( $layout === 'wide' ) ? 'aspect-[4/3] md:col-span-2' : 'aspect-square';
+            ?>
+                <div x-show="filter === 'all' || filter === '<?php echo esc_attr( $cat ); ?>'" x-transition class="group relative rounded-xl overflow-hidden shadow-md cursor-pointer <?php echo esc_attr( $card_class ); ?>">
+                    <?php if ( $img_url ) : ?>
+                        <img src="<?php echo esc_url( $img_url ); ?>" alt="<?php the_title_attribute(); ?>" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <?php endif; ?>
+                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white font-bold text-lg"><?php the_title(); ?></h4>
+                        <?php if ( ! empty( $caption ) ) : ?>
+                            <p class="text-gray-200 text-sm"><?php echo esc_html( $caption ); ?></p>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php
+                endwhile;
+                wp_reset_postdata();
+            else :
+            ?>
+
                 <!-- Item 1 -->
                 <div x-show="filter === 'all' || filter === 'campus'" x-transition class="group relative rounded-xl overflow-hidden shadow-md cursor-pointer aspect-square">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/campus-building-front.jpg" alt="Campus Building" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
@@ -250,7 +288,7 @@ get_header();
                 
                 <!-- Item 5 -->
                 <div x-show="filter === 'all' || filter === 'campus'" x-transition class="group relative rounded-xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] md:aspect-square">
-                    <img src="<?php echo get_template_directory_uri(); ?>/school images google/63f03e7eda38af09f9012e779a2c2745.webp" alt="Library" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/client-images/library.jpeg" alt="Library" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
                         <h4 class="text-white font-bold text-lg">Central Library</h4>
                         <p class="text-gray-200 text-sm">A vast collection of knowledge</p>
@@ -274,6 +312,8 @@ get_header();
                         <p class="text-gray-200 text-sm">Celebrating diversity and arts</p>
                     </div>
                 </div>
+            
+            <?php endif; ?>
             </div>
             
             <div class="text-center mt-12">

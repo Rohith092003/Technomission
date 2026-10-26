@@ -671,4 +671,289 @@ function tmisb_auto_seed_notices() {
 }
 add_action( 'admin_init', 'tmisb_auto_seed_notices' );
 
+/**
+ * 7. Custom Post Type: Campus Gallery (Our Campus & Activities)
+ * Allows administrators to add/edit campus and activity photos, set categories (Campus, Academics, Sports & Events),
+ * write captions, choose card width (Standard vs Wide), and manage display order directly from WP Admin.
+ */
+function tmisb_register_gallery_cpt() {
+    $labels = array(
+        'name'                  => _x( 'Campus Gallery', 'Post type general name', 'tmisb' ),
+        'singular_name'         => _x( 'Gallery Photo', 'Post type singular name', 'tmisb' ),
+        'menu_name'             => _x( 'Campus Gallery', 'Admin Menu text', 'tmisb' ),
+        'name_admin_bar'        => _x( 'Gallery Photo', 'Add New on Toolbar', 'tmisb' ),
+        'add_new'               => __( 'Add New Photo', 'tmisb' ),
+        'add_new_item'          => __( 'Add New Campus Gallery Photo', 'tmisb' ),
+        'new_item'              => __( 'New Photo', 'tmisb' ),
+        'edit_item'             => __( 'Edit Gallery Photo', 'tmisb' ),
+        'view_item'             => __( 'View Photo', 'tmisb' ),
+        'all_items'             => __( 'All Gallery Photos', 'tmisb' ),
+        'search_items'          => __( 'Search Gallery', 'tmisb' ),
+        'not_found'             => __( 'No photos found.', 'tmisb' ),
+        'not_found_in_trash'    => __( 'No photos found in Trash.', 'tmisb' ),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'campus-gallery' ),
+        'capability_type'    => 'post',
+        'has_archive'        => false,
+        'hierarchical'       => false,
+        'menu_position'      => 22,
+        'menu_icon'          => 'dashicons-format-gallery',
+        'supports'           => array( 'title', 'thumbnail', 'page-attributes' ),
+        'show_in_rest'       => true,
+    );
+
+    register_post_type( 'tmisb_gallery', $args );
+}
+add_action( 'init', 'tmisb_register_gallery_cpt' );
+
+/**
+ * Custom Meta Box for Campus Gallery
+ */
+function tmisb_add_gallery_meta_boxes() {
+    add_meta_box(
+        'tmisb_gallery_details',
+        __( 'Photo Details & Category Settings', 'tmisb' ),
+        'tmisb_render_gallery_meta_box',
+        'tmisb_gallery',
+        'normal',
+        'high'
+    );
+}
+add_action( 'add_meta_boxes', 'tmisb_add_gallery_meta_boxes' );
+
+function tmisb_render_gallery_meta_box( $post ) {
+    wp_nonce_field( 'tmisb_save_gallery_meta', 'tmisb_gallery_meta_nonce' );
+
+    $category    = get_post_meta( $post->ID, '_tmisb_gallery_category', true ) ?: 'campus';
+    $caption     = get_post_meta( $post->ID, '_tmisb_gallery_caption', true );
+    $layout      = get_post_meta( $post->ID, '_tmisb_gallery_layout', true ) ?: 'standard';
+    $legacy_img  = get_post_meta( $post->ID, '_tmisb_gallery_legacy_image', true );
+    ?>
+    <style>
+        .tmisb-gallery-meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 10px; }
+        .tmisb-gallery-meta-field { margin-bottom: 14px; }
+        .tmisb-gallery-meta-field label { display: block; font-weight: 600; margin-bottom: 5px; color: #1e293b; }
+        .tmisb-gallery-meta-field input[type="text"], .tmisb-gallery-meta-field select { width: 100%; max-width: 480px; }
+        .tmisb-gallery-meta-desc { font-size: 12px; color: #64748b; margin-top: 4px; }
+    </style>
+
+    <div class="tmisb-gallery-meta-grid">
+        <div class="tmisb-gallery-meta-field">
+            <label for="tmisb_gallery_category"><?php _e( 'Filter Category', 'tmisb' ); ?></label>
+            <select name="tmisb_gallery_category" id="tmisb_gallery_category">
+                <option value="campus" <?php selected( $category, 'campus' ); ?>><?php _e( 'Campus (Infrastructure & Grounds)', 'tmisb' ); ?></option>
+                <option value="academics" <?php selected( $category, 'academics' ); ?>><?php _e( 'Academics (Classrooms, Labs & Study)', 'tmisb' ); ?></option>
+                <option value="sports" <?php selected( $category, 'sports' ); ?>><?php _e( 'Sports & Events (Fests, Activities & Celebrations)', 'tmisb' ); ?></option>
+            </select>
+            <p class="tmisb-gallery-meta-desc"><?php _e( 'Determines which filter button shows this photo on the Gallery page.', 'tmisb' ); ?></p>
+        </div>
+
+        <div class="tmisb-gallery-meta-field">
+            <label for="tmisb_gallery_layout"><?php _e( 'Grid Card Layout', 'tmisb' ); ?></label>
+            <select name="tmisb_gallery_layout" id="tmisb_gallery_layout">
+                <option value="standard" <?php selected( $layout, 'standard' ); ?>><?php _e( 'Standard (1 Column Square)', 'tmisb' ); ?></option>
+                <option value="wide" <?php selected( $layout, 'wide' ); ?>><?php _e( 'Wide Feature Card (2 Columns)', 'tmisb' ); ?></option>
+            </select>
+            <p class="tmisb-gallery-meta-desc"><?php _e( 'Use Wide Feature Card for highlight photos like Morning Assembly or Panoramic Campus views.', 'tmisb' ); ?></p>
+        </div>
+    </div>
+
+    <div class="tmisb-gallery-meta-field">
+        <label for="tmisb_gallery_caption"><?php _e( 'Subtitle / Caption (Shown on Hover)', 'tmisb' ); ?></label>
+        <input type="text" name="tmisb_gallery_caption" id="tmisb_gallery_caption" value="<?php echo esc_attr( $caption ); ?>" placeholder="<?php esc_attr_e( 'e.g. State-of-the-art interactive smart boards', 'tmisb' ); ?>">
+        <p class="tmisb-gallery-meta-desc"><?php _e( 'Appears underneath the title when visitors hover over the photo card.', 'tmisb' ); ?></p>
+    </div>
+
+    <div class="tmisb-gallery-meta-field" style="margin-top: 15px; padding-top: 12px; border-top: 1px solid #e2e8f0;">
+        <label for="tmisb_gallery_legacy_image"><?php _e( 'Theme Bundled Image Path (Optional Fallback)', 'tmisb' ); ?></label>
+        <input type="text" name="tmisb_gallery_legacy_image" id="tmisb_gallery_legacy_image" value="<?php echo esc_attr( $legacy_img ); ?>" placeholder="assets/images/campus-building-front.jpg">
+        <p class="tmisb-gallery-meta-desc"><?php _e( 'If no Featured Image is uploaded, the theme loads this bundled file path.', 'tmisb' ); ?></p>
+    </div>
+    <?php
+}
+
+function tmisb_save_gallery_meta( $post_id ) {
+    if ( ! isset( $_POST['tmisb_gallery_meta_nonce'] ) || ! wp_verify_nonce( $_POST['tmisb_gallery_meta_nonce'], 'tmisb_save_gallery_meta' ) ) {
+        return;
+    }
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+    if ( ! current_user_can( 'edit_post', $post_id ) ) {
+        return;
+    }
+
+    if ( isset( $_POST['tmisb_gallery_category'] ) ) {
+        update_post_meta( $post_id, '_tmisb_gallery_category', sanitize_text_field( $_POST['tmisb_gallery_category'] ) );
+    }
+    if ( isset( $_POST['tmisb_gallery_caption'] ) ) {
+        update_post_meta( $post_id, '_tmisb_gallery_caption', sanitize_text_field( $_POST['tmisb_gallery_caption'] ) );
+    }
+    if ( isset( $_POST['tmisb_gallery_layout'] ) ) {
+        update_post_meta( $post_id, '_tmisb_gallery_layout', sanitize_text_field( $_POST['tmisb_gallery_layout'] ) );
+    }
+    if ( isset( $_POST['tmisb_gallery_legacy_image'] ) ) {
+        update_post_meta( $post_id, '_tmisb_gallery_legacy_image', sanitize_text_field( $_POST['tmisb_gallery_legacy_image'] ) );
+    }
+}
+add_action( 'save_post_tmisb_gallery', 'tmisb_save_gallery_meta' );
+
+/**
+ * Custom Columns in WP Admin for Campus Gallery
+ */
+function tmisb_set_gallery_columns( $columns ) {
+    $new_cols = array();
+    $new_cols['cb']          = $columns['cb'];
+    $new_cols['photo_thumb'] = __( 'Photo', 'tmisb' );
+    $new_cols['title']       = __( 'Title', 'tmisb' );
+    $new_cols['category']    = __( 'Category', 'tmisb' );
+    $new_cols['caption']     = __( 'Caption', 'tmisb' );
+    $new_cols['layout']      = __( 'Card Size', 'tmisb' );
+    $new_cols['order']       = __( 'Order', 'tmisb' );
+    $new_cols['date']        = $columns['date'];
+    return $new_cols;
+}
+add_filter( 'manage_tmisb_gallery_posts_columns', 'tmisb_set_gallery_columns' );
+
+function tmisb_custom_gallery_column( $column, $post_id ) {
+    switch ( $column ) {
+        case 'photo_thumb':
+            if ( has_post_thumbnail( $post_id ) ) {
+                echo get_the_post_thumbnail( $post_id, array( 60, 60 ), array( 'style' => 'width:55px;height:55px;object-fit:cover;border-radius:6px;' ) );
+            } else {
+                $legacy = get_post_meta( $post_id, '_tmisb_gallery_legacy_image', true );
+                if ( $legacy ) {
+                    echo '<img src="' . esc_url( get_template_directory_uri() . '/' . $legacy ) . '" style="width:55px;height:55px;object-fit:cover;border-radius:6px;">';
+                } else {
+                    echo '<span style="color:#94a3b8;font-size:11px;">No photo</span>';
+                }
+            }
+            break;
+        case 'category':
+            $cat = get_post_meta( $post_id, '_tmisb_gallery_category', true ) ?: 'campus';
+            $labels = array(
+                'campus'    => '<span style="background:#e0f2fe;color:#0369a1;padding:2px 8px;border-radius:12px;font-weight:600;font-size:11px;">Campus</span>',
+                'academics' => '<span style="background:#fef3c7;color:#b45309;padding:2px 8px;border-radius:12px;font-weight:600;font-size:11px;">Academics</span>',
+                'sports'    => '<span style="background:#fce7f3;color:#be185d;padding:2px 8px;border-radius:12px;font-weight:600;font-size:11px;">Sports & Events</span>',
+            );
+            echo isset( $labels[$cat] ) ? $labels[$cat] : esc_html( ucfirst( $cat ) );
+            break;
+        case 'caption':
+            $caption = get_post_meta( $post_id, '_tmisb_gallery_caption', true );
+            echo ! empty( $caption ) ? '<span style="font-size:12px;color:#475569;">' . esc_html( $caption ) . '</span>' : '<span style="color:#94a3b8;">—</span>';
+            break;
+        case 'layout':
+            $layout = get_post_meta( $post_id, '_tmisb_gallery_layout', true ) ?: 'standard';
+            echo ( $layout === 'wide' ) ? '<strong style="color:#003c71;">Wide (2 Col)</strong>' : '<span style="color:#64748b;">Standard (1 Col)</span>';
+            break;
+        case 'order':
+            $post = get_post( $post_id );
+            echo esc_html( $post->menu_order );
+            break;
+    }
+}
+add_action( 'manage_tmisb_gallery_posts_custom_column', 'tmisb_custom_gallery_column', 10, 2 );
+
+/**
+ * Auto-seeder for Campus Gallery Photos
+ */
+function tmisb_auto_seed_gallery() {
+    if ( get_option( 'tmisb_gallery_auto_seeded' ) ) {
+        return;
+    }
+
+    $existing_count = wp_count_posts( 'tmisb_gallery' );
+    if ( ! empty( $existing_count->publish ) && (int) $existing_count->publish > 0 ) {
+        update_option( 'tmisb_gallery_auto_seeded', 1 );
+        return;
+    }
+
+    $default_photos = array(
+        array(
+            'title'    => 'Main Campus',
+            'caption'  => 'State-of-the-art infrastructure',
+            'category' => 'campus',
+            'layout'   => 'standard',
+            'image'    => 'assets/images/campus-building-front.jpg',
+            'order'    => 1,
+        ),
+        array(
+            'title'    => 'Smart Classrooms',
+            'caption'  => 'Interactive learning environments',
+            'category' => 'academics',
+            'layout'   => 'standard',
+            'image'    => 'School Images/classrooms_learning_1771715713266_lltmd9.jpg',
+            'order'    => 2,
+        ),
+        array(
+            'title'    => 'Science Labs',
+            'caption'  => 'Practical experimentation',
+            'category' => 'academics',
+            'layout'   => 'standard',
+            'image'    => 'school images google/Science lab.webp',
+            'order'    => 3,
+        ),
+        array(
+            'title'    => 'Morning Assembly & Culture',
+            'caption'  => 'Discipline, spiritual harmony, and values every morning',
+            'category' => 'campus',
+            'layout'   => 'wide',
+            'image'    => 'assets/images/morning-assembly-students.jpg',
+            'order'    => 4,
+        ),
+        array(
+            'title'    => 'Central Library & Reading Hall',
+            'caption'  => 'A vast collection of knowledge and quiet reading halls',
+            'category' => 'campus',
+            'layout'   => 'standard',
+            'image'    => 'assets/images/client-images/library.jpeg',
+            'order'    => 5,
+        ),
+        array(
+            'title'    => 'Group Study',
+            'caption'  => 'Collaborative learning',
+            'category' => 'academics',
+            'layout'   => 'standard',
+            'image'    => 'school images google/685f11c1b5a24f6bbf7ff382b40717c5.webp',
+            'order'    => 6,
+        ),
+        array(
+            'title'    => 'Cultural Fest',
+            'caption'  => 'Celebrating diversity and arts',
+            'category' => 'sports',
+            'layout'   => 'standard',
+            'image'    => 'School Images/classrooms_learning_1771715744842_14puoq.jpg',
+            'order'    => 7,
+        ),
+    );
+
+    foreach ( $default_photos as $item ) {
+        $post_id = wp_insert_post( array(
+            'post_title'     => $item['title'],
+            'post_status'    => 'publish',
+            'post_type'      => 'tmisb_gallery',
+            'menu_order'     => $item['order'],
+            'comment_status' => 'closed',
+        ) );
+
+        if ( $post_id && ! is_wp_error( $post_id ) ) {
+            update_post_meta( $post_id, '_tmisb_gallery_category', $item['category'] );
+            update_post_meta( $post_id, '_tmisb_gallery_caption', $item['caption'] );
+            update_post_meta( $post_id, '_tmisb_gallery_layout', $item['layout'] );
+            update_post_meta( $post_id, '_tmisb_gallery_legacy_image', $item['image'] );
+        }
+    }
+
+    update_option( 'tmisb_gallery_auto_seeded', 1 );
+}
+add_action( 'admin_init', 'tmisb_auto_seed_gallery' );
+
 ?>

@@ -388,7 +388,7 @@ get_header();
                 <div class="w-full lg:w-6/12">
                     <div class="relative">
                         <div class="rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-                            <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="TMISB Library" class="w-full h-[420px] object-cover">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/client-images/library.jpeg" alt="TMISB Library" class="w-full h-[420px] object-cover">
                         </div>
                     </div>
                 </div>
