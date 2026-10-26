@@ -498,6 +498,207 @@ function tmisb_auto_seed_achievements() {
     update_option( 'tmisb_achievements_auto_seeded', 1 );
 }
 add_action( 'admin_init', 'tmisb_auto_seed_achievements' );
+
+/**
+ * 7. Custom Post Type: Notices (Notice Board)
+ * Allows administrators to publish announcements, exam schedules, and circulars directly from WP Admin.
+ */
+function tmisb_register_notice_cpt() {
+    $labels = array(
+        'name'               => _x( 'Notices', 'Post type general name', 'tmisb' ),
+        'singular_name'      => _x( 'Notice', 'Post type singular name', 'tmisb' ),
+        'menu_name'          => _x( 'Notice Board', 'Admin Menu text', 'tmisb' ),
+        'name_admin_bar'     => _x( 'Notice', 'Add New on Toolbar', 'tmisb' ),
+        'add_new'            => __( 'Add New Notice', 'tmisb' ),
+        'add_new_item'       => __( 'Add New School Notice', 'tmisb' ),
+        'new_item'           => __( 'New Notice', 'tmisb' ),
+        'edit_item'          => __( 'Edit Notice', 'tmisb' ),
+        'view_item'          => __( 'View Notice', 'tmisb' ),
+        'all_items'          => __( 'All Notices', 'tmisb' ),
+        'search_items'       => __( 'Search Notices', 'tmisb' ),
+        'not_found'          => __( 'No notices found.', 'tmisb' ),
+        'not_found_in_trash' => __( 'No notices found in Trash.', 'tmisb' ),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => false,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'notice' ),
+        'capability_type'    => 'post',
+        'has_archive'        => false,
+        'hierarchical'       => false,
+        'menu_position'      => 22,
+        'menu_icon'          => 'dashicons-megaphone',
+        'supports'           => array( 'title', 'page-attributes' ),
+        'show_in_rest'       => true,
+    );
+
+    register_post_type( 'notice', $args );
+}
+add_action( 'init', 'tmisb_register_notice_cpt' );
+
+/**
+ * 8. Notice Meta Box: Attachment & Settings
+ */
+function tmisb_add_notice_meta_boxes() {
+    add_meta_box(
+        'tmisb_notice_details',
+        __( 'Notice Attachment & Settings', 'tmisb' ),
+        'tmisb_render_notice_meta_box',
+        'notice',
+        'normal',
+        'high'
+    );
+}
+add_action( 'add_meta_boxes', 'tmisb_add_notice_meta_boxes' );
+
+function tmisb_render_notice_meta_box( $post ) {
+    wp_nonce_field( 'tmisb_save_notice_meta', 'tmisb_notice_meta_nonce' );
+
+    $file_url = get_post_meta( $post->ID, '_notice_file_url', true );
+    $badge    = get_post_meta( $post->ID, '_notice_badge', true );
+    ?>
+    <div style="margin-bottom: 16px;">
+        <label for="notice_file_url" style="display:block; font-weight:600; margin-bottom:6px; color:#1e293b; font-size:13px;"><?php _e( 'Notice Document / Attachment URL (PDF / Image / Link):', 'tmisb' ); ?></label>
+        <input type="url" id="notice_file_url" name="notice_file_url" value="<?php echo esc_attr( $file_url ); ?>" style="width:100%; max-width:650px; padding:8px 12px; border:1px solid #cbd5e1; border-radius:6px; box-sizing:border-box;" placeholder="https://... or upload PDF to Media Library" />
+        <p style="font-size:12px; color:#64748b; margin-top:4px;"><?php _e( 'When visitors click this notice on the homepage Notice Board, this document or link will open in a new tab.', 'tmisb' ); ?></p>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+        <label for="notice_badge" style="display:block; font-weight:600; margin-bottom:6px; color:#1e293b; font-size:13px;"><?php _e( 'Badge Tag (Optional):', 'tmisb' ); ?></label>
+        <input type="text" id="notice_badge" name="notice_badge" value="<?php echo esc_attr( $badge ); ?>" style="width:200px; padding:8px 12px; border:1px solid #cbd5e1; border-radius:6px; box-sizing:border-box;" placeholder="e.g. New, Urgent, Exam" />
+        <p style="font-size:12px; color:#64748b; margin-top:4px;"><?php _e( 'Leave empty to automatically show "New" on the most recent notice.', 'tmisb' ); ?></p>
+    </div>
+    <?php
+}
+
+function tmisb_save_notice_meta( $post_id ) {
+    if ( ! isset( $_POST['tmisb_notice_meta_nonce'] ) || ! wp_verify_nonce( $_POST['tmisb_notice_meta_nonce'], 'tmisb_save_notice_meta' ) ) {
+        return;
+    }
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+    if ( ! current_user_can( 'edit_post', $post_id ) ) {
+        return;
+    }
+
+    if ( isset( $_POST['notice_file_url'] ) ) {
+        update_post_meta( $post_id, '_notice_file_url', esc_url_raw( $_POST['notice_file_url'] ) );
+    }
+    if ( isset( $_POST['notice_badge'] ) ) {
+        update_post_meta( $post_id, '_notice_badge', sanitize_text_field( $_POST['notice_badge'] ) );
+    }
+}
+add_action( 'save_post_notice', 'tmisb_save_notice_meta' );
+
+/**
+ * 9. Admin Columns for Notice Board
+ */
+function tmisb_notice_columns( $columns ) {
+    $new_columns = array();
+    $new_columns['cb'] = $columns['cb'];
+    $new_columns['title'] = __( 'Notice Title', 'tmisb' );
+    $new_columns['badge'] = __( 'Badge', 'tmisb' );
+    $new_columns['attachment'] = __( 'Attachment / Link', 'tmisb' );
+    $new_columns['date'] = __( 'Notice Date', 'tmisb' );
+    return $new_columns;
+}
+add_filter( 'manage_notice_posts_columns', 'tmisb_notice_columns' );
+
+function tmisb_notice_custom_column( $column, $post_id ) {
+    switch ( $column ) {
+        case 'badge':
+            $badge = get_post_meta( $post_id, '_notice_badge', true );
+            if ( $badge ) {
+                echo '<span style="background:#e63946;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;">' . esc_html( $badge ) . '</span>';
+            } else {
+                echo '<span style="color:#94a3b8;">—</span>';
+            }
+            break;
+        case 'attachment':
+            $url = get_post_meta( $post_id, '_notice_file_url', true );
+            if ( $url ) {
+                echo '<a href="' . esc_url( $url ) . '" target="_blank" style="color:#0b2545;font-weight:600;font-size:12px;">' . __( 'View File', 'tmisb' ) . ' <i class="fas fa-external-link-alt" style="font-size:10px;"></i></a>';
+            } else {
+                echo '<span style="color:#94a3b8;font-size:12px;">' . __( 'None (Text Only)', 'tmisb' ) . '</span>';
+            }
+            break;
+    }
+}
+add_action( 'manage_notice_posts_custom_column', 'tmisb_notice_custom_column', 10, 2 );
+
+/**
+ * 10. Auto-Seed Initial Notices
+ */
+function tmisb_auto_seed_notices() {
+    if ( get_option( 'tmisb_notices_auto_seeded' ) ) {
+        return;
+    }
+
+    $existing = get_posts( array(
+        'post_type'      => 'notice',
+        'post_status'    => 'any',
+        'posts_per_page' => 1,
+    ) );
+
+    if ( ! empty( $existing ) ) {
+        update_option( 'tmisb_notices_auto_seeded', 1 );
+        return;
+    }
+
+    $default_notices = array(
+        array(
+            'title' => 'Parent-Teacher Meeting Schedule for Middle School',
+            'badge' => 'New',
+            'date'  => date( 'Y-m-d H:i:s', strtotime( '-2 days' ) ),
+        ),
+        array(
+            'title' => 'Half-Yearly Examination Timetable Released for All Classes',
+            'badge' => '',
+            'date'  => date( 'Y-m-d H:i:s', strtotime( '-7 days' ) ),
+        ),
+        array(
+            'title' => 'Winter Uniform Guidelines for the Upcoming Session',
+            'badge' => '',
+            'date'  => date( 'Y-m-d H:i:s', strtotime( '-20 days' ) ),
+        ),
+        array(
+            'title' => 'Annual Sports Meet Registration Now Open',
+            'badge' => '',
+            'date'  => date( 'Y-m-d H:i:s', strtotime( '-24 days' ) ),
+        ),
+        array(
+            'title' => 'School Closed for Public Holiday on Friday',
+            'badge' => '',
+            'date'  => date( 'Y-m-d H:i:s', strtotime( '-27 days' ) ),
+        ),
+    );
+
+    foreach ( $default_notices as $notice ) {
+        $post_id = wp_insert_post( array(
+            'post_title'     => $notice['title'],
+            'post_status'    => 'publish',
+            'post_type'      => 'notice',
+            'post_date'      => $notice['date'],
+            'comment_status' => 'closed',
+        ) );
+
+        if ( $post_id && ! is_wp_error( $post_id ) ) {
+            if ( ! empty( $notice['badge'] ) ) {
+                update_post_meta( $post_id, '_notice_badge', $notice['badge'] );
+            }
+        }
+    }
+
+    update_option( 'tmisb_notices_auto_seeded', 1 );
+}
+add_action( 'admin_init', 'tmisb_auto_seed_notices' );
+
 ?>`;
 fs.writeFileSync(path.join(THEME_DIR, 'functions.php'), functionsPhpContent);
 
@@ -911,6 +1112,65 @@ ${fallbackCards}
                     }
                 }
             }
+
+                // Dynamic Notice Board Hook for Homepage
+                const noticeScrollMarker = '<div class="space-y-4 overflow-y-auto h-full p-6"';
+                const noticeStart = bodyContent.indexOf(noticeScrollMarker);
+                const viewAllMarker = '<!-- View All button -->';
+                const noticeEnd = bodyContent.indexOf(viewAllMarker, noticeStart);
+                if (noticeStart !== -1 && noticeEnd !== -1) {
+                    const fullMarkerEnd = bodyContent.indexOf('>', noticeStart) + 1;
+                    const fallbackNotices = bodyContent.substring(fullMarkerEnd, noticeEnd);
+                    const dynamicNoticePhp = `
+                            <?php
+                            $notice_query = new WP_Query( array(
+                                'post_type'      => 'notice',
+                                'posts_per_page' => 10,
+                                'post_status'    => 'publish',
+                                'orderby'        => 'date',
+                                'order'          => 'DESC',
+                            ) );
+
+                            if ( $notice_query->have_posts() ) :
+                                $notice_count = 0;
+                                while ( $notice_query->have_posts() ) : $notice_query->the_post();
+                                    $file_url = get_post_meta( get_the_ID(), '_notice_file_url', true );
+                                    $custom_badge = get_post_meta( get_the_ID(), '_notice_badge', true );
+                                    $link = ! empty( $file_url ) ? esc_url( $file_url ) : '#';
+                                    $target = ! empty( $file_url ) ? ' target="_blank"' : '';
+                                    $day = get_the_date( 'd' );
+                                    $month = get_the_date( 'M' );
+                                    $is_first = ( $notice_count === 0 );
+                                    $badge_text = ! empty( $custom_badge ) ? $custom_badge : ( $is_first ? 'New' : '' );
+                                    $bg_class = $is_first ? 'bg-primary/5 text-primary border-primary/10' : 'bg-gray-50 text-gray-500 border-gray-100';
+                            ?>
+                            <!-- Dynamic Notice Item -->
+                            <div class="flex gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition border border-gray-50 hover:border-primary/20 group">
+                                <div class="flex flex-col items-center justify-center <?php echo esc_attr( $bg_class ); ?> rounded-lg min-w-[60px] h-[60px] shrink-0 border">
+                                    <span class="text-xl font-bold leading-none"><?php echo esc_html( $day ); ?></span>
+                                    <span class="text-xs uppercase font-semibold mt-1"><?php echo esc_html( $month ); ?></span>
+                                </div>
+                                <div class="flex flex-col justify-center">
+                                    <?php if ( ! empty( $badge_text ) ) : ?>
+                                        <span class="inline-block mb-1 text-[10px] font-bold text-primary bg-secondary/20 px-2 py-0.5 rounded uppercase tracking-wider w-max"><?php echo esc_html( $badge_text ); ?></span>
+                                    <?php endif; ?>
+                                    <h4 class="font-bold text-gray-800 text-sm group-hover:text-primary transition leading-snug">
+                                        <a href="<?php echo $link; ?>"<?php echo $target; ?>><?php the_title(); ?></a>
+                                    </h4>
+                                </div>
+                            </div>
+                            <?php
+                                    $notice_count++;
+                                endwhile;
+                                wp_reset_postdata();
+                            else :
+                            ?>
+${fallbackNotices}
+                            <?php endif; ?>
+                            `;
+                    bodyContent = bodyContent.substring(0, fullMarkerEnd) + dynamicNoticePhp + bodyContent.substring(noticeEnd);
+                }
+
 
             // Dynamic Achievements Hook for Competitive Coaching Page
             if (p.template === 'page-competitive-coaching.php') {
