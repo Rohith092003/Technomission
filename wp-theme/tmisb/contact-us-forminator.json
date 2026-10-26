@@ -22,13 +22,14 @@
       "indicator-label": "Sending message...",
       "form_name": "contact-us-tmisb",
       "form_status": "publish",
-      "use-custom-css": "1",
-      "custom_css": ".forminator-button-submit { background-color: #003c71 !important; border-radius: 8px !important; font-weight: 700 !important; text-transform: uppercase !important; }\n.forminator-button-submit:hover { background-color: #002244 !important; }\n.forminator-label { font-weight: 600 !important; color: #003c71 !important; font-size: 13px !important; }",
-      "sc_message": "<div class='p-4 bg-green-50 border border-green-200 text-green-800 rounded-lg'><strong>Thank you!</strong> Your message has been received. The TMISB administrative team will get back to you shortly.</div>",
-      "cform-color-settings": "true",
+      "button-submit-text": "Submit Message",
+      "button-submit-font-color": "#ffffff",
       "button-submit-background-static": "#003c71",
       "button-submit-background-hover": "#002244",
-      "button-submit-font-color": "#ffffff",
+      "use-custom-css": "1",
+      "custom_css": ".forminator-button-submit { background-color: #003c71 !important; color: #ffffff !important; border-radius: 8px !important; font-weight: 700 !important; text-transform: uppercase !important; padding: 12px 32px !important; min-width: 180px !important; }\n.forminator-button-submit:hover { background-color: #002244 !important; }\n.forminator-label { font-weight: 600 !important; color: #003c71 !important; font-size: 13px !important; margin-bottom: 6px !important; display: block !important; }\n.forminator-row { margin-bottom: 16px !important; }\n.forminator-input, .forminator-textarea { border: 1px solid #d1d5db !important; border-radius: 6px !important; padding: 10px 14px !important; font-size: 14px !important; width: 100% !important; }",
+      "sc_message": "<div class='p-4 bg-green-50 border border-green-200 text-green-800 rounded-lg'><strong>Thank you!</strong> Your message has been received. The TMISB administrative team will get back to you shortly.</div>",
+      "cform-color-settings": "true",
       "label-font-color": "#003c71"
     },
     "fields": [
@@ -70,7 +71,10 @@
         "required": true,
         "field_label": "Phone Number",
         "placeholder": "10-digit mobile number",
-        "validation": "standard"
+        "validation": "standard",
+        "phone_validation_type": "international",
+        "default_country": "in",
+        "phone_national_country": "in"
       },
       {
         "wrapper_id": "wrapper-message",
