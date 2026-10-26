@@ -57,10 +57,66 @@ get_header();
             
             <!-- Using grid with masonry-like behavior or just standard cols -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <?php
+            $gallery_achievements = new WP_Query( array(
+                'post_type'      => 'tmisb_achievement',
+                'posts_per_page' => -1,
+                'post_status'    => 'publish',
+                'orderby'        => array( 'menu_order' => 'ASC', 'date' => 'DESC' ),
+            ) );
+
+            if ( $gallery_achievements->have_posts() ) :
+                while ( $gallery_achievements->have_posts() ) : $gallery_achievements->the_post();
+                    $badge        = get_post_meta( get_the_ID(), '_tmisb_achievement_badge', true );
+                    $badge_color  = get_post_meta( get_the_ID(), '_tmisb_achievement_badge_color', true ) ?: 'secondary';
+                    $caption      = get_post_meta( get_the_ID(), '_tmisb_achievement_caption', true );
+                    $image_only   = get_post_meta( get_the_ID(), '_tmisb_achievement_image_only', true );
+                    $legacy_img   = get_post_meta( get_the_ID(), '_tmisb_achievement_legacy_image', true );
+                    
+                    $img_url = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+                    if ( ! $img_url && $legacy_img ) {
+                        $img_url = get_template_directory_uri() . '/' . $legacy_img;
+                    }
+                    $badge_class = ( $badge_color === 'primary' ) ? 'text-primary' : 'text-secondary';
+            ?>
+                <?php if ( $image_only === '1' ) : ?>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
+                        <?php if ( $img_url ) : ?>
+                            <img src="<?php echo esc_url( $img_url ); ?>" alt="<?php the_title_attribute(); ?>" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
+                        <?php endif; ?>
+                    </div>
+                <?php else : ?>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex flex-col">
+                        <div class="p-3 bg-gray-50 flex items-center justify-center flex-grow">
+                            <?php if ( $img_url ) : ?>
+                                <img src="<?php echo esc_url( $img_url ); ?>" alt="<?php the_title_attribute(); ?>" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
+                            <?php else : ?>
+                                <div class="w-full h-64 bg-gray-100 flex items-center justify-center text-gray-400">
+                                    <i class="fas fa-award text-4xl"></i>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        <div class="p-4 border-t border-gray-100 bg-white">
+                            <?php if ( ! empty( $badge ) ) : ?>
+                                <span class="text-[10px] font-bold uppercase tracking-wider <?php echo esc_attr( $badge_class ); ?>"><?php echo esc_html( $badge ); ?></span>
+                            <?php endif; ?>
+                            <h4 class="nav-font font-bold text-base text-primary"><?php the_title(); ?></h4>
+                            <?php if ( ! empty( $caption ) ) : ?>
+                                <p class="text-xs text-gray-500 mt-1"><?php echo esc_html( $caption ); ?></p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            <?php
+                endwhile;
+                wp_reset_postdata();
+            else :
+            ?>
+
                 <!-- Real Achievement 1: NEET Medical 2022 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex flex-col">
                     <div class="p-3 bg-gray-50 flex items-center justify-center flex-grow">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-neet-medical-toppers.jpg?v=<?php echo time(); ?>" alt="NEET Medical 2022 Results" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-neet-medical-toppers.jpg" alt="NEET Medical 2022 Results" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-4 border-t border-gray-100">
                         <span class="text-[10px] font-bold uppercase tracking-wider text-secondary">Medical Entrance</span>
@@ -72,7 +128,7 @@ get_header();
                 <!-- Real Achievement 2: JEE Advanced Toppers -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex flex-col">
                     <div class="p-3 bg-gray-50 flex items-center justify-center flex-grow">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-jee-topper-anuj-arya.jpg?v=<?php echo time(); ?>" alt="JEE Advanced Toppers" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-jee-topper-anuj-arya.jpg" alt="JEE Advanced Toppers" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-4 border-t border-gray-100">
                         <span class="text-[10px] font-bold uppercase tracking-wider text-primary">IIT-JEE Advanced</span>
@@ -84,7 +140,7 @@ get_header();
                 <!-- Real Achievement 3: JEE Advanced 5 Students -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex flex-col">
                     <div class="p-3 bg-gray-50 flex items-center justify-center flex-grow">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-jee-5-students.jpg?v=<?php echo time(); ?>" alt="5 Students in JEE Advanced" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-jee-5-students.jpg" alt="5 Students in JEE Advanced" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-4 border-t border-gray-100">
                         <span class="text-[10px] font-bold uppercase tracking-wider text-secondary">National Merit</span>
@@ -96,7 +152,7 @@ get_header();
                 <!-- Real Achievement 4: ISRO Cyberspace -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex flex-col">
                     <div class="p-3 bg-gray-50 flex items-center justify-center flex-grow">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-isro-cyber-space.jpg?v=<?php echo time(); ?>" alt="ISRO Cyberspace Winners" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-isro-cyber-space.jpg" alt="ISRO Cyberspace Winners" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-4 border-t border-gray-100">
                         <span class="text-[10px] font-bold uppercase tracking-wider text-primary">National Science</span>
@@ -105,53 +161,33 @@ get_header();
                     </div>
                 </div>
 
-                <!-- Real Photo 5: Morning Assembly -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex flex-col">
-                    <div class="p-1 bg-gray-50 flex items-center justify-center flex-grow">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/morning-assembly-students.jpg?v=<?php echo time(); ?>" alt="Morning Assembly at TMISB" class="w-full h-auto max-h-[380px] object-cover transition-transform duration-700 group-hover:scale-105">
-                    </div>
-                    <div class="p-4 border-t border-gray-100">
-                        <span class="text-[10px] font-bold uppercase tracking-wider text-primary">Campus Life</span>
-                        <h4 class="nav-font font-bold text-base text-primary">Morning Assembly &amp; Culture</h4>
-                        <p class="text-xs text-gray-500 mt-1">Discipline &amp; Spiritual Harmony at TMISB</p>
-                    </div>
-                </div>
 
-                <!-- Real Photo 6: Campus Building -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex flex-col">
-                    <div class="p-1 bg-gray-50 flex items-center justify-center flex-grow">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/campus-building-front.jpg?v=<?php echo time(); ?>" alt="TMISB Campus Building" class="w-full h-auto max-h-[380px] object-cover transition-transform duration-700 group-hover:scale-105">
-                    </div>
-                    <div class="p-4 border-t border-gray-100">
-                        <span class="text-[10px] font-bold uppercase tracking-wider text-secondary">Campus Infrastructure</span>
-                        <h4 class="nav-font font-bold text-base text-primary">Grand Campus Facade</h4>
-                        <p class="text-xs text-gray-500 mt-1">State-of-the-art Architectural Landmark</p>
-                    </div>
-                </div>
                 <!-- Achievement 1 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
-                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715819718_ewu4r8.jpg?v=<?php echo time(); ?>" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
+                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715819718_ewu4r8.jpg" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
                 </div>
                 
                 <!-- Achievement 2 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
-                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715822383_5whp8p.jpg?v=<?php echo time(); ?>" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
+                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715822383_5whp8p.jpg" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
                 </div>
                 
                 <!-- Achievement 3 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
-                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715823656_7xpfmn.jpg?v=<?php echo time(); ?>" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
+                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715823656_7xpfmn.jpg" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
                 </div>
                 
                 <!-- Achievement 4 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
-                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715825041_n6sp8rg.jpg?v=<?php echo time(); ?>" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
+                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715825041_n6sp8rg.jpg" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
                 </div>
                 
                 <!-- Achievement 5 (The PNG file) -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
-                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715851488_sn61pa.png?v=<?php echo time(); ?>" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
+                    <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715851488_sn61pa.png" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
                 </div>
+            
+            <?php endif; ?>
             </div>
         </div>
     </section>
@@ -178,7 +214,7 @@ get_header();
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 <!-- Item 1 -->
                 <div x-show="filter === 'all' || filter === 'campus'" x-transition class="group relative rounded-xl overflow-hidden shadow-md cursor-pointer aspect-square">
-                    <img src="<?php echo get_template_directory_uri(); ?>/school images google/campus_infrastructure_1771715691851_8ss6lp.jpg?v=<?php echo time(); ?>" alt="Campus Building" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/campus-building-front.jpg" alt="Campus Building" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
                         <h4 class="text-white font-bold text-lg">Main Campus</h4>
                         <p class="text-gray-200 text-sm">State-of-the-art infrastructure</p>
@@ -187,7 +223,7 @@ get_header();
                 
                 <!-- Item 2 -->
                 <div x-show="filter === 'all' || filter === 'academics'" x-transition class="group relative rounded-xl overflow-hidden shadow-md cursor-pointer aspect-square">
-                    <img src="<?php echo get_template_directory_uri(); ?>/School Images/classrooms_learning_1771715713266_lltmd9.jpg?v=<?php echo time(); ?>" alt="Interactive Classroom" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <img src="<?php echo get_template_directory_uri(); ?>/School Images/classrooms_learning_1771715713266_lltmd9.jpg" alt="Interactive Classroom" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
                         <h4 class="text-white font-bold text-lg">Smart Classrooms</h4>
                         <p class="text-gray-200 text-sm">Interactive learning environments</p>
@@ -196,7 +232,7 @@ get_header();
                 
                 <!-- Item 3 -->
                 <div x-show="filter === 'all' || filter === 'academics'" x-transition class="group relative rounded-xl overflow-hidden shadow-md cursor-pointer aspect-square">
-                    <img src="<?php echo get_template_directory_uri(); ?>/school images google/Science lab.webp?v=<?php echo time(); ?>" alt="Science Lab" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <img src="<?php echo get_template_directory_uri(); ?>/school images google/Science lab.webp" alt="Science Lab" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
                         <h4 class="text-white font-bold text-lg">Science Labs</h4>
                         <p class="text-gray-200 text-sm">Practical experimentation</p>
@@ -204,17 +240,17 @@ get_header();
                 </div>
                 
                 <!-- Item 4 -->
-                <div x-show="filter === 'all' || filter === 'sports'" x-transition class="group relative rounded-xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] md:col-span-2">
-                    <img src="<?php echo get_template_directory_uri(); ?>/school images google/9f8218_0a2316ea7be24810a46e7e5841f94e6c~mv2.jpeg?v=<?php echo time(); ?>" alt="Sports Ground" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                <div x-show="filter === 'all' || filter === 'campus'" x-transition class="group relative rounded-xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] md:col-span-2">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/morning-assembly-students.jpg" alt="Morning Assembly & Culture" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
-                        <h4 class="text-white font-bold text-lg">Annual Sports Day</h4>
-                        <p class="text-gray-200 text-sm">Fostering teamwork and physical health</p>
+                        <h4 class="text-white font-bold text-lg">Morning Assembly &amp; Culture</h4>
+                        <p class="text-gray-200 text-sm">Discipline, spiritual harmony, and values every morning</p>
                     </div>
                 </div>
                 
                 <!-- Item 5 -->
                 <div x-show="filter === 'all' || filter === 'campus'" x-transition class="group relative rounded-xl overflow-hidden shadow-md cursor-pointer aspect-[4/3] md:aspect-square">
-                    <img src="<?php echo get_template_directory_uri(); ?>/school images google/63f03e7eda38af09f9012e779a2c2745.webp?v=<?php echo time(); ?>" alt="Library" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <img src="<?php echo get_template_directory_uri(); ?>/school images google/63f03e7eda38af09f9012e779a2c2745.webp" alt="Library" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
                         <h4 class="text-white font-bold text-lg">Central Library</h4>
                         <p class="text-gray-200 text-sm">A vast collection of knowledge</p>
@@ -223,7 +259,7 @@ get_header();
 
                 <!-- Item 6 -->
                 <div x-show="filter === 'all' || filter === 'academics'" x-transition class="group relative rounded-xl overflow-hidden shadow-md cursor-pointer aspect-square">
-                    <img src="<?php echo get_template_directory_uri(); ?>/school images google/685f11c1b5a24f6bbf7ff382b40717c5.webp?v=<?php echo time(); ?>" alt="Students Studying" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <img src="<?php echo get_template_directory_uri(); ?>/school images google/685f11c1b5a24f6bbf7ff382b40717c5.webp" alt="Students Studying" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
                         <h4 class="text-white font-bold text-lg">Group Study</h4>
                         <p class="text-gray-200 text-sm">Collaborative learning</p>
@@ -232,7 +268,7 @@ get_header();
 
                 <!-- Item 7 -->
                 <div x-show="filter === 'all' || filter === 'sports'" x-transition class="group relative rounded-xl overflow-hidden shadow-md cursor-pointer aspect-square">
-                    <img src="<?php echo get_template_directory_uri(); ?>/School Images/classrooms_learning_1771715744842_14puoq.jpg?v=<?php echo time(); ?>" alt="School Seminar & Leadership Event" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <img src="<?php echo get_template_directory_uri(); ?>/School Images/classrooms_learning_1771715744842_14puoq.jpg" alt="School Seminar & Leadership Event" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
                         <h4 class="text-white font-bold text-lg">Cultural Fest</h4>
                         <p class="text-gray-200 text-sm">Celebrating diversity and arts</p>

@@ -5,7 +5,7 @@ get_header();
 <!-- Page Header -->
     <section class="relative py-16 md:py-32 bg-primaryDark overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/morning-assembly-students.jpg?v=<?php echo time(); ?>" alt="Campus Background" class="w-full h-full object-cover opacity-30">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/morning-assembly-students.jpg" alt="Campus Background" class="w-full h-full object-cover opacity-30">
             <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/95 via-primaryDark/80 to-primaryDark/40"></div>
         </div>
         <div class="container mx-auto px-4 relative z-10 max-w-7xl">
@@ -69,7 +69,7 @@ get_header();
                 <!-- Image & Badge Side -->
                 <div class="w-full lg:w-5/12 relative">
                     <div class="relative">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/campus-building-front.jpg?v=<?php echo time(); ?>" alt="Students at TMISB" class="rounded-2xl shadow-2xl w-full h-[480px] object-cover">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/campus-building-front.jpg" alt="Students at TMISB" class="rounded-2xl shadow-2xl w-full h-[480px] object-cover">
                         <div class="absolute inset-0 rounded-2xl bg-gradient-to-t from-primaryDark/80 via-transparent to-transparent"></div>
                         
                         <!-- Floating Badge -->
@@ -326,7 +326,7 @@ get_header();
                 <!-- Image Side -->
                 <div class="w-full lg:w-4/12 relative shrink-0">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/director.jpg?v=2?v=<?php echo time(); ?>" alt="Er. Anshu Kumar Singh - Director" class="w-full h-auto object-cover">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/director.jpg?v=2" alt="Er. Anshu Kumar Singh - Director" class="w-full h-auto object-cover">
                         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primaryDark p-6 text-white text-center">
                             <h4 class="nav-font font-bold text-xl text-white">Er. Anshu Kumar Singh</h4>
                             <p class="text-xs text-secondary font-bold uppercase tracking-widest mt-1">Director, TMISB</p>

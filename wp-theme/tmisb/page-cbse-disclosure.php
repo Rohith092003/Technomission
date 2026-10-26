@@ -5,7 +5,7 @@ get_header();
 <!-- Page Header -->
     <section class="relative py-16 md:py-24 bg-primaryDark overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Hero2.png?v=<?php echo time(); ?>" alt="TMISB Campus" class="w-full h-full object-cover opacity-25">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Hero2.png" alt="TMISB Campus" class="w-full h-full object-cover opacity-25">
             <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/95 via-primaryDark/85 to-primaryDark/75"></div>
         </div>
         <div class="container mx-auto px-4 relative z-10 max-w-7xl">
@@ -373,7 +373,7 @@ get_header();
                         <div class="flex-1">
                             <h4 class="font-bold text-primary text-lg">1. Class-wise Fee Structure (2026–27)</h4>
                             <p class="text-xs text-gray-600 mt-1 mb-3">Transparent monthly/quarterly tuition fee schedule, one-time admission charges, and transport norms.</p>
-                            <a href="<?php echo home_url('/admissions/'); ?>#eligibility" class="inline-flex items-center text-xs font-bold text-secondary hover:text-red-700 transition">
+                            <a href="admissions.html#eligibility" class="inline-flex items-center text-xs font-bold text-secondary hover:text-red-700 transition">
                                 View Fee Norms &amp; Structure <i class="fas fa-arrow-right ml-1.5 text-[10px]"></i>
                             </a>
                         </div>
@@ -612,7 +612,7 @@ get_header();
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                     <div class="rounded-2xl overflow-hidden shadow-md border border-gray-100 bg-white group">
                         <div class="h-64 overflow-hidden">
-                            <img src="<?php echo get_template_directory_uri(); ?>/school images google/campus_infrastructure_1771715691851_8ss6lp.jpg?v=<?php echo time(); ?>" alt="TMISB School Campus Infrastructure" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <img src="<?php echo get_template_directory_uri(); ?>/school images google/campus_infrastructure_1771715691851_8ss6lp.jpg" alt="TMISB School Campus Infrastructure" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                         </div>
                         <div class="p-4 bg-gray-50 border-t border-gray-100">
                             <h4 class="font-bold text-primary text-sm">School Campus &amp; Building Infrastructure</h4>
@@ -621,7 +621,7 @@ get_header();
                     </div>
                     <div class="rounded-2xl overflow-hidden shadow-md border border-gray-100 bg-white group">
                         <div class="h-64 overflow-hidden">
-                            <img src="<?php echo get_template_directory_uri(); ?>/school images google/Science lab.webp?v=<?php echo time(); ?>" alt="TMISB Science Laboratory" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <img src="<?php echo get_template_directory_uri(); ?>/school images google/Science lab.webp" alt="TMISB Science Laboratory" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                         </div>
                         <div class="p-4 bg-gray-50 border-t border-gray-100">
                             <h4 class="font-bold text-primary text-sm">Composite Science &amp; Research Laboratories</h4>

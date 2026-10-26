@@ -17,7 +17,7 @@ Theme URI: https://technomission.in/
 Author: Antigravity
 Author URI: https://technomission.in/
 Description: Custom WordPress theme for Techno Mission International School Bhagalpur.
-Version: 2.0
+Version: 2.1
 Text Domain: tmisb
 */
 
@@ -25,7 +25,7 @@ Text Domain: tmisb
 `;
 fs.writeFileSync(path.join(THEME_DIR, 'style.css'), styleCssContent);
 
-// 2. Create functions.php with Auto-Page Creation & Smart Template Redirect
+// 2. Create functions.php with Auto-Page Creation, Smart Template Redirect, and Dynamic Achievements CPT
 const functionsPhpContent = `<?php
 function tmisb_enqueue_scripts() {
     wp_enqueue_style( 'tmisb-style', get_stylesheet_uri(), array(), time() );
@@ -114,6 +114,390 @@ function tmisb_auto_create_pages() {
     }
 }
 add_action( 'init', 'tmisb_auto_create_pages' );
+
+/**
+ * 3. Custom Post Type: Achievements (Wall of Fame)
+ * Allows administrators to add/edit student achievements, upload newspaper clippings or certificates,
+ * set badges, subtitles/captions, and display locations directly from the WordPress dashboard.
+ */
+function tmisb_register_achievement_cpt() {
+    $labels = array(
+        'name'                  => _x( 'Achievements', 'Post type general name', 'tmisb' ),
+        'singular_name'         => _x( 'Achievement', 'Post type singular name', 'tmisb' ),
+        'menu_name'             => _x( 'Achievements', 'Admin Menu text', 'tmisb' ),
+        'name_admin_bar'        => _x( 'Achievement', 'Add New on Toolbar', 'tmisb' ),
+        'add_new'               => __( 'Add New Achievement', 'tmisb' ),
+        'add_new_item'          => __( 'Add New Student Achievement', 'tmisb' ),
+        'new_item'              => __( 'New Achievement', 'tmisb' ),
+        'edit_item'             => __( 'Edit Achievement', 'tmisb' ),
+        'view_item'             => __( 'View Achievement', 'tmisb' ),
+        'all_items'             => __( 'All Achievements', 'tmisb' ),
+        'search_items'          => __( 'Search Achievements', 'tmisb' ),
+        'not_found'             => __( 'No achievements found.', 'tmisb' ),
+        'not_found_in_trash'    => __( 'No achievements found in Trash.', 'tmisb' ),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'achievements' ),
+        'capability_type'    => 'post',
+        'has_archive'        => false,
+        'hierarchical'       => false,
+        'menu_position'      => 21,
+        'menu_icon'          => 'dashicons-awards',
+        'supports'           => array( 'title', 'thumbnail', 'page-attributes' ),
+        'show_in_rest'       => true,
+    );
+
+    register_post_type( 'tmisb_achievement', $args );
+}
+add_action( 'init', 'tmisb_register_achievement_cpt' );
+
+/**
+ * 4. Custom Meta Box for Achievement Details
+ */
+function tmisb_add_achievement_meta_boxes() {
+    add_meta_box(
+        'tmisb_achievement_details',
+        __( 'Achievement Details & Display Settings', 'tmisb' ),
+        'tmisb_render_achievement_meta_box',
+        'tmisb_achievement',
+        'normal',
+        'high'
+    );
+}
+add_action( 'add_meta_boxes', 'tmisb_add_achievement_meta_boxes' );
+
+function tmisb_render_achievement_meta_box( $post ) {
+    wp_nonce_field( 'tmisb_save_achievement_meta', 'tmisb_achievement_meta_nonce' );
+
+    $badge         = get_post_meta( $post->ID, '_tmisb_achievement_badge', true );
+    $badge_color   = get_post_meta( $post->ID, '_tmisb_achievement_badge_color', true ) ?: 'secondary';
+    $caption       = get_post_meta( $post->ID, '_tmisb_achievement_caption', true );
+    $image_only    = get_post_meta( $post->ID, '_tmisb_achievement_image_only', true );
+    $show_home     = get_post_meta( $post->ID, '_tmisb_achievement_show_home', true );
+    $show_coaching = get_post_meta( $post->ID, '_tmisb_achievement_show_coaching', true );
+
+    // Default for brand new achievement posts
+    if ( $post->post_status === 'auto-draft' ) {
+        $show_home = '1';
+    }
+    ?>
+    <style>
+        .tmisb-meta-field { margin-bottom: 16px; }
+        .tmisb-meta-field label { display: block; font-weight: 600; margin-bottom: 5px; color: #1e293b; font-size: 13px; }
+        .tmisb-meta-field input[type="text"], .tmisb-meta-field textarea, .tmisb-meta-field select { width: 100%; max-width: 650px; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; }
+        .tmisb-meta-field .desc { font-size: 12px; color: #64748b; margin-top: 4px; }
+        .tmisb-checkboxes { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; background: #f8fafc; padding: 12px; border-radius: 6px; border: 1px solid #e2e8f0; max-width: 650px; }
+        .tmisb-checkbox-label { display: flex !important; align-items: center; gap: 8px; font-weight: normal !important; cursor: pointer; font-size: 13px; color: #334155; }
+    </style>
+
+    <div class="tmisb-meta-field">
+        <label for="tmisb_achievement_badge"><?php _e( 'Badge / Category Tag', 'tmisb' ); ?></label>
+        <input type="text" id="tmisb_achievement_badge" name="tmisb_achievement_badge" value="<?php echo esc_attr( $badge ); ?>" placeholder="e.g. NEET 2022 Medical, IIT-JEE Advanced, National Merit, National Science">
+        <p class="desc"><?php _e( 'Highlighted pill tag displayed above the achievement title on cards.', 'tmisb' ); ?></p>
+    </div>
+
+    <div class="tmisb-meta-field">
+        <label for="tmisb_achievement_badge_color"><?php _e( 'Badge Color Theme', 'tmisb' ); ?></label>
+        <select id="tmisb_achievement_badge_color" name="tmisb_achievement_badge_color">
+            <option value="secondary" <?php selected( $badge_color, 'secondary' ); ?>><?php _e( 'Red Accent (Secondary)', 'tmisb' ); ?></option>
+            <option value="primary" <?php selected( $badge_color, 'primary' ); ?>><?php _e( 'Navy Blue (Primary)', 'tmisb' ); ?></option>
+            <option value="amber" <?php selected( $badge_color, 'amber' ); ?>><?php _e( 'Gold / Amber', 'tmisb' ); ?></option>
+            <option value="emerald" <?php selected( $badge_color, 'emerald' ); ?>><?php _e( 'Green / Emerald', 'tmisb' ); ?></option>
+        </select>
+    </div>
+
+    <div class="tmisb-meta-field">
+        <label for="tmisb_achievement_caption"><?php _e( 'Short Description / Subtitle', 'tmisb' ); ?></label>
+        <textarea id="tmisb_achievement_caption" name="tmisb_achievement_caption" rows="2" placeholder="e.g. Top scores: Kumar Shubham (671/720) &amp; Tarbiya Niyom (668/720) with stellar national ranks."><?php echo esc_textarea( $caption ); ?></textarea>
+        <p class="desc"><?php _e( '1-2 brief sentences summarizing student ranks, marks, or awards.', 'tmisb' ); ?></p>
+    </div>
+
+    <div class="tmisb-meta-field">
+        <label><?php _e( 'Card Display Options', 'tmisb' ); ?></label>
+        <div class="tmisb-checkboxes">
+            <label class="tmisb-checkbox-label">
+                <input type="checkbox" name="tmisb_achievement_show_home" value="1" <?php checked( $show_home, '1' ); ?>>
+                <span><strong><?php _e( 'Show on Homepage Wall of Fame', 'tmisb' ); ?></strong> (Section 8.5)</span>
+            </label>
+            <label class="tmisb-checkbox-label">
+                <input type="checkbox" name="tmisb_achievement_show_coaching" value="1" <?php checked( $show_coaching, '1' ); ?>>
+                <span><strong><?php _e( 'Show on Competitive Coaching Page', 'tmisb' ); ?></strong> (Proven Track Record &amp; Media Highlights)</span>
+            </label>
+            <label class="tmisb-checkbox-label">
+                <input type="checkbox" name="tmisb_achievement_image_only" value="1" <?php checked( $image_only, '1' ); ?>>
+                <span><strong><?php _e( 'Image-Only Mode', 'tmisb' ); ?></strong> (Hides card text footer — ideal for full certificate scans or newspaper clippings)</span>
+            </label>
+        </div>
+        <p class="desc"><?php _e( 'Note: All published achievements automatically appear on the main Gallery Wall of Fame page.', 'tmisb' ); ?></p>
+    </div>
+    <?php
+}
+
+function tmisb_save_achievement_meta( $post_id ) {
+    if ( ! isset( $_POST['tmisb_achievement_meta_nonce'] ) || ! wp_verify_nonce( $_POST['tmisb_achievement_meta_nonce'], 'tmisb_save_achievement_meta' ) ) {
+        return;
+    }
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+    if ( ! current_user_can( 'edit_post', $post_id ) ) {
+        return;
+    }
+
+    if ( isset( $_POST['tmisb_achievement_badge'] ) ) {
+        update_post_meta( $post_id, '_tmisb_achievement_badge', sanitize_text_field( $_POST['tmisb_achievement_badge'] ) );
+    }
+    if ( isset( $_POST['tmisb_achievement_badge_color'] ) ) {
+        update_post_meta( $post_id, '_tmisb_achievement_badge_color', sanitize_key( $_POST['tmisb_achievement_badge_color'] ) );
+    }
+    if ( isset( $_POST['tmisb_achievement_caption'] ) ) {
+        update_post_meta( $post_id, '_tmisb_achievement_caption', sanitize_textarea_field( $_POST['tmisb_achievement_caption'] ) );
+    }
+
+    update_post_meta( $post_id, '_tmisb_achievement_show_home', isset( $_POST['tmisb_achievement_show_home'] ) ? '1' : '0' );
+    update_post_meta( $post_id, '_tmisb_achievement_show_coaching', isset( $_POST['tmisb_achievement_show_coaching'] ) ? '1' : '0' );
+    update_post_meta( $post_id, '_tmisb_achievement_image_only', isset( $_POST['tmisb_achievement_image_only'] ) ? '1' : '0' );
+}
+add_action( 'save_post_tmisb_achievement', 'tmisb_save_achievement_meta' );
+
+/**
+ * 5. Admin Columns for Achievements
+ */
+function tmisb_achievement_columns( $columns ) {
+    $new_columns = array();
+    $new_columns['cb'] = $columns['cb'];
+    $new_columns['thumbnail'] = __( 'Image', 'tmisb' );
+    $new_columns['title'] = __( 'Achievement Title', 'tmisb' );
+    $new_columns['badge'] = __( 'Badge / Category', 'tmisb' );
+    $new_columns['locations'] = __( 'Display Locations', 'tmisb' );
+    $new_columns['menu_order'] = __( 'Order', 'tmisb' );
+    $new_columns['date'] = $columns['date'];
+    return $new_columns;
+}
+add_filter( 'manage_tmisb_achievement_posts_columns', 'tmisb_achievement_columns' );
+
+function tmisb_achievement_custom_column( $column, $post_id ) {
+    switch ( $column ) {
+        case 'thumbnail':
+            if ( has_post_thumbnail( $post_id ) ) {
+                echo get_the_post_thumbnail( $post_id, array( 60, 60 ), array( 'style' => 'width:50px;height:50px;object-fit:cover;border-radius:6px;border:1px solid #cbd5e1;' ) );
+            } else {
+                $legacy = get_post_meta( $post_id, '_tmisb_achievement_legacy_image', true );
+                if ( $legacy ) {
+                    echo '<img src="' . esc_url( get_template_directory_uri() . '/' . $legacy ) . '" style="width:50px;height:50px;object-fit:cover;border-radius:6px;border:1px solid #cbd5e1;">';
+                } else {
+                    echo '<span style="color:#94a3b8;font-size:12px;">No image</span>';
+                }
+            }
+            break;
+        case 'badge':
+            $badge = get_post_meta( $post_id, '_tmisb_achievement_badge', true );
+            $color = get_post_meta( $post_id, '_tmisb_achievement_badge_color', true ) ?: 'secondary';
+            $bg = ( $color === 'primary' ) ? '#0b2545' : '#e63946';
+            if ( $badge ) {
+                echo '<span style="background:' . esc_attr( $bg ) . ';color:#fff;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:600;">' . esc_html( $badge ) . '</span>';
+            } else {
+                echo '<span style="color:#94a3b8;">—</span>';
+            }
+            break;
+        case 'locations':
+            $locations = array( 'Gallery' );
+            if ( get_post_meta( $post_id, '_tmisb_achievement_show_home', true ) === '1' ) {
+                $locations[] = 'Homepage';
+            }
+            if ( get_post_meta( $post_id, '_tmisb_achievement_show_coaching', true ) === '1' ) {
+                $locations[] = 'Coaching';
+            }
+            echo '<span style="font-size:12px;color:#334155;">' . esc_html( implode( ', ', $locations ) ) . '</span>';
+            break;
+        case 'menu_order':
+            $post = get_post( $post_id );
+            echo esc_html( $post->menu_order );
+            break;
+    }
+}
+add_action( 'manage_tmisb_achievement_posts_custom_column', 'tmisb_achievement_custom_column', 10, 2 );
+
+/**
+ * 6. Quick & Easy Seed Function for Achievements
+ * Automatically inserts initial achievement posts if none exist, so the client has sample/live content to edit immediately.
+ */
+function tmisb_auto_seed_achievements() {
+    if ( get_option( 'tmisb_achievements_auto_seeded' ) ) {
+        return;
+    }
+
+    $existing = get_posts( array(
+        'post_type'      => 'tmisb_achievement',
+        'post_status'    => 'any',
+        'posts_per_page' => 1,
+    ) );
+
+    if ( ! empty( $existing ) ) {
+        update_option( 'tmisb_achievements_auto_seeded', 1 );
+        return;
+    }
+
+    $default_achievements = array(
+        array(
+            'title'         => 'NEET 2022: 10 Students Qualified',
+            'badge'         => 'Medical Entrance',
+            'badge_color'   => 'secondary',
+            'caption'       => 'Top scores: Kumar Shubham (671/720) & Tarbiya Niyom (668/720) with stellar national ranks.',
+            'image'         => 'assets/images/achievement-neet-medical-toppers.jpg',
+            'show_home'     => '1',
+            'show_coaching' => '1',
+            'image_only'    => '0',
+            'order'         => 1,
+        ),
+        array(
+            'title'         => 'Anuj Kumar (AIR 1015) & Arya Kumar',
+            'badge'         => 'IIT-JEE Advanced',
+            'badge_color'   => 'primary',
+            'caption'       => '1st Attempt Success in JEE Advanced 2020: Anuj Kumar AIR 1015 (OBC 132) & Arya Kumar AIR 16275.',
+            'image'         => 'assets/images/achievement-jee-topper-anuj-arya.jpg',
+            'show_home'     => '1',
+            'show_coaching' => '1',
+            'image_only'    => '0',
+            'order'         => 2,
+        ),
+        array(
+            'title'         => '5 Students in IIT-JEE Advanced',
+            'badge'         => 'National Merit',
+            'badge_color'   => 'secondary',
+            'caption'       => 'Exceptional percentiles: 99.90, 98.27, 97.27, 96.53 selected for JEE Advanced.',
+            'image'         => 'assets/images/achievement-jee-5-students.jpg',
+            'show_home'     => '1',
+            'show_coaching' => '1',
+            'image_only'    => '0',
+            'order'         => 3,
+        ),
+        array(
+            'title'         => 'ISRO Cyberspace Top 500',
+            'badge'         => 'National Science',
+            'badge_color'   => 'primary',
+            'caption'       => 'Abhijeet Kumar & Ayush Kumar Singh shine in ISRO National Cyberspace Competition.',
+            'image'         => 'assets/images/achievement-isro-cyber-space.jpg',
+            'show_home'     => '1',
+            'show_coaching' => '1',
+            'image_only'    => '0',
+            'order'         => 4,
+        ),
+        array(
+            'title'         => 'Student Merit Certificate 1',
+            'badge'         => 'Academic Excellence',
+            'badge_color'   => 'primary',
+            'caption'       => '',
+            'image'         => 'Achievements/students_achievements_1771715819718_ewu4r8.jpg',
+            'show_home'     => '0',
+            'show_coaching' => '0',
+            'image_only'    => '1',
+            'order'         => 5,
+        ),
+        array(
+            'title'         => 'Student Merit Certificate 2',
+            'badge'         => 'National Laurels',
+            'badge_color'   => 'secondary',
+            'caption'       => '',
+            'image'         => 'Achievements/students_achievements_1771715822383_5whp8p.jpg',
+            'show_home'     => '0',
+            'show_coaching' => '0',
+            'image_only'    => '1',
+            'order'         => 6,
+        ),
+        array(
+            'title'         => 'Student Merit Certificate 3',
+            'badge'         => 'Inter-School Laurels',
+            'badge_color'   => 'primary',
+            'caption'       => '',
+            'image'         => 'Achievements/students_achievements_1771715823656_7xpfmn.jpg',
+            'show_home'     => '0',
+            'show_coaching' => '0',
+            'image_only'    => '1',
+            'order'         => 7,
+        ),
+        array(
+            'title'         => 'Student Merit Certificate 4',
+            'badge'         => 'State Competition',
+            'badge_color'   => 'secondary',
+            'caption'       => '',
+            'image'         => 'Achievements/students_achievements_1771715825041_n6sp8rg.jpg',
+            'show_home'     => '0',
+            'show_coaching' => '0',
+            'image_only'    => '1',
+            'order'         => 8,
+        ),
+        array(
+            'title'         => 'Student Merit Certificate 5',
+            'badge'         => 'Board Merit',
+            'badge_color'   => 'primary',
+            'caption'       => '',
+            'image'         => 'Achievements/students_achievements_1771715851488_sn61pa.png',
+            'show_home'     => '0',
+            'show_coaching' => '0',
+            'image_only'    => '1',
+            'order'         => 9,
+        ),
+    );
+
+    require_once( ABSPATH . 'wp-admin/includes/image.php' );
+    require_once( ABSPATH . 'wp-admin/includes/file.php' );
+    require_once( ABSPATH . 'wp-admin/includes/media.php' );
+
+    $upload_dir = wp_upload_dir();
+
+    foreach ( $default_achievements as $item ) {
+        $post_id = wp_insert_post( array(
+            'post_title'     => $item['title'],
+            'post_status'    => 'publish',
+            'post_type'      => 'tmisb_achievement',
+            'menu_order'     => $item['order'],
+            'comment_status' => 'closed',
+        ) );
+
+        if ( $post_id && ! is_wp_error( $post_id ) ) {
+            update_post_meta( $post_id, '_tmisb_achievement_badge', $item['badge'] );
+            update_post_meta( $post_id, '_tmisb_achievement_badge_color', $item['badge_color'] );
+            update_post_meta( $post_id, '_tmisb_achievement_caption', $item['caption'] );
+            update_post_meta( $post_id, '_tmisb_achievement_show_home', $item['show_home'] );
+            update_post_meta( $post_id, '_tmisb_achievement_show_coaching', $item['show_coaching'] );
+            update_post_meta( $post_id, '_tmisb_achievement_image_only', $item['image_only'] );
+            update_post_meta( $post_id, '_tmisb_achievement_legacy_image', $item['image'] );
+
+            // Try to attach theme image to post
+            $source_file = get_template_directory() . '/' . $item['image'];
+            if ( file_exists( $source_file ) && ! empty( $upload_dir['path'] ) && is_writable( $upload_dir['path'] ) ) {
+                $filename = basename( $source_file );
+                $target_file = $upload_dir['path'] . '/' . wp_unique_filename( $upload_dir['path'], $filename );
+                if ( @copy( $source_file, $target_file ) ) {
+                    $filetype = wp_check_filetype( $filename, null );
+                    $attachment = array(
+                        'post_mime_type' => $filetype['type'],
+                        'post_title'     => sanitize_file_name( $filename ),
+                        'post_content'   => '',
+                        'post_status'    => 'inherit'
+                    );
+                    $attach_id = wp_insert_attachment( $attachment, $target_file, $post_id );
+                    if ( $attach_id && ! is_wp_error( $attach_id ) ) {
+                        $attach_data = wp_generate_attachment_metadata( $attach_id, $target_file );
+                        wp_update_attachment_metadata( $attach_id, $attach_data );
+                        set_post_thumbnail( $post_id, $attach_id );
+                    }
+                }
+            }
+        }
+    }
+
+    update_option( 'tmisb_achievements_auto_seeded', 1 );
+}
+add_action( 'admin_init', 'tmisb_auto_seed_achievements' );
 ?>`;
 fs.writeFileSync(path.join(THEME_DIR, 'functions.php'), functionsPhpContent);
 
@@ -138,64 +522,118 @@ fs.writeFileSync(path.join(THEME_DIR, 'index.php'), indexPhpContent);
 
 // 4. Create 404.php (rich educational error portal)
 if (fs.existsSync(path.join(__dirname, '404.html'))) {
-    const raw404 = fs.readFileSync(path.join(__dirname, '404.html'), 'utf8');
-    const mainStart = raw404.indexOf('<main');
-    const mainEnd = raw404.indexOf('</main>');
-    if (mainStart !== -1 && mainEnd !== -1) {
-        let body404 = raw404.substring(mainStart, mainEnd + 7);
-        body404 = fixAssetPaths(body404);
-        const fourZeroFourPhp = `<?php get_header(); ?>\n${body404}\n<?php get_footer(); ?>`;
-        fs.writeFileSync(path.join(THEME_DIR, '404.php'), fourZeroFourPhp);
+    let errContent = fs.readFileSync(path.join(__dirname, '404.html'), 'utf8');
+    let errHeaderEnd = errContent.indexOf('<main');
+    let errFooterStart = errContent.indexOf('<footer');
+    if (errHeaderEnd !== -1 && errFooterStart !== -1) {
+        let errBody = errContent.substring(errHeaderEnd, errFooterStart);
+        errBody = errBody.replace(/href="index\.html"/g, 'href="<?php echo home_url(\'/\'); ?>"');
+        errBody = errBody.replace(/href="contact\.html"/g, 'href="<?php echo home_url(\'/contact/\'); ?>"');
+        errBody = errBody.replace(/href="admissions\.html"/g, 'href="<?php echo home_url(\'/admissions/\'); ?>"');
+        errBody = errBody.replace(/href="gallery\.html"/g, 'href="<?php echo home_url(\'/gallery/\'); ?>"');
+        errBody = errBody.replace(/href="academics\.html"/g, 'href="<?php echo home_url(\'/academics/\'); ?>"');
+        let errPhp = `<?php get_header(); ?>\n` + errBody + `\n<?php get_footer(); ?>`;
+        fs.writeFileSync(path.join(THEME_DIR, '404.php'), errPhp);
         console.log('Generated rich 404.php from 404.html.');
     }
 }
 
+// 5. Generate header.php
+const headerTemplate = `<!DOCTYPE html>
+<html <?php language_attributes(); ?> class="scroll-smooth">
+<head>
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php wp_head(); ?>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?v=<?php echo time(); ?>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0b2545',
+                        primaryDark: '#061526',
+                        secondary: '#e63946',
+                        secondaryDark: '#c1121f',
+                        accent: '#ffb703',
+                        lightBg: '#f8fafc',
+                        darkText: '#1e293b'
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                        cinzel: ['"Cinzel"', 'serif'],
+                        inter: ['"Inter"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+</head>
+<body <?php body_class( 'font-sans text-darkText bg-white antialiased' ); ?> x-data="{ mobileMenuOpen: false }">
+<?php wp_body_open(); ?>
+`;
+
+// Extract navigation from index.html
+let indexContent = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
+let topHeaderStart = indexContent.indexOf('<!-- Top Bar -->');
+let heroStart = indexContent.indexOf('<!-- 3. Hero Section');
+if (topHeaderStart === -1) topHeaderStart = indexContent.indexOf('<div class="bg-primary text-white');
+let navHtml = indexContent.substring(topHeaderStart, heroStart);
+
 function fixAssetPaths(html) {
-    let fixed = html;
+    let out = html.replace(/src="assets\//g, 'src="<?php echo get_template_directory_uri(); ?>/assets/');
+    out = out.replace(/src="school images google\//g, 'src="<?php echo get_template_directory_uri(); ?>/school images google/');
+    out = out.replace(/src="School Images\//g, 'src="<?php echo get_template_directory_uri(); ?>/School Images/');
+    out = out.replace(/src="Achievements\//g, 'src="<?php echo get_template_directory_uri(); ?>/Achievements/');
+    out = out.replace(/src="Notice\.png"/g, 'src="<?php echo get_template_directory_uri(); ?>/Notice.png"');
     
-    // Fix src attributes (excluding absolute URLs like http/https)
-    fixed = fixed.replace(/src="(?!http|\/\/|<)([^"]+)"/g, 'src="<?php echo get_template_directory_uri(); ?>/$1?v=<?php echo time(); ?>"');
+    // Convert links to WordPress URLs
+    out = out.replace(/href="index\.html"/g, 'href="<?php echo home_url(\'/\'); ?>"');
+    out = out.replace(/href="about\.html"/g, 'href="<?php echo home_url(\'/about/\'); ?>"');
+    out = out.replace(/href="academics\.html"/g, 'href="<?php echo home_url(\'/academics/\'); ?>"');
+    out = out.replace(/href="facilities\.html"/g, 'href="<?php echo home_url(\'/facilities/\'); ?>"');
+    out = out.replace(/href="admissions\.html"/g, 'href="<?php echo home_url(\'/admissions/\'); ?>"');
+    out = out.replace(/href="gallery\.html"/g, 'href="<?php echo home_url(\'/gallery/\'); ?>"');
+    out = out.replace(/href="contact\.html"/g, 'href="<?php echo home_url(\'/contact/\'); ?>"');
+    out = out.replace(/href="pre-primary\.html"/g, 'href="<?php echo home_url(\'/pre-primary/\'); ?>"');
+    out = out.replace(/href="primary\.html"/g, 'href="<?php echo home_url(\'/primary/\'); ?>"');
+    out = out.replace(/href="secondary\.html"/g, 'href="<?php echo home_url(\'/secondary/\'); ?>"');
+    out = out.replace(/href="senior-secondary\.html"/g, 'href="<?php echo home_url(\'/senior-secondary/\'); ?>"');
+    out = out.replace(/href="competitive-coaching\.html"/g, 'href="<?php echo home_url(\'/competitive-coaching/\'); ?>"');
+    out = out.replace(/href="teaching-methodology\.html"/g, 'href="<?php echo home_url(\'/teaching-methodology/\'); ?>"');
+    out = out.replace(/href="cbse-disclosure\.html"/g, 'href="<?php echo home_url(\'/cbse-disclosure/\'); ?>"');
     
-    // Fix href for assets and css
-    fixed = fixed.replace(/href="(assets\/[^"]+)"/g, 'href="<?php echo get_template_directory_uri(); ?>/$1?v=<?php echo time(); ?>"');
-    fixed = fixed.replace(/href="(css\/[^"]+)"/g, 'href="<?php echo get_template_directory_uri(); ?>/$1?v=<?php echo time(); ?>"');
-    
-    // Fix background inline styles (excluding absolute URLs)
-    fixed = fixed.replace(/url\(['"]?(?!http|\/\/)([^'"\)]+)['"]?\)/g, "url('<?php echo get_template_directory_uri(); ?>/$1')");
-
-    // Fix internal HTML links to clean WordPress URLs
-    fixed = fixed.replace(/href="index\.html(#?[a-zA-Z0-9_-]*)"/g, 'href="<?php echo home_url(\'/\'); ?>$1"');
-    fixed = fixed.replace(/href="([a-zA-Z0-9_-]+)\.html(#?[a-zA-Z0-9_-]*)"/g, 'href="<?php echo home_url(\'/$1/\'); ?>$2"');
-
-    return fixed;
+    return out;
 }
 
-const indexHtml = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
+const finalHeader = headerTemplate + fixAssetPaths(navHtml);
+fs.writeFileSync(path.join(THEME_DIR, 'header.php'), finalHeader);
+console.log('Generated complete header.php with full desktop & mobile navigation.');
 
-// The complete header ends right before the hero section
-let headerEndMatch = indexHtml.indexOf('<!-- 3. Hero Section');
-if (headerEndMatch === -1) {
-    headerEndMatch = indexHtml.indexOf('<section class="swiper hero-swiper');
-}
+// 6. Generate footer.php
+let footerStart = indexContent.indexOf('<footer');
+let bodyEnd = indexContent.indexOf('</body>');
+let footerHtml = indexContent.substring(footerStart, bodyEnd);
 
-if (headerEndMatch !== -1) {
-    let rawHeader = indexHtml.substring(0, headerEndMatch);
-    rawHeader = rawHeader.replace('</head>', '    <?php wp_head(); ?>\n</head>');
-    let headerHtml = fixAssetPaths(rawHeader);
-    fs.writeFileSync(path.join(THEME_DIR, 'header.php'), headerHtml);
-    console.log('Generated complete header.php with full desktop & mobile navigation.');
-}
+const footerTemplate = fixAssetPaths(footerHtml) + `
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/js/main.js?v=<?php echo time(); ?>"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/js/animations.js?v=<?php echo time(); ?>"></script>
+    <?php wp_footer(); ?>
+</body>
+</html>`;
+fs.writeFileSync(path.join(THEME_DIR, 'footer.php'), footerTemplate);
+console.log('Generated footer.php.');
 
-const footerStartMatch = indexHtml.indexOf('<footer');
-if (footerStartMatch !== -1) {
-    let rawFooter = indexHtml.substring(footerStartMatch);
-    rawFooter = rawFooter.replace('</body>', '    <?php wp_footer(); ?>\n</body>');
-    let footerHtml = fixAssetPaths(rawFooter);
-    fs.writeFileSync(path.join(THEME_DIR, 'footer.php'), footerHtml);
-    console.log('Generated footer.php.');
-}
-
-// Generate Templates for Pages
+// 7. Generate page templates
 const pages = [
     { file: 'index.html', template: 'front-page.php' },
     { file: 'about.html', template: 'page-about.php' },
@@ -232,6 +670,7 @@ pages.forEach(p => {
             let bodyContent = content.substring(headerEnd, footerStart);
             bodyContent = fixAssetPaths(bodyContent);
             
+            // Admissions Forminator hook
             if (p.template === 'page-admissions.php') {
                 const formStart = bodyContent.indexOf('<form class="space-y-4"');
                 const formEnd = bodyContent.indexOf('</form>', formStart);
@@ -267,6 +706,7 @@ ${fallbackForm}
                 }
             }
 
+            // Contact Forminator hook
             if (p.template === 'page-contact.php') {
                 const formStart = bodyContent.indexOf('<form action="#" method="POST" class="space-y-4">');
                 const formEnd = bodyContent.indexOf('</form>', formStart);
@@ -294,6 +734,257 @@ ${fallbackForm}
                     bodyContent = bodyContent.substring(0, formStart) + phpReplacement + bodyContent.substring(formEnd + 7);
                 }
             }
+
+            // Dynamic Achievements Hook for Gallery Page
+            if (p.template === 'page-gallery.php') {
+                const achSectionIdx = bodyContent.indexOf('id="achievements"');
+                if (achSectionIdx !== -1) {
+                    const gridMarker = '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">';
+                    const gridStart = bodyContent.indexOf(gridMarker, achSectionIdx);
+                    if (gridStart !== -1) {
+                        const gridEndMarker = '</div>\n        </div>\n    </section>';
+                        const gridEndMarkerCRLF = '</div>\r\n        </div>\r\n    </section>';
+                        let gridEnd = bodyContent.indexOf(gridEndMarker, gridStart);
+                        let markerLen = gridEndMarker.length;
+                        if (gridEnd === -1) {
+                            gridEnd = bodyContent.indexOf(gridEndMarkerCRLF, gridStart);
+                            markerLen = gridEndMarkerCRLF.length;
+                        }
+                        if (gridEnd !== -1) {
+                            const fallbackCards = bodyContent.substring(gridStart + gridMarker.length, gridEnd);
+                            const dynamicGalleryPhp = `${gridMarker}
+            <?php
+            $gallery_achievements = new WP_Query( array(
+                'post_type'      => 'tmisb_achievement',
+                'posts_per_page' => -1,
+                'post_status'    => 'publish',
+                'orderby'        => array( 'menu_order' => 'ASC', 'date' => 'DESC' ),
+            ) );
+
+            if ( $gallery_achievements->have_posts() ) :
+                while ( $gallery_achievements->have_posts() ) : $gallery_achievements->the_post();
+                    $badge        = get_post_meta( get_the_ID(), '_tmisb_achievement_badge', true );
+                    $badge_color  = get_post_meta( get_the_ID(), '_tmisb_achievement_badge_color', true ) ?: 'secondary';
+                    $caption      = get_post_meta( get_the_ID(), '_tmisb_achievement_caption', true );
+                    $image_only   = get_post_meta( get_the_ID(), '_tmisb_achievement_image_only', true );
+                    $legacy_img   = get_post_meta( get_the_ID(), '_tmisb_achievement_legacy_image', true );
+                    
+                    $img_url = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+                    if ( ! $img_url && $legacy_img ) {
+                        $img_url = get_template_directory_uri() . '/' . $legacy_img;
+                    }
+                    $badge_class = ( $badge_color === 'primary' ) ? 'text-primary' : 'text-secondary';
+            ?>
+                <?php if ( $image_only === '1' ) : ?>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
+                        <?php if ( $img_url ) : ?>
+                            <img src="<?php echo esc_url( $img_url ); ?>" alt="<?php the_title_attribute(); ?>" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
+                        <?php endif; ?>
+                    </div>
+                <?php else : ?>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex flex-col">
+                        <div class="p-3 bg-gray-50 flex items-center justify-center flex-grow">
+                            <?php if ( $img_url ) : ?>
+                                <img src="<?php echo esc_url( $img_url ); ?>" alt="<?php the_title_attribute(); ?>" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
+                            <?php else : ?>
+                                <div class="w-full h-64 bg-gray-100 flex items-center justify-center text-gray-400">
+                                    <i class="fas fa-award text-4xl"></i>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        <div class="p-4 border-t border-gray-100 bg-white">
+                            <?php if ( ! empty( $badge ) ) : ?>
+                                <span class="text-[10px] font-bold uppercase tracking-wider <?php echo esc_attr( $badge_class ); ?>"><?php echo esc_html( $badge ); ?></span>
+                            <?php endif; ?>
+                            <h4 class="nav-font font-bold text-base text-primary"><?php the_title(); ?></h4>
+                            <?php if ( ! empty( $caption ) ) : ?>
+                                <p class="text-xs text-gray-500 mt-1"><?php echo esc_html( $caption ); ?></p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            <?php
+                endwhile;
+                wp_reset_postdata();
+            else :
+            ?>
+${fallbackCards}
+            <?php endif; ?>
+            </div>
+        </div>
+    </section>`;
+                            bodyContent = bodyContent.substring(0, gridStart) + dynamicGalleryPhp + bodyContent.substring(gridEnd + markerLen);
+                        }
+                    }
+                }
+            }
+
+            // Dynamic Achievements Hook for Homepage (Section 8.5)
+            if (p.template === 'front-page.php') {
+                const homeAchIdx = bodyContent.indexOf('<!-- 8.5 Student Achievements -->');
+                if (homeAchIdx !== -1) {
+                    const gridMarker = '<div class="flex lg:grid lg:grid-cols-4 gap-6 overflow-x-auto snap-x snap-mandatory pb-6" style="scrollbar-width: none; -ms-overflow-style: none;">';
+                    const gridStart = bodyContent.indexOf(gridMarker, homeAchIdx);
+                    if (gridStart !== -1) {
+                        const gridEndMarker = '</div>\n            \n            <div class="text-center mt-12">';
+                        const gridEndMarkerCRLF = '</div>\r\n            \r\n            <div class="text-center mt-12">';
+                        let gridEnd = bodyContent.indexOf(gridEndMarker, gridStart);
+                        let markerLen = gridEndMarker.length;
+                        if (gridEnd === -1) {
+                            gridEnd = bodyContent.indexOf(gridEndMarkerCRLF, gridStart);
+                            markerLen = gridEndMarkerCRLF.length;
+                        }
+                        if (gridEnd !== -1) {
+                            const fallbackCards = bodyContent.substring(gridStart + gridMarker.length, gridEnd);
+                            const dynamicHomePhp = `${gridMarker}
+                <style>
+                    /* Hide scrollbar for Chrome, Safari and Opera */
+                    .flex.overflow-x-auto::-webkit-scrollbar {
+                        display: none;
+                    }
+                </style>
+            <?php
+            $home_achievements = new WP_Query( array(
+                'post_type'      => 'tmisb_achievement',
+                'posts_per_page' => 8,
+                'post_status'    => 'publish',
+                'orderby'        => array( 'menu_order' => 'ASC', 'date' => 'DESC' ),
+                'meta_query'     => array(
+                    'relation' => 'OR',
+                    array(
+                        'key'     => '_tmisb_achievement_show_home',
+                        'value'   => '1',
+                        'compare' => '=',
+                    ),
+                    array(
+                        'key'     => '_tmisb_achievement_show_home',
+                        'compare' => 'NOT EXISTS',
+                    ),
+                ),
+            ) );
+
+            if ( $home_achievements->have_posts() ) :
+                while ( $home_achievements->have_posts() ) : $home_achievements->the_post();
+                    $badge        = get_post_meta( get_the_ID(), '_tmisb_achievement_badge', true );
+                    $badge_color  = get_post_meta( get_the_ID(), '_tmisb_achievement_badge_color', true ) ?: 'secondary';
+                    $caption      = get_post_meta( get_the_ID(), '_tmisb_achievement_caption', true );
+                    $legacy_img   = get_post_meta( get_the_ID(), '_tmisb_achievement_legacy_image', true );
+                    
+                    $img_url = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+                    if ( ! $img_url && $legacy_img ) {
+                        $img_url = get_template_directory_uri() . '/' . $legacy_img;
+                    }
+                    $badge_pill = ( $badge_color === 'primary' ) ? 'bg-primary' : 'bg-secondary';
+            ?>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex-none w-[85%] sm:w-[45%] lg:w-auto snap-center flex flex-col">
+                    <div class="overflow-hidden bg-gray-50 p-3 flex-grow flex items-center justify-center">
+                        <?php if ( $img_url ) : ?>
+                            <img src="<?php echo esc_url( $img_url ); ?>" alt="<?php the_title_attribute(); ?>" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
+                        <?php else : ?>
+                            <div class="w-full h-64 bg-gray-100 flex items-center justify-center text-gray-400">
+                                <i class="fas fa-award text-4xl"></i>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="p-4 border-t border-gray-100 bg-white">
+                        <?php if ( ! empty( $badge ) ) : ?>
+                            <span class="inline-block <?php echo esc_attr( $badge_pill ); ?> text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded mb-1"><?php echo esc_html( $badge ); ?></span>
+                        <?php endif; ?>
+                        <h4 class="nav-font font-bold text-sm text-primary"><?php the_title(); ?></h4>
+                        <?php if ( ! empty( $caption ) ) : ?>
+                            <p class="text-xs text-gray-500 mt-1"><?php echo esc_html( $caption ); ?></p>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php
+                endwhile;
+                wp_reset_postdata();
+            else :
+            ?>
+${fallbackCards}
+            <?php endif; ?>
+            </div>
+            
+            <div class="text-center mt-12">`;
+                            bodyContent = bodyContent.substring(0, gridStart) + dynamicHomePhp + bodyContent.substring(gridEnd + markerLen);
+                        }
+                    }
+                }
+            }
+
+            // Dynamic Achievements Hook for Competitive Coaching Page
+            if (p.template === 'page-competitive-coaching.php') {
+                const coachingAchIdx = bodyContent.indexOf('Proven Track Record');
+                if (coachingAchIdx !== -1) {
+                    const gridMarker = '<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">';
+                    const gridStart = bodyContent.indexOf(gridMarker, coachingAchIdx);
+                    const calloutIdx = bodyContent.indexOf('<!-- Callout Emphasis Box -->', gridStart);
+                    if (gridStart !== -1 && calloutIdx !== -1) {
+                        const sub = bodyContent.substring(gridStart, calloutIdx);
+                        const lastDiv = sub.lastIndexOf('</div>');
+                        const secondLastDiv = sub.lastIndexOf('</div>', lastDiv - 1);
+                        if (secondLastDiv !== -1) {
+                            const gridEnd = gridStart + secondLastDiv;
+                            const fallbackCards = bodyContent.substring(gridStart + gridMarker.length, gridEnd);
+                            const dynamicCoachingPhp = `${gridMarker}
+                        <?php
+                        $coaching_achievements = new WP_Query( array(
+                            'post_type'      => 'tmisb_achievement',
+                            'posts_per_page' => 6,
+                            'post_status'    => 'publish',
+                            'orderby'        => array( 'menu_order' => 'ASC', 'date' => 'DESC' ),
+                            'meta_query'     => array(
+                                array(
+                                    'key'     => '_tmisb_achievement_show_coaching',
+                                    'value'   => '1',
+                                    'compare' => '=',
+                                ),
+                            ),
+                        ) );
+
+                        if ( $coaching_achievements->have_posts() ) :
+                            while ( $coaching_achievements->have_posts() ) : $coaching_achievements->the_post();
+                                $badge        = get_post_meta( get_the_ID(), '_tmisb_achievement_badge', true );
+                                $badge_color  = get_post_meta( get_the_ID(), '_tmisb_achievement_badge_color', true ) ?: 'secondary';
+                                $caption      = get_post_meta( get_the_ID(), '_tmisb_achievement_caption', true );
+                                $legacy_img   = get_post_meta( get_the_ID(), '_tmisb_achievement_legacy_image', true );
+                                
+                                $img_url = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+                                if ( ! $img_url && $legacy_img ) {
+                                    $img_url = get_template_directory_uri() . '/' . $legacy_img;
+                                }
+                                $badge_style = ( $badge_color === 'primary' ) ? 'bg-primary/10 text-primary' : 'bg-secondary/10 text-secondary';
+                        ?>
+                            <div class="bg-white rounded-2xl p-4 border border-gray-200 shadow-sm hover:shadow-md transition group">
+                                <div class="bg-gray-50 rounded-xl overflow-hidden p-2 mb-3 border border-gray-100 flex items-center justify-center">
+                                    <?php if ( $img_url ) : ?>
+                                        <img src="<?php echo esc_url( $img_url ); ?>" alt="<?php the_title_attribute(); ?>" class="w-full h-auto max-h-[320px] object-contain transition duration-500 group-hover:scale-105">
+                                    <?php endif; ?>
+                                </div>
+                                <div class="flex items-center justify-between mb-1">
+                                    <?php if ( ! empty( $badge ) ) : ?>
+                                        <span class="<?php echo esc_attr( $badge_style ); ?> text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded"><?php echo esc_html( $badge ); ?></span>
+                                    <?php endif; ?>
+                                    <span class="text-[11px] text-gray-400 font-medium"><?php _e( 'Media / Verified', 'tmisb' ); ?></span>
+                                </div>
+                                <h4 class="nav-font font-bold text-base text-primary"><?php the_title(); ?></h4>
+                                <?php if ( ! empty( $caption ) ) : ?>
+                                    <p class="text-xs text-gray-600 mt-1 leading-relaxed"><?php echo esc_html( $caption ); ?></p>
+                                <?php endif; ?>
+                            </div>
+                        <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        else :
+                        ?>
+${fallbackCards}
+                        <?php endif; ?>
+                        </div>`;
+                            bodyContent = bodyContent.substring(0, gridStart) + dynamicCoachingPhp + bodyContent.substring(gridEnd + 6);
+                        }
+                    }
+                }
+            }
             
             const templateTitle = p.file.replace('.html', '').split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
             let wpTemplate = `<?php\n/* Template Name: ${templateTitle} Page */\nget_header();\n?>\n`;
@@ -313,41 +1004,40 @@ ${fallbackForm}
 });
 
 // Copy assets
-try {
-    console.log('Copying assets...');
-    if(fs.existsSync(path.join(__dirname, 'Achievements'))) {
-        execSync(`xcopy /E /I /Y "${path.join(__dirname, 'Achievements')}" "${path.join(THEME_DIR, 'Achievements')}"`);
-    }
-    if(fs.existsSync(path.join(__dirname, 'assets'))) {
-        execSync(`xcopy /E /I /Y "${path.join(__dirname, 'assets')}" "${path.join(THEME_DIR, 'assets')}"`);
-    }
-    if(fs.existsSync(path.join(__dirname, 'css'))) {
-        execSync(`xcopy /E /I /Y "${path.join(__dirname, 'css')}" "${path.join(THEME_DIR, 'css')}"`);
-    }
-    if(fs.existsSync(path.join(__dirname, 'js'))) {
-        execSync(`xcopy /E /I /Y "${path.join(__dirname, 'js')}" "${path.join(THEME_DIR, 'js')}"`);
-    }
-    if(fs.existsSync(path.join(__dirname, 'Notice.png'))) {
-        execSync(`copy /Y "${path.join(__dirname, 'Notice.png')}" "${path.join(THEME_DIR, 'Notice.png')}"`);
-    }
-    if(fs.existsSync(path.join(__dirname, 'school images google'))) {
-        execSync(`xcopy /E /I /Y "${path.join(__dirname, 'school images google')}" "${path.join(THEME_DIR, 'school images google')}"`);
-    }
-    console.log('Copied assets successfully.');
-} catch (e) {
-    console.error('Error copying assets:', e.message);
+console.log('Copying assets...');
+if (fs.existsSync(path.join(__dirname, 'assets'))) {
+    execSync(`xcopy /E /I /Y "${path.join(__dirname, 'assets')}" "${path.join(THEME_DIR, 'assets')}"`);
 }
+if (fs.existsSync(path.join(__dirname, 'css'))) {
+    execSync(`xcopy /E /I /Y "${path.join(__dirname, 'css')}" "${path.join(THEME_DIR, 'css')}"`);
+}
+if (fs.existsSync(path.join(__dirname, 'js'))) {
+    execSync(`xcopy /E /I /Y "${path.join(__dirname, 'js')}" "${path.join(THEME_DIR, 'js')}"`);
+}
+if (fs.existsSync(path.join(__dirname, 'Achievements'))) {
+    execSync(`xcopy /E /I /Y "${path.join(__dirname, 'Achievements')}" "${path.join(THEME_DIR, 'Achievements')}"`);
+}
+if (fs.existsSync(path.join(__dirname, 'School Images'))) {
+    execSync(`xcopy /E /I /Y "${path.join(__dirname, 'School Images')}" "${path.join(THEME_DIR, 'School Images')}"`);
+}
+if (fs.existsSync(path.join(__dirname, 'school images google'))) {
+    execSync(`xcopy /E /I /Y "${path.join(__dirname, 'school images google')}" "${path.join(THEME_DIR, 'school images google')}"`);
+}
+if (fs.existsSync(path.join(__dirname, 'Notice.png'))) {
+    fs.copyFileSync(path.join(__dirname, 'Notice.png'), path.join(THEME_DIR, 'Notice.png'));
+}
+console.log('Copied assets successfully.');
 
-// 5. Automatically package tmisb-theme.zip
+// Compress theme package to ZIP
+console.log(`Compressing theme package to ${path.basename(ZIP_OUTPUT)}...`);
 try {
-    console.log('Compressing theme package to tmisb-theme.zip...');
     if (fs.existsSync(ZIP_OUTPUT)) {
         fs.unlinkSync(ZIP_OUTPUT);
     }
     execSync(`powershell -Command "Compress-Archive -Path '${THEME_DIR}' -DestinationPath '${ZIP_OUTPUT}' -Force"`);
-    console.log('[SUCCESS] Created tmisb-theme.zip successfully!');
-} catch (e) {
-    console.error('Error creating theme zip:', e.message);
+    console.log(`[SUCCESS] Created ${path.basename(ZIP_OUTPUT)} successfully!`);
+} catch (err) {
+    console.error('[ERROR] Failed to compress theme:', err.message);
 }
 
-console.log('WordPress theme creation complete! Theme is located in wp-theme/tmisb and packaged in tmisb-theme.zip');
+console.log(`WordPress theme creation complete! Theme is located in wp-theme/${THEME_NAME} and packaged in ${path.basename(ZIP_OUTPUT)}`);

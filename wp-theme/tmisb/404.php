@@ -78,7 +78,7 @@
                     </a>
 
                     <!-- Card 3: Laboratories & Facilities -->
-                    <a href="<?php echo home_url('/labs/'); ?>" class="bg-white p-6 rounded-2xl border border-gray-200/80 shadow-sm hover:shadow-xl transition-all duration-300 card-hover group block">
+                    <a href="labs.html" class="bg-white p-6 rounded-2xl border border-gray-200/80 shadow-sm hover:shadow-xl transition-all duration-300 card-hover group block">
                         <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-xl mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                             <i class="fas fa-flask"></i>
                         </div>
@@ -126,4 +126,6 @@
 
         </div>
     </main>
+
+    
 <?php get_footer(); ?>

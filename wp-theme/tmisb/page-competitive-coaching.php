@@ -138,10 +138,61 @@ get_header();
                         </div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <?php
+                        $coaching_achievements = new WP_Query( array(
+                            'post_type'      => 'tmisb_achievement',
+                            'posts_per_page' => 6,
+                            'post_status'    => 'publish',
+                            'orderby'        => array( 'menu_order' => 'ASC', 'date' => 'DESC' ),
+                            'meta_query'     => array(
+                                array(
+                                    'key'     => '_tmisb_achievement_show_coaching',
+                                    'value'   => '1',
+                                    'compare' => '=',
+                                ),
+                            ),
+                        ) );
+
+                        if ( $coaching_achievements->have_posts() ) :
+                            while ( $coaching_achievements->have_posts() ) : $coaching_achievements->the_post();
+                                $badge        = get_post_meta( get_the_ID(), '_tmisb_achievement_badge', true );
+                                $badge_color  = get_post_meta( get_the_ID(), '_tmisb_achievement_badge_color', true ) ?: 'secondary';
+                                $caption      = get_post_meta( get_the_ID(), '_tmisb_achievement_caption', true );
+                                $legacy_img   = get_post_meta( get_the_ID(), '_tmisb_achievement_legacy_image', true );
+                                
+                                $img_url = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+                                if ( ! $img_url && $legacy_img ) {
+                                    $img_url = get_template_directory_uri() . '/' . $legacy_img;
+                                }
+                                $badge_style = ( $badge_color === 'primary' ) ? 'bg-primary/10 text-primary' : 'bg-secondary/10 text-secondary';
+                        ?>
+                            <div class="bg-white rounded-2xl p-4 border border-gray-200 shadow-sm hover:shadow-md transition group">
+                                <div class="bg-gray-50 rounded-xl overflow-hidden p-2 mb-3 border border-gray-100 flex items-center justify-center">
+                                    <?php if ( $img_url ) : ?>
+                                        <img src="<?php echo esc_url( $img_url ); ?>" alt="<?php the_title_attribute(); ?>" class="w-full h-auto max-h-[320px] object-contain transition duration-500 group-hover:scale-105">
+                                    <?php endif; ?>
+                                </div>
+                                <div class="flex items-center justify-between mb-1">
+                                    <?php if ( ! empty( $badge ) ) : ?>
+                                        <span class="<?php echo esc_attr( $badge_style ); ?> text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded"><?php echo esc_html( $badge ); ?></span>
+                                    <?php endif; ?>
+                                    <span class="text-[11px] text-gray-400 font-medium"><?php _e( 'Media / Verified', 'tmisb' ); ?></span>
+                                </div>
+                                <h4 class="nav-font font-bold text-base text-primary"><?php the_title(); ?></h4>
+                                <?php if ( ! empty( $caption ) ) : ?>
+                                    <p class="text-xs text-gray-600 mt-1 leading-relaxed"><?php echo esc_html( $caption ); ?></p>
+                                <?php endif; ?>
+                            </div>
+                        <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        else :
+                        ?>
+
                             <!-- Clipping 1: NEET Medical 2022 -->
                             <div class="bg-white rounded-2xl p-4 border border-gray-200 shadow-sm hover:shadow-md transition group">
                                 <div class="bg-gray-50 rounded-xl overflow-hidden p-2 mb-3 border border-gray-100 flex items-center justify-center">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-neet-medical-toppers.jpg?v=<?php echo time(); ?>" alt="NEET 2022 Results - 10 Students Qualified" class="w-full h-auto max-h-[320px] object-contain transition duration-500 group-hover:scale-105">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-neet-medical-toppers.jpg" alt="NEET 2022 Results - 10 Students Qualified" class="w-full h-auto max-h-[320px] object-contain transition duration-500 group-hover:scale-105">
                                 </div>
                                 <div class="flex items-center justify-between mb-1">
                                     <span class="bg-secondary/10 text-secondary text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">NEET 2022 Medical</span>
@@ -156,7 +207,7 @@ get_header();
                             <!-- Clipping 2: JEE Advanced 2020 Toppers -->
                             <div class="bg-white rounded-2xl p-4 border border-gray-200 shadow-sm hover:shadow-md transition group">
                                 <div class="bg-gray-50 rounded-xl overflow-hidden p-2 mb-3 border border-gray-100 flex items-center justify-center">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-jee-topper-anuj-arya.jpg?v=<?php echo time(); ?>" alt="12th Class Topper - First Attempt Success in JEE Advanced" class="w-full h-auto max-h-[320px] object-contain transition duration-500 group-hover:scale-105">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-jee-topper-anuj-arya.jpg" alt="12th Class Topper - First Attempt Success in JEE Advanced" class="w-full h-auto max-h-[320px] object-contain transition duration-500 group-hover:scale-105">
                                 </div>
                                 <div class="flex items-center justify-between mb-1">
                                     <span class="bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">IIT-JEE Advanced</span>
@@ -171,7 +222,7 @@ get_header();
                             <!-- Clipping 3: 5 Students in JEE Advanced -->
                             <div class="bg-white rounded-2xl p-4 border border-gray-200 shadow-sm hover:shadow-md transition group">
                                 <div class="bg-gray-50 rounded-xl overflow-hidden p-2 mb-3 border border-gray-100 flex items-center justify-center">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-jee-5-students.jpg?v=<?php echo time(); ?>" alt="5 Students Qualified for IIT-JEE Advanced" class="w-full h-auto max-h-[320px] object-contain transition duration-500 group-hover:scale-105">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-jee-5-students.jpg" alt="5 Students Qualified for IIT-JEE Advanced" class="w-full h-auto max-h-[320px] object-contain transition duration-500 group-hover:scale-105">
                                 </div>
                                 <div class="flex items-center justify-between mb-1">
                                     <span class="bg-secondary/10 text-secondary text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">IIT-JEE Mains &amp; Advanced</span>
@@ -186,7 +237,7 @@ get_header();
                             <!-- Clipping 4: ISRO Cyberspace Competition -->
                             <div class="bg-white rounded-2xl p-4 border border-gray-200 shadow-sm hover:shadow-md transition group">
                                 <div class="bg-gray-50 rounded-xl overflow-hidden p-2 mb-3 border border-gray-100 flex items-center justify-center">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-isro-cyber-space.jpg?v=<?php echo time(); ?>" alt="ISRO Cyberspace National Winners" class="w-full h-auto max-h-[320px] object-contain transition duration-500 group-hover:scale-105">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-isro-cyber-space.jpg" alt="ISRO Cyberspace National Winners" class="w-full h-auto max-h-[320px] object-contain transition duration-500 group-hover:scale-105">
                                 </div>
                                 <div class="flex items-center justify-between mb-1">
                                     <span class="bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">ISRO National Laurels</span>
@@ -197,6 +248,8 @@ get_header();
                                     Class 9 students Abhijeet Kumar &amp; Ayush Kumar Singh brought national pride by securing top ranks in ISRO Cyber Space Competition 2020.
                                 </p>
                             </div>
+                        
+                        <?php endif; ?>
                         </div>
                     </div>
 

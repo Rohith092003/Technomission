@@ -5,7 +5,7 @@ get_header();
 <!-- Page Header -->
     <section class="relative py-16 md:py-24 bg-primaryDark overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/cbse-students-campus.jpg?v=<?php echo time(); ?>" alt="TMISB Admissions" class="w-full h-full object-cover opacity-20 filter brightness-90">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/cbse-students-campus.jpg" alt="TMISB Admissions" class="w-full h-full object-cover opacity-20 filter brightness-90">
             <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/95 via-primaryDark/85 to-primaryDark/60"></div>
         </div>
         <div class="container mx-auto px-4 relative z-10 max-w-7xl">
@@ -33,7 +33,7 @@ get_header();
                 <!-- Right Hero Image Showcase -->
                 <div class="lg:col-span-5 hidden lg:block">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/15 group">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/cbse-students-campus.jpg?v=<?php echo time(); ?>" alt="Indian CBSE School Students at TMISB" class="w-full h-80 object-cover transform group-hover:scale-105 transition duration-500">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/cbse-students-campus.jpg" alt="Indian CBSE School Students at TMISB" class="w-full h-80 object-cover transform group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-primaryDark/90 via-primaryDark/20 to-transparent flex items-end p-5">
                             <div class="text-white">
                                 <span class="bg-secondary text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider mb-1 inline-block">CBSE Affiliation: 330331</span>
@@ -66,7 +66,7 @@ get_header();
 
                     <!-- Students Experience Showcase Banner -->
                     <div class="relative rounded-2xl overflow-hidden shadow-md mb-8 border border-gray-200 group">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/cbse-students-learning.jpg?v=<?php echo time(); ?>" alt="Indian CBSE Students Collaborating in School Library" class="w-full h-64 md:h-72 object-cover transform group-hover:scale-105 transition duration-500">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/cbse-students-learning.jpg" alt="Indian CBSE Students Collaborating in School Library" class="w-full h-64 md:h-72 object-cover transform group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-primaryDark/85 via-primaryDark/30 to-transparent flex items-end p-6">
                             <div class="text-white">
                                 <span class="bg-secondary text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded inline-block mb-1.5 shadow">

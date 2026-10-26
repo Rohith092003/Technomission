@@ -5,7 +5,7 @@ get_header();
 <!-- Page Header -->
     <section class="relative py-16 md:py-24 bg-primaryDark overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/campus-building-front.jpg?v=<?php echo time(); ?>" alt="TMISB Campus" class="w-full h-full object-cover opacity-25">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/campus-building-front.jpg" alt="TMISB Campus" class="w-full h-full object-cover opacity-25">
             <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/95 via-primaryDark/80 to-primaryDark/50"></div>
         </div>
         <div class="container mx-auto px-4 relative z-10 max-w-7xl">
@@ -47,7 +47,7 @@ get_header();
             <!-- Featured Real Science Lab Showcase -->
             <div class="mb-12 rounded-2xl overflow-hidden shadow-xl border border-gray-100 bg-white grid grid-cols-1 lg:grid-cols-12 items-center">
                 <div class="lg:col-span-7 h-[300px] md:h-[380px]">
-                    <img src="<?php echo get_template_directory_uri(); ?>/school images google/Science lab.webp?v=<?php echo time(); ?>" alt="TMISB Science Laboratory" class="w-full h-full object-cover">
+                    <img src="<?php echo get_template_directory_uri(); ?>/school images google/Science lab.webp" alt="TMISB Science Laboratory" class="w-full h-full object-cover">
                 </div>
                 <div class="lg:col-span-5 p-6 md:p-8">
                     <div class="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-3 py-1 rounded text-xs font-bold uppercase tracking-wider mb-3">

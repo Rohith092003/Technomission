@@ -6,7 +6,7 @@
                 <!-- Brand Section (4 columns) -->
                 <div class="lg:col-span-4 pr-0 lg:pr-6">
                     <a href="<?php echo home_url('/'); ?>" class="flex items-center mb-6">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.webp?v=<?php echo time(); ?>" alt="TMISB Logo" class="h-16 w-auto bg-white p-2 rounded mr-4">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.webp" alt="TMISB Logo" class="h-16 w-auto bg-white p-2 rounded mr-4">
                         <div>
                             <h2 class="nav-font font-bold text-2xl text-white leading-tight">Techno Mission</h2>
                             <p class="text-[13px] text-gray-400 font-medium tracking-wide mt-1">International School</p>
@@ -40,7 +40,7 @@
                     <h4 class="font-bold text-lg mb-6 text-white border-b border-gray-700 pb-2 inline-block">Campus</h4>
                     <ul class="space-y-3">
                         <li><a href="<?php echo home_url('/facilities/'); ?>" class="hover:text-secondary transition flex items-center"><i class="fas fa-chevron-right text-[10px] mr-2 text-secondary"></i> Campus Facilities</a></li>
-                        <li><a href="<?php echo home_url('/activities/'); ?>" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> Sports</a></li>
+                        <li><a href="activities.html" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> Sports</a></li>
                         <li><a href="#" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> Clubs</a></li>
                         <li><a href="#" class="group inline-flex items-center text-sm hover:text-white transition-all"><i class="fas fa-angle-right text-secondary text-xs mr-2 transition-transform duration-300 group-hover:translate-x-1.5"></i> Events</a></li>
                     </ul>
@@ -107,6 +107,10 @@
             },
         });
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/js/main.js?v=<?php echo time(); ?>"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/js/animations.js?v=<?php echo time(); ?>"></script>
     <?php wp_footer(); ?>
 </body>
 </html>

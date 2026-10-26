@@ -5,7 +5,7 @@ get_header();
 <!-- Page Header -->
     <section class="relative py-16 md:py-32 bg-primaryDark overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="<?php echo get_template_directory_uri(); ?>/school images google/63f03e7eda38af09f9012e779a2c2745.webp?v=<?php echo time(); ?>" alt="Academic Background" class="w-full h-full object-cover opacity-25">
+            <img src="<?php echo get_template_directory_uri(); ?>/school images google/63f03e7eda38af09f9012e779a2c2745.webp" alt="Academic Background" class="w-full h-full object-cover opacity-25">
             <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/95 via-primaryDark/85 to-primaryDark/50"></div>
         </div>
         <div class="container mx-auto px-4 relative z-10 max-w-7xl">
@@ -84,7 +84,7 @@ get_header();
                 <!-- Image & Graphic Side -->
                 <div class="w-full lg:w-5/12 relative">
                     <div class="relative">
-                        <img src="<?php echo get_template_directory_uri(); ?>/school images google/Science lab.webp?v=<?php echo time(); ?>" alt="Students in Classroom" class="rounded-2xl shadow-2xl w-full h-[520px] object-cover">
+                        <img src="<?php echo get_template_directory_uri(); ?>/school images google/Science lab.webp" alt="Students in Classroom" class="rounded-2xl shadow-2xl w-full h-[520px] object-cover">
                         <div class="absolute inset-0 rounded-2xl bg-gradient-to-t from-primaryDark/85 via-transparent to-transparent"></div>
                         
                         <!-- Floating Badge -->

@@ -6,7 +6,7 @@ get_header();
         <div class="swiper-wrapper">
             <!-- Slide 1 -->
             <div class="swiper-slide">
-                <div class="hero-slide relative flex items-center" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/campus-building-front.jpg');">
+                <div class="hero-slide relative flex items-center" style="background-image: url('assets/images/campus-building-front.jpg');">
                     <!-- Elegant Dark Gradient Overlay for left-aligned text -->
                     <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/90 via-primaryDark/60 to-transparent"></div>
                     
@@ -36,7 +36,7 @@ get_header();
 
             <!-- Slide 2 -->
             <div class="swiper-slide">
-                <div class="hero-slide relative flex items-center" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/morning-assembly-students.jpg');">
+                <div class="hero-slide relative flex items-center" style="background-image: url('assets/images/morning-assembly-students.jpg');">
                     <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/90 via-primaryDark/60 to-transparent"></div>
                     
                     <div class="container mx-auto px-4 lg:px-12 relative z-10 w-full">
@@ -62,7 +62,7 @@ get_header();
 
             <!-- Slide 3 -->
             <div class="swiper-slide">
-                <div class="hero-slide relative flex items-center" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/Hero3.png');">
+                <div class="hero-slide relative flex items-center" style="background-image: url('assets/images/Hero3.png');">
                     <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/90 via-primaryDark/60 to-transparent"></div>
                     
                     <div class="container mx-auto px-4 lg:px-12 relative z-10 w-full">
@@ -116,7 +116,7 @@ get_header();
             <div class="flex flex-col lg:flex-row items-center gap-12">
                 <div class="w-full lg:w-1/2">
                     <div class="relative">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/campus-building-front.jpg?v=<?php echo time(); ?>" alt="Techno Mission International School Campus" class="rounded-lg shadow-xl w-full object-cover h-[450px]">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/campus-building-front.jpg" alt="Techno Mission International School Campus" class="rounded-lg shadow-xl w-full object-cover h-[450px]">
                         <div class="absolute -bottom-6 -right-6 bg-secondary p-6 rounded-lg shadow-lg hidden md:block">
                             <p class="nav-font font-bold text-3xl text-white mb-1">29+</p>
                             <p class="text-sm font-semibold text-white">Years of Excellence</p>
@@ -285,7 +285,7 @@ get_header();
                         <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">
                             On-campus integrated coaching for IIT-JEE, NEET, and Olympiads synchronized with board curriculum.
                         </p>
-                        <a href="<?php echo home_url('/academics/'); ?>#specialized" class="inline-flex items-center text-sm font-bold text-secondary hover:text-primary transition-colors">
+                        <a href="academics.html#specialized" class="inline-flex items-center text-sm font-bold text-secondary hover:text-primary transition-colors">
                             Explore Program <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform duration-300"></i>
                         </a>
                     </div>
@@ -387,10 +387,75 @@ get_header();
                         display: none;
                     }
                 </style>
+            <?php
+            $home_achievements = new WP_Query( array(
+                'post_type'      => 'tmisb_achievement',
+                'posts_per_page' => 8,
+                'post_status'    => 'publish',
+                'orderby'        => array( 'menu_order' => 'ASC', 'date' => 'DESC' ),
+                'meta_query'     => array(
+                    'relation' => 'OR',
+                    array(
+                        'key'     => '_tmisb_achievement_show_home',
+                        'value'   => '1',
+                        'compare' => '=',
+                    ),
+                    array(
+                        'key'     => '_tmisb_achievement_show_home',
+                        'compare' => 'NOT EXISTS',
+                    ),
+                ),
+            ) );
+
+            if ( $home_achievements->have_posts() ) :
+                while ( $home_achievements->have_posts() ) : $home_achievements->the_post();
+                    $badge        = get_post_meta( get_the_ID(), '_tmisb_achievement_badge', true );
+                    $badge_color  = get_post_meta( get_the_ID(), '_tmisb_achievement_badge_color', true ) ?: 'secondary';
+                    $caption      = get_post_meta( get_the_ID(), '_tmisb_achievement_caption', true );
+                    $legacy_img   = get_post_meta( get_the_ID(), '_tmisb_achievement_legacy_image', true );
+                    
+                    $img_url = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+                    if ( ! $img_url && $legacy_img ) {
+                        $img_url = get_template_directory_uri() . '/' . $legacy_img;
+                    }
+                    $badge_pill = ( $badge_color === 'primary' ) ? 'bg-primary' : 'bg-secondary';
+            ?>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex-none w-[85%] sm:w-[45%] lg:w-auto snap-center flex flex-col">
+                    <div class="overflow-hidden bg-gray-50 p-3 flex-grow flex items-center justify-center">
+                        <?php if ( $img_url ) : ?>
+                            <img src="<?php echo esc_url( $img_url ); ?>" alt="<?php the_title_attribute(); ?>" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
+                        <?php else : ?>
+                            <div class="w-full h-64 bg-gray-100 flex items-center justify-center text-gray-400">
+                                <i class="fas fa-award text-4xl"></i>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="p-4 border-t border-gray-100 bg-white">
+                        <?php if ( ! empty( $badge ) ) : ?>
+                            <span class="inline-block <?php echo esc_attr( $badge_pill ); ?> text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded mb-1"><?php echo esc_html( $badge ); ?></span>
+                        <?php endif; ?>
+                        <h4 class="nav-font font-bold text-sm text-primary"><?php the_title(); ?></h4>
+                        <?php if ( ! empty( $caption ) ) : ?>
+                            <p class="text-xs text-gray-500 mt-1"><?php echo esc_html( $caption ); ?></p>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php
+                endwhile;
+                wp_reset_postdata();
+            else :
+            ?>
+
+                <style>
+                    /* Hide scrollbar for Chrome, Safari and Opera */
+                    .flex.overflow-x-auto::-webkit-scrollbar {
+                        display: none;
+                    }
+                </style>
                 <!-- Achievement 1: NEET Medical 2022 (10 Students) -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex-none w-[85%] sm:w-[45%] lg:w-auto snap-center flex flex-col">
                     <div class="overflow-hidden bg-gray-50 p-3 flex-grow flex items-center justify-center">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-neet-medical-toppers.jpg?v=<?php echo time(); ?>" alt="NEET 2022 Results - 10 Students Qualified" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-neet-medical-toppers.jpg" alt="NEET 2022 Results - 10 Students Qualified" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-4 border-t border-gray-100 bg-white">
                         <span class="inline-block bg-secondary text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded mb-1">NEET 2022 Medical</span>
@@ -402,7 +467,7 @@ get_header();
                 <!-- Achievement 2: JEE Advanced Toppers (Anuj & Arya) -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex-none w-[85%] sm:w-[45%] lg:w-auto snap-center flex flex-col">
                     <div class="overflow-hidden bg-gray-50 p-3 flex-grow flex items-center justify-center">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-jee-topper-anuj-arya.jpg?v=<?php echo time(); ?>" alt="JEE Advanced Toppers - Anuj Kumar & Arya Kumar" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-jee-topper-anuj-arya.jpg" alt="JEE Advanced Toppers - Anuj Kumar & Arya Kumar" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-4 border-t border-gray-100 bg-white">
                         <span class="inline-block bg-primary text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded mb-1">JEE Advanced Toppers</span>
@@ -414,7 +479,7 @@ get_header();
                 <!-- Achievement 3: JEE Advanced 5 Students Qualified -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex-none w-[85%] sm:w-[45%] lg:w-auto snap-center flex flex-col">
                     <div class="overflow-hidden bg-gray-50 p-3 flex-grow flex items-center justify-center">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-jee-5-students.jpg?v=<?php echo time(); ?>" alt="5 Students Qualified for IIT-JEE Advanced" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-jee-5-students.jpg" alt="5 Students Qualified for IIT-JEE Advanced" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-4 border-t border-gray-100 bg-white">
                         <span class="inline-block bg-secondary text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded mb-1">IIT-JEE Advanced</span>
@@ -426,7 +491,7 @@ get_header();
                 <!-- Achievement 4: ISRO Cyberspace National Winners -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex-none w-[85%] sm:w-[45%] lg:w-auto snap-center flex flex-col">
                     <div class="overflow-hidden bg-gray-50 p-3 flex-grow flex items-center justify-center">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-isro-cyber-space.jpg?v=<?php echo time(); ?>" alt="ISRO Cyberspace Competition National Winners" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-isro-cyber-space.jpg" alt="ISRO Cyberspace Competition National Winners" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-4 border-t border-gray-100 bg-white">
                         <span class="inline-block bg-primary text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded mb-1">ISRO National Laurels</span>
@@ -434,10 +499,12 @@ get_header();
                         <p class="text-xs text-gray-500 mt-1">Abhijeet Kumar &amp; Ayush Kumar Singh shine in ISRO ICC.</p>
                     </div>
                 </div>
+            
+            <?php endif; ?>
             </div>
             
             <div class="text-center mt-12">
-                <a href="<?php echo home_url('/gallery/'); ?>#achievements" class="inline-flex items-center text-primary font-bold hover:text-secondary transition uppercase tracking-wider text-sm border-b-2 border-primary hover:border-secondary pb-1">View All Achievements <i class="fas fa-arrow-right ml-2"></i></a>
+                <a href="gallery.html#achievements" class="inline-flex items-center text-primary font-bold hover:text-secondary transition uppercase tracking-wider text-sm border-b-2 border-primary hover:border-secondary pb-1">View All Achievements <i class="fas fa-arrow-right ml-2"></i></a>
             </div>
         </div>
     </section>
@@ -460,62 +527,62 @@ get_header();
                 <!-- Slide 1: Main Campus Building -->
                 <div class="w-[300px] md:w-[450px] shrink-0">
                     <div class="rounded-xl overflow-hidden shadow-card h-[250px] md:h-[350px]">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/campus-building-front.jpg?v=<?php echo time(); ?>" alt="TMISB Campus Building" class="w-full h-full object-cover">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/campus-building-front.jpg" alt="TMISB Campus Building" class="w-full h-full object-cover">
                     </div>
                 </div>
                 <!-- Slide 2: Science Laboratory -->
                 <div class="w-[300px] md:w-[450px] shrink-0">
                     <div class="rounded-xl overflow-hidden shadow-card h-[250px] md:h-[350px]">
-                        <img src="<?php echo get_template_directory_uri(); ?>/school images google/Science lab.webp?v=<?php echo time(); ?>" alt="Science Laboratory" class="w-full h-full object-cover">
+                        <img src="<?php echo get_template_directory_uri(); ?>/school images google/Science lab.webp" alt="Science Laboratory" class="w-full h-full object-cover">
                     </div>
                 </div>
                 <!-- Slide 3: Morning Assembly & Campus Grounds -->
                 <div class="w-[300px] md:w-[450px] shrink-0">
                     <div class="rounded-xl overflow-hidden shadow-card h-[250px] md:h-[350px]">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/morning-assembly-students.jpg?v=<?php echo time(); ?>" alt="Morning Assembly & School Community" class="w-full h-full object-cover">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/morning-assembly-students.jpg" alt="Morning Assembly & School Community" class="w-full h-full object-cover">
                     </div>
                 </div>
                 <!-- Slide 4: Campus Architecture & Facilities Wing -->
                 <div class="w-[300px] md:w-[450px] shrink-0">
                     <div class="rounded-xl overflow-hidden shadow-card h-[250px] md:h-[350px]">
-                        <img src="<?php echo get_template_directory_uri(); ?>/school images google/63f03e7eda38af09f9012e779a2c2745.webp?v=<?php echo time(); ?>" alt="School Architecture & Campus Wing" class="w-full h-full object-cover">
+                        <img src="<?php echo get_template_directory_uri(); ?>/school images google/63f03e7eda38af09f9012e779a2c2745.webp" alt="School Architecture & Campus Wing" class="w-full h-full object-cover">
                     </div>
                 </div>
                 <!-- Slide 5: Multi-Storey Academic Block -->
                 <div class="w-[300px] md:w-[450px] shrink-0">
                     <div class="rounded-xl overflow-hidden shadow-card h-[250px] md:h-[350px]">
-                        <img src="<?php echo get_template_directory_uri(); ?>/school images google/685f11c1b5a24f6bbf7ff382b40717c5.webp?v=<?php echo time(); ?>" alt="Academic Block" class="w-full h-full object-cover">
+                        <img src="<?php echo get_template_directory_uri(); ?>/school images google/685f11c1b5a24f6bbf7ff382b40717c5.webp" alt="Academic Block" class="w-full h-full object-cover">
                     </div>
                 </div>
                 <!-- Duplicate for infinite loop -->
                 <!-- Slide 1 -->
                 <div class="w-[300px] md:w-[450px] shrink-0">
                     <div class="rounded-xl overflow-hidden shadow-card h-[250px] md:h-[350px]">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/campus-building-front.jpg?v=<?php echo time(); ?>" alt="TMISB Campus Building" class="w-full h-full object-cover">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/campus-building-front.jpg" alt="TMISB Campus Building" class="w-full h-full object-cover">
                     </div>
                 </div>
                 <!-- Slide 2 -->
                 <div class="w-[300px] md:w-[450px] shrink-0">
                     <div class="rounded-xl overflow-hidden shadow-card h-[250px] md:h-[350px]">
-                        <img src="<?php echo get_template_directory_uri(); ?>/school images google/Science lab.webp?v=<?php echo time(); ?>" alt="Science Laboratory" class="w-full h-full object-cover">
+                        <img src="<?php echo get_template_directory_uri(); ?>/school images google/Science lab.webp" alt="Science Laboratory" class="w-full h-full object-cover">
                     </div>
                 </div>
                 <!-- Slide 3 -->
                 <div class="w-[300px] md:w-[450px] shrink-0">
                     <div class="rounded-xl overflow-hidden shadow-card h-[250px] md:h-[350px]">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/morning-assembly-students.jpg?v=<?php echo time(); ?>" alt="Morning Assembly & School Community" class="w-full h-full object-cover">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/morning-assembly-students.jpg" alt="Morning Assembly & School Community" class="w-full h-full object-cover">
                     </div>
                 </div>
                 <!-- Slide 4 -->
                 <div class="w-[300px] md:w-[450px] shrink-0">
                     <div class="rounded-xl overflow-hidden shadow-card h-[250px] md:h-[350px]">
-                        <img src="<?php echo get_template_directory_uri(); ?>/school images google/63f03e7eda38af09f9012e779a2c2745.webp?v=<?php echo time(); ?>" alt="School Architecture & Campus Wing" class="w-full h-full object-cover">
+                        <img src="<?php echo get_template_directory_uri(); ?>/school images google/63f03e7eda38af09f9012e779a2c2745.webp" alt="School Architecture & Campus Wing" class="w-full h-full object-cover">
                     </div>
                 </div>
                 <!-- Slide 5 -->
                 <div class="w-[300px] md:w-[450px] shrink-0">
                     <div class="rounded-xl overflow-hidden shadow-card h-[250px] md:h-[350px]">
-                        <img src="<?php echo get_template_directory_uri(); ?>/school images google/685f11c1b5a24f6bbf7ff382b40717c5.webp?v=<?php echo time(); ?>" alt="Academic Block" class="w-full h-full object-cover">
+                        <img src="<?php echo get_template_directory_uri(); ?>/school images google/685f11c1b5a24f6bbf7ff382b40717c5.webp" alt="Academic Block" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
@@ -605,7 +672,7 @@ get_header();
                 <!-- Image Side -->
                 <div class="w-full lg:w-1/2">
                     <div class="relative h-[320px] sm:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl group">
-                        <img src="<?php echo get_template_directory_uri(); ?>/Notice.png?v=<?php echo time(); ?>" alt="Notice Board" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="<?php echo get_template_directory_uri(); ?>/Notice.png" alt="Notice Board" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
                         <div class="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10 text-white">
                             <span class="bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 sm:mb-4 inline-block shadow-md">Important</span>
