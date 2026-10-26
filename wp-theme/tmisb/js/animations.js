@@ -101,7 +101,7 @@
        ---------------------------------------------------- */
     function initScrollReveals() {
         if (prefersReducedMotion || !('IntersectionObserver' in window)) {
-            document.querySelectorAll('.reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale, .reveal-fade')
+            document.querySelectorAll('.reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale, .reveal-fade, .img-entrance')
                 .forEach(el => el.classList.add('is-revealed'));
             return;
         }

@@ -66,37 +66,20 @@ get_header();
                     </p>
                 </div>
                 
-                <!-- Image & Badge Side -->
+                <!-- Image Showcase (Simple, Clean, No Text, Professional Entrance) -->
                 <div class="w-full lg:w-5/12 relative">
-                    <div class="relative bg-white rounded-2xl p-3 shadow-xl border border-gray-100 group">
-                        <div class="relative rounded-xl overflow-hidden shadow-sm aspect-[16/11]">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/client-images/techno-mission-group-photo.jpg" alt="Techno Mission International School Students & Campus" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-[1.02]">
-                            <div class="absolute inset-0 bg-gradient-to-t from-primaryDark/85 via-transparent to-transparent"></div>
-                            
-                            <!-- Badges on photo -->
-                            <div class="absolute top-3 right-3 bg-primary text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow">
-                                Silk City Bhagalpur
-                            </div>
-                            <div class="absolute bottom-3 left-3 right-3 text-white">
-                                <span class="bg-secondary text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded shadow">CBSE Affiliation 330331</span>
-                                <p class="text-xs font-semibold text-gray-200 mt-1">Our Senior Scholars &amp; Campus Building</p>
-                            </div>
-                        </div>
+                    <div class="img-entrance relative group">
+                        <!-- Subtle Ambient Soft Shadow / Glow -->
+                        <div class="absolute -inset-2 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-100 transition duration-700"></div>
                         
-                        <!-- Floating Badge -->
-                        <div class="mt-3 bg-lightBg p-3.5 rounded-xl border border-gray-100 flex items-center justify-between gap-4">
-                            <div class="flex items-center gap-3">
-                                <div class="w-12 h-12 rounded-lg bg-secondary text-white flex items-center justify-center text-xl font-bold shadow text-white">
-                                    29+
-                                </div>
-                                <div>
-                                    <p class="text-[10px] text-gray-500 font-bold uppercase tracking-wider leading-none">Years of</p>
-                                    <p class="text-base font-bold text-primary leading-tight">Educational Excellence</p>
-                                </div>
-                            </div>
-                            <span class="bg-primary/10 text-primary text-[11px] font-bold uppercase px-2.5 py-1 rounded-md">
-                                Est. 1997
-                            </span>
+                        <!-- Pure Image Container without Overlays or Text -->
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-gray-100 bg-white">
+                            <img 
+                                src="<?php echo get_template_directory_uri(); ?>/assets/images/client-images/techno-mission-group-photo.jpg" 
+                                alt="Techno Mission International School Students & Campus" 
+                                class="w-full h-auto aspect-[16/11] object-cover object-top transition duration-700 ease-out group-hover:scale-[1.025]"
+                                loading="lazy"
+                            >
                         </div>
                     </div>
                 </div>
