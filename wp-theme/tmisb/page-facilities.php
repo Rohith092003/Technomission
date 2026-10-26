@@ -5,7 +5,7 @@ get_header();
 <!-- Page Header -->
     <section class="relative py-16 md:py-24 bg-primaryDark overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="<?php echo get_template_directory_uri(); ?>/school images google/63f03e7eda38af09f9012e779a2c2745.webp?v=<?php echo time(); ?>" alt="TMISB Campus" class="w-full h-full object-cover opacity-25">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/campus-building-front.jpg?v=<?php echo time(); ?>" alt="TMISB Campus" class="w-full h-full object-cover opacity-25">
             <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/95 via-primaryDark/80 to-primaryDark/50"></div>
         </div>
         <div class="container mx-auto px-4 relative z-10 max-w-7xl">

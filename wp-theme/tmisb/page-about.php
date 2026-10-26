@@ -5,7 +5,7 @@ get_header();
 <!-- Page Header -->
     <section class="relative py-16 md:py-32 bg-primaryDark overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="<?php echo get_template_directory_uri(); ?>/school images google/685f11c1b5a24f6bbf7ff382b40717c5.webp?v=<?php echo time(); ?>" alt="Campus Background" class="w-full h-full object-cover opacity-30">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/morning-assembly-students.jpg?v=<?php echo time(); ?>" alt="Campus Background" class="w-full h-full object-cover opacity-30">
             <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/95 via-primaryDark/80 to-primaryDark/40"></div>
         </div>
         <div class="container mx-auto px-4 relative z-10 max-w-7xl">
@@ -69,7 +69,7 @@ get_header();
                 <!-- Image & Badge Side -->
                 <div class="w-full lg:w-5/12 relative">
                     <div class="relative">
-                        <img src="<?php echo get_template_directory_uri(); ?>/school images google/campus_infrastructure_1771715691851_8ss6lp.jpg?v=<?php echo time(); ?>" alt="Students at TMISB" class="rounded-2xl shadow-2xl w-full h-[480px] object-cover">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/campus-building-front.jpg?v=<?php echo time(); ?>" alt="Students at TMISB" class="rounded-2xl shadow-2xl w-full h-[480px] object-cover">
                         <div class="absolute inset-0 rounded-2xl bg-gradient-to-t from-primaryDark/80 via-transparent to-transparent"></div>
                         
                         <!-- Floating Badge -->

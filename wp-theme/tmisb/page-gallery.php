@@ -13,6 +13,39 @@ get_header();
             </div>
         </div>
     </section>
+    
+    <!-- Annual Function Video Highlight -->
+    <section class="py-14 bg-gradient-to-r from-primaryDark via-primary to-primaryDark text-white border-b border-gray-100">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <span class="inline-flex items-center gap-2 bg-secondary text-white text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3 shadow">
+                    <i class="fab fa-youtube text-xs"></i> Official Video Showcase
+                </span>
+                <h2 class="nav-font font-bold text-3xl sm:text-4xl text-white mb-2">Annual Cultural Function</h2>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                    Watch our students bring the stage alive with vibrant dance performances, musical renditions, and dramatic excellence.
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 aspect-video bg-black">
+                <iframe 
+                    src="https://www.youtube-nocookie.com/embed/Y-5ZlrGmU7E?rel=0&modestbranding=1" 
+                    title="Techno Mission International School Annual Function" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen 
+                    class="w-full h-full object-cover">
+                </iframe>
+            </div>
+            
+            <div class="text-center mt-6">
+                <a href="https://youtu.be/Y-5ZlrGmU7E?si=xp78Nm2e-QRmvY1V" target="_blank" class="inline-flex items-center gap-2 text-yellow-300 hover:text-white font-semibold text-xs tracking-wide transition">
+                    <i class="fas fa-external-link-alt text-[10px]"></i> Open in YouTube App / Full Screen
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Achievements Section -->
     <section id="achievements" class="py-20 bg-white">
         <div class="container mx-auto px-4 max-w-7xl">
@@ -24,6 +57,77 @@ get_header();
             
             <!-- Using grid with masonry-like behavior or just standard cols -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Real Achievement 1: NEET Medical 2022 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex flex-col">
+                    <div class="p-3 bg-gray-50 flex items-center justify-center flex-grow">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-neet-medical-toppers.jpg?v=<?php echo time(); ?>" alt="NEET Medical 2022 Results" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-4 border-t border-gray-100">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-secondary">Medical Entrance</span>
+                        <h4 class="nav-font font-bold text-base text-primary">NEET 2022: 10 Students Qualified</h4>
+                        <p class="text-xs text-gray-500 mt-1">Top scores: Kumar Shubham (671/720) &amp; Tarbiya Niyom (668/720)</p>
+                    </div>
+                </div>
+
+                <!-- Real Achievement 2: JEE Advanced Toppers -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex flex-col">
+                    <div class="p-3 bg-gray-50 flex items-center justify-center flex-grow">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-jee-topper-anuj-arya.jpg?v=<?php echo time(); ?>" alt="JEE Advanced Toppers" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-4 border-t border-gray-100">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-primary">IIT-JEE Advanced</span>
+                        <h4 class="nav-font font-bold text-base text-primary">Anuj Kumar (AIR 1015) &amp; Arya Kumar</h4>
+                        <p class="text-xs text-gray-500 mt-1">1st Attempt Success in JEE Advanced</p>
+                    </div>
+                </div>
+
+                <!-- Real Achievement 3: JEE Advanced 5 Students -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex flex-col">
+                    <div class="p-3 bg-gray-50 flex items-center justify-center flex-grow">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-jee-5-students.jpg?v=<?php echo time(); ?>" alt="5 Students in JEE Advanced" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-4 border-t border-gray-100">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-secondary">National Merit</span>
+                        <h4 class="nav-font font-bold text-base text-primary">5 Students in IIT-JEE Advanced</h4>
+                        <p class="text-xs text-gray-500 mt-1">Percentiles: 99.90, 98.27, 97.27, 96.53</p>
+                    </div>
+                </div>
+
+                <!-- Real Achievement 4: ISRO Cyberspace -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex flex-col">
+                    <div class="p-3 bg-gray-50 flex items-center justify-center flex-grow">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/achievement-isro-cyber-space.jpg?v=<?php echo time(); ?>" alt="ISRO Cyberspace Winners" class="w-full h-auto max-h-[380px] object-contain transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-4 border-t border-gray-100">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-primary">National Science</span>
+                        <h4 class="nav-font font-bold text-base text-primary">ISRO Cyberspace Top 500</h4>
+                        <p class="text-xs text-gray-500 mt-1">Abhijeet Kumar &amp; Ayush Kumar Singh</p>
+                    </div>
+                </div>
+
+                <!-- Real Photo 5: Morning Assembly -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex flex-col">
+                    <div class="p-1 bg-gray-50 flex items-center justify-center flex-grow">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/morning-assembly-students.jpg?v=<?php echo time(); ?>" alt="Morning Assembly at TMISB" class="w-full h-auto max-h-[380px] object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-4 border-t border-gray-100">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-primary">Campus Life</span>
+                        <h4 class="nav-font font-bold text-base text-primary">Morning Assembly &amp; Culture</h4>
+                        <p class="text-xs text-gray-500 mt-1">Discipline &amp; Spiritual Harmony at TMISB</p>
+                    </div>
+                </div>
+
+                <!-- Real Photo 6: Campus Building -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group flex flex-col">
+                    <div class="p-1 bg-gray-50 flex items-center justify-center flex-grow">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/campus-building-front.jpg?v=<?php echo time(); ?>" alt="TMISB Campus Building" class="w-full h-auto max-h-[380px] object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-4 border-t border-gray-100">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-secondary">Campus Infrastructure</span>
+                        <h4 class="nav-font font-bold text-base text-primary">Grand Campus Facade</h4>
+                        <p class="text-xs text-gray-500 mt-1">State-of-the-art Architectural Landmark</p>
+                    </div>
+                </div>
                 <!-- Achievement 1 -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 group">
                     <img src="<?php echo get_template_directory_uri(); ?>/Achievements/students_achievements_1771715819718_ewu4r8.jpg?v=<?php echo time(); ?>" alt="Student Achievement" class="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105">
