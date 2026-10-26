@@ -745,10 +745,9 @@ const headerTemplate = `<!DOCTYPE html>
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php wp_head(); ?>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?v=<?php echo time(); ?>">
@@ -758,16 +757,18 @@ const headerTemplate = `<!DOCTYPE html>
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0b2545',
-                        primaryDark: '#061526',
-                        secondary: '#e63946',
-                        secondaryDark: '#c1121f',
+                        primary: '#003c71', // Classic Navy Blue
+                        primaryDark: '#002244', // Darker Navy
+                        secondary: '#e31837', // Vivid Red
+                        secondaryDark: '#c2142d',
+                        secondaryLight: '#ffffff',
                         accent: '#ffb703',
-                        lightBg: '#f8fafc',
+                        lightBg: '#f8f9fa',
                         darkText: '#1e293b'
                     },
                     fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        sans: ['"Open Sans"', '"Plus Jakarta Sans"', 'sans-serif'],
+                        heading: ['"Poppins"', 'sans-serif'],
                         serif: ['"Playfair Display"', 'serif'],
                         cinzel: ['"Cinzel"', 'serif'],
                         inter: ['"Inter"', 'sans-serif']
@@ -777,6 +778,9 @@ const headerTemplate = `<!DOCTYPE html>
         }
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script defer src="<?php echo get_template_directory_uri(); ?>/js/animations.js?v=<?php echo time(); ?>"></script>
+    <?php wp_head(); ?>
 </head>
 <body <?php body_class( 'font-sans text-darkText bg-white antialiased' ); ?> x-data="{ mobileMenuOpen: false }">
 <?php wp_body_open(); ?>
@@ -784,23 +788,41 @@ const headerTemplate = `<!DOCTYPE html>
 
 // Extract navigation from index.html
 let indexContent = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
-let topHeaderStart = indexContent.indexOf('<!-- Top Bar -->');
+let topHeaderStart = indexContent.indexOf('<!-- 1. Top Bar');
+if (topHeaderStart === -1) topHeaderStart = indexContent.indexOf('class="bg-primaryDark text-white');
+if (topHeaderStart === -1) topHeaderStart = indexContent.indexOf('<!-- Top Bar');
 let heroStart = indexContent.indexOf('<!-- 3. Hero Section');
-if (topHeaderStart === -1) topHeaderStart = indexContent.indexOf('<div class="bg-primary text-white');
+if (heroStart === -1) heroStart = indexContent.indexOf('<section class="swiper hero-swiper');
 let navHtml = indexContent.substring(topHeaderStart, heroStart);
 
 function fixAssetPaths(html) {
-    let out = html.replace(/src="assets\//g, 'src="<?php echo get_template_directory_uri(); ?>/assets/');
+    let out = html;
+    
+    // 1. Fix src attributes
+    out = out.replace(/src="assets\//g, 'src="<?php echo get_template_directory_uri(); ?>/assets/');
     out = out.replace(/src="school images google\//g, 'src="<?php echo get_template_directory_uri(); ?>/school images google/');
     out = out.replace(/src="School Images\//g, 'src="<?php echo get_template_directory_uri(); ?>/School Images/');
     out = out.replace(/src="Achievements\//g, 'src="<?php echo get_template_directory_uri(); ?>/Achievements/');
     out = out.replace(/src="Notice\.png"/g, 'src="<?php echo get_template_directory_uri(); ?>/Notice.png"');
+    out = out.replace(/src="js\//g, 'src="<?php echo get_template_directory_uri(); ?>/js/');
+    out = out.replace(/href="css\//g, 'href="<?php echo get_template_directory_uri(); ?>/css/');
+
+    // 2. Fix CSS inline background-image url() attributes (CRITICAL: fixes hero section images)
+    out = out.replace(/url\(['"]?assets\//g, "url('<?php echo get_template_directory_uri(); ?>/assets/");
+    out = out.replace(/url\(['"]?school images google\//g, "url('<?php echo get_template_directory_uri(); ?>/school images google/");
+    out = out.replace(/url\(['"]?School Images\//g, "url('<?php echo get_template_directory_uri(); ?>/School Images/");
+    out = out.replace(/url\(['"]?Achievements\//g, "url('<?php echo get_template_directory_uri(); ?>/Achievements/");
+    out = out.replace(/url\(['"]?Notice\.png['"]?\)/g, "url('<?php echo get_template_directory_uri(); ?>/Notice.png')");
     
-    // Convert links to WordPress URLs
+    // 3. Convert links to WordPress URLs
     out = out.replace(/href="index\.html"/g, 'href="<?php echo home_url(\'/\'); ?>"');
+    out = out.replace(/href="about\.html#([^"]+)"/g, 'href="<?php echo home_url(\'/about/#$1\'); ?>"');
     out = out.replace(/href="about\.html"/g, 'href="<?php echo home_url(\'/about/\'); ?>"');
+    out = out.replace(/href="academics\.html#([^"]+)"/g, 'href="<?php echo home_url(\'/academics/#$1\'); ?>"');
     out = out.replace(/href="academics\.html"/g, 'href="<?php echo home_url(\'/academics/\'); ?>"');
+    out = out.replace(/href="facilities\.html#([^"]+)"/g, 'href="<?php echo home_url(\'/facilities/#$1\'); ?>"');
     out = out.replace(/href="facilities\.html"/g, 'href="<?php echo home_url(\'/facilities/\'); ?>"');
+    out = out.replace(/href="admissions\.html#([^"]+)"/g, 'href="<?php echo home_url(\'/admissions/#$1\'); ?>"');
     out = out.replace(/href="admissions\.html"/g, 'href="<?php echo home_url(\'/admissions/\'); ?>"');
     out = out.replace(/href="gallery\.html"/g, 'href="<?php echo home_url(\'/gallery/\'); ?>"');
     out = out.replace(/href="contact\.html"/g, 'href="<?php echo home_url(\'/contact/\'); ?>"');
@@ -810,6 +832,7 @@ function fixAssetPaths(html) {
     out = out.replace(/href="senior-secondary\.html"/g, 'href="<?php echo home_url(\'/senior-secondary/\'); ?>"');
     out = out.replace(/href="competitive-coaching\.html"/g, 'href="<?php echo home_url(\'/competitive-coaching/\'); ?>"');
     out = out.replace(/href="teaching-methodology\.html"/g, 'href="<?php echo home_url(\'/teaching-methodology/\'); ?>"');
+    out = out.replace(/href="cbse-disclosure\.html#([^"]+)"/g, 'href="<?php echo home_url(\'/cbse-disclosure/#$1\'); ?>"');
     out = out.replace(/href="cbse-disclosure\.html"/g, 'href="<?php echo home_url(\'/cbse-disclosure/\'); ?>"');
     
     return out;

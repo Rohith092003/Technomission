@@ -451,3 +451,20 @@ h1, h2, h3, h4, h5, h6, .nav-font { font-family: 'Poppins', sans-serif; }
     }
 }
 
+/* Core Brand Utility Fallbacks */
+:root {
+    --color-primary: #003c71;
+    --color-primary-dark: #002244;
+    --color-secondary: #e31837;
+    --color-secondary-dark: #c2142d;
+}
+
+.bg-primary { background-color: #003c71 !important; }
+.bg-primaryDark { background-color: #002244 !important; }
+.text-primary { color: #003c71 !important; }
+.bg-secondary { background-color: #e31837 !important; }
+.text-secondary { color: #e31837 !important; }
+.border-primary { border-color: #003c71 !important; }
+.border-secondary { border-color: #e31837 !important; }
+
+

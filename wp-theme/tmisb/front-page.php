@@ -6,7 +6,7 @@ get_header();
         <div class="swiper-wrapper">
             <!-- Slide 1 -->
             <div class="swiper-slide">
-                <div class="hero-slide relative flex items-center" style="background-image: url('assets/images/campus-building-front.jpg');">
+                <div class="hero-slide relative flex items-center" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/campus-building-front.jpg');">
                     <!-- Elegant Dark Gradient Overlay for left-aligned text -->
                     <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/90 via-primaryDark/60 to-transparent"></div>
                     
@@ -36,7 +36,7 @@ get_header();
 
             <!-- Slide 2 -->
             <div class="swiper-slide">
-                <div class="hero-slide relative flex items-center" style="background-image: url('assets/images/morning-assembly-students.jpg');">
+                <div class="hero-slide relative flex items-center" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/morning-assembly-students.jpg');">
                     <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/90 via-primaryDark/60 to-transparent"></div>
                     
                     <div class="container mx-auto px-4 lg:px-12 relative z-10 w-full">
@@ -62,7 +62,7 @@ get_header();
 
             <!-- Slide 3 -->
             <div class="swiper-slide">
-                <div class="hero-slide relative flex items-center" style="background-image: url('assets/images/Hero3.png');">
+                <div class="hero-slide relative flex items-center" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/Hero3.png');">
                     <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/90 via-primaryDark/60 to-transparent"></div>
                     
                     <div class="container mx-auto px-4 lg:px-12 relative z-10 w-full">
@@ -285,7 +285,7 @@ get_header();
                         <p class="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">
                             On-campus integrated coaching for IIT-JEE, NEET, and Olympiads synchronized with board curriculum.
                         </p>
-                        <a href="academics.html#specialized" class="inline-flex items-center text-sm font-bold text-secondary hover:text-primary transition-colors">
+                        <a href="<?php echo home_url('/academics/#specialized'); ?>" class="inline-flex items-center text-sm font-bold text-secondary hover:text-primary transition-colors">
                             Explore Program <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform duration-300"></i>
                         </a>
                     </div>

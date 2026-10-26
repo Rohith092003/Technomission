@@ -373,7 +373,7 @@ get_header();
                         <div class="flex-1">
                             <h4 class="font-bold text-primary text-lg">1. Class-wise Fee Structure (2026–27)</h4>
                             <p class="text-xs text-gray-600 mt-1 mb-3">Transparent monthly/quarterly tuition fee schedule, one-time admission charges, and transport norms.</p>
-                            <a href="admissions.html#eligibility" class="inline-flex items-center text-xs font-bold text-secondary hover:text-red-700 transition">
+                            <a href="<?php echo home_url('/admissions/#eligibility'); ?>" class="inline-flex items-center text-xs font-bold text-secondary hover:text-red-700 transition">
                                 View Fee Norms &amp; Structure <i class="fas fa-arrow-right ml-1.5 text-[10px]"></i>
                             </a>
                         </div>

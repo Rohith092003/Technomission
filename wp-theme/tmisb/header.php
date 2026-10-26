@@ -3,10 +3,9 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php wp_head(); ?>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css?v=<?php echo time(); ?>">
@@ -16,16 +15,18 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0b2545',
-                        primaryDark: '#061526',
-                        secondary: '#e63946',
-                        secondaryDark: '#c1121f',
+                        primary: '#003c71', // Classic Navy Blue
+                        primaryDark: '#002244', // Darker Navy
+                        secondary: '#e31837', // Vivid Red
+                        secondaryDark: '#c2142d',
+                        secondaryLight: '#ffffff',
                         accent: '#ffb703',
-                        lightBg: '#f8fafc',
+                        lightBg: '#f8f9fa',
                         darkText: '#1e293b'
                     },
                     fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        sans: ['"Open Sans"', '"Plus Jakarta Sans"', 'sans-serif'],
+                        heading: ['"Poppins"', 'sans-serif'],
                         serif: ['"Playfair Display"', 'serif'],
                         cinzel: ['"Cinzel"', 'serif'],
                         inter: ['"Inter"', 'sans-serif']
@@ -35,32 +36,13 @@
         }
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script defer src="<?php echo get_template_directory_uri(); ?>/js/animations.js?v=<?php echo time(); ?>"></script>
+    <?php wp_head(); ?>
 </head>
 <body <?php body_class( 'font-sans text-darkText bg-white antialiased' ); ?> x-data="{ mobileMenuOpen: false }">
 <?php wp_body_open(); ?>
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth scroll-pt-32">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Techno Mission International School, Bhagalpur | TMISB</title>
-    <!-- Tailwind CSS for rapid structural styling similar to the reference -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for standard icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Swiper for carousels/sliders -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <!-- Alpine.js for interactive elements (dropdowns, accordions, mobile menu) -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    
-    <script src="js/tailwind-config.js"></script>
-    <script defer src="js/animations.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="bg-white text-gray-700" x-data="{ mobileMenuOpen: false }">
-
-    <!-- 1. Top Bar (Tier 1) -->
+<!-- 1. Top Bar (Tier 1) -->
     <div class="bg-primaryDark text-white py-1.5 hidden md:block text-xs font-semibold tracking-wide">
         <div class="container mx-auto px-4 max-w-[1400px] flex justify-between items-center">
             <div class="flex space-x-6 items-center">
@@ -197,14 +179,14 @@
                         <i class="fas fa-chevron-down text-xs transition duration-200 text-gray-400" :class="open ? 'rotate-180 text-primary' : ''"></i>
                     </button>
                     <div x-show="open" x-collapse x-cloak class="bg-gray-50 rounded-lg my-1.5 px-3 py-2 text-sm flex flex-col space-y-1 border border-gray-100">
-                        <a href="about.html#overview" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">About School</a>
-                        <a href="about.html#vision-mission" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Vision & Mission</a>
-                        <a href="about.html#values" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Our Core Values</a>
-                        <a href="about.html#affiliation" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">CBSE Affiliation</a>
-                        <a href="about.html#director" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Director's Desk</a>
-                        <a href="about.html#principal" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Principal's Desk</a>
-                        <a href="about.html#why-tmisb" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Why Choose TMISB</a>
-                        <a href="about.html#faculty" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Faculty & Staff</a>
+                        <a href="<?php echo home_url('/about/#overview'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">About School</a>
+                        <a href="<?php echo home_url('/about/#vision-mission'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Vision & Mission</a>
+                        <a href="<?php echo home_url('/about/#values'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Our Core Values</a>
+                        <a href="<?php echo home_url('/about/#affiliation'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">CBSE Affiliation</a>
+                        <a href="<?php echo home_url('/about/#director'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Director's Desk</a>
+                        <a href="<?php echo home_url('/about/#principal'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Principal's Desk</a>
+                        <a href="<?php echo home_url('/about/#why-tmisb'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Why Choose TMISB</a>
+                        <a href="<?php echo home_url('/about/#faculty'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Faculty & Staff</a>
                         <a href="<?php echo home_url('/cbse-disclosure/'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-primary font-semibold hover:bg-white rounded transition">CBSE Mandatory Disclosure</a>
                     </div>
                 </div>
@@ -234,11 +216,11 @@
                     </button>
                     <div x-show="open" x-collapse x-cloak class="bg-gray-50 rounded-lg my-1.5 px-3 py-2 text-sm flex flex-col space-y-1 border border-gray-100">
                         <a href="<?php echo home_url('/facilities/'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Facilities Overview</a>
-                        <a href="facilities.html#labs" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Laboratories</a>
-                        <a href="facilities.html#classrooms" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Digital Classrooms</a>
-                        <a href="facilities.html#transport" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Safe Transport</a>
-                        <a href="facilities.html#library" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Library & Resource Centre</a>
-                        <a href="facilities.html#sports" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Sports, NCC & Activities</a>
+                        <a href="<?php echo home_url('/facilities/#labs'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Laboratories</a>
+                        <a href="<?php echo home_url('/facilities/#classrooms'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Digital Classrooms</a>
+                        <a href="<?php echo home_url('/facilities/#transport'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Safe Transport</a>
+                        <a href="<?php echo home_url('/facilities/#library'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Library & Resource Centre</a>
+                        <a href="<?php echo home_url('/facilities/#sports'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Sports, NCC & Activities</a>
                     </div>
                 </div>
 
@@ -250,12 +232,12 @@
                     </button>
                     <div x-show="open" x-collapse x-cloak class="bg-gray-50 rounded-lg my-1.5 px-3 py-2 text-sm flex flex-col space-y-1 border border-gray-100">
                         <a href="<?php echo home_url('/admissions/'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-primary font-semibold hover:bg-white rounded transition">Admissions 2026–27 Overview</a>
-                        <a href="admissions.html#process" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Admission Process (5 Steps)</a>
-                        <a href="admissions.html#apply-online" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Apply Online (Enquiry Form)</a>
-                        <a href="admissions.html#eligibility" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Eligibility & Age Criteria</a>
-                        <a href="admissions.html#documents" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Required Documents Checklist</a>
-                        <a href="admissions.html#assessment" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Entrance Assessment Details</a>
-                        <a href="admissions.html#faqs" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Admissions FAQs</a>
+                        <a href="<?php echo home_url('/admissions/#process'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Admission Process (5 Steps)</a>
+                        <a href="<?php echo home_url('/admissions/#apply-online'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Apply Online (Enquiry Form)</a>
+                        <a href="<?php echo home_url('/admissions/#eligibility'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Eligibility & Age Criteria</a>
+                        <a href="<?php echo home_url('/admissions/#documents'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Required Documents Checklist</a>
+                        <a href="<?php echo home_url('/admissions/#assessment'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Entrance Assessment Details</a>
+                        <a href="<?php echo home_url('/admissions/#faqs'); ?>" @click="mobileMenuOpen = false" class="py-2 px-2 text-gray-600 hover:text-primary hover:bg-white rounded transition">Admissions FAQs</a>
                     </div>
                 </div>
 
@@ -322,14 +304,14 @@
                         <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70 transition-transform duration-200 group-hover:rotate-180"></i>
                     </a>
                     <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
-                        <li><a href="about.html#overview" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">About School</a></li>
-                        <li><a href="about.html#vision-mission" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Vision & Mission</a></li>
-                        <li><a href="about.html#values" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Our Core Values</a></li>
-                        <li><a href="about.html#affiliation" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">CBSE Affiliation</a></li>
-                        <li><a href="about.html#director" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Director's Desk</a></li>
-                        <li><a href="about.html#principal" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Principal's Desk</a></li>
-                        <li><a href="about.html#why-tmisb" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Why Choose TMISB</a></li>
-                        <li><a href="about.html#faculty" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Faculty & Staff</a></li>
+                        <li><a href="<?php echo home_url('/about/#overview'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">About School</a></li>
+                        <li><a href="<?php echo home_url('/about/#vision-mission'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Vision & Mission</a></li>
+                        <li><a href="<?php echo home_url('/about/#values'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Our Core Values</a></li>
+                        <li><a href="<?php echo home_url('/about/#affiliation'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">CBSE Affiliation</a></li>
+                        <li><a href="<?php echo home_url('/about/#director'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Director's Desk</a></li>
+                        <li><a href="<?php echo home_url('/about/#principal'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Principal's Desk</a></li>
+                        <li><a href="<?php echo home_url('/about/#why-tmisb'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Why Choose TMISB</a></li>
+                        <li><a href="<?php echo home_url('/about/#faculty'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Faculty & Staff</a></li>
                         <li><a href="<?php echo home_url('/cbse-disclosure/'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-secondary font-bold text-primary">Mandatory Public Disclosure</a></li>
                     </ul>
                 </li>
@@ -356,11 +338,11 @@
                         <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70 transition-transform duration-200 group-hover:rotate-180"></i>
                     </a>
                     <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-56 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
-                        <li><a href="facilities.html#labs" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Laboratories</a></li>
-                        <li><a href="facilities.html#classrooms" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Digital Classrooms</a></li>
-                        <li><a href="facilities.html#transport" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Safe Transport</a></li>
-                        <li><a href="facilities.html#library" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Library & Resource Centre</a></li>
-                        <li><a href="facilities.html#sports" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Sports, NCC & Activities</a></li>
+                        <li><a href="<?php echo home_url('/facilities/#labs'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Laboratories</a></li>
+                        <li><a href="<?php echo home_url('/facilities/#classrooms'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Digital Classrooms</a></li>
+                        <li><a href="<?php echo home_url('/facilities/#transport'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Safe Transport</a></li>
+                        <li><a href="<?php echo home_url('/facilities/#library'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Library & Resource Centre</a></li>
+                        <li><a href="<?php echo home_url('/facilities/#sports'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Sports, NCC & Activities</a></li>
                     </ul>
                 </li>
 
@@ -370,12 +352,12 @@
                         <i class="fas fa-chevron-down text-[10px] ml-1.5 opacity-70 transition-transform duration-200 group-hover:rotate-180"></i>
                     </a>
                     <ul class="dropdown-menu absolute hidden bg-white shadow-xl border-t-4 border-secondary top-full left-0 w-64 py-2 z-50 transition-opacity opacity-0 group-hover:opacity-100 text-gray-800 font-medium rounded-b">
-                        <li><a href="admissions.html#process" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Admission Process (5 Steps)</a></li>
-                        <li><a href="admissions.html#apply-online" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Apply Online (Enquiry Form)</a></li>
-                        <li><a href="admissions.html#eligibility" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Eligibility & Age Criteria</a></li>
-                        <li><a href="admissions.html#documents" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Required Documents Checklist</a></li>
-                        <li><a href="admissions.html#assessment" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Entrance Assessment Details</a></li>
-                        <li><a href="admissions.html#faqs" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Admissions FAQs</a></li>
+                        <li><a href="<?php echo home_url('/admissions/#process'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Admission Process (5 Steps)</a></li>
+                        <li><a href="<?php echo home_url('/admissions/#apply-online'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Apply Online (Enquiry Form)</a></li>
+                        <li><a href="<?php echo home_url('/admissions/#eligibility'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Eligibility & Age Criteria</a></li>
+                        <li><a href="<?php echo home_url('/admissions/#documents'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Required Documents Checklist</a></li>
+                        <li><a href="<?php echo home_url('/admissions/#assessment'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary border-b border-gray-100">Entrance Assessment Details</a></li>
+                        <li><a href="<?php echo home_url('/admissions/#faqs'); ?>" class="block px-4 py-2 hover:bg-gray-50 hover:text-primary">Admissions FAQs</a></li>
                     </ul>
                 </li>
 
