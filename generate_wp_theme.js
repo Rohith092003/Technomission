@@ -906,12 +906,20 @@ function tmisb_auto_seed_gallery() {
 
     $default_photos = array(
         array(
+            'title'    => 'Senior Secondary Scholars & Campus Pride',
+            'caption'  => 'Graduating batch and student leaders proudly photographed in front of the TMISB campus building',
+            'category' => 'campus',
+            'layout'   => 'wide',
+            'image'    => 'assets/images/client-images/techno-mission-group-photo.jpg',
+            'order'    => 1,
+        ),
+        array(
             'title'    => 'Main Campus',
             'caption'  => 'State-of-the-art infrastructure',
             'category' => 'campus',
             'layout'   => 'standard',
             'image'    => 'assets/images/campus-building-front.jpg',
-            'order'    => 1,
+            'order'    => 2,
         ),
         array(
             'title'    => 'Smart Classrooms',

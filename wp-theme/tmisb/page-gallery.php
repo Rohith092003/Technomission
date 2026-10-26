@@ -250,6 +250,16 @@ get_header();
             else :
             ?>
 
+                <!-- Featured Item: Official Senior Batch & Campus -->
+                <div x-show="filter === 'all' || filter === 'campus' || filter === 'academics'" x-transition class="group relative rounded-xl overflow-hidden shadow-md cursor-pointer md:col-span-2 aspect-[16/10] sm:aspect-[16/9]">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/client-images/techno-mission-group-photo.jpg" alt="Techno Mission Senior Students & Campus" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-primaryDark/90 via-black/30 to-transparent flex flex-col justify-end p-6">
+                        <span class="bg-secondary text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded w-fit mb-2 shadow">Class of Excellence</span>
+                        <h4 class="text-white font-bold text-xl">Senior Secondary Scholars &amp; Campus Pride</h4>
+                        <p class="text-gray-200 text-sm">Graduating batch and student leaders proudly photographed in front of the TMISB campus building</p>
+                    </div>
+                </div>
+
                 <!-- Item 1 -->
                 <div x-show="filter === 'all' || filter === 'campus'" x-transition class="group relative rounded-xl overflow-hidden shadow-md cursor-pointer aspect-square">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/campus-building-front.jpg" alt="Campus Building" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
