@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset="utf-8">
+<title>Rank Math SEO Master Implementation Guide - TMISB</title>
+<style>
+  body {
+    font-family: 'Calibri', 'Arial', sans-serif;
+    color: #2D3748;
+    line-height: 1.6;
+    margin: 40px;
+  }
+  h1 {
+    color: #003C71;
+    font-size: 26pt;
+    border-bottom: 3px solid #E31837;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+  }
+  h2 {
+    color: #003C71;
+    font-size: 18pt;
+    margin-top: 28px;
+    border-bottom: 1px solid #CBD5E0;
+    padding-bottom: 6px;
+  }
+  h3 {
+    color: #E31837;
+    font-size: 14pt;
+    margin-top: 20px;
+    margin-bottom: 6px;
+  }
+  h4 {
+    color: #2B6CB0;
+    font-size: 11pt;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  p {
+    font-size: 11pt;
+    margin: 6px 0;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    font-size: 10pt;
+  }
+  th {
+    background-color: #003C71;
+    color: #FFFFFF;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #002244;
+    font-weight: bold;
+  }
+  td {
+    padding: 8px 10px;
+    border: 1px solid #E2E8F0;
+    vertical-align: top;
+  }
+  tr:nth-child(even) {
+    background-color: #F7FAFC;
+  }
+  .badge-score {
+    background-color: #38A169;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 9pt;
+  }
+  .card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-left: 5px solid #003C71;
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 6px;
+  }
+  .highlight-box {
+    background-color: #EDF2F7;
+    border: 1px dashed #CBD5E0;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin: 10px 0;
+    font-family: 'Consolas', monospace;
+    font-size: 10pt;
+    color: #1A202C;
+  }
+  .alt-box {
+    background-color: #FFF5F5;
+    border-left: 4px solid #E31837;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-style: italic;
+    font-size: 10pt;
+  }
+  ul {
+    margin: 6px 0 12px 20px;
+    font-size: 10.5pt;
+  }
+  li {
+    margin-bottom: 4px;
+  }
+  .meta-tag {
+    font-weight: bold;
+    color: #4A5568;
+  }
+</style>
+</head>
+<body>
+
+<h1>Rank Math SEO Master Implementation Guide</h1>
+<p><strong>Institution:</strong> Techno Mission International School, Bhagalpur (TMISB)<br>
+<strong>Target Optimization Plugin:</strong> Rank Math SEO for WordPress<br>
+<strong>Target Score Requirement:</strong> 75+ to 88+ (Solid Green) across all 14 website pages<br>
+<strong>Date of Release:</strong> 2026-10-26</p>
+
+<div class="card">
+  <h3 style="margin-top:0; color:#003C71;">Rank Math 75+ Green Score Formula</h3>
+  <p>To guarantee a <strong>Green Rank Math Score (75-88+)</strong> on each page, the team must ensure:</p>
+  <ul>
+    <li><strong>Focus Keyword:</strong> Entered in Rank Math and placed within the first 10% of page content.</li>
+    <li><strong>SEO Title:</strong> Starts with or features the Focus Keyword, includes numbers for title readability, and stays under 60 characters.</li>
+    <li><strong>Meta Description:</strong> 150-160 characters, contains Focus Keyword, and ends with an action verb.</li>
+    <li><strong>Image Alt Text:</strong> At least one primary image on the page contains the Focus Keyword.</li>
+    <li><strong>Subheadings:</strong> At least one H2 or H3 heading contains the Focus Keyword.</li>
+  </ul>
+</div>
+
+<h2>Master SEO Summary Table (All 14 Pages)</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 4%;">#</th>
+      <th style="width: 22%;">Page Name</th>
+      <th style="width: 14%;">URL Slug</th>
+      <th style="width: 26%;">Focus Keyword</th>
+      <th style="width: 24%;">SEO Title</th>
+      <th style="width: 10%;">Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td><strong>1</strong></td>
+      <td><strong>Home Page</strong></td>
+      <td><code>/</code></td>
+      <td><code>Best CBSE School in Bhagalpur</code></td>
+      <td>Best CBSE School in Bhagalpur | Admissions Open 2026-27</td>
+      <td><span class="badge-score">85</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>2</strong></td>
+      <td><strong>About Us Page</strong></td>
+      <td><code>/about/</code></td>
+      <td><code>About Techno Mission International School</code></td>
+      <td>About Techno Mission International School | 29+ Years Legacy</td>
+      <td><span class="badge-score">82</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>3</strong></td>
+      <td><strong>Admissions 2026–27</strong></td>
+      <td><code>/admissions/</code></td>
+      <td><code>CBSE School Admission in Bhagalpur</code></td>
+      <td>CBSE School Admission in Bhagalpur 2026-27 | 5-Step Process</td>
+      <td><span class="badge-score">88</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>4</strong></td>
+      <td><strong>Senior Secondary Wing (Classes XI–XII)</strong></td>
+      <td><code>/senior-secondary/</code></td>
+      <td><code>Senior Secondary CBSE School in Bhagalpur</code></td>
+      <td>Senior Secondary CBSE School in Bhagalpur | +2 Wing 2026-27</td>
+      <td><span class="badge-score">84</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>5</strong></td>
+      <td><strong>Middle & Secondary Wing (Classes VI–X)</strong></td>
+      <td><code>/secondary/</code></td>
+      <td><code>CBSE Secondary School in Bhagalpur</code></td>
+      <td>CBSE Secondary School in Bhagalpur | Classes VI to X TMISB</td>
+      <td><span class="badge-score">82</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>6</strong></td>
+      <td><strong>Primary Wing (Classes I–V)</strong></td>
+      <td><code>/primary/</code></td>
+      <td><code>Primary School in Bhagalpur</code></td>
+      <td>Best Primary School in Bhagalpur | Classes 1 to 5 at TMISB</td>
+      <td><span class="badge-score">82</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>7</strong></td>
+      <td><strong>Pre-Primary Wing (Nursery–UKG)</strong></td>
+      <td><code>/pre-primary/</code></td>
+      <td><code>Play School in Bhagalpur</code></td>
+      <td>Best Play School in Bhagalpur | Nursery to UKG Admission</td>
+      <td><span class="badge-score">82</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>8</strong></td>
+      <td><strong>Integrated Competitive Prep (IIT-JEE / NEET)</strong></td>
+      <td><code>/competitive-coaching/</code></td>
+      <td><code>IIT JEE and NEET Coaching in Bhagalpur</code></td>
+      <td>IIT JEE and NEET Coaching in Bhagalpur | School + Coaching</td>
+      <td><span class="badge-score">86</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>9</strong></td>
+      <td><strong>Facilities & Campus Infrastructure</strong></td>
+      <td><code>/facilities/</code></td>
+      <td><code>School Facilities in Bhagalpur</code></td>
+      <td>Modern School Facilities in Bhagalpur | Labs, Library, Bus</td>
+      <td><span class="badge-score">84</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>10</strong></td>
+      <td><strong>Academics Overview</strong></td>
+      <td><code>/academics/</code></td>
+      <td><code>CBSE Curriculum in Bhagalpur</code></td>
+      <td>CBSE Curriculum in Bhagalpur | Academic Framework TMISB</td>
+      <td><span class="badge-score">82</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>11</strong></td>
+      <td><strong>Teaching Methodology & Evaluation</strong></td>
+      <td><code>/teaching-methodology/</code></td>
+      <td><code>Teaching Methodology in CBSE Schools</code></td>
+      <td>Teaching Methodology in CBSE Schools | Evaluation at TMISB</td>
+      <td><span class="badge-score">81</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>12</strong></td>
+      <td><strong>Gallery & Wall of Fame</strong></td>
+      <td><code>/gallery/</code></td>
+      <td><code>Techno Mission International School Gallery</code></td>
+      <td>Techno Mission International School Gallery | Campus & Events</td>
+      <td><span class="badge-score">83</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>13</strong></td>
+      <td><strong>Contact Us</strong></td>
+      <td><code>/contact/</code></td>
+      <td><code>Techno Mission School Bhagalpur Contact</code></td>
+      <td>Techno Mission School Bhagalpur Contact | Address & Phone</td>
+      <td><span class="badge-score">85</span></td>
+    </tr>
+    
+    <tr>
+      <td><strong>14</strong></td>
+      <td><strong>CBSE Mandatory Public Disclosure</strong></td>
+      <td><code>/cbse-disclosure/</code></td>
+      <td><code>CBSE Mandatory Public Disclosure TMISB</code></td>
+      <td>CBSE Mandatory Public Disclosure TMISB | Affiliation 330331</td>
+      <td><span class="badge-score">86</span></td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h2>Complete Page-by-Page Blueprints</h2>
+
+
+<div class="card">
+  <h3 style="margin-top:0;">1. Home Page</h3>
+  <p><span class="meta-tag">URL:</span> <a href="https://technomission.in/">https://technomission.in/</a> &nbsp;|&nbsp; <span class="meta-tag">Target Score:</span> <span class="badge-score">85 / 100 (Solid Green)</span> &nbsp;|&nbsp; <span class="meta-tag">Length:</span> 1,200+ Words</p>
+  
+  <h4>Rank Math Focus Keyword:</h4>
+  <div class="highlight-box"><strong>Best CBSE School in Bhagalpur</strong></div>
+
+  <h4>Rank Math SEO Title (57 Chars):</h4>
+  <div class="highlight-box">Best CBSE School in Bhagalpur | Admissions Open 2026-27</div>
+
+  <h4>Rank Math Meta Description (158 Chars):</h4>
+  <div class="highlight-box">Looking for the best CBSE school in Bhagalpur? Techno Mission International School offers K-12 education, smart labs & NEET/JEE prep. Apply for 2026-27 today!</div>
+
+  <h4>5 Important Secondary Keywords for Content:</h4>
+  <ul>
+    <li><strong>Top CBSE affiliated school in Bhagalpur</strong></li><li><strong>School admissions Bhagalpur 2026-27</strong></li><li><strong>Techno Mission International School Bhagalpur</strong></li><li><strong>K-12 English medium school Bihar</strong></li><li><strong>Best school with hostel and sports Bhagalpur</strong></li>
+  </ul>
+
+  <h4>Image Alt Attribute (Mandatory for Rank Math 75+):</h4>
+  <div class="alt-box"><strong>Alt Text:</strong> "Best CBSE school in Bhagalpur Techno Mission International School students batch and modern campus building"</div>
+
+  <h4>Recommended Headings for Gutenberg / Page Editor:</h4>
+  <p><span class="meta-tag">H2 Heading:</span> Why TMISB is the Best CBSE School in Bhagalpur for Modern Education<br>
+  <span class="meta-tag">H3 Heading:</span> Comprehensive Academic Programs & Integrated Competitive Prep</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0;">2. About Us Page</h3>
+  <p><span class="meta-tag">URL:</span> <a href="https://technomission.in/about/">https://technomission.in/about/</a> &nbsp;|&nbsp; <span class="meta-tag">Target Score:</span> <span class="badge-score">82 / 100 (Solid Green)</span> &nbsp;|&nbsp; <span class="meta-tag">Length:</span> 1,100+ Words</p>
+  
+  <h4>Rank Math Focus Keyword:</h4>
+  <div class="highlight-box"><strong>About Techno Mission International School</strong></div>
+
+  <h4>Rank Math SEO Title (60 Chars):</h4>
+  <div class="highlight-box">About Techno Mission International School | 29+ Years Legacy</div>
+
+  <h4>Rank Math Meta Description (160 Chars):</h4>
+  <div class="highlight-box">Learn about Techno Mission International School Bhagalpur: 29+ years legacy, CBSE Affiliation 330331, Jagriti Trust, leadership & holistic educational philosophy.</div>
+
+  <h4>5 Important Secondary Keywords for Content:</h4>
+  <ul>
+    <li><strong>Techno Mission International School history</strong></li><li><strong>CBSE Affiliation 330331 Bhagalpur</strong></li><li><strong>Best school leadership in Bhagalpur Bihar</strong></li><li><strong>School core values and holistic education</strong></li><li><strong>Jagriti Charitable Trust educational institutions</strong></li>
+  </ul>
+
+  <h4>Image Alt Attribute (Mandatory for Rank Math 75+):</h4>
+  <div class="alt-box"><strong>Alt Text:</strong> "About Techno Mission International School graduating batch and senior student community in front of CBSE campus"</div>
+
+  <h4>Recommended Headings for Gutenberg / Page Editor:</h4>
+  <p><span class="meta-tag">H2 Heading:</span> About Techno Mission International School: Educational Philosophy & Vision<br>
+  <span class="meta-tag">H3 Heading:</span> CBSE Affiliation Credentials & Trusted Leadership at TMISB</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0;">3. Admissions 2026–27</h3>
+  <p><span class="meta-tag">URL:</span> <a href="https://technomission.in/admissions/">https://technomission.in/admissions/</a> &nbsp;|&nbsp; <span class="meta-tag">Target Score:</span> <span class="badge-score">88 / 100 (Solid Green)</span> &nbsp;|&nbsp; <span class="meta-tag">Length:</span> 1,300+ Words</p>
+  
+  <h4>Rank Math Focus Keyword:</h4>
+  <div class="highlight-box"><strong>CBSE School Admission in Bhagalpur</strong></div>
+
+  <h4>Rank Math SEO Title (58 Chars):</h4>
+  <div class="highlight-box">CBSE School Admission in Bhagalpur 2026-27 | 5-Step Process</div>
+
+  <h4>Rank Math Meta Description (159 Chars):</h4>
+  <div class="highlight-box">Apply for CBSE school admission in Bhagalpur for session 2026-27 at TMISB. Check 5-step process, eligibility, documents checklist & apply online in 2 minutes.</div>
+
+  <h4>5 Important Secondary Keywords for Content:</h4>
+  <ul>
+    <li><strong>School admission Bhagalpur 2026-27</strong></li><li><strong>CBSE school admission criteria Bihar</strong></li><li><strong>Online school admission enquiry form</strong></li><li><strong>Nursery to Class 11 admission Bhagalpur</strong></li><li><strong>TMISB entrance assessment and eligibility</strong></li>
+  </ul>
+
+  <h4>Image Alt Attribute (Mandatory for Rank Math 75+):</h4>
+  <div class="alt-box"><strong>Alt Text:</strong> "CBSE school admission in Bhagalpur students entrance assessment and registration at Techno Mission campus"</div>
+
+  <h4>Recommended Headings for Gutenberg / Page Editor:</h4>
+  <p><span class="meta-tag">H2 Heading:</span> CBSE School Admission in Bhagalpur: Simple 5-Step Enrollment Guide<br>
+  <span class="meta-tag">H3 Heading:</span> Required Documents & Eligibility Criteria for Session 2026–27</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0;">4. Senior Secondary Wing (Classes XI–XII)</h3>
+  <p><span class="meta-tag">URL:</span> <a href="https://technomission.in/senior-secondary/">https://technomission.in/senior-secondary/</a> &nbsp;|&nbsp; <span class="meta-tag">Target Score:</span> <span class="badge-score">84 / 100 (Solid Green)</span> &nbsp;|&nbsp; <span class="meta-tag">Length:</span> 1,000+ Words</p>
+  
+  <h4>Rank Math Focus Keyword:</h4>
+  <div class="highlight-box"><strong>Senior Secondary CBSE School in Bhagalpur</strong></div>
+
+  <h4>Rank Math SEO Title (58 Chars):</h4>
+  <div class="highlight-box">Senior Secondary CBSE School in Bhagalpur | +2 Wing 2026-27</div>
+
+  <h4>Rank Math Meta Description (160 Chars):</h4>
+  <div class="highlight-box">Looking for top senior secondary CBSE school in Bhagalpur? TMISB offers Class 11-12 Science (PCM/PCB) & Commerce with integrated JEE/NEET competitive coaching.</div>
+
+  <h4>5 Important Secondary Keywords for Content:</h4>
+  <ul>
+    <li><strong>Best +2 CBSE school in Bhagalpur</strong></li><li><strong>Class 11 and 12 science commerce admission</strong></li><li><strong>CBSE senior secondary affiliation 330331</strong></li><li><strong>IIT JEE and NEET integrated senior wing</strong></li><li><strong>Senior secondary coaching school Bihar</strong></li>
+  </ul>
+
+  <h4>Image Alt Attribute (Mandatory for Rank Math 75+):</h4>
+  <div class="alt-box"><strong>Alt Text:</strong> "Senior secondary CBSE school in Bhagalpur Class 11 and 12 scholars batch at Techno Mission International School"</div>
+
+  <h4>Recommended Headings for Gutenberg / Page Editor:</h4>
+  <p><span class="meta-tag">H2 Heading:</span> Senior Secondary CBSE School in Bhagalpur: Science and Commerce Streams<br>
+  <span class="meta-tag">H3 Heading:</span> Competitive Exam Preparation & Career Mentorship for Classes 11 & 12</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0;">5. Middle & Secondary Wing (Classes VI–X)</h3>
+  <p><span class="meta-tag">URL:</span> <a href="https://technomission.in/secondary/">https://technomission.in/secondary/</a> &nbsp;|&nbsp; <span class="meta-tag">Target Score:</span> <span class="badge-score">82 / 100 (Solid Green)</span> &nbsp;|&nbsp; <span class="meta-tag">Length:</span> 950+ Words</p>
+  
+  <h4>Rank Math Focus Keyword:</h4>
+  <div class="highlight-box"><strong>CBSE Secondary School in Bhagalpur</strong></div>
+
+  <h4>Rank Math SEO Title (57 Chars):</h4>
+  <div class="highlight-box">CBSE Secondary School in Bhagalpur | Classes VI to X TMISB</div>
+
+  <h4>Rank Math Meta Description (158 Chars):</h4>
+  <div class="highlight-box">Explore premier CBSE secondary school in Bhagalpur for Classes 6-10. Rigorous academics, robotics labs, board exam coaching & character development at TMISB.</div>
+
+  <h4>5 Important Secondary Keywords for Content:</h4>
+  <ul>
+    <li><strong>CBSE secondary school Class 6 to 10</strong></li><li><strong>Class 10 board exam coaching Bhagalpur</strong></li><li><strong>STEM robotics and science labs secondary wing</strong></li><li><strong>Secondary school curriculum and assessments TMISB</strong></li><li><strong>Best middle school education Bhagalpur Bihar</strong></li>
+  </ul>
+
+  <h4>Image Alt Attribute (Mandatory for Rank Math 75+):</h4>
+  <div class="alt-box"><strong>Alt Text:</strong> "CBSE secondary school in Bhagalpur students engaged in smart classroom learning at Techno Mission"</div>
+
+  <h4>Recommended Headings for Gutenberg / Page Editor:</h4>
+  <p><span class="meta-tag">H2 Heading:</span> CBSE Secondary School in Bhagalpur: Rigorous Board Exam Readiness<br>
+  <span class="meta-tag">H3 Heading:</span> STEM Labs, Analytical Skills and Comprehensive Evaluation for Classes 6-10</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0;">6. Primary Wing (Classes I–V)</h3>
+  <p><span class="meta-tag">URL:</span> <a href="https://technomission.in/primary/">https://technomission.in/primary/</a> &nbsp;|&nbsp; <span class="meta-tag">Target Score:</span> <span class="badge-score">82 / 100 (Solid Green)</span> &nbsp;|&nbsp; <span class="meta-tag">Length:</span> 950+ Words</p>
+  
+  <h4>Rank Math Focus Keyword:</h4>
+  <div class="highlight-box"><strong>Primary School in Bhagalpur</strong></div>
+
+  <h4>Rank Math SEO Title (57 Chars):</h4>
+  <div class="highlight-box">Best Primary School in Bhagalpur | Classes 1 to 5 at TMISB</div>
+
+  <h4>Rank Math Meta Description (159 Chars):</h4>
+  <div class="highlight-box">Enrol your child in the best primary school in Bhagalpur. Classes 1 to 5 feature foundational literacy, numeracy, experiential science & a caring environment.</div>
+
+  <h4>5 Important Secondary Keywords for Content:</h4>
+  <ul>
+    <li><strong>Best primary school in Bhagalpur Bihar</strong></li><li><strong>Foundational literacy and numeracy CBSE Class 1 to 5</strong></li><li><strong>Activity-based primary school learning</strong></li><li><strong>Safe primary school campus Bhagalpur</strong></li><li><strong>Holistic primary education TMISB</strong></li>
+  </ul>
+
+  <h4>Image Alt Attribute (Mandatory for Rank Math 75+):</h4>
+  <div class="alt-box"><strong>Alt Text:</strong> "Primary school in Bhagalpur children participating in interactive activity-based learning at Techno Mission"</div>
+
+  <h4>Recommended Headings for Gutenberg / Page Editor:</h4>
+  <p><span class="meta-tag">H2 Heading:</span> Primary School in Bhagalpur: Foundational Literacy and Experiential Growth<br>
+  <span class="meta-tag">H3 Heading:</span> Activity-Based Learning and Cognitive Development for Classes 1 to 5</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0;">7. Pre-Primary Wing (Nursery–UKG)</h3>
+  <p><span class="meta-tag">URL:</span> <a href="https://technomission.in/pre-primary/">https://technomission.in/pre-primary/</a> &nbsp;|&nbsp; <span class="meta-tag">Target Score:</span> <span class="badge-score">82 / 100 (Solid Green)</span> &nbsp;|&nbsp; <span class="meta-tag">Length:</span> 950+ Words</p>
+  
+  <h4>Rank Math Focus Keyword:</h4>
+  <div class="highlight-box"><strong>Play School in Bhagalpur</strong></div>
+
+  <h4>Rank Math SEO Title (56 Chars):</h4>
+  <div class="highlight-box">Best Play School in Bhagalpur | Nursery to UKG Admission</div>
+
+  <h4>Rank Math Meta Description (160 Chars):</h4>
+  <div class="highlight-box">Searching for the top play school in Bhagalpur? TMISB Pre-Primary wing provides play-way learning, safe sensory classrooms, loving teachers & child development.</div>
+
+  <h4>5 Important Secondary Keywords for Content:</h4>
+  <ul>
+    <li><strong>Best kindergarten and play school in Bhagalpur</strong></li><li><strong>Nursery LKG UKG admission Bhagalpur 2026-27</strong></li><li><strong>Early childhood care education CBSE school</strong></li><li><strong>Play-way Montessori method Bhagalpur</strong></li><li><strong>Child-friendly kindergarten environment TMISB</strong></li>
+  </ul>
+
+  <h4>Image Alt Attribute (Mandatory for Rank Math 75+):</h4>
+  <div class="alt-box"><strong>Alt Text:</strong> "Best play school in Bhagalpur kindergarten children engaged in creative play and Montessori activities at TMISB"</div>
+
+  <h4>Recommended Headings for Gutenberg / Page Editor:</h4>
+  <p><span class="meta-tag">H2 Heading:</span> Play School in Bhagalpur: Play-Way Montessori Method for Little Learners<br>
+  <span class="meta-tag">H3 Heading:</span> Safe Learning Spaces & Early Childhood Development at TMISB</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0;">8. Integrated Competitive Prep (IIT-JEE / NEET)</h3>
+  <p><span class="meta-tag">URL:</span> <a href="https://technomission.in/competitive-coaching/">https://technomission.in/competitive-coaching/</a> &nbsp;|&nbsp; <span class="meta-tag">Target Score:</span> <span class="badge-score">86 / 100 (Solid Green)</span> &nbsp;|&nbsp; <span class="meta-tag">Length:</span> 1,150+ Words</p>
+  
+  <h4>Rank Math Focus Keyword:</h4>
+  <div class="highlight-box"><strong>IIT JEE and NEET Coaching in Bhagalpur</strong></div>
+
+  <h4>Rank Math SEO Title (57 Chars):</h4>
+  <div class="highlight-box">IIT JEE and NEET Coaching in Bhagalpur | School + Coaching</div>
+
+  <h4>Rank Math Meta Description (159 Chars):</h4>
+  <div class="highlight-box">Top IIT JEE and NEET coaching in Bhagalpur with CBSE schooling at TMISB. Synchronized coaching, expert mentors, high ranks & proven entrance exam track record.</div>
+
+  <h4>5 Important Secondary Keywords for Content:</h4>
+  <ul>
+    <li><strong>Integrated IIT JEE coaching school Bhagalpur</strong></li><li><strong>NEET medical entrance preparation school Bihar</strong></li><li><strong>School with integrated competitive coaching</strong></li><li><strong>TMISB engineering and medical toppers</strong></li><li><strong>Olympiad NTSE scholarship coaching Bhagalpur</strong></li>
+  </ul>
+
+  <h4>Image Alt Attribute (Mandatory for Rank Math 75+):</h4>
+  <div class="alt-box"><strong>Alt Text:</strong> "IIT JEE and NEET coaching in Bhagalpur toppers achieving high ranks from Techno Mission International School"</div>
+
+  <h4>Recommended Headings for Gutenberg / Page Editor:</h4>
+  <p><span class="meta-tag">H2 Heading:</span> Proven IIT JEE and NEET Coaching in Bhagalpur Synchronized with Schooling<br>
+  <span class="meta-tag">H3 Heading:</span> Dedicated Faculty, Study Modules and Real Test Series Track Record</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0;">9. Facilities & Campus Infrastructure</h3>
+  <p><span class="meta-tag">URL:</span> <a href="https://technomission.in/facilities/">https://technomission.in/facilities/</a> &nbsp;|&nbsp; <span class="meta-tag">Target Score:</span> <span class="badge-score">84 / 100 (Solid Green)</span> &nbsp;|&nbsp; <span class="meta-tag">Length:</span> 1,100+ Words</p>
+  
+  <h4>Rank Math Focus Keyword:</h4>
+  <div class="highlight-box"><strong>School Facilities in Bhagalpur</strong></div>
+
+  <h4>Rank Math SEO Title (58 Chars):</h4>
+  <div class="highlight-box">Modern School Facilities in Bhagalpur | Labs, Library, Bus</div>
+
+  <h4>Rank Math Meta Description (158 Chars):</h4>
+  <div class="highlight-box">Explore world-class school facilities in Bhagalpur at TMISB: digital classrooms, robotics & science labs, central library, safe GPS bus fleet & sports arena.</div>
+
+  <h4>5 Important Secondary Keywords for Content:</h4>
+  <ul>
+    <li><strong>Modern school campus facilities Bhagalpur</strong></li><li><strong>Smart classrooms and advanced science labs</strong></li><li><strong>School with GPS bus transport Bhagalpur</strong></li><li><strong>Digital library and reading room TMISB</strong></li><li><strong>Sports playground basketball court NCC school</strong></li>
+  </ul>
+
+  <h4>Image Alt Attribute (Mandatory for Rank Math 75+):</h4>
+  <div class="alt-box"><strong>Alt Text:</strong> "Modern school facilities in Bhagalpur central library and digital resource centre at Techno Mission International School"</div>
+
+  <h4>Recommended Headings for Gutenberg / Page Editor:</h4>
+  <p><span class="meta-tag">H2 Heading:</span> World-Class School Facilities in Bhagalpur for Academic & Physical Growth<br>
+  <span class="meta-tag">H3 Heading:</span> Advanced Science Labs, Central Library & Safe GPS Fleet</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0;">10. Academics Overview</h3>
+  <p><span class="meta-tag">URL:</span> <a href="https://technomission.in/academics/">https://technomission.in/academics/</a> &nbsp;|&nbsp; <span class="meta-tag">Target Score:</span> <span class="badge-score">82 / 100 (Solid Green)</span> &nbsp;|&nbsp; <span class="meta-tag">Length:</span> 1,050+ Words</p>
+  
+  <h4>Rank Math Focus Keyword:</h4>
+  <div class="highlight-box"><strong>CBSE Curriculum in Bhagalpur</strong></div>
+
+  <h4>Rank Math SEO Title (55 Chars):</h4>
+  <div class="highlight-box">CBSE Curriculum in Bhagalpur | Academic Framework TMISB</div>
+
+  <h4>Rank Math Meta Description (156 Chars):</h4>
+  <div class="highlight-box">Discover the NEP-aligned CBSE curriculum in Bhagalpur at TMISB. From Nursery to Class XII, we combine academic rigor, life skills, robotics & global values.</div>
+
+  <h4>5 Important Secondary Keywords for Content:</h4>
+  <ul>
+    <li><strong>CBSE academic curriculum and syllabus Bhagalpur</strong></li><li><strong>NEP 2020 aligned school education Bihar</strong></li><li><strong>Holistic academic development TMISB</strong></li><li><strong>Continuous and comprehensive evaluation school</strong></li><li><strong>English medium academic excellence Bhagalpur</strong></li>
+  </ul>
+
+  <h4>Image Alt Attribute (Mandatory for Rank Math 75+):</h4>
+  <div class="alt-box"><strong>Alt Text:</strong> "Students engaged in CBSE curriculum in Bhagalpur academic group study and science practicals at Techno Mission"</div>
+
+  <h4>Recommended Headings for Gutenberg / Page Editor:</h4>
+  <p><span class="meta-tag">H2 Heading:</span> NEP-Aligned CBSE Curriculum in Bhagalpur Across K-12 Stages<br>
+  <span class="meta-tag">H3 Heading:</span> Comprehensive Evaluation, Subject Combinations & Holistic Development</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0;">11. Teaching Methodology & Evaluation</h3>
+  <p><span class="meta-tag">URL:</span> <a href="https://technomission.in/teaching-methodology/">https://technomission.in/teaching-methodology/</a> &nbsp;|&nbsp; <span class="meta-tag">Target Score:</span> <span class="badge-score">81 / 100 (Solid Green)</span> &nbsp;|&nbsp; <span class="meta-tag">Length:</span> 950+ Words</p>
+  
+  <h4>Rank Math Focus Keyword:</h4>
+  <div class="highlight-box"><strong>Teaching Methodology in CBSE Schools</strong></div>
+
+  <h4>Rank Math SEO Title (58 Chars):</h4>
+  <div class="highlight-box">Teaching Methodology in CBSE Schools | Evaluation at TMISB</div>
+
+  <h4>Rank Math Meta Description (160 Chars):</h4>
+  <div class="highlight-box">Explore progressive teaching methodology in CBSE schools at TMISB: experiential learning, continuous formative assessment, remedial guidance & concept mastery.</div>
+
+  <h4>5 Important Secondary Keywords for Content:</h4>
+  <ul>
+    <li><strong>Student-centric teaching methodology CBSE</strong></li><li><strong>Formative and summative assessment system</strong></li><li><strong>Experiential learning and remedial classes</strong></li><li><strong>Qualified and trained school teachers Bhagalpur</strong></li><li><strong>Academic evaluation and progress tracking TMISB</strong></li>
+  </ul>
+
+  <h4>Image Alt Attribute (Mandatory for Rank Math 75+):</h4>
+  <div class="alt-box"><strong>Alt Text:</strong> "Expert faculty applying modern teaching methodology in CBSE schools at Techno Mission International School Bhagalpur"</div>
+
+  <h4>Recommended Headings for Gutenberg / Page Editor:</h4>
+  <p><span class="meta-tag">H2 Heading:</span> Progressive Teaching Methodology in CBSE Schools: Experiential & Student-Centred<br>
+  <span class="meta-tag">H3 Heading:</span> Formative Assessments, Remedial Mentoring and Continuous Feedback System</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0;">12. Gallery & Wall of Fame</h3>
+  <p><span class="meta-tag">URL:</span> <a href="https://technomission.in/gallery/">https://technomission.in/gallery/</a> &nbsp;|&nbsp; <span class="meta-tag">Target Score:</span> <span class="badge-score">83 / 100 (Solid Green)</span> &nbsp;|&nbsp; <span class="meta-tag">Length:</span> 900+ Words</p>
+  
+  <h4>Rank Math Focus Keyword:</h4>
+  <div class="highlight-box"><strong>Techno Mission International School Gallery</strong></div>
+
+  <h4>Rank Math SEO Title (60 Chars):</h4>
+  <div class="highlight-box">Techno Mission International School Gallery | Campus & Events</div>
+
+  <h4>Rank Math Meta Description (159 Chars):</h4>
+  <div class="highlight-box">Browse official Techno Mission International School gallery: student toppers, annual function videos, sports tournaments, cultural fests & campus life photos.</div>
+
+  <h4>5 Important Secondary Keywords for Content:</h4>
+  <ul>
+    <li><strong>Techno Mission International School photo gallery</strong></li><li><strong>TMISB student achievements and toppers list</strong></li><li><strong>School annual function and cultural events Bhagalpur</strong></li><li><strong>Campus life and sports day photos TMISB</strong></li><li><strong>Student wall of fame Bhagalpur school</strong></li>
+  </ul>
+
+  <h4>Image Alt Attribute (Mandatory for Rank Math 75+):</h4>
+  <div class="alt-box"><strong>Alt Text:</strong> "Techno Mission International School gallery graduating batch and senior student scholars at TMISB campus building"</div>
+
+  <h4>Recommended Headings for Gutenberg / Page Editor:</h4>
+  <p><span class="meta-tag">H2 Heading:</span> Techno Mission International School Gallery: Student Life & Annual Milestones<br>
+  <span class="meta-tag">H3 Heading:</span> Wall of Fame: National NEET / JEE Toppers & Cultural Showcases</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0;">13. Contact Us</h3>
+  <p><span class="meta-tag">URL:</span> <a href="https://technomission.in/contact/">https://technomission.in/contact/</a> &nbsp;|&nbsp; <span class="meta-tag">Target Score:</span> <span class="badge-score">85 / 100 (Solid Green)</span> &nbsp;|&nbsp; <span class="meta-tag">Length:</span> 850+ Words</p>
+  
+  <h4>Rank Math Focus Keyword:</h4>
+  <div class="highlight-box"><strong>Techno Mission School Bhagalpur Contact</strong></div>
+
+  <h4>Rank Math SEO Title (57 Chars):</h4>
+  <div class="highlight-box">Techno Mission School Bhagalpur Contact | Address & Phone</div>
+
+  <h4>Rank Math Meta Description (159 Chars):</h4>
+  <div class="highlight-box">Contact Techno Mission School Bhagalpur. Visit us at Vikramshila Setu Path, Jagatpur or call +91 9431214985. Schedule a campus tour or submit an online query.</div>
+
+  <h4>5 Important Secondary Keywords for Content:</h4>
+  <ul>
+    <li><strong>Techno Mission International School phone number</strong></li><li><strong>TMISB Bhagalpur location and map directions</strong></li><li><strong>School admissions office contact details</strong></li><li><strong>Vikramshila Setu Path school Bhagalpur</strong></li><li><strong>School visit appointment and enquiry TMISB</strong></li>
+  </ul>
+
+  <h4>Image Alt Attribute (Mandatory for Rank Math 75+):</h4>
+  <div class="alt-box"><strong>Alt Text:</strong> "Techno Mission School Bhagalpur contact campus reception and administrative wing at Vikramshila Setu Path"</div>
+
+  <h4>Recommended Headings for Gutenberg / Page Editor:</h4>
+  <p><span class="meta-tag">H2 Heading:</span> Techno Mission School Bhagalpur Contact Information & Campus Directions<br>
+  <span class="meta-tag">H3 Heading:</span> Admissions Helpdesk, Visiting Hours & Immediate Phone Assistance</p>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0;">14. CBSE Mandatory Public Disclosure</h3>
+  <p><span class="meta-tag">URL:</span> <a href="https://technomission.in/cbse-disclosure/">https://technomission.in/cbse-disclosure/</a> &nbsp;|&nbsp; <span class="meta-tag">Target Score:</span> <span class="badge-score">86 / 100 (Solid Green)</span> &nbsp;|&nbsp; <span class="meta-tag">Length:</span> 1,200+ Words</p>
+  
+  <h4>Rank Math Focus Keyword:</h4>
+  <div class="highlight-box"><strong>CBSE Mandatory Public Disclosure TMISB</strong></div>
+
+  <h4>Rank Math SEO Title (58 Chars):</h4>
+  <div class="highlight-box">CBSE Mandatory Public Disclosure TMISB | Affiliation 330331</div>
+
+  <h4>Rank Math Meta Description (160 Chars):</h4>
+  <div class="highlight-box">Official CBSE mandatory public disclosure for TMISB (Affiliation 330331): Society registration, NOC, building safety, fire certificates, fee structure & faculty.</div>
+
+  <h4>5 Important Secondary Keywords for Content:</h4>
+  <ul>
+    <li><strong>CBSE mandatory public disclosure TMISB 330331</strong></li><li><strong>Techno Mission School affiliation certificate</strong></li><li><strong>School safety certificates fire water sanitation</strong></li><li><strong>CBSE SARAS compliance documents Bhagalpur</strong></li><li><strong>Jagriti Charitable Trust school management committee</strong></li>
+  </ul>
+
+  <h4>Image Alt Attribute (Mandatory for Rank Math 75+):</h4>
+  <div class="alt-box"><strong>Alt Text:</strong> "Official CBSE mandatory public disclosure TMISB affiliation certification and compliance documents"</div>
+
+  <h4>Recommended Headings for Gutenberg / Page Editor:</h4>
+  <p><span class="meta-tag">H2 Heading:</span> Official CBSE Mandatory Public Disclosure TMISB (SARAS Appendix IX Compliance)<br>
+  <span class="meta-tag">H3 Heading:</span> Verified Affiliation, Safety Approvals & Academic Information Tables</p>
+</div>
+
+
+<h2>Team Action Checklist (How to Update in WP-Admin)</h2>
+<ol>
+  <li>Log in to WordPress Admin at <code>https://technomission.in/wp-admin</code>.</li>
+  <li>Open <strong>Pages &gt; All Pages</strong> and click "Edit" on the target page.</li>
+  <li>Scroll to the <strong>Rank Math SEO</strong> meta box below the content editor.</li>
+  <li>Paste the <strong>Focus Keyword</strong> into Rank Math.</li>
+  <li>Click <strong>Edit Snippet</strong> and paste the <strong>SEO Title</strong> and <strong>Meta Description</strong>.</li>
+  <li>Select an image on the page and paste the <strong>Image Alt Text</strong> into the Block Settings panel on the right.</li>
+  <li>Verify that the Rank Math score indicator reaches <strong>75+ to 88+ (Green)</strong>.</li>
+  <li>Click <strong>Update</strong> to save the live SEO settings.</li>
+</ol>
+
+<p style="text-align:center; font-size:9pt; color:#718096; margin-top:40px; border-top:1px solid #E2E8F0; padding-top:10px;">
+  Techno Mission International School Bhagalpur &bull; CBSE Affiliation No. 330331 &bull; Document Version 2.0
+</p>
+
+</body>
+</html>
