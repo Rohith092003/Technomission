@@ -45,21 +45,10 @@
         "validation_text": ""
       },
       {
-        "wrapper_id": "wrapper-dob-gender",
-        "element_id": "date-1",
-        "type": "date",
-        "cols": 6,
-        "required": true,
-        "field_label": "Date of Birth",
-        "date_format": "dd/mm/yy",
-        "date_type": "picker",
-        "icon": "true"
-      },
-      {
-        "wrapper_id": "wrapper-dob-gender",
+        "wrapper_id": "wrapper-gender",
         "element_id": "select-1",
         "type": "select",
-        "cols": 6,
+        "cols": 12,
         "required": true,
         "field_label": "Gender",
         "placeholder": "Select Gender",
@@ -195,7 +184,7 @@
         "email-recipients": "default",
         "recipients": "techno.edu.school@gmail.com",
         "email-subject": "New Admission Enquiry 2026–27: {text-1} ({select-2})",
-        "email-editor": "<p><strong>New Admission Enquiry Received:</strong></p><ul><li><strong>Student Name:</strong> {text-1}</li><li><strong>Date of Birth:</strong> {date-1}</li><li><strong>Gender:</strong> {select-1}</li><li><strong>Parent/Guardian:</strong> {text-2}</li><li><strong>Contact Phone:</strong> {phone-1}</li><li><strong>Email Address:</strong> {email-1}</li><li><strong>Class Applying For:</strong> {select-2}</li></ul><p>Submitted via Techno Mission International School Website.</p>"
+        "email-editor": "<p><strong>New Admission Enquiry Received:</strong></p><ul><li><strong>Student Name:</strong> {text-1}</li><li><strong>Gender:</strong> {select-1}</li><li><strong>Parent/Guardian:</strong> {text-2}</li><li><strong>Contact Phone:</strong> {phone-1}</li><li><strong>Email Address:</strong> {email-1}</li><li><strong>Class Applying For:</strong> {select-2}</li></ul><p>Submitted via Techno Mission International School Website.</p>"
       }
     ]
   }
